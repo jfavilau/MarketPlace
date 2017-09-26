@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -141,7 +141,7 @@ p{
 							<td width="200" valign="top" align="center">
 								<div class="contentEditableContainer contentImageEditable" >
 			                        <div class="contentEditable" >
-			                           <img src="{% static 'Logo.png' %}" width="155" height="155"  ata-default="placeholder" alt='Logo'/>
+			                           <img src="{{ request.META.HTTP_HOST }}{% static 'lang-logo.png'%}" width="155" height="155"  ata-default="placeholder" alt='Logo'/>
 			                        </div>
 			                    </div>
 							</td>
