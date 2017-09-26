@@ -15,7 +15,7 @@ class PaymentMethod (models.Model):
         token = models.CharField(max_length=150, blank=False, null=False)
         displayName = models.CharField(max_length=150, blank=False, null=False)
         createdDate = models.DateField(blank=False, null=False)
-        User = models.ForeignKey(User)
+        user = models.ForeignKey(User)
 
 class OrderStatus (models.Model):
 
