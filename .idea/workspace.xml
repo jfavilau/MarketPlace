@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a43bc3f6-9fe7-46b6-84ba-102fe4dc1f87" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/index.html" afterPath="$PROJECT_DIR$/hello/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/payed.html" afterPath="$PROJECT_DIR$/hello/templates/payed.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,26 +22,6 @@
               <folding>
                 <element signature="e#333#342#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hello/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -86,22 +65,22 @@
       <file leaf-file-name="payed.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/payed.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="143" column="104" lean-forward="false" selection-start-line="143" selection-start-column="104" selection-end-line="143" selection-end-column="104" />
+            <state relative-caret-position="278">
+              <caret line="183" column="99" lean-forward="false" selection-start-line="183" selection-start-column="99" selection-end-line="183" selection-end-column="99" />
               <folding>
                 <element signature="e#4110#4116#1" expanded="true" />
                 <element signature="e#4145#4151#1" expanded="true" />
                 <element signature="e#4180#4186#1" expanded="true" />
                 <element signature="e#4251#4257#1" expanded="true" />
-                <element signature="e#4717#4723#1" expanded="true" />
-                <element signature="e#4787#4793#1" expanded="true" />
-                <element signature="e#4822#4828#1" expanded="true" />
-                <element signature="e#4857#4863#1" expanded="true" />
-                <element signature="e#5058#5064#1" expanded="true" />
+                <element signature="e#4712#4718#1" expanded="true" />
+                <element signature="e#4782#4788#1" expanded="true" />
+                <element signature="e#4817#4823#1" expanded="true" />
+                <element signature="e#4852#4858#1" expanded="true" />
+                <element signature="e#5053#5059#1" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#5442#5448#1" expanded="true" />
-                <element signature="e#5642#5648#1" expanded="true" />
-                <element signature="e#6188#6194#1" expanded="true" />
+                <element signature="e#5437#5443#1" expanded="true" />
+                <element signature="e#5637#5643#1" expanded="true" />
+                <element signature="e#6283#6289#1" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -155,8 +134,8 @@
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
         <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/hello/templates/base.html" />
-        <option value="$PROJECT_DIR$/hello/templates/payed.html" />
         <option value="$PROJECT_DIR$/hello/templates/index.html" />
+        <option value="$PROJECT_DIR$/hello/templates/payed.html" />
       </list>
     </option>
   </component>
@@ -282,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506394921240</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Payed email. Partial implementation, testing images">
+      <created>1506395660391</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1506395660391</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -420,16 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-977">
-          <caret line="63" column="17" lean-forward="false" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
-          <folding>
-            <element signature="e#333#342#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hello/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -479,24 +455,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-977">
+          <caret line="63" column="17" lean-forward="false" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+          <folding>
+            <element signature="e#333#342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/payed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="143" column="104" lean-forward="false" selection-start-line="143" selection-start-column="104" selection-end-line="143" selection-end-column="104" />
+        <state relative-caret-position="278">
+          <caret line="183" column="99" lean-forward="false" selection-start-line="183" selection-start-column="99" selection-end-line="183" selection-end-column="99" />
           <folding>
             <element signature="e#4110#4116#1" expanded="true" />
             <element signature="e#4145#4151#1" expanded="true" />
             <element signature="e#4180#4186#1" expanded="true" />
             <element signature="e#4251#4257#1" expanded="true" />
-            <element signature="e#4717#4723#1" expanded="true" />
-            <element signature="e#4787#4793#1" expanded="true" />
-            <element signature="e#4822#4828#1" expanded="true" />
-            <element signature="e#4857#4863#1" expanded="true" />
-            <element signature="e#5058#5064#1" expanded="true" />
+            <element signature="e#4712#4718#1" expanded="true" />
+            <element signature="e#4782#4788#1" expanded="true" />
+            <element signature="e#4817#4823#1" expanded="true" />
+            <element signature="e#4852#4858#1" expanded="true" />
+            <element signature="e#5053#5059#1" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5442#5448#1" expanded="true" />
-            <element signature="e#5642#5648#1" expanded="true" />
-            <element signature="e#6188#6194#1" expanded="true" />
+            <element signature="e#5437#5443#1" expanded="true" />
+            <element signature="e#5637#5643#1" expanded="true" />
+            <element signature="e#6283#6289#1" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
