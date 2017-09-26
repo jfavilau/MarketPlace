@@ -29,23 +29,29 @@ def sendEmail(request):
 
             if option == '1':
                 subject = "Su pedido ha sido pagado"
-                message = render_to_string('payed.html', {'name': 'erick'})
+                status = "Pedido pagado"
+                msg = "Su pedido  ha sido pagado y sera despachado a la direccion de entrega especificada."
+                message = render_to_string('payed.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '2':
                 subject = "Su pedido ha sido despachado"
-                message = "Hola!/n Bienvenida monitora, Gracias por probar nuestra aplicacion"
+                status = "Pedido despachado"
+                message = render_to_string('payed.html', {'email': email, 'status': status})
 
             elif option == '3':
                 subject = "Su pedido ha sido confirmado"
-                message = "Hola!/n Bienvenida monitora, Gracias por probar nuestra aplicacion"
+                status = "Pedido confirmado"
+                message = render_to_string('payed.html', {'email': email, 'status': status})
 
             elif option == '4':
                 subject = "Su Pedido ha sido cancelado"
-                message = "Hola!/n Bienvenida monitora, Gracias por probar nuestra aplicacion"
+                status = "Pedido Cancelado"
+                message = render_to_string('payed.html', {'email': email, 'status': status})
 
             elif option == '5':
                 subject = "Su Pedido ha sido entregado"
-                message = "Hola!/n Bienvenida monitora, Gracias por probar nuestra aplicacion"
+                status = "Pedido entregado"
+                message = render_to_string('payed.html', {'email': email, 'status': status})
 
             else:
                 msg = 'Specify a valid code.'
