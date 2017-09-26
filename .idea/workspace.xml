@@ -65,22 +65,22 @@
       <file leaf-file-name="payed.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hello/templates/payed.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="183" column="99" lean-forward="false" selection-start-line="183" selection-start-column="99" selection-end-line="183" selection-end-column="99" />
+            <state relative-caret-position="275">
+              <caret line="182" column="40" lean-forward="true" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
               <folding>
                 <element signature="e#4110#4116#1" expanded="true" />
                 <element signature="e#4145#4151#1" expanded="true" />
                 <element signature="e#4180#4186#1" expanded="true" />
                 <element signature="e#4251#4257#1" expanded="true" />
-                <element signature="e#4712#4718#1" expanded="true" />
-                <element signature="e#4782#4788#1" expanded="true" />
-                <element signature="e#4817#4823#1" expanded="true" />
-                <element signature="e#4852#4858#1" expanded="true" />
-                <element signature="e#5053#5059#1" expanded="true" />
+                <element signature="e#4723#4729#1" expanded="true" />
+                <element signature="e#4793#4799#1" expanded="true" />
+                <element signature="e#4828#4834#1" expanded="true" />
+                <element signature="e#4863#4869#1" expanded="true" />
+                <element signature="e#5064#5070#1" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#5437#5443#1" expanded="true" />
-                <element signature="e#5637#5643#1" expanded="true" />
-                <element signature="e#6283#6289#1" expanded="true" />
+                <element signature="e#5448#5454#1" expanded="true" />
+                <element signature="e#5648#5654#1" expanded="true" />
+                <element signature="e#6193#6199#1" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -268,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506395660391</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Payed email. Partial implementation, testing images">
+      <created>1506396030735</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1506396030735</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -467,22 +474,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/payed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="183" column="99" lean-forward="false" selection-start-line="183" selection-start-column="99" selection-end-line="183" selection-end-column="99" />
+        <state relative-caret-position="275">
+          <caret line="182" column="40" lean-forward="true" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
           <folding>
             <element signature="e#4110#4116#1" expanded="true" />
             <element signature="e#4145#4151#1" expanded="true" />
             <element signature="e#4180#4186#1" expanded="true" />
             <element signature="e#4251#4257#1" expanded="true" />
-            <element signature="e#4712#4718#1" expanded="true" />
-            <element signature="e#4782#4788#1" expanded="true" />
-            <element signature="e#4817#4823#1" expanded="true" />
-            <element signature="e#4852#4858#1" expanded="true" />
-            <element signature="e#5053#5059#1" expanded="true" />
+            <element signature="e#4723#4729#1" expanded="true" />
+            <element signature="e#4793#4799#1" expanded="true" />
+            <element signature="e#4828#4834#1" expanded="true" />
+            <element signature="e#4863#4869#1" expanded="true" />
+            <element signature="e#5064#5070#1" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5437#5443#1" expanded="true" />
-            <element signature="e#5637#5643#1" expanded="true" />
-            <element signature="e#6283#6289#1" expanded="true" />
+            <element signature="e#5448#5454#1" expanded="true" />
+            <element signature="e#5648#5654#1" expanded="true" />
+            <element signature="e#6193#6199#1" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
