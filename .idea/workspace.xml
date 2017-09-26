@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a43bc3f6-9fe7-46b6-84ba-102fe4dc1f87" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/hello/static/lqang-logo.png" afterPath="$PROJECT_DIR$/hello/static/lang-logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/payed.html" afterPath="$PROJECT_DIR$/hello/templates/payed.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -124,8 +124,8 @@
       <find>templ</find>
       <find>{</find>
       <find>logo</find>
-      <find>lang</find>
       <find>msg</find>
+      <find>lang</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -255,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506393927966</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Payed email. Partial implementation, testing images">
+      <created>1506394663135</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1506394663135</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -464,6 +471,11 @@
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/staticfiles/lang-logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hello/templates/index.html">
