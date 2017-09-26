@@ -1,20 +1,24 @@
+import json
+
 from django.core import serializers
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse
+from time import gmtime, strftime
 
 #from .models import Greeting
 
 # Create your views here.
 from django.shortcuts import render
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_exempt
 
 from gettingstarted import settings
+from .models import *
 
 
 def index(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
-
 
 def sendEmail(request):
 
@@ -31,27 +35,31 @@ def sendEmail(request):
                 subject = "Su pedido ha sido pagado"
                 status = "Pedido pagado"
                 msg = "Su pedido  ha sido pagado y sera despachado a la direccion de entrega especificada."
-                message = render_to_string('payed.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '2':
                 subject = "Su pedido ha sido despachado"
                 status = "Pedido despachado"
-                message = render_to_string('payed.html', {'email': email, 'status': status})
+                msg = "Su pedido  ha sido despachado a la direccion de entrega especificada."
+                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '3':
                 subject = "Su pedido ha sido confirmado"
                 status = "Pedido confirmado"
-                message = render_to_string('payed.html', {'email': email, 'status': status})
+                msg = "Su pedido  ha sido confirmado."
+                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '4':
                 subject = "Su Pedido ha sido cancelado"
                 status = "Pedido Cancelado"
-                message = render_to_string('payed.html', {'email': email, 'status': status})
+                msg = "Su pedido  ha sido cancelado, esperamos que vuelvas a comprar con nosotros."
+                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '5':
                 subject = "Su Pedido ha sido entregado"
                 status = "Pedido entregado"
-                message = render_to_string('payed.html', {'email': email, 'status': status})
+                msg = "Su pedido  ha sido entregado en la  direccion de entrega especificada."
+                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             else:
                 msg = 'Specify a valid code.'
@@ -64,8 +72,7 @@ def sendEmail(request):
 
         except Exception as e:
 
-            msg = 'Done!'
-            return JsonResponse({'Error': e})
+            return JsonResponse({'Error': e.message})
 
     else:
 
