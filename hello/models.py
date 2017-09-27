@@ -8,7 +8,7 @@ class Address(models.Model):
         address = models.CharField(max_length=150, blank=False, null=False)
         latitude = models.FloatField(null=False, blank=False, default=None)
         longitude = models.FloatField(null=False, blank=False, default=None)
-        User = models.ForeignKey(User)
+        user = models.ForeignKey(User)
 
 class PaymentMethod (models.Model):
 
