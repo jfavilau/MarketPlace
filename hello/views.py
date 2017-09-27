@@ -20,6 +20,33 @@ def index(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
+@csrf_exempt
+def addPaymentMethod(request):
+
+    if request.method == 'POST':
+        try:
+            body = json.loads(request.body.decode())
+
+            paymentMethod = PaymentMethod()
+            paymentMethod.token = body['creditCard']
+            paymentMethod.displayName = body['displayName']
+            paymentMethod.createdDate = strftime("%Y-%m-%d", gmtime())
+            paymentMethod.user = User.objects.get(id=body['id'])
+
+            paymentMethod.save()
+
+
+            return JsonResponse({'Status': 'Done'})
+
+        except Exception as e:
+
+            return JsonResponse({'Error': e.message})
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg})
+
+
 def sendEmail(request):
 
     if request.method == 'GET':
