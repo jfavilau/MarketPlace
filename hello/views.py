@@ -78,3 +78,6 @@ def sendEmail(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
+
+def product_list(request):
+    return render(request, 'products/product_list.html')

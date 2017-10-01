@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'marketplace',
-        'USER': 'postgres',
+        'USER': 'catalogobio',
         'PASSWORD': 'catalogobio',
         'HOST': '127.0.0.1',
         'PORT': '5432',
@@ -151,6 +151,3 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-
