@@ -1,0 +1,193 @@
+/* clearFix */
+/* Detect variable screen */
+#switcher .mCustomScrollbar {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+#switcher .mCustomScrollBox, #switcher .mCSB_container {
+  overflow: visible;
+}
+
+#switcher .mCustomScrollBox, #switcher .mCSB_container {
+  overflow: visible;
+}
+
+#switcher .mCSB_scrollTools {
+  left: -20px;
+}
+
+#switcher {
+  color: #fff;
+  padding: 30px 10px;
+  background: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  font-size: 12px;
+  width: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left: -300px;
+  height: 100%;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#switcher.show {
+  left: 300px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#switcher .sw-title {
+  display: block;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+#switcher .btn-buy {
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 7px;
+}
+
+#switcher span.switcher-cog {
+  position: absolute;
+  right: -30px;
+  top: 120px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+#switcher span.switcher-cog:after {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background: #333;
+  cursor: pointer;
+  content: "\f013";
+  font-family: "FontAwesome", serif;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+#switcher #tm-color {
+  padding: 0;
+  margin: 0;
+}
+
+#switcher #tm-color:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#switcher #tm-color li {
+  list-style: none;
+  display: inline-block;
+  float: left;
+  width: 27px;
+  height: 25px;
+  margin: 0 2.5px 5px 2.5px;
+  background: #0C9;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+}
+
+#switcher #tm-color li.color1 {
+  background: #649c47;
+}
+
+#switcher #tm-color li.color2 {
+  background: #d98031;
+}
+
+#switcher #tm-color li.color3 {
+  background: #aaa733;
+}
+
+#switcher #tm-color li.color4 {
+  background: #e1a4a5;
+}
+
+#switcher #tm-color li.color5 {
+  background: #dd6946;
+}
+
+#switcher #tm-color li.color6 {
+  background: #ca463d;
+}
+
+#switcher #tm-color li.color7 {
+  background: #607442;
+}
+
+#switcher .demo-homepage {
+  margin: 0;
+  padding: 0;
+}
+
+#switcher .demo-homepage:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#switcher .demo-homepage li {
+  display: inline-block;
+  width: 48%;
+  margin: 1%;
+  float: left;
+  position: relative;
+}
+
+#switcher .demo-homepage li a {
+  display: block;
+  position: relative;
+}
+
+#switcher .demo-homepage li:hover .popup-demo-homepage {
+  visibility: visible;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  bottom: 60%;
+}
+
+#switcher .popup-demo-homepage {
+  display: block;
+  position: absolute;
+  left: 80%;
+  width: 460px;
+  bottom: 50%;
+  border: 5px solid #fff;
+  z-index: 999;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#switcher .demo-homepage li a img {
+  width: 100%;
+}
