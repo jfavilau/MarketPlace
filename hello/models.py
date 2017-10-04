@@ -45,32 +45,30 @@ class Category(models.Model):
 
         shortName = models.CharField(max_length=3, blank=False, null=False)
         name = models.CharField(max_length=150, blank=False, null=False)
-
+        def __str__(self):
+                return self.name
 
 class Type(models.Model):
-
         shortName = models.CharField(max_length=1, blank=False, null=False)
         name = models.CharField(max_length=150, blank=False, null=False)
-
-
-class Catalogue (models.Model):
-
-        name = models.CharField(max_length=150, blank=False, null=False)
-        description = models.TextField(blank=True, null=True)
-        active = models.BooleanField(null=False, blank=False)
+        def __str__(self):
+                return self.name
 
 class City(models.Model):
         name = models.CharField(max_length=150, blank=False, null=False)
-
+        shortName = models.CharField(max_length=3, blank=False, null=False)
+        def __str__(self):
+                return self.name
 
 class Cooperative(models.Model):
 
         name = models.CharField(max_length=150, blank=False, null=False)
         city = models.ForeignKey(City)
         active = models.BooleanField(null=False, blank=False)
+        def __str__(self):
+                return self.name
 
 class Producer (models.Model):
-
         identificationNumber = models.CharField(max_length=150, blank=False, null=False)
         name = models.CharField(max_length=150, blank=False, null=False)
         address = models.CharField(max_length=150, blank=False, null=False)
@@ -79,19 +77,23 @@ class Producer (models.Model):
         phoneNumber = models.CharField(max_length=15, blank=False, null=False)
         cooperative = models.ForeignKey(Cooperative)
         active = models.BooleanField(null=False, blank=False)
+        def __str__(self):
+                return self.name
 
 class Product(models.Model):
         name = models.CharField(max_length=150, blank=False, null=False)
         description = models.TextField(blank=True, null=True)
         unit = models.CharField(max_length=150, blank=False, null=False)
-        image = models.CharField(max_length=150, blank=False, null=False)
+        image = models.CharField(max_length=250, blank=False, null=False)
         quantity = models.FloatField(null=False, blank=False, default=None)
         price = models.FloatField(null=False, blank=False, default=None)
         type = models.ForeignKey(Type)
         category = models.ForeignKey(Category)
         producer = models.ForeignKey(Producer)
-        catalogue = models.ForeignKey(Catalogue)
+        cooperative = models.ForeignKey(Cooperative)
         active = models.BooleanField(null=False, blank=False)
+        def __str__(self):
+                return self.name
 
 class Item (models.Model):
 
@@ -103,7 +105,7 @@ class Item (models.Model):
         availability = models.BooleanField(null=False, blank=False)
         product = models.ForeignKey(Product)
         shoppingCart = models.ForeignKey(ShoppingCart)
-        AddedDate = models.DateField(blank=False, null=False)
+        addedDate = models.DateField(blank=False, null=False)
 
 class Basket (models.Model):
 
@@ -112,7 +114,7 @@ class Basket (models.Model):
         description = models.TextField(blank=True, null=True)
         active = models.BooleanField(null=False, blank=False)
 
-class  ItemsPerBasket (models.Model):
+class ItemsPerBasket (models.Model):
 
         item = models.ForeignKey(Item)
         basket = models.ForeignKey(Basket)
