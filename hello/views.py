@@ -1,23 +1,23 @@
-import json
-
-from django.core import serializers
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse
-from time import gmtime, strftime
 
 #from .models import Greeting
 
 # Create your views here.
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from rest_framework import generics, viewsets
+from rest_framework import permissions
+from rest_framework import mixins
 
 from gettingstarted import settings
-from .models import *
+from .models import Product
+from .serializers import UserSerializer
+from .serializers import ProductSerializer
 
 
 def index(request):
-    #return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
 
 def sendEmail(request):
@@ -78,3 +78,19 @@ def sendEmail(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
+
+class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
+    """
+    List all products, or create a new product.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
+    """
+    List all products, or create a new product.
+    """
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

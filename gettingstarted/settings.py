@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'hello',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,6 +56,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        #'rest_framework.permissions.IsAuthenticated'
+    ]
+}
 
 ROOT_URLCONF = 'gettingstarted.urls'
 
@@ -80,17 +90,27 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace',
-        'USER': 'postgres',
-        'PASSWORD': 'catalogobio',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+if 'DB_NAME' not in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'marketplace',
+            'USER': 'postgres',
+            'PASSWORD': 'catalogobio',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
+    }
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
