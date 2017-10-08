@@ -6,8 +6,10 @@ from django.contrib.auth.models import User
 class Address(models.Model):
 
         address = models.CharField(max_length=150, blank=False, null=False)
+        detail = models.CharField(max_length=150, blank=False, null=False, default="")
         latitude = models.FloatField(null=False, blank=False, default=None)
         longitude = models.FloatField(null=False, blank=False, default=None)
+        zipCode = models.CharField(max_length=10, blank=False, null=False, default="")
         user = models.ForeignKey(User)
 
 class PaymentMethod (models.Model):
@@ -31,6 +33,9 @@ class ShoppingCart (models.Model):
 
         user = models.OneToOneField(User)
         createdDate = models.DateField(blank=False, null=False)
+        value = models.FloatField(null=False, blank=False, default=0)
+        active = models.BooleanField(null=False, blank=False, default=True)
+
 
 class Order(models.Model):
         user = models.ForeignKey(User)
@@ -101,6 +106,7 @@ class Item (models.Model):
         quantityGeneral = models.FloatField(null=False, blank=False, default=None)
         quantityTotal = models.FloatField(null=False, blank=False, default=None)
         availability = models.BooleanField(null=False, blank=False)
+        totalPrice = models.FloatField(null=False, blank=False, default=0)
         product = models.ForeignKey(Product)
         shoppingCart = models.ForeignKey(ShoppingCart)
         AddedDate = models.DateField(blank=False, null=False)
@@ -121,4 +127,5 @@ class  ItemsPerBasket (models.Model):
 
 class RegisteredUser(models.Model):
         user = models.OneToOneField(User)
+        phoneNumber = models.CharField(max_length=15, blank=False, null=False, default="888888888")
         city = models.ForeignKey(City)

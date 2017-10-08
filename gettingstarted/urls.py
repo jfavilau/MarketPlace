@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
+    url(r'^checkOut/', hello.views.checkOut, name='checkOut'),
+    url(r'^checkOutPersist/', hello.views.checkOutPersist, name='checkOutPersist'),
 ]
