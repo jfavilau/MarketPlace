@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
     url(r'^api/', include(router.urls, namespace="api")),
+    url(r'^checkOut/', hello.views.checkOut, name='checkOut'),
+    url(r'^checkOutPersist/', hello.views.checkOutPersist, name='checkOutPersist'),
 ]
 
 # Login and logout views for the browsable API

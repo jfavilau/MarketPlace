@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'rest_framework',
+    'bootstrap3',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,10 +95,10 @@ if 'DB_NAME' not in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'marketplace',
-            'USER': 'postgres',
-            'PASSWORD': 'catalogobio',
-            'HOST': '127.0.0.1',
+            'NAME': 'dc5vi7bvm5vvmf',
+            'USER': 'xyoboivyqmhzeu',
+            'PASSWORD': '56695ce27a78f812b5d8e256deed0c2d04c1fe6dc1308663069852f1130da8ba',
+            'HOST': 'ec2-23-23-248-247.compute-1.amazonaws.com',
             'PORT': '5432',
         }
     }

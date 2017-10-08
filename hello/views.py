@@ -1,3 +1,5 @@
+from time import strftime, gmtime
+
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse
 
@@ -7,12 +9,13 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics, viewsets
 from rest_framework import permissions
 from rest_framework import mixins
 
 from gettingstarted import settings
-from .models import Product
+from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
 
@@ -79,6 +82,7 @@ def sendEmail(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+
 class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
     """
     List all products, or create a new product.
@@ -94,3 +98,69 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+def checkOut(request):
+
+        shoppingCart = ShoppingCart.objects.filter(user_id=request.user.id, active=True)
+
+        if len(shoppingCart) > 0:
+
+            items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
+            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
+
+            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods})
+
+        else:
+
+            return render(request, 'checkout.html',context={'flag': False})
+
+@csrf_exempt
+def checkOutPersist(request):
+
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        lastName = request.POST.get('lastName')
+        address = request.POST.get('address')
+        zip = request.POST.get('zip')
+        details = request.POST.get('details')
+        cardNumber = request.POST.get('cardNumber')
+        new_card_number = ''
+
+
+        if request.POST.get('newMethod') == "0":
+
+            for index in range(len(cardNumber)):
+                if index == (len(cardNumber) - 1):
+                    new_card_number = new_card_number + cardNumber[index]
+                else:
+                    new_card_number = new_card_number + '*'
+
+            paymentMethod = PaymentMethod()
+            paymentMethod.token = new_card_number
+            paymentMethod.displayName = name+' '+lastName
+            paymentMethod.createdDate = strftime("%Y-%m-%d", gmtime())
+            paymentMethod.user = User.objects.get(id=request.user.id)
+
+            paymentMethod.save()
+
+        addressInformation = Address()
+        addressInformation.address = address
+        addressInformation.detail = details
+        addressInformation.latitude = 0.0
+        addressInformation.longitude = 0.0
+        addressInformation.zipCode = zip
+        addressInformation.user = User.objects.get(id=request.user.id)
+
+        addressInformation.save()
+
+
+
+        return JsonResponse({'message': request.POST.get('newMethod') })
+
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg})
+

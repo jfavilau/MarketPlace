@@ -145,7 +145,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-drop">
+                        <!--<li class="has-drop">
                             <a class="has-text-color-hover" href="about-1.html">ABOUT</a>
                             <button class="btn-caret fa fa-angle-right"></button>
                             <ul class="drop-menu left">
@@ -211,7 +211,7 @@
                         <li>
                             <a class="has-text-color-hover" href="contact.html">CONTACT</a>
                         </li>
-                    </ul>
+                    </ul>-->
                     <div class="mini-shopcart">
                         <div class="head-mini-shopcart">
                             <p>2 items in your cart</p>
@@ -242,7 +242,7 @@
                             <p class="total-shopcart">Total: $6.50</p>
                             <div class="mini-shopcart-action">
                                 <button class="au-btn au-btn-border au-btn-radius btn-viewcart">VIEW CART</button>
-                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout">CHECK OUT</button>
+                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout" onclick="location.href='{% url 'checkOut' %}'">CHECK OUT</button>
                             </div>
                         </div>
                     </div>
@@ -678,6 +678,7 @@
             </div>
         </div>
     </section>
+
     <footer>
         <!--.footer-2-->
         <div class="footer-1 footer-2">
@@ -689,36 +690,29 @@
                                 <img src="../static/images/icons/ic-logo-02.png" alt="logo ecofood" />
                             </div>
                             <div class="footer-intro">
-                                <p>In vel auctor nunc, ut sodales tortor. Fusce venenatis sit amet mauris sed venenatis. Maecenas eu urna vitae ligula ornare eleifend in a lorem.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="footer-services">
                             <div class="footer-heading">
-                                <h3>CUSTOMER SERVICES</h3>
+                                <h3>SERVICIOS AL CLIENTE</h3>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <ul>
                                         <li>
-                                            <a href="#">Product recall notices</a>
+                                            <a href="#">Información Ordenes</a>
                                         </li>
                                         <li>
-                                            <a href="#">Order information</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Shipping & returns</a>
+                                            <a href="#">Envíos & Devoluciones</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
                                     <ul>
                                         <li>
-                                            <a href="#">Privacy policy</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terms & conditions</a>
+                                            <a href="#">Terminos & Condiciones</a>
                                         </li>
                                         <li>
                                             <a href="#">FAQs</a>
@@ -736,24 +730,21 @@
                             <ul>
                                 <li>
                                     <i class="fa fa-map-marker"></i>
-                                    <span>256 address name, New York city</span>
+                                    Cra. 1 # 18a-12, Bogotá / Colombia
                                 </li>
                                 <li>
                                     <i class="fa fa-clock-o"></i>
-                                    <span>7:30 Am - 11:00 Pm. Monday - Sunday</span>
+                                    <span>Entrega de pedidos 02:00 Pm - 04:00 Pm</span>
                                 </li>
                                 <li>
                                     <i class="fa fa-phone"></i>
-                                    <span>(044) 359 0173</span>
+                                    <span>(+571) 359 0173</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <div class="footer-copyright">
-                        <p>© 2017 Designed by AuThemes. All rights reserved.</p>
-                    </div>
                     <ul class="footer-socials">
                         <li>
                             <a class="fa fa-facebook" href="#"></a>
@@ -769,7 +760,9 @@
             </div>
         </div>
         <!-- end .footer-2-->
+
     </footer>
+
     <!-- quick-view-1-->
     <div class="modal fade quick-view-1" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -867,6 +860,7 @@
     End Document
     ==================================================
     -->
+
 </body>
 
 </html>
