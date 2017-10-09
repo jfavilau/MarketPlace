@@ -1,3 +1,4 @@
+import json
 from time import strftime, gmtime
 
 from django.core.mail import send_mail
@@ -28,18 +29,17 @@ def addPaymentMethod(request):
 
     if request.method == 'POST':
         try:
-            body = json.loads(request.body.decode())
 
             paymentMethod = PaymentMethod()
-            paymentMethod.token = body['creditCard']
-            paymentMethod.displayName = body['displayName']
+            paymentMethod.token = request.POST.get('cardNumber')
+            paymentMethod.displayName = request.user.first_name+' '+request.user.last_name
             paymentMethod.createdDate = strftime("%Y-%m-%d", gmtime())
-            paymentMethod.user = User.objects.get(id=body['id'])
+            paymentMethod.user = User.objects.get(id=request.user.id)
 
             paymentMethod.save()
 
 
-            return JsonResponse({'Status': 'Done'})
+            return JsonResponse({'message': 'Done'})
 
         except Exception as e:
 
@@ -191,3 +191,11 @@ def checkOutPersist(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+def paymentMethods(request):
+
+    payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
+    print()
+    if len(payment_methods) != 0:
+        return render(request, 'payment_methods.html', context={'flag': True, 'methods': payment_methods})
+    else:
+        return render(request, 'payment_methods.html', context={'flag': False, 'methods': payment_methods})
