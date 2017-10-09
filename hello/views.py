@@ -193,9 +193,10 @@ def checkOutPersist(request):
 
 def paymentMethods(request):
 
-    payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
-    print()
+    payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
+
     if len(payment_methods) != 0:
         return render(request, 'payment_methods.html', context={'flag': True, 'methods': payment_methods})
     else:
         return render(request, 'payment_methods.html', context={'flag': False, 'methods': payment_methods})
+

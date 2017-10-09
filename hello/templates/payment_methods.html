@@ -175,7 +175,7 @@
                                         <span class="woocommerce-Price-currencySymbol"></span>{{method.createdDate|date:"Y/m/d"}}</span>
                                 </td>
                                 <td class="product-remove">
-                                    <a class="remove fa fa-close" href="#"></a>
+                                    <a class="remove fa fa-close" onclick="remove({{method.id}})"></a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -187,7 +187,38 @@
         </div>
     </div>
 {%else%}
-                    <h4 class="checkout-heading" style="text-align: center;">No tienes medios de pago asociados!</h4>
+<h4 class="checkout-heading" style="margin-left: 3cm;">No tienes medios de pago asociados!</h4><br>
+<button type="button" style="margin-left: 3cm; margin-bottom: 2cm;" class="btn btn-success btn-sm" onclick="enable()">Agregar Medio de Pago</button>
+<div id="new_method" class="page-content p-t-40 p-b-90" style="display: none;">
+<div class="checkout-payment-info" style="margin-left: 3cm;">
+            <h4 class="checkout-heading">Nuevo Medio de Pago</h4>
+            <div class="introduce">
+                <p>Tarjetas de Credito Nueva
+
+                    <img src="../static/images/icons/ic-payment-method-01.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-02.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-03.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-04.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-05.png" alt="payment"/>
+                </p>
+
+            </div>
+            <div class="input-row m-b-15">
+                <div class="input-col-3 p-r-5">
+                    <input id="card_number" class="theme-input-text" type="text" placeholder="Numero de Tarjeta"/>
+                </div>
+                <div class="input-col-3 p-l-5 p-r-5">
+                    <input id="exp_date" class="theme-input-text" type="text" placeholder="Expira (MM/YY) "/>
+                </div>
+                <div class="input-col-3 p-l-5">
+                    <input id="code" class="theme-input-text" type="text" placeholder="Codigo"/>
+                </div>
+            </div>
+    <br>
+            <button type="button" class="btn btn-success btn-sm" onclick="newPaymentMethod()">Guardar</button>
+
+</div>
+</div>
 
 {% endif%}
 
@@ -366,6 +397,9 @@
         }
     }
 
+    function remove(id){
+        alert(id);
+    }
 </script>
 </body>
 

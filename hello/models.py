@@ -18,6 +18,8 @@ class PaymentMethod (models.Model):
         displayName = models.CharField(max_length=150, blank=False, null=False)
         createdDate = models.DateField(blank=False, null=False)
         user = models.ForeignKey(User)
+        active = models.BooleanField(null=False, blank=False, default=True)
+
 
 class OrderStatus (models.Model):
 
@@ -95,7 +97,7 @@ class Product(models.Model):
         type = models.ForeignKey(Type)
         category = models.ForeignKey(Category)
         producer = models.ForeignKey(Producer)
-        cooperative = models.ForeignKey(Cooperative)
+        cooperative = models.ForeignKey(Cooperative, null=True)
         active = models.BooleanField(null=False, blank=False)
         def __str__(self):
                 return self.name

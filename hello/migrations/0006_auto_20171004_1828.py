@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='cooperative',
-            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, to='hello.Cooperative'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='hello.Cooperative'),
             preserve_default=False,
         ),
         migrations.DeleteModel(
