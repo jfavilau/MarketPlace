@@ -200,3 +200,19 @@ def paymentMethods(request):
     else:
         return render(request, 'payment_methods.html', context={'flag': False, 'methods': payment_methods})
 
+@csrf_exempt
+def removePaymentMethods(request):
+
+    if request.method == 'POST':
+
+        payment_method = PaymentMethod.objects.get(id=request.POST.get('id'))
+        payment_method.active = False
+        payment_method.save()
+
+        return JsonResponse({'message': 'Done'})
+
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg})
+

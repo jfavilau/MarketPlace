@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^checkOut/', hello.views.checkOut, name='checkOut'),
     url(r'^checkOutPersist/', hello.views.checkOutPersist, name='checkOutPersist'),
     url(r'^paymentMethods/', hello.views.paymentMethods, name='paymentMethods'),
+    url(r'^removePaymentMethods/', hello.views.removePaymentMethods, name='removePaymentMethods'),
 ]
 
 # Login and logout views for the browsable API
