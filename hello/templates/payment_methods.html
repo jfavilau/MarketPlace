@@ -398,7 +398,19 @@
     }
 
     function remove(id){
-        alert(id);
+         $.ajax({
+            url: "{% url 'removePaymentMethods'%}",
+            type: "POST",
+            data: {
+                "id": id,
+            },
+            success: function (data) {
+                window.location.reload();
+            },
+            error: function (xhr) {
+                console.log(data.message);
+            }
+            });
     }
 </script>
 </body>
