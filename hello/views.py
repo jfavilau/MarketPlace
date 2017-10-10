@@ -2,8 +2,9 @@ import json
 
 from django.core import serializers
 from django.core.mail import send_mail
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from time import gmtime, strftime
+import json
 
 #from .models import Greeting
 
@@ -12,13 +13,19 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework import viewsets
+
 from gettingstarted import settings
 from .models import *
-
+from .serializers import *
 
 def index(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'index.html')
+
+def indexOrders(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Orders/index.html')
 
 def sendEmail(request):
 
@@ -78,3 +85,35 @@ def sendEmail(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
+
+@csrf_exempt
+def getAllOrderByUser(request): #idUser=None
+    order = Order.objects.all()
+    #print order
+    return HttpResponse(serializers.serialize("json",order))
+
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = Order.objects.all()
+    serializer_class = OrdersSerializer
+
+class ShoppingCarViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = ShoppingCart.objects.all()
+    serializer_class = ShoppingCarSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+     """
+     API endpoint that allows Products to be viewed or edited.
+     """
+     queryset = Product.objects.all().order_by('-price')
+     serializer_class = ProductSerializer
+
+     def products(request, city):
+         products_list = Product.objects.filter(cooperative__city__shortName=city)
+         return HttpResponse(serializers.serialize("json", ))
