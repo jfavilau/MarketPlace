@@ -96,7 +96,7 @@ if 'DB_NAME' not in os.environ:
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'marketplace',
-        'USER': 'catalogobio',
+        'USER': 'postgres',
         'PASSWORD': 'catalogobio',
         'HOST': '127.0.0.1',
         'PORT': '5432',
