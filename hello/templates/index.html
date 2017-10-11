@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<!--if IE 8html.no-js.lt-ie9(lang='en')
--->
-<!-- [if gt IE 8] <!-->
+{% load static%}
 <html class="no-js" lang="en">
-<!-- <![endif]-->
-
 <head>
     <!--
     Basic Page Needs
@@ -35,11 +31,16 @@
     <link href="../static/css/switcher.css" rel="stylesheet">
     <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
     <link href="../static/css/retina.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/cart.css"%}">
     <!--
     Favicons
     ==================================================
     -->
-    <script src="../static/js/modernizr-custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static "js/modernizr-custom.js "%}"></script>
+    <script src="{% static "js/js.cookie.js "%}"></script>
+    <script src="{% static "js/cartmap.js "%}"></script>
+    <script src="{% static "js/cartgui.js "%}"></script>
 </head>
 
 <body>
@@ -66,12 +67,6 @@
                         <a href="register.html">Register</a>
                     </div>
                     <span class="divider">|</span>
-                    <!--<div class="header-search">
-                        <button class="fa fa-search"></button>
-                        <div class="search-box">
-                            <input type="text" placeholder="Search..." />
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -114,73 +109,6 @@
                             PAGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
-                    <!--<li class="has-drop">
-                        <a class="has-text-color-hover" href="about-1.html">ABOUT</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                        <ul class="drop-menu left">
-                            <li>
-                                <a class="has-bg-color-hover" href="about-1.html">About 1</a>
-                            </li>
-                            <li>
-                                <a class="has-bg-color-hover" href="about-2.html">About 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-drop">
-                        <a class="has-text-color-hover" href="#">PAGES</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                        <ul class="drop-menu left">
-                            <li>
-                                <a class="has-bg-color-hover" href="404.html">404 not found!</a>
-                            </li>
-                            <li>
-                                <a class="has-bg-color-hover" href="faqs.html">FAQs</a>
-                            </li>
-                            <li>
-                                <a class="has-bg-color-hover" href="login.html">Login</a>
-                            </li>
-                            <li>
-                                <a class="has-bg-color-hover" href="register.html">Register</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="has-drop">
-                        <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">BLOG</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                        <ul class="drop-menu bottom-left">
-                            <li class="has-drop">
-                                <a class="has-bg-color-hover" href="blog-list-with-sidebar-1.html">BLog list</a>
-                                <button class="btn-caret fa fa-angle-right"></button>
-                                <ul class="drop-menu top-right">
-                                    <li>
-                                        <a class="has-bg-color-hover" href="blog-list-with-sidebar-1.html">Blog List 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="has-bg-color-hover" href="blog-list-with-sidebar-2.html">Blog List 2</a>
-                                    </li>
-                                    <li>
-                                        <a class="has-bg-color-hover" href="blog-masonry.html">Blog List 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-drop">
-                                <a class="has-bg-color-hover" href="blog-details-with-sidebar-1.html">Blog Details</a>
-                                <button class="btn-caret fa fa-angle-right"></button>
-                                <ul class="drop-menu top-right">
-                                    <li>
-                                        <a class="has-bg-color-hover" href="blog-details-with-sidebar-1.html">Blog Details 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="has-bg-color-hover" href="blog-details-without-sidebar-1.html">Blog Details 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-text-color-hover" href="contact.html">CONTACT</a>
-                    </li>
-                </ul>-->
                     <div class="mini-shopcart">
                         <div class="head-mini-shopcart">
                             <p>2 items in your cart</p>
@@ -283,6 +211,43 @@
                  data-carousel-sm="2" data-carousel-md="2" data-carousel-lg="4">
                 <!-- .product-1-->
                 <div class="product-1">
+                  <div class="miso-prd-id">c1p1e1</div>
+                  <div class="product-image miso-prd-holder">
+                      <div class="image-holder">
+                          <img src="{% static "facebook.png" %}" alt="Facebook"/>
+                      </div>
+                      <div class="product-status hot">
+                          <span>HOT</span>
+                      </div>
+                      <div class="product-action miso-cart-action">
+                          <div class="product-action-list">
+                              <div class="action-item">
+                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
+                              </div>
+                              <div class="action-item miso-cart-plus">
+                                  <a class="fa fa-plus"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-minus">
+                                  <a class="fa fa-minus"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-clear">
+                                  <a class="fa fa-remove"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-content">
+                      <h3 class="title">
+                          <a class="name" href="product-details-1.html">Egg free mayo</a>
+                      </h3>
+                      <p class="price">$ 10.00</p>
+                  </div>
+                </div>
+                <div class="product-1 miso-prd-holder">
                     <div class="product-image">
                         <div class="image-holder">
                             <img src="../static/images/product-item-01.jpg" alt="Egg free mayo"/>
@@ -290,7 +255,7 @@
                         <div class="product-status hot">
                             <span>HOT</span>
                         </div>
-                        <div class="product-action">
+                        <div class="product-action miso-cart-action">
                             <div class="product-action-list">
                                 <div class="action-item">
                                     <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
@@ -377,164 +342,6 @@
                             <a class="name" href="product-details-1.html">Strawberries</a>
                         </h3>
                         <p class="price">$5.99 /ea</p>
-                    </div>
-                </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-04.jpg" alt="Lemon 250ml glass"/>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Lemon 250ml glass</a>
-                        </h3>
-                        <p class="price">$20.00</p>
-                    </div>
-                </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-05.jpg" alt="Fresh cherry"/>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Fresh cherry</a>
-                        </h3>
-                        <p class="price">$12.48 /bag</p>
-                    </div>
-                </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-06.jpg" alt="Juice carrot &amp; apple"/>
-                        </div>
-                        <div class="product-status new">
-                            <span>NEW</span>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Juice carrot &amp; apple</a>
-                        </h3>
-                        <p class="price">$10.00</p>
-                    </div>
-                </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-07.jpg" alt="Organic banana"/>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Organic banana</a>
-                        </h3>
-                        <p class="price">$2.76 /bunch</p>
-                    </div>
-                </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-08.jpg" alt="Fresh celery root"/>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Fresh celery root</a>
-                        </h3>
-                        <p class="price">$2.49 /bunch</p>
                     </div>
                 </div>
                 <!-- end .product-1-->
