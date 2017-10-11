@@ -290,7 +290,20 @@
                     <h3>Ordenes</h3>
                 </div>
                 <div class="section white-background" style="margin-top: 30px">
-                    <table class="table table-condensed table-striped">
+                    <table id="freeze-table" class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>N Pedido</th>
+                                <th>Costo</th>
+                                <th>Detalle</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders">
+
+                        </tbody>
+                    </table>
+                    <!--table class="table table-condensed table-striped">
                         <thead>
                             <tr>
                                 <th>Código</th>
@@ -321,7 +334,7 @@
                                 <td>h</td>
                                 <td>h</td>
                             </tr>
-                            <!--{#% for test in tests %#}
+                                {#% for test in tests %#}
                                 <tr>
                                     <td>{{ test.number }}</td>
                                     <td>{{ test.name }}</td>
@@ -331,9 +344,8 @@
                                     <td>{{ test.minimum_sample }}</td>
                                 </tr>
                             {#% endfor %#}
-                            -->
                         </tbody>
-                    </table>
+                    </table-->
                 </div>
             </div>
         </div>
@@ -527,6 +539,121 @@
     End Document
     ==================================================
     -->
+    <script>
+        $( document ).ready(function() {
+            var url = "http://localhost:8000/api/";
+            var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
+                 if (!data) data = {};
+                 if (!fnError) fnError = this._defaultErrorHandler;
+                 if (!_async) _async = true;
+                 $.ajax({
+                     type: sType,
+                     url: url + uri,
+                     data: data,
+                     async: _async,
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: fnSuccess,
+                     error: fnError
+                 });
+            };
+
+            var getCurrency = function (value) {
+                return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            };
+
+            var getDetails = function (order) {
+                var tbody = "";
+                var total = 0;
+                $.each(order.items, function( index, value ) {
+                    total += value.quantityTotal*value.product.price;
+                    tbody +=   "<tr>"
+                             +   "<td>" + value.product.name + "</td>"
+                             +   "<td>" + value.quantityTotal + "</td>"
+                             +   "<td>" + getCurrency(value.product.price) +"</td>"
+                             + "</tr>"
+                });
+                $( "#nOrder" ).empty().append( order.id );
+                $( "#status" ).empty().append( order.orders[0].Status );
+                $( "#products" ).empty().append( tbody );
+                $( "#totalOrder" ).empty().append( getCurrency (total) );
+                $( "#dateOrder" ).empty().append( order.createdDate );
+            };
+
+            var getOrders = function () {
+                _doAjax("GET", "shoppingcar",{},function (resp) {
+                    //console.log(resp)
+                    var tbody = "";
+                    $.each(resp, function( index, value ) {
+                        var total = 0;
+                        //console.log(value)
+                        $.each(value.items, function( index2, value2 ) {
+                            //console.log(value2)
+                            total += value2.quantityTotal*value2.product.price;
+                        });
+                        tbody = tbody
+                            + "<tr>"
+                            + "<td>" + value.id + "</td>"
+                            + "<td>" + getCurrency(total) + "</td>"
+                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
+                            + "<td>" + value.orders[0].Status + "</td>"
+                            + "</tr>";
+                    });
+                    //console.log(tbody)
+                    $( "#orders" ).empty().append( tbody );
+
+                    $('td').click(function () {
+                        var col = $(this).parent().children().index($(this));
+                        //console.log(col)
+                        //console.log($(this).attr("id"))
+                        if( col == 2) {
+                             _doAjax("GET", "shoppingcar/" + $(this).attr("id"),{},function (resp) {
+                                 //console.log(resp);
+                                 getDetails(resp);
+                             },null,true);
+                        }
+                    });
+
+                },null,true);
+            };
+            getOrders();
+        });
+    </script>
+
+    <!-- Modal -->
+    <div id="details" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Detalle de pedido # <span id="nOrder"></span> </h4>
+          </div>
+          <div class="modal-body">
+              <strong>Estado: </strong><span id="status"> </span>
+              <table class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="products">
+
+                </tbody>
+              </table>
+              <strong> Total: </strong> <span id="totalOrder" ></span> <br>
+              <strong> Fecha: </strong> <span id="dateOrder" ></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 </body>
 
 </html>

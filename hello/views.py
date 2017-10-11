@@ -106,6 +106,14 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
     """
     queryset = ShoppingCart.objects.all()
     serializer_class = ShoppingCarSerializer
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        print user
+        return ShoppingCart.objects.filter(user=user)
 
 class ProductViewSet(viewsets.ModelViewSet):
      """
