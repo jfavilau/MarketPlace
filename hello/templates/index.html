@@ -209,7 +209,7 @@
             <div class="owl-carousel product-list-carousel-1 m-t-50" data-carousel-items="4"
                  data-carousel-autoplay="true" data-carousel-loop="true" data-carousel-nav="true" data-carousel-xs="1"
                  data-carousel-sm="2" data-carousel-md="2" data-carousel-lg="4">
-
+                <!--MISO Product1-->
                 <div class="product-1 miso-prd-holder">
                   <div class="miso-prd-id">c1p1e1</div>
                   <div class="miso-prd-qty"></div>
@@ -248,105 +248,124 @@
                       <p class="price">$ 10.00</p>
                   </div>
                 </div>
-                <!-- .product-1-->
+                <!--End MISO Product1-->
+                <!--MISO Product2-->
                 <div class="product-1 miso-prd-holder">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-01.jpg" alt="Egg free mayo"/>
-                        </div>
-                        <div class="product-status hot">
-                            <span>HOT</span>
-                        </div>
-                        <div class="product-action miso-cart-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Egg free mayo</a>
-                        </h3>
-                        <p class="price">$ 10.00</p>
-                    </div>
+                  <div class="miso-prd-id">c2p2e1</div>
+                  <div class="miso-prd-qty"></div>
+                  <div class="product-image">
+                      <div class="image-holder">
+                          <img src="{% static "pinterest.png" %}" alt="Facebook"/>
+                      </div>
+                      <div class="product-status sale">
+                          <span>SALE</span>
+                      </div>
+                      <div class="product-action miso-cart-action">
+                          <div class="product-action-list">
+                              <div class="action-item">
+                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
+                              </div>
+                              <div class="action-item miso-cart-plus">
+                                  <a class="fa fa-plus"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-minus">
+                                  <a class="fa fa-minus"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-clear">
+                                  <a class="fa fa-remove"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-content">
+                      <h3 class="title">
+                          <a class="name" href="product-details-1.html">Strawberries</a>
+                      </h3>
+                      <p class="price">$5.99 /ea</p>
+                  </div>
                 </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-02.jpg" alt="Organic broccoli"/>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Organic broccoli</a>
-                        </h3>
-                        <p class="price">$2.29 /bunch</p>
-                    </div>
+                <!--End MISO Product2-->
+                <!--MISO Product3-->
+                <div class="product-1 miso-prd-holder">
+                  <div class="miso-prd-id">c2p2e2</div>
+                  <div class="miso-prd-qty"></div>
+                  <div class="product-image">
+                      <div class="image-holder">
+                          <img src="{% static "twitter.png" %}" alt="Facebook"/>
+                      </div>
+                      <!-- <div class="product-status sale">
+                          <span>SALE</span>
+                      </div> -->
+                      <div class="product-action miso-cart-action">
+                          <div class="product-action-list">
+                              <div class="action-item">
+                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
+                              </div>
+                              <div class="action-item miso-cart-plus">
+                                  <a class="fa fa-plus"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-minus">
+                                  <a class="fa fa-minus"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-clear">
+                                  <a class="fa fa-remove"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-content">
+                      <h3 class="title">
+                          <a class="name" href="product-details-1.html">Strawberries</a>
+                      </h3>
+                      <p class="price">$5.99 /ea</p>
+                  </div>
                 </div>
-                <!-- end .product-1-->
-                <!-- .product-1-->
-                <div class="product-1">
-                    <div class="product-image">
-                        <div class="image-holder">
-                            <img src="../static/images/product-item-03.jpg" alt="Strawberries"/>
-                        </div>
-                        <div class="product-status sale">
-                            <span>SALE</span>
-                        </div>
-                        <div class="product-action">
-                            <div class="product-action-list">
-                                <div class="action-item">
-                                    <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-shopping-cart" href="shopping-cart.html"
-                                       data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                </div>
-                                <div class="action-item">
-                                    <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip"
-                                       data-placement="top" title="Add to wishlist!"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title">
-                            <a class="name" href="product-details-1.html">Strawberries</a>
-                        </h3>
-                        <p class="price">$5.99 /ea</p>
-                    </div>
+                <!--End MISO Product3-->
+                <!--MISO Product4 -->
+                <div class="product-1 miso-prd-holder">
+                  <div class="miso-prd-id">c3p1e1</div>
+                  <div class="miso-prd-qty"></div>
+                  <div class="product-image">
+                      <div class="image-holder">
+                          <img src="{% static "Logo.png" %}" alt="Facebook"/>
+                      </div>
+                      <div class="product-action miso-cart-action">
+                          <div class="product-action-list">
+                              <div class="action-item">
+                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
+                              </div>
+                              <div class="action-item miso-cart-plus">
+                                  <a class="fa fa-plus"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-minus">
+                                  <a class="fa fa-minus"
+                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
+                              </div>
+                              <div class="action-item miso-cart-clear">
+                                  <a class="fa fa-remove"
+                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-content">
+                      <h3 class="title">
+                          <a class="name" href="product-details-1.html">Avocado</a>
+                      </h3>
+                      <p class="price">$25.99</p>
+                  </div>
                 </div>
-                <!-- end .product-1-->
+                <!--End MISO Product4 -->
             </div>
         </div>
     </div>
