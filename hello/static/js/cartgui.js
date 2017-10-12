@@ -5,9 +5,9 @@ Requires
     cart-minishopcart.js
 */
 
-$(function() {
+$(refreshCartGuiOperation());
 
-
+function refreshCartGuiOperation() {
   var plus = $('div.miso-prd-holder .miso-cart-action .miso-cart-plus');
 
   var minus = $('div.miso-prd-holder .miso-cart-action .miso-cart-minus');
@@ -29,9 +29,9 @@ $(function() {
     var item = itemctrl.text();
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
     var name = getControlClassFromParents($(this), '.product-content')
-                .find('.name').text();
+      .find('.name').text();
     var price = getControlClassFromParents($(this), '.product-content')
-                .find('.price').text();
+      .find('.price').text();
 
     var cartItem = new CartItem(
       item, name, price, 0
@@ -99,4 +99,4 @@ $(function() {
     return getControlClassFromParents(parent, sonToFind);
 
   }
-})
+}

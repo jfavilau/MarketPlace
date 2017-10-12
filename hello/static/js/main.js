@@ -183,8 +183,8 @@
 
             });
         });
+
+        refreshCartGuiOperation();
     }
 
 })(jQuery);
-
-
