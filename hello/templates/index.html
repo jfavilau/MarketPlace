@@ -97,7 +97,7 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="has-drop">
-                        <a class="has-text-color-hover" href="index.html">HOME</a>
+                        <a class="has-text-color-hover" href="index.html">INICIO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
                     <li class="has-drop">
@@ -424,7 +424,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="footer-contact">
                         <div class="footer-heading">
-                            <h3>CONTACT US</h3>
+                            <h3>CONTACTO</h3>
                         </div>
                         <ul>
                             <li>
@@ -475,19 +475,8 @@
                     <div class="col-md-5">
                         <!-- .product-detail-image-1-->
                         <div class="product-detail-image-1">
-                            <div class="product-primary-image owl-carousel" data-carousel-items="1"
-                                 data-carousel-dotsData="true" data-carousel-nav="true" data-carousel-dots="true"
-                                 data-carousel-xs="1" data-carousel-sm="1" data-carousel-md="1" data-carousel-lg="1"
-                                 data-carousel-animateout="fadeOut"
-                                 data-carousel-animatein="fadeIn">
-                                <img data-dot="&lt;img src='../static/images/product-details-image-05.jpg'&gt;"
-                                     src="../static/images/product-details-image-02.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-06.jpg'&gt;"
-                                     src="../static/images/product-details-image-03.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-07.jpg'&gt;"
-                                     src="../static/images/product-details-image-04.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-08.jpg'&gt;"
-                                     src="../static/images/product-details-image-01.jpg" alt="product detail image"/>
+                            <div class="product-primary-image" id="product-detail-image">
+
                             </div>
                         </div>
                         <!-- end .product-detail-image-1-->
@@ -495,8 +484,8 @@
                     <div class="col-md-7">
                         <!-- .product-detail-content-1-->
                         <div class="product-detail-content-1">
-                            <div class="product-name">
-                                <h3>Organic strawberries</h3>
+                            <div class="product-name" id="product-detail-name">
+
                             </div>
                             <div class="product-cert">
                                 <a href="#">
@@ -509,22 +498,25 @@
                                     <img src="../static/images/icons/ic-product-cert-03.png" alt="product cert"/>
                                 </a>
                             </div>
-                            <div class="product-price">
-                                <p>$5.99 /ea</p>
+
+                            <div class="product-price" id="product-detail-price">
+
                             </div>
-                            <div class="product-introduce">
-                                <p>Morbi molestie nisi purus, vitae vestibulum turpis lacinia sit amet. Vestibulum ante
-                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                                <p>In Stock</p>
-                                <p>SKU: 1952C14</p>
+
+                            <div class="product-introduce" id="product-detail-description">
+
                             </div>
                             <div class="prodcut-add-to-cart">
-                                <input class="input-size" type="text" value="1"/>
-                                <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">ADD TO
-                                    CART
-                                </button>
-                                <a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO
-                                    WISHLIST</a>
+
+                                <div class="form-group">
+                                    <input class="input-size" type="text" placeholder="BIO"/>
+                                    <input class="input-size" type="text" placeholder="ORG"/>
+                                    <input class="input-size" type="text" placeholder="LIM"/>
+                                    <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">AGREGAR AL CARRITO</button>
+                                </div>
+
+                                <!--<a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO
+                                    WISHLIST</a> -->
                             </div>
                         </div>
                         <!-- end .product-detail-content-1-->

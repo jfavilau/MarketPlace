@@ -11,4 +11,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'name', 'image', 'price')
+        fields = ('id', 'name', 'image', 'description', 'unit', 'price')

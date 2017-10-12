@@ -119,6 +119,27 @@
 
     });
 
+    /*Product detail*/
+    $('#myModal').on('show.bs.modal', function(e) {
+      var product_id = e.relatedTarget.dataset.product;
+
+      $(".input-size").val("");
+
+      $.getJSON(baseURL + "api/products/" + product_id).done(function(data) {
+
+        var description = "<p>" + data.description + "</p>" +
+                            '<p>Disponible</p>' +
+                            '<p>SKU: ' + data.id + '</p>';
+
+        $( "#product-detail-image" ).html( "<img src=" + data.image + " alt=" + data.name + "/>" );
+        $( "#product-detail-name" ).html( "<h3>" + data.name + "</h3>" );
+        $( "#product-detail-price" ).html( "<p> $" + data.price + " / " + data.unit +"</p>" );
+        $( "#product-detail-description" ).html( description );
+
+      });
+
+    });
+
     function downloadProducts() {
         $.getJSON(baseURL + "api/products/").done(function(data) {
             $.each(data, function(i, item) {
@@ -135,7 +156,7 @@
                                   '<div class=\"product-action miso-cart-action\">' +
                                     '<div class=\"product-action-list\">' +
                                         '<div class=\"action-item\">' +
-                                            '<a class=\"fa fa-search-plus\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Ver detalle\"></a>' +
+                                            '<a class=\"fa fa-search-plus\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\" data-product="' + item.id +'" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Ver detalle\"></a>' +
                                         '</div>' +
                                         '<div class=\"action-item miso-cart-plus\">' +
                                             '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
