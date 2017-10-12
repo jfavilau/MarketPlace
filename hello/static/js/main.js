@@ -174,7 +174,7 @@
                                     '<h3 class=\"title\">' +
                                         '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
                                     '</h3>' +
-                                    '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price +'</p>' +
+                                    '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price + ' / ' + item.unit +'</p>' +
                                   '</div>' +
                                 '</div>' +
                             '</div>';
