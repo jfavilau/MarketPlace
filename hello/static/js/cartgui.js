@@ -1,21 +1,44 @@
+/*
+Requires
+    jquery
+    cartmap.js
+    cart-minishopcart.js
+*/
+
 $(function() {
 
-  var plus = $("div.miso-prd-holder .miso-cart-action .miso-cart-plus");
 
-  var minus = $("div.miso-prd-holder .miso-cart-action .miso-cart-minus");
+  var plus = $('div.miso-prd-holder .miso-cart-action .miso-cart-plus');
 
-  var remove = $("div.miso-prd-holder .miso-cart-action .miso-cart-clear");
+  var minus = $('div.miso-prd-holder .miso-cart-action .miso-cart-minus');
 
-  var product = $("div.miso-prd-holder");
+  var remove = $('div.miso-prd-holder .miso-cart-action .miso-cart-clear');
+
+  var product = $('div.miso-prd-holder');
 
   var cartmap = new CartMap();
+  var cartgui = $('div.mini-shopcart');
+
+  var miniShopCart = new MiniShopCart(cartmap, cartgui);
+
+  miniShopCart.updateItemsInCartMessage();
+  miniShopCart.fillCartContents();
 
   plus.click(function() {
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
+    var name = getControlClassFromParents($(this), '.product-content')
+                .find('.name').text();
+    var price = getControlClassFromParents($(this), '.product-content')
+                .find('.price').text();
 
-    cartmap.addItem(item);
+    var cartItem = new CartItem(
+      item, name, price, 0
+    );
+
+    cartmap.addItem(item, cartItem);
+    miniShopCart.addItem(item);
     setQuantityTextForItemCount(quantity, item);
   });
 
@@ -25,6 +48,7 @@ $(function() {
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
 
     cartmap.removeItem(item);
+    miniShopCart.removeItem(item);
     setQuantityTextForItemCount(quantity, item)
   });
 
@@ -32,9 +56,11 @@ $(function() {
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
-    
+
     cartmap.clearItem(item);
-    quantity.text("");
+    miniShopCart.clearItem(item);
+    // quantity.text("");
+    setQuantityTextForItemCount(quantity, item)
   });
 
   product.mouseenter(function() {
@@ -43,9 +69,11 @@ $(function() {
     setQuantityTextForItemCount(quantity, item)
   });
 
+
   function setQuantityTextForItemCount(quantityctrl, item) {
     var count = cartmap.getItemCount(item);
     quantityctrl.text(count > 0 ? count : "");
+    miniShopCart.updateItemsInCartMessage();
   }
 
   function getControlClassFromParents(current, sonToFind) {
