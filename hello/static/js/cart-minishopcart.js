@@ -42,7 +42,7 @@ function fillCartContents() {
 function addItemToCartContents(itemId) {
   var cartgui = this.cartgui;
   var cartmap = this.cartmap.items();
-  alert(itemId);
+  
   var currentItem = cartgui.find('.' + itemId);
 
   if (currentItem.attr('class') != undefined) {

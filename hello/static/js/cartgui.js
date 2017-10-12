@@ -5,7 +5,11 @@ Requires
     cart-minishopcart.js
 */
 
-$(refreshCartGuiOperation());
+$(function() {
+  'use strict';
+
+  refreshCartGuiOperation()
+});
 
 function refreshCartGuiOperation() {
   var plus = $('div.miso-prd-holder .miso-cart-action .miso-cart-plus');
