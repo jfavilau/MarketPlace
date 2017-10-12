@@ -159,7 +159,6 @@
                             '</div>';
 
                 $( "#products-carousel" ).append( myvar );
-                $( "#products-carousel" ).append( myvar );
 
             });
         });
