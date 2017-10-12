@@ -52,3 +52,7 @@ div.product-1:hover .miso-prd-qty {
   opacity: 100;
   filter: alpha(opacity=100);
 }
+
+div.content-mini-shopcart {
+  overflow: auto;
+}
