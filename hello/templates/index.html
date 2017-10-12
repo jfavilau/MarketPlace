@@ -62,11 +62,11 @@
                 <div class="header-right">
                     <div class="header-login">
                         <a href="login.html">
-                            <i class="fa fa-user"></i>Log in</a>
+                            <i class="fa fa-user"></i>Iniciar sesión</a>
                         <span>/</span>
-                        <a href="register.html">Register</a>
+                        <a href="register.html">Registrarse</a>
                     </div>
-                    <span class="divider">|</span>
+                    <!--<span class="divider">|</span>-->
                 </div>
             </div>
         </div>
@@ -100,12 +100,12 @@
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
                     <li class="has-drop">
-                        <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">CATALOGO</a>
+                        <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">CATÁLOGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
 
                     <li class="has-drop">
-                        <a onclick="location.href='{% url 'paymentMethods' %}'" class="has-text-color-hover">METODOS DE
+                        <a onclick="location.href='{% url 'paymentMethods' %}'" class="has-text-color-hover">MÉTODOS DE
                             PAGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
@@ -165,7 +165,7 @@
                         data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
                         data-x="center" data-hoffset="['300', '0', '0', '0']" data-responsive="off" data-y="['center']"
                         data-voffset="['-150', '-150', '-150', '-150']" data-width="['700', '700', '700', '700']">
-                        Organic Green Tea
+                        Productos orgánicos
                         <img class="tee" src="../static/images/icons/ic-tee.png" alt="tee" width="100" height="50"/>
                     </h3>
                     <div class="tp-caption tp-resizeme caption-2"
@@ -185,7 +185,7 @@
                         data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
                         data-x="center" data-hoffset="['-250', '0', '0', '0']" data-responsive="off" data-y="['center']"
                         data-voffset="['-200', '-150', '-250', '-250']" data-width="['700', '700', '480', '480']">
-                        Healthy ingredients</h3>
+                        Ingredientes saludables</h3>
                     <div class="tp-caption tp-resizeme caption-2"
                          data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
                          data-x="center" data-hoffset="['-250', '0', '0', '0']"
@@ -204,169 +204,13 @@
         <div class="container">
             <!-- Heading Section-->
             <div class="heading-section-1">
-                <h3>OUR PRODUCTS</h3>
+                <h3>NUESTROS PRODUCTOS</h3>
             </div>
-            <div class="owl-carousel product-list-carousel-1 m-t-50" data-carousel-items="4"
-                 data-carousel-autoplay="true" data-carousel-loop="true" data-carousel-nav="true" data-carousel-xs="1"
-                 data-carousel-sm="2" data-carousel-md="2" data-carousel-lg="4">
-                <!--MISO Product1-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c1p1e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "facebook.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-status hot">
-                          <span>HOT</span>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Egg free mayo</a>
-                      </h3>
-                      <p class="price">$ 10.00</p>
-                  </div>
-                </div>
-                <!--End MISO Product1-->
-                <!--MISO Product2-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c2p2e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "pinterest.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-status sale">
-                          <span>SALE</span>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Strawberries</a>
-                      </h3>
-                      <p class="price">$5.99 /ea</p>
-                  </div>
-                </div>
-                <!--End MISO Product2-->
-                <!--MISO Product3-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c2p2e2</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "twitter.png" %}" alt="Facebook"/>
-                      </div>
-                      <!-- <div class="product-status sale">
-                          <span>SALE</span>
-                      </div> -->
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Strawberries</a>
-                      </h3>
-                      <p class="price">$5.99 /ea</p>
-                  </div>
-                </div>
-                <!--End MISO Product3-->
-                <!--MISO Product4 -->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c3p1e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "Logo.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Avocado</a>
-                      </h3>
-                      <p class="price">$25.99</p>
-                  </div>
-                </div>
-                <!--End MISO Product4 -->
+
+            <div class="row" id="products-carousel" style="margin-top: 50px;">
+
             </div>
+
         </div>
     </div>
 </section>
@@ -376,9 +220,9 @@
         <!-- banner-3-->
         <div class="banner-1 banner-2 banner-3">
             <div class="banner-content">
-                <h3 class="banner-title">Save $5.00</h3>
-                <p class="banner-subtitle">WHEN BUY 2 PRODUCTS</p>
-                <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Buy now</a>
+                <h3 class="banner-title">Ahorre dinero</h3>
+                <p class="banner-subtitle">COMPRANDO UNA CANASTA</p>
+                <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Comprar ahora</a>
             </div>
         </div>
         <!-- end banner-3-->
@@ -389,7 +233,7 @@
         <div class="container">
             <!-- Heading Section-->
             <div class="heading-section-1">
-                <h3>FROM OUR CUSTOMER</h3>
+                <h3>NUESTROS PRODUCTORES</h3>
             </div>
             <div class="owl-carousel testimonials-carousel-1 m-t-50" data-carousel-items="3"
                  data-carousel-autoplay="true" data-carousel-center="true" data-carousel-loop="true"

@@ -4,6 +4,8 @@
     // USE STRICT
     "use strict";
 
+    var baseURL = "http://localhost:8000/";
+
     $(document).ready(function () {
         /*fixed navbar when scroll*/
         var navbar = $("#js-navbar"),
@@ -112,9 +114,33 @@
     $(window).on('load', function () {
         $('.page-loader').fadeOut('slow', function () {
             $(this).remove();
+            downloadProducts();
         });
 
     });
 
+    function downloadProducts() {
+        $.getJSON(baseURL + "api/products/").done(function(data) {
+            $.each(data, function(i, item) {
+
+                var myvar = '<div class=\"col-md-3 col-xs-6\">' +
+                                '<div class=\"thumbnail\">' +
+                                  '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px; display:block;\">' +
+                                  '<div class=\"product-content\" style=\"text-align:center;\">' +
+                                    '<h3 class=\"title\">' +
+                                        '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
+                                    '</h3>' +
+                                    '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price +'</p>' +
+                                  '</div>' +
+                                '</div>' +
+                            '</div>';
+
+                $( "#products-carousel" ).append( myvar );
+
+            });
+        });
+    }
+
 })(jQuery);
+
 

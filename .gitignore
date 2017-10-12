@@ -10,3 +10,4 @@ db.sqlite3
 Dockerfile
 docker-compose.yml
 .idea/workspace.xml
+.idea/python-getting-started.iml
