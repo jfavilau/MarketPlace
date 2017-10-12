@@ -63,11 +63,11 @@
                 <div class="header-right">
                     <div class="header-login">
                         <a href="login.html">
-                            <i class="fa fa-user"></i>Log in</a>
+                            <i class="fa fa-user"></i>Iniciar sesión</a>
                         <span>/</span>
-                        <a href="register.html">Register</a>
+                        <a href="register.html">Registrarse</a>
                     </div>
-                    <span class="divider">|</span>
+                    <!--<span class="divider">|</span>-->
                 </div>
             </div>
         </div>
@@ -97,16 +97,16 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="has-drop">
-                        <a class="has-text-color-hover" href="index.html">HOME</a>
+                        <a class="has-text-color-hover" href="index.html">INICIO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
                     <li class="has-drop">
-                        <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">CATALOGO</a>
+                        <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">CATÁLOGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
 
                     <li class="has-drop">
-                        <a onclick="location.href='{% url 'paymentMethods' %}'" class="has-text-color-hover">METODOS DE
+                        <a onclick="location.href='{% url 'paymentMethods' %}'" class="has-text-color-hover">MÉTODOS DE
                             PAGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
@@ -166,7 +166,7 @@
                         data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
                         data-x="center" data-hoffset="['300', '0', '0', '0']" data-responsive="off" data-y="['center']"
                         data-voffset="['-150', '-150', '-150', '-150']" data-width="['700', '700', '700', '700']">
-                        Organic Green Tea
+                        Productos orgánicos
                         <img class="tee" src="../static/images/icons/ic-tee.png" alt="tee" width="100" height="50"/>
                     </h3>
                     <div class="tp-caption tp-resizeme caption-2"
@@ -186,7 +186,7 @@
                         data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
                         data-x="center" data-hoffset="['-250', '0', '0', '0']" data-responsive="off" data-y="['center']"
                         data-voffset="['-200', '-150', '-250', '-250']" data-width="['700', '700', '480', '480']">
-                        Healthy ingredients</h3>
+                        Ingredientes saludables</h3>
                     <div class="tp-caption tp-resizeme caption-2"
                          data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
                          data-x="center" data-hoffset="['-250', '0', '0', '0']"
@@ -201,185 +201,134 @@
     </div>
 </section>
 <section>
-    <div class="section white-background p-t-100 p-b-100">
+    <div class="section white-background p-t-100 p-b-70">
         <div class="container">
             <!-- Heading Section-->
             <div class="heading-section-1">
-                <h3>OUR PRODUCTS</h3>
+                <h3>NUESTROS PRODUCTOS</h3>
             </div>
-            <div class="owl-carousel product-list-carousel-1 m-t-50" data-carousel-items="4"
-                 data-carousel-autoplay="true" data-carousel-loop="true" data-carousel-nav="true" data-carousel-xs="1"
-                 data-carousel-sm="2" data-carousel-md="2" data-carousel-lg="4">
-                <!--MISO Product1-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c1p1e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "facebook.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-status hot">
-                          <span>HOT</span>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Egg free mayo</a>
-                      </h3>
-                      <p class="price">$ 10.00</p>
-                  </div>
+
+            <div class="row" id="products-carousel" style="margin-top: 50px;">
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <!-- .deal-of-the-day-1-->
+            <div class="deal-of-the-day-1">
+                <div class="heading-section-deal-of-the-day">
+                    <h3>Canasta del día</h3>
                 </div>
-                <!--End MISO Product1-->
-                <!--MISO Product2-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c2p2e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "pinterest.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-status sale">
-                          <span>SALE</span>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Strawberries</a>
-                      </h3>
-                      <p class="price">$5.99 /ea</p>
-                  </div>
+                <div class="product-info-deal-of-the-day left">
+                    <div class="product-image">
+                        <img src="http://templates.aucreative.co/ecofood/images/icons/ic-carrot.png" alt="carrot" />
+                    </div>
+                    <div class="product-content">
+                        <p class="name">Zanahoria por 200g</p>
+                        <p class="content">Maecenas tristique gravida, odio et sagi ttis justo endisse ultricies</p>
+                    </div>
                 </div>
-                <!--End MISO Product2-->
-                <!--MISO Product3-->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c2p2e2</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "twitter.png" %}" alt="Facebook"/>
-                      </div>
-                      <!-- <div class="product-status sale">
-                          <span>SALE</span>
-                      </div> -->
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Strawberries</a>
-                      </h3>
-                      <p class="price">$5.99 /ea</p>
-                  </div>
+                <div class="product-info-deal-of-the-day right">
+                    <div class="product-image">
+                        <img src="http://templates.aucreative.co/ecofood/images/icons/ic-corn.png" alt="corn" />
+                    </div>
+                    <div class="product-content">
+                        <p class="name">Mazorca entera por 500g</p>
+                        <p class="content">Maecenas tristique gravida, odio et sagi ttis justo endisse ultricies</p>
+                    </div>
                 </div>
-                <!--End MISO Product3-->
-                <!--MISO Product4 -->
-                <div class="product-1 miso-prd-holder">
-                  <div class="miso-prd-id">c3p1e1</div>
-                  <div class="miso-prd-qty"></div>
-                  <div class="product-image">
-                      <div class="image-holder">
-                          <img src="{% static "Logo.png" %}" alt="Facebook"/>
-                      </div>
-                      <div class="product-action miso-cart-action">
-                          <div class="product-action-list">
-                              <div class="action-item">
-                                  <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                              </div>
-                              <div class="action-item miso-cart-plus">
-                                  <a class="fa fa-plus"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Add Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-minus">
-                                  <a class="fa fa-minus"
-                                     data-toggle-tooltip="tooltip" data-placement="top" title="Remove Item"></a>
-                              </div>
-                              <div class="action-item miso-cart-clear">
-                                  <a class="fa fa-remove"
-                                    data-toggle-tooltip="tooltip" data-placement="top" title="Clear Item"></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="product-content">
-                      <h3 class="title">
-                          <a class="name" href="product-details-1.html">Avocado</a>
-                      </h3>
-                      <p class="price">$25.99</p>
-                  </div>
+                <div class="product-deal-of-the-day">
+                    <img src="http://templates.aucreative.co/ecofood/images/deal-of-the-day-01.png" alt="Deal of the day" />
                 </div>
-                <!--End MISO Product4 -->
+                <div class="action-deal-of-the-day">
+                    <div class="action-content">
+                        <p class="price">Precio: $15.000</p>
+                        <a class="btn-add-to-cart au-btn au-btn-radius au-btn-primary" href="#">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end .deal-of-the-day-1-->
+        </div>
+    </div>
+</section>
+<section class="m-t-200 m-b-60">
+    <div class="section white-background">
+        <div class="container">
+            <!-- Heading Section-->
+            <div class="heading-section-1">
+                <h3>PRODUCTOS NATURALES</h3>
+            </div>
+            <div class="m-t-50">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image pink">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-1.png" alt="Eco systems &amp; biodiversity" />
+                            </div>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Agricultura BIO</a>
+                                </h3>
+                            </div>
+                            <div class="iconbox-content">
+                                <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in cursus non, pharetra enim at sem.</p>
+                            </div>
+                        </div>
+                        <!-- end .our-store-iconbox-1-->
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image green">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-2.png" alt="Certified organic standards" />
+                            </div>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Productos orgánicos</a>
+                                </h3>
+                            </div>
+                            <div class="iconbox-content">
+                                <p>Integer vel erat nec purus feugiat tempor vitae vel ante. Ut mi mi, efficitur a augue ut, rhoncus iaculis ipsum. Vestibulum fringilla quam quis</p>
+                            </div>
+                        </div>
+                        <!-- end .our-store-iconbox-1-->
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image orange">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-3.png" alt="Fair prices for you" />
+                            </div>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Agricultura limpia</a>
+                                </h3>
+                            </div>
+                            <div class="iconbox-content">
+                                <p>Vestibulum purus felis, posuere ac lobortis at. Ut iaculis eros et erat sollicitudin, ut faucibus arcu ultricies. Suspendisse lobortis.</p>
+                            </div>
+                        </div>
+                        <!-- end .our-store-iconbox-1-->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section>
     <div class="section white-background cover-background parallax-background"
-         style="background: url(&quot;../static/images/banner-03.jpg&quot;) top center no-repeat;">
+         style="background: url(http://templates.aucreative.co/ecofood/images/banner-03.jpg) top center no-repeat;">
         <!-- banner-3-->
         <div class="banner-1 banner-2 banner-3">
             <div class="banner-content">
-                <h3 class="banner-title">Save $5.00</h3>
-                <p class="banner-subtitle">WHEN BUY 2 PRODUCTS</p>
-                <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Buy now</a>
+                <h3 class="banner-title">Recibe los mejores productos</h3>
+                <p class="banner-subtitle">EN TU HOGAR</p>
+                <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Horarios de entrega</a>
             </div>
         </div>
         <!-- end banner-3-->
@@ -390,7 +339,7 @@
         <div class="container">
             <!-- Heading Section-->
             <div class="heading-section-1">
-                <h3>FROM OUR CUSTOMER</h3>
+                <h3>NUESTROS PRODUCTORES</h3>
             </div>
             <div class="owl-carousel testimonials-carousel-1 m-t-50" data-carousel-items="3"
                  data-carousel-autoplay="true" data-carousel-center="true" data-carousel-loop="true"
@@ -402,9 +351,9 @@
                             cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-01.jpg" alt="ASHLEY STEPHENS"/>
+                        <img src="http://thelafayettesun.com/wp-content/uploads/2017/09/9-6-17-Chris-Langley-Farmer-of-the-Year-150x150.jpg" alt="ASHLEY STEPHENS"/>
                     </div>
-                    <p class="testimonials-name">ASHLEY STEPHENS</p>
+                    <p class="testimonials-name">PEDRO PÉREZ</p>
                 </div>
                 <div class="testimonials-1">
                     <div class="testimonials-content">
@@ -413,9 +362,9 @@
                             !</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-02.jpg" alt="PPHILIP SMITH"/>
+                        <img src="http://media.ruralradio.co/wordpress/2017/10/LeslieMcCuiston-150x150.jpg" alt="PPHILIP SMITH"/>
                     </div>
-                    <p class="testimonials-name">PPHILIP SMITH</p>
+                    <p class="testimonials-name">ROSALBA GÓMEZ</p>
                 </div>
                 <div class="testimonials-1">
                     <div class="testimonials-content">
@@ -423,9 +372,9 @@
                             cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-01.jpg" alt="ASHLEY STEPHENS"/>
+                        <img src="https://d15mj6e6qmt1na.cloudfront.net/i/19295637/300x300/c" alt="ASHLEY STEPHENS"/>
                     </div>
-                    <p class="testimonials-name">ASHLEY STEPHENS</p>
+                    <p class="testimonials-name">JAIME LÓPEZ</p>
                 </div>
                 <div class="testimonials-1">
                     <div class="testimonials-content">
@@ -433,9 +382,9 @@
                             ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-03.jpg" alt="LAUREN REED"/>
+                        <img src="http://180radio.com/wp-content/uploads/2014/05/IMG_0617-150x150.jpg" alt="LAUREN REED"/>
                     </div>
-                    <p class="testimonials-name">LAUREN REED</p>
+                    <p class="testimonials-name">LAURA RODRÍGUEZ</p>
                 </div>
                 <div class="testimonials-1">
                     <div class="testimonials-content">
@@ -444,9 +393,9 @@
                             !</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-02.jpg" alt="PHILIP SMITH"/>
+                        <img src="http://www.shmula.com/wp-content/uploads/2017/01/6sig-farmer-150x150.jpg" alt="PHILIP SMITH"/>
                     </div>
-                    <p class="testimonials-name">PHILIP SMITH</p>
+                    <p class="testimonials-name">FELIPE HURTADO</p>
                 </div>
                 <div class="testimonials-1">
                     <div class="testimonials-content">
@@ -454,86 +403,14 @@
                             ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
                     </div>
                     <div class="testimonials-image">
-                        <img src="../static/images/avatar-03.jpg" alt="LAUREN REED"/>
+                        <img src="https://i0.wp.com/www.womenwhofarm.com/wp-content/uploads/2017/03/Untitled-design-15.png?resize=150%2C150" alt="LAUREN REED"/>
                     </div>
-                    <p class="testimonials-name">LAUREN REED</p>
+                    <p class="testimonials-name">DANIELA PINZÓN</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section>
-    <div class="section white-background">
-        <div class="container-split">
-            <div class="split-35">
-                <!-- banner-4-->
-                <div class="banner-4">
-                    <a href="#">
-                        <div class="banner-image">
-                            <img src="../static/images/banner-04.jpg" alt="banner"/>
-                        </div>
-                        <div class="banner-content">
-                            <h3 class="banner-title">Save $5.00</h3>
-                            <p class="banner-subtitle">when buy 2 products</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- end banner-4-->
-            </div>
-            <div class="split-30">
-                <!-- banner-5-->
-                <div class="banner-5">
-                    <a href="#">
-                        <div class="banner-image">
-                            <img src="../static/images/banner-05.jpg" alt="banner"/>
-                        </div>
-                        <div class="banner-content">
-                            <h3 class="banner-title">Summer pineapple</h3>
-                        </div>
-                    </a>
-                </div>
-                <!-- end banner-5-->
-            </div>
-            <div class="split-35">
-                <!-- banner-6-->
-                <div class="banner-6">
-                    <div class="banner-image">
-                        <img src="../static/images/banner-06.jpg" alt="banner"/>
-                    </div>
-                    <div class="banner-content">
-                        <h3 class="banner-title">happy mother’ day</h3>
-                        <p class="banner-subtitle">The best gift for your mom</p>
-                        <button class="au-btn au-btn-radius au-btn-border btn-banner">Buy now</button>
-                    </div>
-                </div>
-                <!-- end banner-6-->
-            </div>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="section white-background p-t-140 p-b-140">
-        <div class="container">
-            <!-- .call-to-action-3-->
-            <div class="call-to-action-3">
-                <div class="cta-heading">
-                    <h3>GREATNESS DESERVES A
-                        <span class="color">FOLLOWING</span>
-                    </h3>
-                </div>
-                <div class="cta-content">
-                    <p>Signing up couldn’t be easier. We respect your privacy. Start your path to exclusive savings.</p>
-                </div>
-                <div class="cta-form">
-                    <input class="input-text" type="text" placeholder="Your email address"/>
-                    <button class="input-submit" type="submit">Join now</button>
-                </div>
-            </div>
-            <!-- end .call-to-action-3-->
-        </div>
-    </div>
-</section>
-
 <footer>
     <!--.footer-2-->
     <div class="footer-1 footer-2">
@@ -580,7 +457,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="footer-contact">
                         <div class="footer-heading">
-                            <h3>CONTACT US</h3>
+                            <h3>CONTACTO</h3>
                         </div>
                         <ul>
                             <li>
@@ -631,19 +508,8 @@
                     <div class="col-md-5">
                         <!-- .product-detail-image-1-->
                         <div class="product-detail-image-1">
-                            <div class="product-primary-image owl-carousel" data-carousel-items="1"
-                                 data-carousel-dotsData="true" data-carousel-nav="true" data-carousel-dots="true"
-                                 data-carousel-xs="1" data-carousel-sm="1" data-carousel-md="1" data-carousel-lg="1"
-                                 data-carousel-animateout="fadeOut"
-                                 data-carousel-animatein="fadeIn">
-                                <img data-dot="&lt;img src='../static/images/product-details-image-05.jpg'&gt;"
-                                     src="../static/images/product-details-image-02.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-06.jpg'&gt;"
-                                     src="../static/images/product-details-image-03.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-07.jpg'&gt;"
-                                     src="../static/images/product-details-image-04.jpg" alt="product detail image"/>
-                                <img data-dot="&lt;img src='../static/images/product-details-image-08.jpg'&gt;"
-                                     src="../static/images/product-details-image-01.jpg" alt="product detail image"/>
+                            <div class="product-primary-image" id="product-detail-image">
+
                             </div>
                         </div>
                         <!-- end .product-detail-image-1-->
@@ -651,8 +517,8 @@
                     <div class="col-md-7">
                         <!-- .product-detail-content-1-->
                         <div class="product-detail-content-1">
-                            <div class="product-name">
-                                <h3>Organic strawberries</h3>
+                            <div class="product-name" id="product-detail-name">
+
                             </div>
                             <div class="product-cert">
                                 <a href="#">
@@ -665,22 +531,25 @@
                                     <img src="../static/images/icons/ic-product-cert-03.png" alt="product cert"/>
                                 </a>
                             </div>
-                            <div class="product-price">
-                                <p>$5.99 /ea</p>
+
+                            <div class="product-price" id="product-detail-price">
+
                             </div>
-                            <div class="product-introduce">
-                                <p>Morbi molestie nisi purus, vitae vestibulum turpis lacinia sit amet. Vestibulum ante
-                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                                <p>In Stock</p>
-                                <p>SKU: 1952C14</p>
+
+                            <div class="product-introduce" id="product-detail-description">
+
                             </div>
                             <div class="prodcut-add-to-cart">
-                                <input class="input-size" type="text" value="1"/>
-                                <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">ADD TO
-                                    CART
-                                </button>
-                                <a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO
-                                    WISHLIST</a>
+
+                                <div class="form-group">
+                                    <input class="input-size" type="text" placeholder="BIO"/>
+                                    <input class="input-size" type="text" placeholder="ORG"/>
+                                    <input class="input-size" type="text" placeholder="LIM"/>
+                                    <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">AGREGAR AL CARRITO</button>
+                                </div>
+
+                                <!--<a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO
+                                    WISHLIST</a> -->
                             </div>
                         </div>
                         <!-- end .product-detail-content-1-->
@@ -705,7 +574,7 @@ Javascripts
 <script src="../static/vendor/SmoothScroll/SmoothScroll.js"></script>
 <script src="../static/js/switcher-custom.js"></script>
 <script src="../static/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="../static//vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="../static/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
 <script src="../static/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
 <!--
 | (Load Extensions only on Local File Systems !

@@ -91,17 +91,16 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-if 'DB_NAME' not in os.environ:
+if 'DB_NAME' in os.environ:
     DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace',
-        'USER': 'catalogobio',
-        'PASSWORD': 'catalogobio',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
-    }
+}
 else:
     DATABASES = {
         'default': {
@@ -112,7 +111,7 @@ else:
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
-    }
+}
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
