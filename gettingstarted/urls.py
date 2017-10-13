@@ -10,6 +10,7 @@ router = routers.DefaultRouter()
 router.register(r'products', hello.views.ProductViewSet)
 router.register(r'orders', hello.views.OrdersViewSet)
 router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
+router.register(r'orderstatus', hello.views.OrderStatusViewSet)
 
 # Examples:
 # url(r'^$', 'gettingstarted.views.home', name='home'),
@@ -18,6 +19,8 @@ router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^orders', hello.views.indexOrders, name='orders'),
+    url(r'^updateOrder', hello.views.updateOrder, name='updateOrder'),
+    url(r'^oadmin', hello.views.indexOrdersAdmin, name='ordersadmin'),
     #url(r'^api/orders', hello.views.getAllOrderByUser, name='apiorders'),
     url(r'^api/', include(router.urls)),
     url(r'^auth/', include('rest_framework.urls', namespace='rest_framework')),

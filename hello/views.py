@@ -14,6 +14,8 @@ from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework import status
 
 from gettingstarted import settings
 from .models import *
@@ -26,6 +28,10 @@ def index(request):
 def indexOrders(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Orders/index.html')
+
+def indexOrdersAdmin(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Admin/Orders/index.html')
 
 def sendEmail(request):
 
@@ -92,6 +98,14 @@ def getAllOrderByUser(request): #idUser=None
     #print order
     return HttpResponse(serializers.serialize("json",order))
 
+@csrf_exempt
+def updateOrder(request):
+    if request.method == 'POST':
+        jsonOrder = json.loads(request.body)
+        order = Order.objects.filter(id=jsonOrder['id']).update(
+            user=jsonOrder['user'], status=jsonOrder['status'], #statusDate = jsonOrder['statusDate'],
+            schedule = jsonOrder['schedule'],paymentMethod = jsonOrder['paymentMethod'],shoppingCart = jsonOrder['shoppingCart'])
+        return HttpResponse("Orden Actualizada")
 
 class OrdersViewSet(viewsets.ModelViewSet):
     """
@@ -99,6 +113,16 @@ class OrdersViewSet(viewsets.ModelViewSet):
     """
     queryset = Order.objects.all()
     serializer_class = OrdersSerializer
+    def get_object(self, pk):
+        if self.request.method == 'PUT':
+            print pk
+            print self.data
+            o = Order.objects.get(pk=pk)
+            serializer = OrderStatusSerializer(o, data=self.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ShoppingCarViewSet(viewsets.ModelViewSet):
     """
@@ -112,8 +136,13 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
         for the currently authenticated user.
         """
         user = self.request.user
-        print user
-        return ShoppingCart.objects.filter(user=user)
+        #print user
+        #print self.request.user.is_staff
+        #print self.request.user.is_superuser
+        if not self.request.user.is_superuser:
+            return ShoppingCart.objects.filter(user=user)
+        else:
+            return ShoppingCart.objects.all()
 
 class ProductViewSet(viewsets.ModelViewSet):
      """
@@ -125,3 +154,10 @@ class ProductViewSet(viewsets.ModelViewSet):
      def products(request, city):
          products_list = Product.objects.filter(cooperative__city__shortName=city)
          return HttpResponse(serializers.serialize("json", ))
+
+class OrderStatusViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = OrderStatus.objects.all()
+    serializer_class = OrderStatusSerializer
