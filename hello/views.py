@@ -14,15 +14,24 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics, viewsets
 from rest_framework import permissions
 from rest_framework import mixins
+from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
 
 from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import ProducerSerializer
 
 
 def index(request):
     return render(request, 'index.html')
+
+def regProducer(request):
+    return render(request, 'producer/regProducer.html')
+
 
 @csrf_exempt
 def addPaymentMethod(request):
@@ -215,3 +224,18 @@ def removePaymentMethods(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
+
+class ProducerList(generics.ListCreateAPIView):
+    permission_classes = (AllowAny,)
+    queryset = Producer.objects.all()
+    serializer_class = ProducerSerializer
+
+class ProducerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producer.objects.all()
+    serializer_class = ProducerSerializer
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'producers': reverse('producer-list', request=request, format=format),
+    })
