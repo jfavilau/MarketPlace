@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!--if IE 8html.no-js.lt-ie9(lang='en')
+-->
+<!-- [if gt IE 8] <!-->
+<html class="no-js" lang="en">
+<!-- <![endif]-->
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Checkout - Ecofood html5 templates</title>
+    <meta name="description" content="Ecofood theme tempalte">
+    <meta name="author" content="AuCreative">
+    <meta name="keywords" content="Ecofood theme template">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../static/fonts/fonts.css" rel="stylesheet">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
+    <link href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/switcher.css" rel="stylesheet">
+    <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
+    <link href="../static/css/retina.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../static/images/icon/favicon.png">
+    <link rel="apple-touch-icon" href="../static/images/icon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../static/images/icon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../static/images/icon/apple-touch-icon-114x114.png">
+    <script src="../static/js/modernizr-custom.js"></script>
+</head>
+
+<body>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<div class="page-loader">
+    <div class="loader"></div>
+</div>
+<header>
+
+    <div class="section dark-background">
+        <div class="container">
+            <div class="header-2">
+                <div class="header-left">
+                    <p>
+                        <i class="fa fa-map-marker"></i>Cra. 1 # 18a-12, Bogotá / Colombia
+                        <span>|</span>
+                        <i class="fa fa-clock-o"></i> Entrega de pedidos 02:00 Pm - 04:00 Pm</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<nav>
+    <!-- nav-2-->
+    <div class="section white-background" id="js-navbar">
+        <div class="container">
+            <div class="nav-1 nav-2">
+                <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                </button>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="../static/images/icons/ic-logo-01.png" alt="Ecofood"/>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="has-drop">
+                        <a onclick="location.href='{% url 'index' %}'" class="has-text-color-hover" >HOME</a>
+                    </li>
+                    <li class="has-drop">
+                        <a onclick="location.href='{% url 'index' %}'" class="has-text-color-hover">CATALOGO</a>
+                        <button class="btn-caret fa fa-angle-right"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Check out</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section border-bottom-grey">
+        <div class="container">
+            <div class="breadcrumb-1">
+                <ul>
+                    <li>
+                        <a onclick="location.href='{% url 'index' %}'">Home</a>
+                    </li>
+                    <li>
+                        <a onclick="location.href='{% url 'checkOut' %}'">Check out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% if flag%}
+
+<div class="page-content p-t-40 p-b-90">
+    <div class="container">
+        <div class="checkout-bill-ship border-bottom-grey m-t-30 p-b-20">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="checkout-heading">01 / Detalles de Facturación y envio</h4>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="name" class="theme-input-text" type="text" placeholder="Nombres"
+                                   value="{{ request.user.first_name }}"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="lastName" class="theme-input-text" type="text" placeholder="Apellidos"
+                                   value="{{ request.user.last_name }}"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="address" class="theme-input-text" type="text" placeholder="Dirección"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="details" class="theme-input-text" type="text" placeholder="Apt etc. (opcional)"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <select id="country" class="theme-input-text">
+                                <option>País</option>
+                                <option>Colombia</option>
+                            </select>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <select id="dpto" class="theme-input-text">
+                                <option>Departamento</option>
+                                <option value="AL">Amazonas</option>
+                                <option value="AL">Antioquia</option>
+                                <option value="AL">Arauca</option>
+                                <option value="AL">Atlántico</option>
+                                <option value="AL">Bogotá D.C</option>
+                                <option value="AL">Bolívar</option>
+                                <option value="AL">Boyacá</option>
+                                <option value="AL">Caldas</option>
+                                <option value="AL">Caquetá</option>
+                                <option value="AL">Casanare</option>
+                                <option value="AL">Cauca</option>
+                                <option value="AL">Cesar</option>
+                                <option value="AL">Chocó</option>
+                                <option value="AL">Córdoba</option>
+                                <option value="AL">Cundinamarca</option>
+                                <option value="AL">Guainía</option>
+                                <option value="AL">Guaviare</option>
+                                <option value="AL">Huila</option>
+                                <option value="AL">La Guajira</option>
+                                <option value="AL">Magdalena</option>
+                                <option value="AL">Meta</option>
+                                <option value="AL">Nariño</option>
+                                <option value="AL">Norte de Santander</option>
+                                <option value="AL">Putumayo</option>
+                                <option value="AL">Quindio</option>
+                                <option value="AL">Risaralda</option>
+                                <option value="AL">San Andres y Providencia</option>
+                                <option value="AL">Santander</option>
+                                <option value="AL">Sucre</option>
+                                <option value="AL">Tolima</option>
+                                <option value="AL">Valle del Cauca</option>
+                                <option value="AL">Vaupés</option>
+                                <option value="AL">Vichada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-10">
+                            <input id="zip" class="theme-input-text" type="text" placeholder="Codigo Postal / ZIP"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="phone" class="theme-input-text" type="text" placeholder="Telefono"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="email" class="theme-input-text" type="text" placeholder="Email"
+                                   value="{{ request.user.email }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-order m-t-30">
+            <h4 class="checkout-heading">Tu Orden</h4>
+            <table class="table table-bordered order-table">
+                <thead>
+                <tr>
+                    <th>PRODUCTO</th>
+                    <th>TOTAL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.product.name}}</td>
+                    <td>{{item.totalPrice}}</td>
+                </tr>
+                {% endfor%}
+                <tr>
+                    <td>TOTAL</td>
+                    <td>${{total}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="checkout-payment-info">
+            <h4 class="checkout-heading">02 / Información de Pago</h4>
+            <div class="introduce">
+                <p>Formas de Pago Recurrentes</p>
+                {% for method in methods %}
+                <div class="radio">
+                    <label><input type="radio" name="check">Tarjeta número - {{method.token}}</label>
+                </div>
+                {% endfor%}
+                <p>Tarjetas de Credito Nueva
+
+                    <img src="../static/images/icons/ic-payment-method-01.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-02.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-03.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-04.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-05.png" alt="payment"/>
+                </p>
+
+            </div>
+            <div class="input-row m-b-15">
+                <div class="input-col-3 p-r-5">
+                    <input id="card_number" class="theme-input-text" type="text" placeholder="Numero de Tarjeta"/>
+                </div>
+                <div class="input-col-3 p-l-5 p-r-5">
+                    <input id="exp_date" class="theme-input-text" type="text" placeholder="Expira (MM/YY) "/>
+                </div>
+                <div class="input-col-3 p-l-5">
+                    <input id="code" class="theme-input-text" type="text" placeholder="Codigo"/>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-submit m-t-50">
+            <button onclick="validateInformation()" class="au-btn au-btn-primary au-btn-radius btn-order-submit"
+                    type="submit">PAGA TU ORDEN
+            </button>
+        </div>
+    </div>
+
+</div>
+</div>
+{%else%}
+                    <h4 class="checkout-heading" style="text-align: center;">Aún no tienes carrito de compras! Animate a comprar </h4>
+
+{% endif%}
+
+<footer>
+    <!--.footer-2-->
+    <div class="footer-1 footer-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-introduce">
+                        <div class="footer-logo">
+                            <img src="../static/images/icons/ic-logo-02.png" alt="logo ecofood"/>
+                        </div>
+                        <div class="footer-intro">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-services">
+                        <div class="footer-heading">
+                            <h3>SERVICIOS AL CLIENTE</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        <a href="#">Información Ordenes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Envíos & Devoluciones</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>
+                                        <a href="#">Terminos & Condiciones</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">FAQs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-contact">
+                        <div class="footer-heading">
+                            <h3>CONTACT US</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <span> Cra. 1 # 18a-12, Bogotá / Colombia</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-clock-o"></i>
+                                <span>Entrega de pedidos 02:00 Pm - 04:00 Pm</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone"></i>
+                                <span>(+571) 359 0173</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <ul class="footer-socials">
+                    <li>
+                        <a class="fa fa-facebook" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-google-plus" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-youtube" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button id="modalButton" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModalLong">
+        Launch demo modal
+    </button>
+
+    <button id="modalPayment" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#payment">
+        Launch demo modal
+    </button>
+
+
+    <div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="payment" aria-hidden="true">
+        <div class="modal-dialog" role="document" data-backdrop="static" data-keyboard="false">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentm">Compra Realizada</h5>
+                </div>
+                <div class="modal-body">
+                    Tu compra ha sido realizada con exito!<br>Recibiras en tu correo electrónico una confirmación de tu
+                    compra.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Gracias
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal  Error -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Ha Ocurrido un Error!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Por favor, ingresa correctamente tu información de pago.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Entiendo</button>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+<div id="up-to-top">
+    <i class="fa fa-angle-up"></i>
+</div>
+
+<script src="../static/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../static/vendor/retinajs/dist/retina.min.js"></script>
+<script src="../static/vendor/SmoothScroll/SmoothScroll.js"></script>
+<script src="../static/js/switcher-custom.js"></script>
+<script src="../static/js/main.js"></script>
+<script>
+    function validateInformation(){
+        name =$( "#name" ).val();
+        lastName =$( "#lastName" ).val();
+        address =$( "#address" ).val();
+        details =$( "#details" ).val();
+        country =$( "#country" ).val();
+        department =$( "#dpto" ).val();
+        zip =$( "#zip" ).val();
+        phone =$( "#phone" ).val();
+        email =$( "#email" ).val();
+        cardNumber =$( "#card_number" ).val();
+        expDate =$( "#exp_date" ).val();
+        code =$( "#code" ).val();
+        var atLeastOneIsChecked = $('input[name=check]:checked').length;
+
+
+        if(jQuery.type( name ) == 'string' && jQuery.type( details ) == 'string' && jQuery.type( lastName ) == 'string' && jQuery.type( address ) == 'string' && jQuery.type( country ) == 'string'
+            && jQuery.type( department ) == 'string' &&  $.isNumeric(zip) &&  $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != ""
+            && department != "" && zip != "" && phone != "" && email != "" && ((card_number != ""  && exp_date != ""  && code != "")||(atLeastOneIsChecked == 1))){
+
+            $.ajax({
+            url: "{% url 'checkOutPersist'%}",
+            type: "POST",
+            data: {
+                "name": name, "lastName": lastName, "address": address, "details": details ,"country": country, "department": department,
+                 "zip": zip, "phone": phone, "email": email, "cardNumber": cardNumber, "expDate": expDate, "code": code, "newMethod": atLeastOneIsChecked
+            },
+            success: function (data) {
+                console.log(data.message);
+                $("#modalPayment").click();
+                sendConfirmation();
+            },
+            error: function (xhr) {
+                $("#modalButton").click();
+            }
+            });
+        }
+        else{
+         console.log('error');
+            $("#modalButton").click();
+        }
+    }
+
+    function sendConfirmation(){
+        $.ajax({
+            url: "{% url 'sendEmail'%}",
+            type: "GET",
+            data: {
+                "option": 1, "email": "{{request.user.email}}"
+            },
+            success: function (data) {
+                console.log(data.message);
+
+            },
+            error: function (xhr) {
+                console.log(data.message);
+            }
+         });
+    }
+
+</script>
+</body>
+
+</html>
