@@ -2,1005 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a43bc3f6-9fe7-46b6-84ba-102fe4dc1f87" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-100.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-200.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-300.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-400.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-500.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-600.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-700.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-800.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-italic-900.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-200.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-300.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-400.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-500.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-600.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-700.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-800.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Montserrat-normal-900.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/Pacifico-normal-400.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/about-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/about-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/about-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/about-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/avatar-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/avatar-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/avatar-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/banner-06.jpg].png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/bg-about-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/bg-deal-of-the-day.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/bg-testimonials-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-detail-cover.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-13.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-14.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-15.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-16.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-17.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-item-18.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/blog-post-image-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/call-to-action-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/carousel-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/deal-of-the-day-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/caption-carousel-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/caption-carousel-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-about-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-about-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-about-03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-carrot.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-cert-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-cert-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-corn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-glass-left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-glass-right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-location.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-logo-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-logo-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-our-store-iconbox-1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-our-store-iconbox-2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-our-store-iconbox-3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-partner-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-partner-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-partner-03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-partner-04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-partner-05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-payment-method-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-payment-method-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-payment-method-03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-payment-method-04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-payment-method-05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-product-cert-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-product-cert-02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-product-cert-03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/icons/ic-tee.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/page-not-found-01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/popup-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-details-image-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-13.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-14.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-15.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-16.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-17.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/product-item-18.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/shopping-cart-item-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/shopping-cart-item-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/images/sidebar-banner-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/images/down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/images/up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/mCSB_buttons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.video.play.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/bird_blue_32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/download.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-drag.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-modern.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-module.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-options.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-responsive.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/feature-zombie.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/owl-logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/img/twitter_25.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.video.play.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/bird_blue_32.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/download.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-drag.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-modern.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-module.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-options.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-responsive.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/feature-zombie.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/owl-logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/img/twitter_25.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/releated-docs.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/img/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/img/owl.video.play.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/coloredbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/gridtile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/gridtile_3x3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/gridtile_3x3_white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/gridtile_white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/fb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/fr.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/ig.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/post.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/revolution_slide1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/revolution_slide2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/tw.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/vm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/wc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/sources/yt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/svg/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/assets/svg/svg.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/closedhand.cur" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/openhand.cur" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/css/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/fonts/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/revicons/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/revicons/revicons.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/revicons/revicons.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/revicons/revicons.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/source/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/demos/assets/images/preloader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0004_auto_20170927_0214.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0005_auto_20171003_2002.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0005_city_code.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0006_auto_20171004_1828.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0006_shoppingcart_value.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0007_auto_20171004_1844.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0007_item_totalprice.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0008_shoppingcart_active.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0009_merge.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/migrations/0010_paymentmethod_active.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/permissions.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/serializers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/cart.back.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/deep-green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/deep-green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/deep-orange.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/deep-orange.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/light-green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/light-green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/orange.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/orange.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/pink.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/pink.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/red.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/colors/red.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/main.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/retina.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/retina.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/switcher.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/css/switcher.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/fonts/fonts.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/accordion-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/accordion-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/cart-minishopcart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/cartgui.back.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/main.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/map-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/map-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/masonry-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/masonry-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/modernizr-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/modernizr-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/owl-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/owl-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/popup-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/popup-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/revo-slider-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/revo-slider-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/switcher-custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/js/switcher-custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/SmoothScroll/SmoothScroll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/animate-config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/animate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/animate.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/_base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/bounce.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/flash.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/headShake.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/jello.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/pulse.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/rubberBand.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/shake.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/swing.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/tada.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/attention_seekers/wobble.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_entrances/bounceIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_entrances/bounceInDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_entrances/bounceInLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_entrances/bounceInRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_entrances/bounceInUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_exits/bounceOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_exits/bounceOutDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_exits/bounceOutLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_exits/bounceOutRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/bouncing_exits/bounceOutUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInDownBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInLeftBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInRightBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_entrances/fadeInUpBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutDownBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutLeftBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutRightBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/fading_exits/fadeOutUpBig.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/flippers/flip.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/flippers/flipInX.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/flippers/flipInY.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/flippers/flipOutX.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/flippers/flipOutY.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/lightspeed/lightSpeedIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/lightspeed/lightSpeedOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_entrances/rotateIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_entrances/rotateInDownLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_entrances/rotateInDownRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_entrances/rotateInUpLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_entrances/rotateInUpRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_exits/rotateOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_exits/rotateOutDownLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_exits/rotateOutDownRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_exits/rotateOutUpLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/rotating_exits/rotateOutUpRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_entrances/slideInDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_entrances/slideInLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_entrances/slideInRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_entrances/slideInUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_exits/slideOutDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_exits/slideOutLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_exits/slideOutRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/sliding_exits/slideOutUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/specials/hinge.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/specials/rollIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/specials/rollOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_entrances/zoomIn.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_entrances/zoomInDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_entrances/zoomInLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_entrances/zoomInRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_entrances/zoomInUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_exits/zoomOut.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_exits/zoomOutDown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_exits/zoomOutLeft.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_exits/zoomOutRight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animate.css/source/zooming_exits/zoomOutUp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/dist/css/animsition.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/dist/css/animsition.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/dist/js/animsition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/dist/js/animsition.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/data-options.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/data.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/methods-in.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/methods-out.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/options.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/overlay1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/overlay2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/sandbox/sandbox.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/animsition.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-down-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-down-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-down.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-left-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-left-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-left.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-right-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-right-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-right.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-up-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-up-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade-up.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/fade/fade.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-x-fr.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-x-nr.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-x.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-y-fr.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-y-nr.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/flip/flip-y.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/loading.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/overlay/overlay-slide-bottom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/overlay/overlay-slide-left.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/overlay/overlay-slide-right.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/overlay/overlay-slide-top.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/rotate/rotate-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/rotate/rotate-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/rotate/rotate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/zoom/zoom-lg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/zoom/zoom-sm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/css/zoom/zoom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/animsition/src/js/animsition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/Gemfile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/Gemfile.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/ISSUE_TEMPLATE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap-theme.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/css/bootstrap.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/dist/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/bs-commonjs-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/bs-glyphicons-data-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/bs-lessdoc-parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/bs-raw-files-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/change-version.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/configBridge.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/npm-shrinkwrap.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/grunt/sauce_browsers.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/affix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/collapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/popover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/scrollspy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/js/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/badges.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/bootstrap.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/breadcrumbs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/button-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/carousel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/close.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/code.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/component-animations.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/dropdowns.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/glyphicons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/input-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/jumbotron.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/media.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/background-variant.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/border-radius.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/center-block.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/clearfix.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/gradients.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/grid-framework.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/hide-text.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/image.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/nav-divider.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/nav-vertical-align.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/opacity.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/progress-bar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/reset-filter.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/reset-text.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/resize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/responsive-visibility.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/size.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/tab-focus.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/table-row.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/text-emphasis.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/text-overflow.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/mixins/vendor-prefixes.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/modals.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/navbar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/navs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/normalize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/pager.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/popovers.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/print.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/progress-bars.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/responsive-embed.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/responsive-utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/scaffolding.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/tables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/theme.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/thumbnails.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/tooltip.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/type.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/less/wells.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/nuget/MyGet.ps1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/nuget/bootstrap.less.nuspec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/nuget/bootstrap.nuspec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/package.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/bootstrap/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/_base.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/hamburgers.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_3dx-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_3dx.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_3dy-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_3dy.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_arrow-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_arrow.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_arrowalt-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_arrowalt.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_boring.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_collapse-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_collapse.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_elastic-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_elastic.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_emphatic-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_emphatic.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_slider-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_slider.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_spin-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_spin.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_spring-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_spring.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_squeeze.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_stand-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_stand.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_vortex-r.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/_sass/hamburgers/types/_vortex.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/bs-config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/config.postcss.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/dist/example.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/dist/hamburgers.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/dist/hamburgers.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/eyeglass-exports.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/css-hamburgers/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/HELP-US-OUT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/css/font-awesome.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/animated.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/screen-reader.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_animated.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_screen-reader.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/font-awesome/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/css/demo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/css/jquery.accordion.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-accordion/js/jquery.accordion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/ChangeLog.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/jquery.mousewheel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery-mousewheel/jquery.mousewheel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/AUTHORS.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.slim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.slim.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/dist/jquery.slim.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/external/sizzle/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/external/sizzle/dist/sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/external/sizzle/dist/sizzle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/external/sizzle/dist/sizzle.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/jsonp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/load.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/parseXML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/var/location.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/var/nonce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/var/rquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/ajax/xhr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes/attr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes/classes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes/prop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/attributes/val.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/callbacks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/DOMEval.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/access.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/nodeName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/parseHTML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/ready-no-deferred.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/ready.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/readyException.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/stripAndCollapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/core/var/rsingleTag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/addGetHookIf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/adjustCSS.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/curCSS.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/hiddenVisibleSelectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/showHide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/cssExpand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/getStyles.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/isHiddenWithinTree.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/rmargin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/rnumnonpx.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/css/var/swap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/data/Data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/data/var/acceptData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/data/var/dataPriv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/data/var/dataUser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/deferred.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/deferred/exceptionHook.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/deprecated.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/dimensions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/effects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/effects/Tween.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/effects/animatedSelector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event/alias.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event/focusin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/event/trigger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/exports/amd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/exports/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/_evalUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/buildFragment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/getAll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/setGlobalEval.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/var/rcheckableType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/var/rscriptType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/var/rtagName.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/manipulation/wrapMap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/offset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/queue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/queue/delay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/selector-native.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/selector-sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/selector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/serialize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/traversing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/traversing/findFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/traversing/var/dir.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/traversing/var/rneedsContext.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/traversing/var/siblings.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/ObjectFunctionString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/arr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/class2type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/concat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/document.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/documentElement.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/fnToString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/getProto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/hasOwn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/indexOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/pnum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/push.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/rcssNum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/rnothtmlwhite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/slice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/var/toString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/jquery/src/wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/masonry/imagesloaded.pkgd.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/masonry/masonry.pkgd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/masonry/masonry.pkgd.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/ROADMAP.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/_config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.carousel.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.carousel.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.theme.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.theme.default.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.theme.green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/assets/owl.theme.green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/owl.carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/dist/owl.carousel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/css/animate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/css/docs.theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/js/foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.carousel.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.carousel.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.theme.default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.theme.default.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.theme.green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/assets/owl.theme.green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/owl.carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/vendors/foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/vendors/highlight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/vendors/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/vendors/jquery.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/assets/vendors/jquery.mousewheel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/animate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/autoheight.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/autoplay.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/autowidth.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/basic.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/center.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/demos.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/events.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/lazyLoad.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/merge.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/mousewheel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/responsive.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/rtl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/stagepadding.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/urlhashnav.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/demos/video.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/api-classes.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/api-events.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/api-options.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/dev-buildin-plugins.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/dev-external.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/dev-plugin-api.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/dev-styles.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/started-faq.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/started-installation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/started-welcome.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/support-changelog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/support-contact.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/docs/support-contributing.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/css/animate.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/js/foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/_settings.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/custom.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/demos.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/docs.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/docs.theme.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/scss/highlight.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/vendors/foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/vendors/highlight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/vendors/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/vendors/jquery.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/assets/vendors/jquery.mousewheel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/data/classes.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/data/events.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/data/features.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/data/options.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/helpers/modulo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/helpers/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/layouts/demos.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/layouts/docs.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/layouts/home.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/animate.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/autoheight.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/autoplay.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/autowidth.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/basic.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/center.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/demos.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/events.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/lazyLoad.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/merge.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/mousewheel.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/responsive.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/rtl.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/stagepadding.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/test.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/urlhashnav.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/demos/video.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/api-classes.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/api-events.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/api-options.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/dev-buildin-plugins.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/dev-external.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/dev-plugin-api.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/dev-styles.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/started-faq.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/started-installation.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/started-welcome.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/support-changelog.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/support-contact.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/docs/support-contributing.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/pages/index.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/footer.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/head.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/header.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/home-carousel.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/home-features.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/home-hero.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/home-teaser-text.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/javascripts.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/sidenav-docs.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/title.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/docs_src/templates/partials/vendors.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.animate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.autoheight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.autoplay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.autorefresh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.hash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.lazyload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.navigation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.support.modernizr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/js/owl.video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_animate.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_autoheight.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_lazyload.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_theme.default.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_theme.green.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_theme.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/_video.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/owl.carousel.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/owl.theme.default.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/src/scss/owl.theme.green.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/test/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/owl.carousel/test/unit/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/__tests__/retina.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/_retina.sass" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/_retina.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/dist/retina.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/jest.config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/rollup.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/src/_retina.sass" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/src/_retina.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/src/retina.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/src/retina.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/src/retina.styl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/retinajs/yarn.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/layers.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/ares.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/dione.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/erinyen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/gyges.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/hades.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/hebe.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/hephaistos.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/hermes.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/hesperiden.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/metis.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/persephone.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/uranus.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation-skins/zeus.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/navigation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/settings-ver.5.3.1.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/css/settings.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/css/helper.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/fonts/revicons/revicons.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/info.cfg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.actions.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.carousel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.migration.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.navigation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.parallax.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/revolution.extension.video.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.kenburn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.layeranimation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.migration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.navigation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.parallax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.slideanims.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/extensions/source/revolution.extension.video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/jquery.themepunch.enablelog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/jquery.themepunch.revolution.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/jquery.themepunch.tools.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/source/jquery.themepunch.enablelog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/source/jquery.themepunch.revolution.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/js/source/jquery.themepunch.tools.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/facebook/class-facebook.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/flickr/class-flickr.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/instagram/class-instagram.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/twitter/RestApi.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/twitter/class-twitter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/twitter/connection/Application.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/twitter/connection/ConnectionAbstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/twitter/connection/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/vimeo/class-vimeo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/revolution/php/youtube/class-youtube.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/LICENSE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/assets/css/popup.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/assets/js/jquery.popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/assets/js/jquery.popup.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/demos/ajax/content.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/demos/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/static/vendor/toddish-popup/popup.jquery.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/checkout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/payment_methods.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/python-getting-started.iml" afterPath="$PROJECT_DIR$/.idea/python-getting-started.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello/templates/producer/regProducer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gettingstarted/settings.py" afterPath="$PROJECT_DIR$/gettingstarted/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gettingstarted/urls.py" afterPath="$PROJECT_DIR$/gettingstarted/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/admin.py" afterPath="$PROJECT_DIR$/hello/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/models.py" afterPath="$PROJECT_DIR$/hello/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/css/cart.css" afterPath="$PROJECT_DIR$/hello/static/css/cart.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/js/cartgui.js" afterPath="$PROJECT_DIR$/hello/static/js/cartgui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/static/js/cartmap.js" afterPath="$PROJECT_DIR$/hello/static/js/cartmap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/index.html" afterPath="$PROJECT_DIR$/hello/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/templates/products/product_list.html" afterPath="$PROJECT_DIR$/hello/templates/products/product_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/serializers.py" afterPath="$PROJECT_DIR$/hello/serializers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello/views.py" afterPath="$PROJECT_DIR$/hello/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1014,8 +20,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="363">
+              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding>
                 <element signature="e#333#342#0" expanded="true" />
               </folding>
@@ -1026,8 +32,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -1038,22 +44,10 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+            <state relative-caret-position="308">
+              <caret line="29" column="27" lean-forward="false" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hello/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1072,10 +66,32 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hello/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3332">
-              <caret line="216" column="45" lean-forward="false" selection-start-line="216" selection-start-column="45" selection-end-line="216" selection-end-column="45" />
+            <state relative-caret-position="363">
+              <caret line="241" column="0" lean-forward="true" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permissions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hello/permissions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hello/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1116,9 +132,11 @@
         <option value="$PROJECT_DIR$/hello/templates/payed.html" />
         <option value="$PROJECT_DIR$/hello/templates/index.html" />
         <option value="$PROJECT_DIR$/hello/models.py" />
-        <option value="$PROJECT_DIR$/hello/views.py" />
         <option value="$PROJECT_DIR$/gettingstarted/settings.py" />
+        <option value="$PROJECT_DIR$/hello/permissions.py" />
         <option value="$PROJECT_DIR$/gettingstarted/urls.py" />
+        <option value="$PROJECT_DIR$/hello/views.py" />
+        <option value="$PROJECT_DIR$/hello/serializers.py" />
       </list>
     </option>
   </component>
@@ -1142,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -1158,13 +177,24 @@
             <path>
               <item name="MarketPlace" type="b2602c69:ProjectViewProjectNode" />
               <item name="MarketPlace" type="462c0819:PsiDirectoryNode" />
+              <item name="gettingstarted" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MarketPlace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarketPlace" type="462c0819:PsiDirectoryNode" />
               <item name="hello" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MarketPlace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MarketPlace" type="462c0819:PsiDirectoryNode" />
+              <item name="hello" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1274,27 +304,37 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19678408" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19984686" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2944882" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2944882" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2944882" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19678408" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1312,33 +352,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -1611,42 +624,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hello/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hello/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3332">
-          <caret line="216" column="45" lean-forward="false" selection-start-line="216" selection-start-column="45" selection-end-line="216" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gettingstarted/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="363">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
           <folding>
             <element signature="e#333#342#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
+    <entry file="file://$PROJECT_DIR$/hello/permissions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        <state relative-caret-position="238">
+          <caret line="14" column="40" lean-forward="false" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/static/js/cartgui.back.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1656,7 +665,37 @@
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gettingstarted/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="29" column="27" lean-forward="false" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="241" column="0" lean-forward="true" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hello/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
