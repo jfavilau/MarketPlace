@@ -4,7 +4,8 @@
     // USE STRICT
     "use strict";
 
-    var baseURL = "https://marketplace201720.herokuapp.com/";
+    // var baseURL = "https://marketplace201720.herokuapp.com/";
+    var baseURL = "http://localhost:8000/";
 
     $(document).ready(function () {
         /*fixed navbar when scroll*/
@@ -142,8 +143,8 @@
 
     function downloadProducts() {
         $.getJSON(baseURL + "api/products/").done(function(data) {
+            console.log(data);
             $.each(data, function(i, item) {
-
                 var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
                                 '<div class=\"miso-prd-id\">' + item.id + '</div>' +
                                 '<div class=\"miso-prd-qty\"></div>' +
@@ -182,9 +183,8 @@
                 $( "#products-carousel" ).append( myvar );
 
             });
+            refreshCartGuiOperation();
         });
-
-        refreshCartGuiOperation();
     }
 
 })(jQuery);
