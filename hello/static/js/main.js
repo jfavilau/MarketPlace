@@ -4,8 +4,8 @@
     // USE STRICT
     "use strict";
 
-    // var baseURL = "https://marketplace201720.herokuapp.com/";
-    var baseURL = "http://localhost:8000/";
+    var baseURL = "https://marketplace201720.herokuapp.com/";
+    //var baseURL = "http://localhost:8000/";
 
     $(document).ready(function () {
         /*fixed navbar when scroll*/
