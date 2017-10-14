@@ -24,6 +24,8 @@ from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
 from .serializers import ProducerSerializer
+from .serializers import OrdersSerializer
+from .serializers import ShoppingCarSerializer
 
 
 def index(request):
@@ -239,3 +241,21 @@ def api_root(request, format=None):
     return Response({
         'producers': reverse('producer-list', request=request, format=format),
     })
+
+def indexOrders(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Orders/index.html')
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    """
+     API endpoint that allows Products to be viewed or edited.
+     """
+    queryset = Order.objects.all()
+    serializer_class = OrdersSerializer
+
+class ShoppingCarViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = ShoppingCart.objects.all()
+    serializer_class = ShoppingCarSerializer
