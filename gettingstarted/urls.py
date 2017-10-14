@@ -14,6 +14,7 @@ import hello.views
 router = routers.DefaultRouter()
 router.register(r'users', hello.views.UserViewset, base_name="users")
 router.register(r'products', hello.views.ProductViewset, base_name="products")
+router.register(r'categories', hello.views.CategoryViewset, base_name="categories")
 
 # API endpoints
 

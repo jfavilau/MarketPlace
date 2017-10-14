@@ -19,6 +19,7 @@ from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import CategorySerializer
 
 
 def index(request):
@@ -124,6 +125,14 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all categories.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
