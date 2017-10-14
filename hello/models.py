@@ -49,6 +49,7 @@ class Order(models.Model):
         paymentMethod = models.ForeignKey(PaymentMethod)
         createdDate = models.DateField(blank=False, null=False,auto_now_add=True)
         shoppingCart = models.ForeignKey(ShoppingCart, related_name='orders')
+        deliveryAddress = models.CharField(max_length=300, null=True)
 
 class Category(models.Model):
 

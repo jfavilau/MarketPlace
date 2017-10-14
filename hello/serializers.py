@@ -30,7 +30,7 @@ class OrdersSerializer(serializers.HyperlinkedModelSerializer):
      class Meta:
          model = Order
          fields = ('id','Status','idUser','Username','idSchedule', 'Schedule', 'statusDate',
-                   'idPaymentMethod', 'PaymentMethod', 'ShoppingCart', 'createdDate')
+                   'idPaymentMethod', 'PaymentMethod','deliveryAddress', 'ShoppingCart', 'createdDate')
 
 class OrderStatusSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
