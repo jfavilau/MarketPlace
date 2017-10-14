@@ -25,6 +25,9 @@ from .serializers import CategorySerializer
 def index(request):
     return render(request, 'index.html')
 
+def catalogue(request):
+    return render(request, 'catalogue.html')
+
 @csrf_exempt
 def addPaymentMethod(request):
 

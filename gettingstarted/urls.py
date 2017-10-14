@@ -20,6 +20,7 @@ router.register(r'categories', hello.views.CategoryViewset, base_name="categorie
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
+    url(r'^catalogo/', hello.views.catalogue, name='catalogo'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
     url(r'^addPaymentMethod/', hello.views.addPaymentMethod, name='addPaymentMethod'),
