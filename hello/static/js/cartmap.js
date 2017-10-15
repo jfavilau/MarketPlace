@@ -13,6 +13,7 @@ function CartMap() {
   this.removeItem = removeItem;
   this.clearItem = clearItem;
   this.getCartCount = getCartCount;
+  this.getCartTotal = getCartTotal;
   this.items = items;
 
   this.persistCart = persistCart;
@@ -32,8 +33,26 @@ function items() {
   return this.cartmap;
 }
 
+function getCartTotal() {
+  var total = 0;
+  var str = '';
+  var cartmap = this.cartmap;
+  for(item in cartmap){
+    str = cartmap[item].price;
+    total += parseInt(str.match(/[0-9]+[.|,]?[0-9]*/));
+  }
+  return total;
+
+}
+
 function getCartCount() {
-  return Object.keys(this.cartmap).length;
+  var count = 0;
+  var cartmap = this.cartmap;
+  for (item in cartmap){
+    count += cartmap[item].quantity;
+  }
+  // return Object.keys(this.cartmap).length;
+  return count;
 }
 
 function getItemCount(item) {

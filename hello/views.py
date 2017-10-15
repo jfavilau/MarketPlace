@@ -346,22 +346,26 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
 @csrf_exempt
 def shoppingCartPersist(request):
 
+    user = request.user
+    authenticated = user.is_authenticated()
     if request.method == 'POST':
         try:
+            if not authenticated:
+                return JsonResponse(
+                        {'message': 'Por favor inicie sesion para continuar',
+                         'authenticated': False}
+                        )
 
-            shoppingCart = ShoppingCart()
-            shoppingCart.user = User.objects.get(id=request.user.id)
+            shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
             shoppingCart.value = request.POST.get('cartTotal')
-            shoppingCart.active = request.POST.get('cartTotal')
-
+            shoppingCart.active = True
             shoppingCart.save()
 
-            return JsonResponse({'message': 'Done'})
+            return JsonResponse({'message': '', 'authenticated': authenticated})
 
         except Exception as e:
-
-            return JsonResponse({'Error': e.message})
+            return JsonResponse({'message': e})
     else:
 
         msg = 'Wrong method specified!'
-        return JsonResponse({'message': msg})
+        return JsonResponse({'message': msg, 'authenticated': authenticated})
