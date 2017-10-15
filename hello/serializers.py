@@ -16,7 +16,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class ProducerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producer
-        fields = ('id','identificationNumber', 'name', 'address', 'latitude', 'longitude', 'phoneNumber', 'cooperative', 'active')
+        fields = ('id', 'typeIdentification', 'identificationNumber', 'name', 'image', 'description','address', 'city', 'latitude', 'longitude', 'phoneNumber', 'cooperative', 'active')
 
 class OrdersSerializer(serializers.HyperlinkedModelSerializer):
      Status = serializers.StringRelatedField(source='status', read_only=True)
