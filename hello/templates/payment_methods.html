@@ -27,17 +27,75 @@
     </div>
 </section>
 
+<p class="h2" style="text-align: center;">Métodos de Pago</p>
+<div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:none;">
+    <button id="list_payment_btn" type="button" style="margin-left: 3cm; margin-bottom: 1cm;" class="btn btn-success btn-sm">Agregar Medio de Pago</button>
 
-<div class="container" id="payment_methods" data-flag="{{flag}}">
-
-
+        <div class="container">
+            <!--wishlist-cart-1-->
+            <div class="woocommerce shopping-cart-1">
+                <form class="woocommerce-cart-form" action="#" method="post">
+                    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents shopping-cart-content table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">NÚMERO TARJETA</th>
+                                <th class="product-name">NOMBRE DEL TITULAR</th>
+                                <th class="product-price">AGREGADA</th>
+                                <th class="product-remove"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for method in methods %}
+                            <tr class="woocommerce-cart-form__cart-item cart_item shopping-cart-item">
+                                <td class="product-name" data-title="Product">
+                                    <a href="#">{{method.token}}</a>
+                                </td>
+                                <td class="product-name" data-title="Product">
+                                    <a href="#">{{method.displayName}}</a>
+                                </td>
+                                <td class="product-price" data-title="Price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol"></span>{{method.createdDate|date:"Y/m/d"}}</span>
+                                </td>
+                                <td class="product-remove">
+                                    <a class="remove fa fa-close" data-id="{{method.id}}" data-url="{% url 'removePaymentMethods'%}"></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!-- end wishlist-cart-1-->
+        </div>
 </div>
 
-<button id="new_method_btn" type="button" style="margin-left: 3cm; margin-bottom: 2cm;" class="btn btn-success btn-sm" >
-    Agregar Medio de Pago
-</button>
+<div id="new_method" class="page-content p-t-40 p-b-90" style="display:none;">
+ <h4 class="checkout-heading">Nuevo Medio de Pago</h4>
+            <div class="introduce">
+                <p>Tarjetas de Credito Nueva
 
-<div id="new_method" class="page-content p-t-40 p-b-90" style="display: none;">
+                    <img src="../static/images/icons/ic-payment-method-01.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-02.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-03.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-04.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-05.png" alt="payment"/>
+                </p>
+
+            </div>
+            <div class="input-row m-b-15">
+                <div class="input-col-3 p-r-5">
+                    <input id="card_number" class="theme-input-text" type="text" placeholder="Numero de Tarjeta"/>
+                </div>
+                <div class="input-col-3 p-l-5 p-r-5">
+                    <input id="exp_date" class="theme-input-text" type="text" placeholder="Expira (MM/YY) "/>
+                </div>
+                <div class="input-col-3 p-l-5">
+                    <input id="code" class="theme-input-text" type="text" placeholder="Codigo"/>
+                </div>
+            </div>
+    <br>
+            <button type="button" class="btn btn-success btn-sm" id="sub_new" data-url="{% url 'addPaymentMethod'%}">Guardar</button>
 
 </div>
 
@@ -90,7 +148,7 @@
     </div>
 </div>
 {% include "footer.html" %}
-<script src="../static/js/payment_methods.js"></script>
+<script src="../static/js/payment_methods.js" type="text/javascript"></script>
 
 
 </body>
