@@ -39,7 +39,8 @@
         // Hide loader
         $('.page-loader').fadeOut('slow', function () {
             $(this).remove();
-        });}
+        });
+    }
 
     function selectCategory(pos) {
 

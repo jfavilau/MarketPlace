@@ -304,7 +304,7 @@ def api_root(request, format=None):
     return Response({
         'producers': reverse('producer-list', request=request, format=format),
     })
-  
+
 def indexOrders(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Orders/index.html')
@@ -342,3 +342,30 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
             return ShoppingCart.objects.filter(user=user)
         else:
             return ShoppingCart.objects.all()
+
+@csrf_exempt
+def shoppingCartPersist(request):
+
+    user = request.user
+    authenticated = user.is_authenticated()
+    if request.method == 'POST':
+        try:
+            if not authenticated:
+                return JsonResponse(
+                        {'message': 'Por favor inicie sesion para continuar',
+                         'authenticated': False}
+                        )
+
+            shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
+            shoppingCart.value = request.POST.get('cartTotal')
+            shoppingCart.active = True
+            shoppingCart.save()
+
+            return JsonResponse({'message': '', 'authenticated': authenticated})
+
+        except Exception as e:
+            return JsonResponse({'message': e})
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg, 'authenticated': authenticated})
