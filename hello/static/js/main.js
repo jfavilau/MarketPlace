@@ -7,6 +7,12 @@
     //var baseURL = "http://localhost:8000/";
     var baseURL = window.location.origin+'/';
 
+    $(window).on('load', function () {
+        $('.page-loader').fadeOut('slow', function () {
+            $(this).remove();
+        });
+    });
+
     $(document).ready(function () {
         /*fixed navbar when scroll*/
         var navbar = $("#js-navbar"),
