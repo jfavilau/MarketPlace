@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework import viewsets
 from .models import Product
-from .models import Category
+from .models import Category, Basket, ItemsPerBasket
 from .models import Product, Producer, Order, Item, ShoppingCart,OrderStatus
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -62,3 +62,15 @@ class ShoppingCarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ShoppingCart
         fields = ('id','createdDate','items','orders')
+
+class ItemPerBasketSerializer(serializers.HyperlinkedModelSerializer):
+    product = ProductSerializer(many=False, read_only=True)
+    class Meta:
+        model = ItemsPerBasket
+        fields = ('id', 'quantity', 'product')
+
+class BasketSerializer(serializers.HyperlinkedModelSerializer):
+    items = ItemPerBasketSerializer(many=True, read_only=True)
+    class Meta:
+        model = Basket
+        fields = ('id', 'name', 'price', 'description', 'items')
