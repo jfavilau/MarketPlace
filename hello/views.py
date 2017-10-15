@@ -2,12 +2,13 @@ import json
 from time import strftime, gmtime
 
 from django.core.mail import send_mail
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
 #from .models import Greeting
 
 # Create your views here.
 from django.shortcuts import render
+from django.core import serializers
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -23,6 +24,7 @@ from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import BasketSerializer
 
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
@@ -77,6 +79,33 @@ def addPaymentMethod(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+@csrf_exempt
+def registro (request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        username = jsonUser['username']
+        first_name = jsonUser['name']
+        last_name = jsonUser['lastname']
+        password = jsonUser['pass1']
+        password2 = jsonUser['pass2']
+        email = jsonUser['email']
+
+        auxUser = User.objects.filter(username=username)
+
+        if not password == password2:
+            return HttpResponse('{"Success": false,"message":"Las contrasenas son diferentes"}')
+        elif auxUser:
+            return HttpResponse('{"Success": false,"message":"El usuario ya existe"}')
+        else:
+            user_model = User.objects.create_user(username=username, password=password)
+            user_model.first_name = first_name
+            user_model.last_name = last_name
+            user_model.email = email
+            user_model.save()
+            return HttpResponse('{"Success": true,"message":"Usuario creado"}')
+
+def regUser(request):
+    return render(request, 'user/register.html')
 
 def sendEmail(request):
 
@@ -160,6 +189,14 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all baskets.
+    """
+    queryset = Basket.objects.all()
+    serializer_class = BasketSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 

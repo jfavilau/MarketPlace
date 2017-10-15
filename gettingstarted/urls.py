@@ -15,6 +15,7 @@ router = routers.DefaultRouter()
 router.register(r'users', hello.views.UserViewset, base_name="users")
 router.register(r'products', hello.views.ProductViewset, base_name="products")
 router.register(r'categories', hello.views.CategoryViewset, base_name="categories")
+router.register(r'baskets', hello.views.BasketViewset, base_name="baskets")
 router.register(r'orders', hello.views.OrdersViewSet)
 router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
 router.register(r'orderstatus', hello.views.OrderStatusViewSet)
@@ -35,6 +36,8 @@ urlpatterns = [
     url(r'^registerProducer/', hello.views.regProducer, name='regProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
+    url(r'^addUser/$',hello.views.registro, name='addUser'),
+    url(r'^regUser/$',hello.views.regUser, name='regUser'),
     url(r'^orders', hello.views.indexOrders, name='orders'),
     url(r'^updateOrder', hello.views.updateOrder, name='updateOrder'),
     url(r'^oadmin', hello.views.indexOrdersAdmin, name='ordersadmin'),
