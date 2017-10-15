@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <!--if IE 8html.no-js.lt-ie9(lang='en')
 -->
 <!-- [if gt IE 8] <!-->
@@ -43,9 +44,13 @@
 	<script>
             function enviarForm() {
 
-                var info = {identificationNumber : $('#identificationNumber').val(),
+                var info = {typeIdentification: $('#typeIdentification').val(),
+                            identificationNumber : $('#identificationNumber').val(),
+                            image: $('#image').val(),
                             name: $('#name').val(),
+                            description: $('#description').val(),
                             address: $('#address').val(),
+                            city: $('#city').val(),
                             latitude: $('#latitude').val(),
                             longitude: $('#longitude').val(),
                             phoneNumber: $('#phoneNumber').val(),
@@ -59,9 +64,15 @@
                     data: JSON.stringify(info),
                     contentType: "application/json; charset=UTF-8",
                     dataType: "json",
-                    success: function(data) {
-						alert("¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión, el administrador se comunicará con usted cuando termine el proceso");
-                        window.location = "{% url 'index' %}";
+                    success: function(data, textStatus, xhr) {
+                        if (xhr.status == 201){
+                            console.log(data);
+						    alert("¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión, el administrador se comunicará con usted cuando termine el proceso");
+                            window.location = "{% url 'index' %}";
+                        }else{
+                            alert("¡HA OCURRIDO UN ERROR EN LA SOLICITUD INTENTE DE NUEVO!");
+                            window.location = "{% url 'regProducer' %}";
+                        }
                     },
                     failure: function(error) {
                         alert("Hubo un error: " + error);
@@ -130,12 +141,21 @@
 						<!-- .register-1-->
 						<div class="register-1">
 							<form class="theme-form" method="post" onsubmit="return enviarForm();">
-								<input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación" />
-								<input id="name" class="theme-input-text" type="text" placeholder="Nombre" />
-								<input id="address" class="theme-input-text" type="text" placeholder="Dirección" />
-								<input id="latitude" class="theme-input-text" type="text" placeholder="Latitud" />
-								<input id="longitude" class="theme-input-text" type="text" placeholder="Longitud" />
-								<input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono" />
+								<div class="header-2" style="color: #649c47" align="center"><h3>REGISTRAR PRODUCTOR</h3></div>
+                                <select id="typeIdentification" class="theme-input-text">
+                                    <option selected>Cedula de Ciudadanía</option>
+                                    <option>Cedula de Extranjería</option>
+                                    <option>Pasaporte</option>
+                                </select><br></br>
+								<input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
+								<input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
+								<input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+                                <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
+								<input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
+								<input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+								<input id="latitude" name="latitude" type="hidden" value="0.0" />
+								<input id="longitude" name="longitude" type="hidden" value="0.0" />
+								<input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
 								<input id="cooperative" name="cooperative" type="hidden" value="1" />
 								<input id="active" name="active" type="hidden" value="false" />
 								<button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">REGISTRAR</button>
@@ -146,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-    </section>    
+    </section>
 
     <footer>
     <!--.footer-2-->

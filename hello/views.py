@@ -2,12 +2,13 @@ import json
 from time import strftime, gmtime
 
 from django.core.mail import send_mail
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
 #from .models import Greeting
 
 # Create your views here.
 from django.shortcuts import render
+from django.core import serializers
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
@@ -15,7 +16,7 @@ from rest_framework import generics, viewsets
 from rest_framework import permissions
 from rest_framework import mixins
 from rest_framework.decorators import api_view
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
@@ -23,15 +24,35 @@ from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import BasketSerializer
+
+from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
+from .serializers import OrdersSerializer
+from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
 def index(request):
     return render(request, 'index.html')
 
+def catalogue(request):
+    return render(request, 'catalogue.html')
+
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
 
+def indexOrdersAdmin(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Admin/Orders/index.html')
+
+@csrf_exempt
+def updateOrder(request):
+    if request.method == 'POST':
+        jsonOrder = json.loads(request.body)
+        order = Order.objects.filter(id=jsonOrder['id']).update(
+            user=jsonOrder['user'], status=jsonOrder['status'], #statusDate = jsonOrder['statusDate'],
+            schedule = jsonOrder['schedule'],paymentMethod = jsonOrder['paymentMethod'],shoppingCart = jsonOrder['shoppingCart'])
+        return HttpResponse("Orden Actualizada")
 
 @csrf_exempt
 def addPaymentMethod(request):
@@ -58,6 +79,33 @@ def addPaymentMethod(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+@csrf_exempt
+def registro (request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        username = jsonUser['username']
+        first_name = jsonUser['name']
+        last_name = jsonUser['lastname']
+        password = jsonUser['pass1']
+        password2 = jsonUser['pass2']
+        email = jsonUser['email']
+
+        auxUser = User.objects.filter(username=username)
+
+        if not password == password2:
+            return HttpResponse('{"Success": false,"message":"Las contrasenas son diferentes"}')
+        elif auxUser:
+            return HttpResponse('{"Success": false,"message":"El usuario ya existe"}')
+        else:
+            user_model = User.objects.create_user(username=username, password=password)
+            user_model.first_name = first_name
+            user_model.last_name = last_name
+            user_model.email = email
+            user_model.save()
+            return HttpResponse('{"Success": true,"message":"Usuario creado"}')
+
+def regUser(request):
+    return render(request, 'user/register.html')
 
 def sendEmail(request):
 
@@ -133,6 +181,22 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all categories.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all baskets.
+    """
+    queryset = Basket.objects.all()
+    serializer_class = BasketSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
@@ -231,6 +295,7 @@ class ProducerList(generics.ListCreateAPIView):
     serializer_class = ProducerSerializer
 
 class ProducerDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (AllowAny,)
     queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
 
@@ -239,3 +304,41 @@ def api_root(request, format=None):
     return Response({
         'producers': reverse('producer-list', request=request, format=format),
     })
+  
+def indexOrders(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Orders/index.html')
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    """
+     API endpoint that allows Products to be viewed or edited.
+     """
+    queryset = Order.objects.all()
+    serializer_class = OrdersSerializer
+
+class OrderStatusViewSet(viewsets.ModelViewSet):
+     """
+     API endpoint that allows Products to be viewed or edited.
+     """
+     queryset = OrderStatus.objects.all()
+     serializer_class = OrderStatusSerializer
+
+class ShoppingCarViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = ShoppingCart.objects.all()
+    serializer_class = ShoppingCarSerializer
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        #print user
+        #print self.request.user.is_staff
+        #print self.request.user.is_superuser
+        if not self.request.user.is_superuser:
+            return ShoppingCart.objects.filter(user=user)
+        else:
+            return ShoppingCart.objects.all()
