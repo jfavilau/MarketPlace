@@ -35,6 +35,9 @@
     <link href="../static/css/switcher.css" rel="stylesheet">
     <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
     <link href="../static/css/retina.css" rel="stylesheet">
+    <style>
+        .alnright { text-align: right; }
+    </style>
     <!--
     Favicons
     ==================================================
@@ -295,8 +298,9 @@
                             <tr>
                                 <th>N Pedido</th>
                                 <th>Costo</th>
-                                <th>Detalle</th>
                                 <th>Estado</th>
+                                <th>Detalle</th>
+                                <th> Verificar pedido </th>
                             </tr>
                         </thead>
                         <tbody id="orders">
@@ -558,9 +562,15 @@
                  });
             };
 
+            var currentOrder = {};
+
             var getCurrency = function (value) {
                 return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             };
+
+            $( "#changing" ).click(function() {
+                getDetails(currentOrder);
+            });
 
             var getDetails = function (order) {
                 var tbody = "";
@@ -571,13 +581,29 @@
                              +   "<td>" + value.product.name + "</td>"
                              +   "<td>" + value.quantityTotal + "</td>"
                              +   "<td>" + getCurrency(value.product.price) +"</td>"
-                             + "</tr>"
+                             + "</tr>";
                 });
                 $( "#nOrder" ).empty().append( order.id );
                 $( "#status" ).empty().append( order.orders[0].Status );
                 $( "#products" ).empty().append( tbody );
                 $( "#totalOrder" ).empty().append( getCurrency (total) );
                 $( "#dateOrder" ).empty().append( order.createdDate );
+            };
+
+            var setCheckingOrder = function (order) {
+                currentOrder = order;
+                $( "#nOrder2" ).empty().append( order.id );
+                $( "#direccion" ).empty().append( order.orders[0].deliveryAddress );
+                $( "#deliveryDate" ).empty().append( order.orders[0].statusDate );
+                $( "#PaymentMethod" ).empty().append( order.orders[0].PaymentMethod );
+
+                var total = 0, discount = 0;
+                $.each(order.items, function( index, value ) {
+                    total += value.quantityTotal*value.product.price;
+                });
+                $( "#discount" ).empty().append( getCurrency (discount));
+                $( "#subtotal" ).empty().append( getCurrency (total));
+                $( "#totalOrder2" ).empty().append(getCurrency ( total - discount));
             };
 
             var getOrders = function () {
@@ -595,8 +621,9 @@
                             + "<tr>"
                             + "<td>" + value.id + "</td>"
                             + "<td>" + getCurrency(total) + "</td>"
-                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
                             + "<td>" + value.orders[0].Status + "</td>"
+                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
+                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#checkingOrder'>Check</a></td>"
                             + "</tr>";
                     });
                     //console.log(tbody)
@@ -606,10 +633,14 @@
                         var col = $(this).parent().children().index($(this));
                         //console.log(col)
                         //console.log($(this).attr("id"))
-                        if( col == 2) {
+                        if( col == 3 || col == 4 ) {
                              _doAjax("GET", "shoppingcar/" + $(this).attr("id"),{},function (resp) {
                                  //console.log(resp);
-                                 getDetails(resp);
+                                 if(col == 3)
+                                    getDetails(resp);
+                                 else
+                                     setCheckingOrder(resp);
+
                              },null,true);
                         }
                     });
@@ -619,6 +650,91 @@
             getOrders();
         });
     </script>
+
+        <!-- Modal -->
+    <div id="checkingOrder" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Detalle de pedido # <span id="nOrder2"></span> </h4>
+          </div>
+          <div class="modal-body">
+              <div class="row" >
+                  <div class="col-lg-6">
+                    <table class="table table-condensed table-striped">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <strong> Dirección:</strong> <span id="direccion"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Fecha de entrega:</strong> <span id="deliveryDate"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Método de pago:</strong> <span id="PaymentMethod"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Productos: </strong>
+                                <a id="changing" href="" data-toggle='modal' data-target='#details' >Modificar</a>
+                            </td>
+                        </tr>
+                      </tbody>
+                  </table>
+
+                  </div>
+                  <div class="col-lg-6">
+                    <table class="table table-condensed table-striped">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-primary">Realizar Pedido</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Sub total:</strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="subtotal"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Descuento:</strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="discount">0</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Total: </strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="totalOrder2" ></span>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Modal -->
     <div id="details" class="modal fade" role="dialog">
@@ -654,6 +770,9 @@
 
       </div>
     </div>
+
+
+
 </body>
 
 </html>
