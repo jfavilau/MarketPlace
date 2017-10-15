@@ -6,8 +6,7 @@
 
     var categories;
 
-    //var baseURL = "https://cors.io/?https://marketplace201720.herokuapp.com/";
-    var baseURL = "http://localhost:8000/";
+    var baseURL = window.location.origin+'/';
 
     $(window).on('load', function () {
             downloadCategories();
@@ -52,34 +51,40 @@
 
         $.each(category.products, function(i, item) {
 
-            productsHTML += '<div class="col-md-4 col-sm-6">'+
-'                            <div class="product-1" style="text-align: center;">'+
-'                                <div class="product-image">'+
-'                                    <div class="image-holder">'+
-'                                        <img src="'+ item.image +'" alt="' + item.name +'" style="width:180px;height:180px;" />'+
-'                                    </div>'+
-'                                    <div class="product-action">'+
-'                                        <div class="product-action-list">'+
-'                                            <div class="action-item">'+
-'                                                <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>'+
-'                                            </div>'+
-'                                            <div class="action-item">'+
-'                                                <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>'+
-'                                            </div>'+
-'                                            <div class="action-item">'+
-'                                                <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>'+
-'                                            </div>'+
-'                                        </div>'+
-'                                    </div>'+
-'                                </div>'+
-'                                <div class="product-content">'+
-'                                    <h3 class="title">'+
-'                                        <a class="name" href="product-details-1.html">' + item.name +'</a>'+
-'                                    </h3>'+
-'                                    <p class="price">$ ' + item.price + ' / ' + item.unit +'</p>'+
-'                                </div>'+
-'                            </div>'+
-'                        </div>';
+        productsHTML += '<div class="col-md-4 col-sm-6 product-1 miso-prd-holder">' +
+                                '<div class=\"miso-prd-id\">' + item.id + '</div>' +
+                                '<div class=\"miso-prd-qty\"></div>' +
+                                '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
+
+                                  '<div class=\"image-holder\">' +
+                                    '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px;\">' +
+                                  '</div>' +
+
+                                  '<div class=\"product-action miso-cart-action\">' +
+                                    '<div class=\"product-action-list\">' +
+                                        '<div class=\"action-item\">' +
+                                            '<a class=\"fa fa-search-plus\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\" data-product="' + item.id +'" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Ver detalle\"></a>' +
+                                        '</div>' +
+                                        '<div class=\"action-item miso-cart-plus\">' +
+                                            '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
+                                        '</div>' +
+                                        '<div class=\"action-item miso-cart-minus\">' +
+                                            '<a class=\"fa fa-minus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Remover\"></a>' +
+                                        '</div>' +
+                                        '<div class=\"action-item miso-cart-clear\">' +
+                                            '<a class=\"fa fa-remove\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Limpiar\"></a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                  '</div>' +
+
+                                  '<div class="product-content">'+
+                                    '<h3 class="title">'+
+                                        '<a class="name" href="product-details-1.html">' + item.name +'</a>'+
+                                    '</h3>'+
+                                    '<p class="price">$ ' + item.price + ' / ' + item.unit +'</p>'+
+                                '</div>'+
+                                '</div>' +
+                            '</div>';
 
         });
 
@@ -89,3 +94,4 @@
     }
 
 })(jQuery);
+

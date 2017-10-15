@@ -4,6 +4,9 @@
     // USE STRICT
     "use strict";
 
+    //var baseURL = "https://cors.io/?https://marketplace201720.herokuapp.com/";
+    var baseURL = window.location.origin+'/';
+
     /*Preloader animsition*/
     $(window).on('load', function () {
         $('.page-loader').fadeOut('slow', function () {
@@ -35,7 +38,13 @@
     });
 
     function downloadProducts() {
+
+        console.log("Downloading products");
+
         $.getJSON(baseURL + "api/products/").done(function(data) {
+
+            console.log("Data:" + data);
+
             $.each(data, function(i, item) {
 
                 var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
@@ -76,6 +85,7 @@
                 $( "#products-carousel" ).append( myvar );
 
             });
+            refreshCartGuiOperation();
         });
     }
 

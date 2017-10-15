@@ -4,7 +4,7 @@
     // USE STRICT
     "use strict";
 
-    var baseURL = "https://cors.io/?https://marketplace201720.herokuapp.com/";
+    var baseURL = window.location.origin+'/';
 
     $(document).ready(function () {
         /*fixed navbar when scroll*/
@@ -22,7 +22,6 @@
                 }
             });
         }
-
 
         /*Hamburger Menu*/
         var hamburgerAnimation = $(".hamburger.has-animation");
