@@ -116,4 +116,25 @@
 
     });
 
+    /*Product detail*/
+    $('#myModal').on('show.bs.modal', function(e) {
+      var product_id = e.relatedTarget.dataset.product;
+
+      $(".input-size").val("");
+
+      $.getJSON(baseURL + "api/products/" + product_id).done(function(data) {
+
+        var description = "<p>" + data.description + "</p>" +
+                            '<p>Disponible</p>' +
+                            '<p>SKU: ' + data.id + '</p>';
+
+        $( "#product-detail-image" ).html( "<img src=" + data.image + " alt=" + data.name + "/>" );
+        $( "#product-detail-name" ).html( "<h3>" + data.name + "</h3>" );
+        $( "#product-detail-price" ).html( "<p> $" + data.price + " / " + data.unit +"</p>" );
+        $( "#product-detail-description" ).html( description );
+
+      });
+
+    });
+
 })(jQuery);
