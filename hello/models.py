@@ -88,13 +88,13 @@ class Cooperative(models.Model):
                 return self.name
 
 class Producer (models.Model):
-        typeIdentification = models.CharField(max_length=150, blank=False, null=False, default="Cedula de Ciudadanía")
+        typeIdentification = models.CharField(max_length=150, blank=False, null=False, default="Cedula de Ciudadania")
         identificationNumber = models.CharField(max_length=150, blank=False, null=False)
         name = models.CharField(max_length=150, blank=False, null=False)
         image = models.CharField(max_length=250, blank=False, null=False, default="https://definicion.mx/wp-content/uploads/2013/11/usuario.jpg")
         description = models.TextField(blank=True, null=True)
         address = models.CharField(max_length=150, blank=False, null=False)
-        city = models.CharField(max_length=150, blank=False, null=False, default="Bogotá")
+        city = models.CharField(max_length=150, blank=False, null=False, default="Bogota")
         latitude = models.FloatField(null=False, blank=False, default=None)
         longitude = models.FloatField(null=False, blank=False, default=None)
         phoneNumber = models.CharField(max_length=15, blank=False, null=False)
