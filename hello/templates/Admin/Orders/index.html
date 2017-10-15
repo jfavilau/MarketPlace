@@ -541,8 +541,8 @@
     -->
     <script>
         $( document ).ready(function() {
-            var url = "http://localhost:8000/api/";
-            var url2 = "http://localhost:8000/";
+            var url =  window.location.origin + "/api/";
+            var url2 = window.location.origin + "/";
             var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
                  if (!data) data = {};
                  if (!fnError) fnError = function (err) {
