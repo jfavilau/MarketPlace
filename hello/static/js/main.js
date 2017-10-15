@@ -3,7 +3,6 @@
 (function ($) {
     // USE STRICT
     "use strict";
-
     //var baseURL = "https://marketplace201720.herokuapp.com/";
     //var baseURL = "http://localhost:8000/";
     var baseURL = window.location.origin+'/';
@@ -24,7 +23,6 @@
                 }
             });
         }
-
 
         /*Hamburger Menu*/
         var hamburgerAnimation = $(".hamburger.has-animation");
