@@ -1,7 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django import forms
+from django.forms import ModelForm
 # Model Updated, Erick Coral, v 0.1.
+
+class UserForm (ModelForm):
+    class Meta :
+        model = User
+        fields = ['last_name', 'first_name']
+
+    nombre = forms.CharField(max_length=20)
+    apellido = forms.CharField(max_length=20)
+    email = forms.EmailField()
+    nombre_usuario = forms.CharField(max_length=50)
+    clave = forms.CharField(widget=forms.PasswordInput())
+    confirme_clave = forms.CharField(widget=forms.PasswordInput())
 
 class Address(models.Model):
         address = models.CharField(max_length=150, blank=False, null=False)
