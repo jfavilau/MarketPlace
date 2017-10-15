@@ -14,6 +14,9 @@ import hello.views
 router = routers.DefaultRouter()
 router.register(r'users', hello.views.UserViewset, base_name="users")
 router.register(r'products', hello.views.ProductViewset, base_name="products")
+router.register(r'orders', hello.views.OrdersViewSet)
+router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
+router.register(r'orderstatus', hello.views.OrderStatusViewSet)
 
 # API endpoints
 
@@ -30,6 +33,9 @@ urlpatterns = [
     url(r'^registerProducer/', hello.views.regProducer, name='regProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
+    url(r'^orders', hello.views.indexOrders, name='orders'),
+    url(r'^updateOrder', hello.views.updateOrder, name='updateOrder'),
+    url(r'^oadmin', hello.views.indexOrdersAdmin, name='ordersadmin'),
 ]
 
 # Login and logout views for the browsable API

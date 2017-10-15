@@ -24,6 +24,8 @@ from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
 from .serializers import ProducerSerializer
+from .serializers import OrdersSerializer
+from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
 def index(request):
@@ -32,6 +34,18 @@ def index(request):
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
 
+def indexOrdersAdmin(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Admin/Orders/index.html')
+
+@csrf_exempt
+def updateOrder(request):
+    if request.method == 'POST':
+        jsonOrder = json.loads(request.body)
+        order = Order.objects.filter(id=jsonOrder['id']).update(
+            user=jsonOrder['user'], status=jsonOrder['status'], #statusDate = jsonOrder['statusDate'],
+            schedule = jsonOrder['schedule'],paymentMethod = jsonOrder['paymentMethod'],shoppingCart = jsonOrder['shoppingCart'])
+        return HttpResponse("Orden Actualizada")
 
 @csrf_exempt
 def addPaymentMethod(request):
@@ -240,3 +254,41 @@ def api_root(request, format=None):
     return Response({
         'producers': reverse('producer-list', request=request, format=format),
     })
+
+def indexOrders(request):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'Orders/index.html')
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    """
+     API endpoint that allows Products to be viewed or edited.
+     """
+    queryset = Order.objects.all()
+    serializer_class = OrdersSerializer
+
+class OrderStatusViewSet(viewsets.ModelViewSet):
+     """
+     API endpoint that allows Products to be viewed or edited.
+     """
+     queryset = OrderStatus.objects.all()
+     serializer_class = OrderStatusSerializer
+
+class ShoppingCarViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = ShoppingCart.objects.all()
+    serializer_class = ShoppingCarSerializer
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        #print user
+        #print self.request.user.is_staff
+        #print self.request.user.is_superuser
+        if not self.request.user.is_superuser:
+            return ShoppingCart.objects.filter(user=user)
+        else:
+            return ShoppingCart.objects.all()
