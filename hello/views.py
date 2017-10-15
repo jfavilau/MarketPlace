@@ -356,10 +356,27 @@ def shoppingCartPersist(request):
                          'authenticated': False}
                         )
 
+            items = json.loads(request.POST.get('items'))
             shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
             shoppingCart.value = request.POST.get('cartTotal')
             shoppingCart.active = True
             shoppingCart.save()
+
+            for item in items['items']:
+                product = Product.objects.filter(id=item['id']).first()
+                cartItem = Item(
+                        product=product,
+                        quantityOrganic=0,
+                        quantityBio=0,
+                        quantityClean=0,
+                        quantityGeneral=item['quantity'],
+                        quantityTotal=item['quantity'],
+                        availability=True,
+                        totalPrice= item['quantity'] * product.price,
+                        shoppingCart=shoppingCart,
+                        addedDate=strftime("%Y-%m-%d", gmtime()),
+                        )
+                cartItem.save()
 
             return JsonResponse({'message': '', 'authenticated': authenticated})
 

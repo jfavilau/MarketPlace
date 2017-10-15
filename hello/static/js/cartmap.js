@@ -14,6 +14,8 @@ function CartMap() {
   this.clearItem = clearItem;
   this.getCartCount = getCartCount;
   this.getCartTotal = getCartTotal;
+  this.cartItemsToJSON = cartItemsToJSON;
+  this.clearCart = clearCart;
   this.items = items;
 
   this.persistCart = persistCart;
@@ -33,11 +35,24 @@ function items() {
   return this.cartmap;
 }
 
+function cartItemsToJSON() {
+  var json = '{\"items":[';
+  // var json = '{[';
+  var cartmap = this.cartmap;
+  for (item in cartmap) {
+    json += JSON.stringify(cartmap[item]);
+    json += ',';
+  }
+  json = json.substring(0, json.length - 1);
+  json += ']}'
+  return json;
+}
+
 function getCartTotal() {
   var total = 0;
   var str = '';
   var cartmap = this.cartmap;
-  for(item in cartmap){
+  for (item in cartmap) {
     str = cartmap[item].price;
     total += parseInt(str.match(/[0-9]+[.|,]?[0-9]*/));
   }
@@ -48,7 +63,7 @@ function getCartTotal() {
 function getCartCount() {
   var count = 0;
   var cartmap = this.cartmap;
-  for (item in cartmap){
+  for (item in cartmap) {
     count += cartmap[item].quantity;
   }
   // return Object.keys(this.cartmap).length;
@@ -115,4 +130,8 @@ function restoreCart() {
     cartmap = JSON.parse(cartmap);
     this.cartmap = cartmap;
   }
+}
+
+function clearCart() {
+  Cookies.remove(cartmapcookie);
 }

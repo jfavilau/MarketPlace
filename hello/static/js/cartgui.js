@@ -16,7 +16,13 @@ function refreshCartGuiPersistance(){
   var checkout = $('button.btn-checkout');
   checkout.click(function(){
     var cartmap = new CartMap();
-    $.post('shoppingCartPersist/',{'cartTotal': cartmap.getCartTotal()}, function(data, status){
+    var cartItems = JSON.stringify(cartmap.items());
+    $.post('shoppingCartPersist/',
+    {
+      'cartTotal': cartmap.getCartTotal(),
+      'items': cartmap.cartItemsToJSON(),
+    },
+    function(data, status){
       var authenticated = data.authenticated;
       var message = data.message;
       if (!authenticated || message != '') {
