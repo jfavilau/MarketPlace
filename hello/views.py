@@ -23,6 +23,7 @@ from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import BasketSerializer
 
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
@@ -160,6 +161,14 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all baskets.
+    """
+    queryset = Basket.objects.all()
+    serializer_class = BasketSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 

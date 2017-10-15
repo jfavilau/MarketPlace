@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 # Model Updated, Erick Coral, v 0.1.
 
 class Address(models.Model):
-
         address = models.CharField(max_length=150, blank=False, null=False)
         detail = models.CharField(max_length=150, blank=False, null=False, default="")
         latitude = models.FloatField(null=False, blank=False, default=None)
@@ -13,7 +12,6 @@ class Address(models.Model):
         user = models.ForeignKey(User)
 
 class PaymentMethod (models.Model):
-
         token = models.CharField(max_length=150, blank=False, null=False)
         displayName = models.CharField(max_length=150, blank=False, null=False)
         createdDate = models.DateField(blank=False, null=False)
@@ -70,7 +68,6 @@ class City(models.Model):
                 return self.name
 
 class Cooperative(models.Model):
-
         name = models.CharField(max_length=150, blank=False, null=False)
         city = models.ForeignKey(City)
         active = models.BooleanField(null=False, blank=False)
@@ -109,7 +106,6 @@ class Product(models.Model):
                 return self.name
 
 class Item (models.Model):
-
         quantityOrganic = models.FloatField(null=False, blank=False, default=None)
         quantityBio = models.FloatField(null=False, blank=False, default=None)
         quantityClean = models.FloatField(null=False, blank=False, default=None)
@@ -122,18 +118,20 @@ class Item (models.Model):
         addedDate = models.DateField(blank=False, null=False)
 
 class Basket (models.Model):
-
         name = models.CharField(max_length=150, blank=False, null=False)
         price = models.FloatField(null=False, blank=False, default=None)
         description = models.TextField(blank=True, null=True)
         active = models.BooleanField(null=False, blank=False)
+        def __str__(self):
+                return self.name
 
 class ItemsPerBasket (models.Model):
-
-        item = models.ForeignKey(Item)
-        basket = models.ForeignKey(Basket)
+        product = models.ForeignKey(Product)
+        basket = models.ForeignKey(Basket, related_name='items')
+        quantity = models.FloatField(null=False, blank=False, default=None)
         active = models.BooleanField(null=False, blank=False)
-
+        def __str__(self):
+                return self.product.name
 
 class RegisteredUser(models.Model):
         user = models.OneToOneField(User)
