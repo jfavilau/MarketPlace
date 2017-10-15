@@ -19,25 +19,27 @@ class PaymentMethod (models.Model):
         createdDate = models.DateField(blank=False, null=False)
         user = models.ForeignKey(User)
         active = models.BooleanField(null=False, blank=False, default=True)
+        def __unicode__(self):
+                return self.displayName
 
 
 class OrderStatus (models.Model):
-
         status = models.CharField(max_length=150, blank=False, null=False)
+        def __unicode__(self):
+                return self.status
 
 class ScheduleOptions (models.Model):
-
         weekDay = models.CharField(max_length=3, blank=False, null=False)
         initialDate = models.DateField(blank=False, null=False)
         finalDate = models.DateField(blank=False, null=False)
+        def __unicode__(self):
+                return self.weekDay
 
 class ShoppingCart (models.Model):
-
         user = models.OneToOneField(User)
-        createdDate = models.DateField(blank=False, null=False)
+        createdDate = models.DateField(blank=False, null=False, auto_now_add=True)
         value = models.FloatField(null=False, blank=False, default=0)
         active = models.BooleanField(null=False, blank=False, default=True)
-
 
 class Order(models.Model):
         user = models.ForeignKey(User)
@@ -45,8 +47,8 @@ class Order(models.Model):
         statusDate = models.DateField(blank=False, null=False)
         schedule = models.ForeignKey(ScheduleOptions)
         paymentMethod = models.ForeignKey(PaymentMethod)
-        createdDate = models.DateField(blank=False, null=False)
-        shoppingCart = models.ForeignKey(ShoppingCart)
+        createdDate = models.DateField(blank=False, null=False,auto_now_add=True)
+        shoppingCart = models.ForeignKey(ShoppingCart, related_name='orders')
 
 class Category(models.Model):
 
@@ -112,7 +114,7 @@ class Item (models.Model):
         availability = models.BooleanField(null=False, blank=False)
         totalPrice = models.FloatField(null=False, blank=False, default=0)
         product = models.ForeignKey(Product)
-        shoppingCart = models.ForeignKey(ShoppingCart)
+        shoppingCart = models.ForeignKey(ShoppingCart,related_name='items')
         addedDate = models.DateField(blank=False, null=False)
 
 class Basket (models.Model):
