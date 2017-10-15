@@ -52,7 +52,6 @@ class Order(models.Model):
         deliveryAddress = models.CharField(max_length=300, null=True)
 
 class Category(models.Model):
-
         shortName = models.CharField(max_length=3, blank=False, null=False)
         name = models.CharField(max_length=150, blank=False, null=False)
         def __str__(self):
@@ -102,7 +101,7 @@ class Product(models.Model):
         quantity = models.FloatField(null=False, blank=False, default=None)
         price = models.FloatField(null=False, blank=False, default=None)
         type = models.ForeignKey(Type)
-        category = models.ForeignKey(Category)
+        category = models.ForeignKey(Category, related_name='products')
         producer = models.ForeignKey(Producer)
         cooperative = models.ForeignKey(Cooperative, null=True)
         active = models.BooleanField(null=False, blank=False)

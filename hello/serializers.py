@@ -1,6 +1,9 @@
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework import viewsets
+from .models import Product
+from .models import Category
 from .models import Product, Producer, Order, Item, ShoppingCart,OrderStatus
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,6 +15,15 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'name', 'image', 'description', 'unit', 'price')
+
+# http://www.django-rest-framework.org/api-guide/relations/
+class CategorySerializer(serializers.HyperlinkedModelSerializer):
+    #products = serializers.PrimaryKeyRelatedField( many=True, read_only=True )
+    products = ProductSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Category
+        fields = ('id', 'name', 'products')
 
 class ProducerSerializer(serializers.ModelSerializer):
     class Meta:
