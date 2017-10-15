@@ -13,11 +13,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='order',
-            name='deliveryAddress',
-            field=models.CharField(max_length=300, null=True),
-        ),
         migrations.AlterField(
             model_name='item',
             name='shoppingCart',
