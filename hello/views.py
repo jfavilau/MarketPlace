@@ -305,3 +305,26 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
             return ShoppingCart.objects.filter(user=user)
         else:
             return ShoppingCart.objects.all()
+
+@csrf_exempt
+def shoppingCartPersist(request):
+
+    if request.method == 'POST':
+        try:
+
+            shoppingCart = ShoppingCart()
+            shoppingCart.user = User.objects.get(id=request.user.id)
+            shoppingCart.value = request.POST.get('cartTotal')
+            shoppingCart.active = request.POST.get('cartTotal')
+
+            shoppingCart.save()
+
+            return JsonResponse({'message': 'Done'})
+
+        except Exception as e:
+
+            return JsonResponse({'Error': e.message})
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg})
