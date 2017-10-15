@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^registerProducer/', hello.views.regProducer, name='regProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
+    url(r'^addUser/$',hello.views.registro, name='addUser'),
+    url(r'^regUser/$',hello.views.regUser, name='regUser'),
 ]
 
 # Login and logout views for the browsable API
