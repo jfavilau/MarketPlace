@@ -13,7 +13,10 @@
     });
 
     function downloadCategories() {
+
         $.getJSON(baseURL + "api/categories/").done(function(data) {
+
+            console.log("Categories", data);
 
             categories = data;
 
@@ -24,13 +27,14 @@
                                 '<span class=\"totals\">(' + item.products.length + ')</span>' +
                             '</li>';
 
-                $( "#product-category-list" ).append( myvar ).on('click', 'a', function () {
+                $( "#product-category-list" ).append(myvar);
+                $( "#category" + i).click(function() {
                     selectCategory(i);
                 });
 
             });
 
-            selectCategory(0);
+            hideLoader();
 
         });
     }
@@ -43,6 +47,8 @@
     }
 
     function selectCategory(pos) {
+
+        console.log("Select Category: " + pos);
 
         var category = categories[pos];
 
@@ -89,9 +95,9 @@
 
         });
 
-        $( "#products_by_category" ).replaceWith( productsHTML );
+        $( "#products_by_category" ).html( productsHTML );
 
-        hideLoader();
+        //hideLoader();
     }
 
 })(jQuery);
