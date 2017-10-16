@@ -13,19 +13,26 @@
     });
   });
 
-  function validateInformation() {
-    name = $("#name").val();
-    lastName = $("#lastName").val();
-    address = $("#address").val();
-    details = $("#details").val();
-    country = $("#country").val();
-    department = $("#dpto").val();
-    zip = $("#zip").val();
-    phone = $("#phone").val();
-    email = $("#email").val();
-    cardNumber = $("#card_number").val();
-    expDate = $("#exp_date").val();
-    code = $("#code").val();
+  $("#purchase").click(function(){
+    var url_checkout = $(this).data('checkout');
+    var url_email = $(this).data('email');
+    var user_email = $(this).data('user');
+    validateInformation(url_checkout,url_email,user_email);
+  });
+
+  function validateInformation(url_checkout,url_email,user_email) {
+    var name = $("#name").val();
+    var lastName = $("#lastName").val();
+    var address = $("#address").val();
+    var details = $("#details").val();
+    var country = $("#country").val();
+    var department = $("#dpto").val();
+    var zip = $("#zip").val();
+    var phone = $("#phone").val();
+    var email = $("#email").val();
+    var cardNumber = $("#card_number").val();
+    var expDate = $("#exp_date").val();
+    var code = $("#code").val();
     var atLeastOneIsChecked = $('input[name=check]:checked').length;
 
     if (jQuery.type(name) == 'string' && jQuery.type(details) == 'string' && jQuery.type(lastName) == 'string' && jQuery.type(address) == 'string' && jQuery.type(country) == 'string' &&
@@ -33,7 +40,7 @@
       department != "" && zip != "" && phone != "" && email != "" && ((card_number != "" && exp_date != "" && code != "") || (atLeastOneIsChecked == 1))) {
 
       $.ajax({
-        url: "{% url 'checkOutPersist'%}",
+        url: url_checkout,
         type: "POST",
         data: {
           "name": name,
@@ -53,7 +60,7 @@
         success: function(data) {
           console.log(data.message);
           $("#modalPayment").click();
-          sendConfirmation();
+          sendConfirmation(url_email,user_email);
           var cartmap = new CartMap()
           cartmap.clearCart()
         },
@@ -67,13 +74,13 @@
     }
   }
 
-  function sendConfirmation() {
+  function sendConfirmation(url_email,user_email) {
     $.ajax({
-      url: "{% url 'sendEmail'%}",
+      url: url_email,
       type: "GET",
       data: {
         "option": 1,
-        "email": "{{request.user.email}}"
+        "email": user_email
       },
       success: function(data) {
         console.log(data.message);

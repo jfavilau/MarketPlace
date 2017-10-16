@@ -63,39 +63,7 @@
                         <div class="input-col-5 p-l-5">
                             <select id="dpto" class="theme-input-text">
                                 <option>Departamento</option>
-                                <option value="AL">Amazonas</option>
-                                <option value="AL">Antioquia</option>
-                                <option value="AL">Arauca</option>
-                                <option value="AL">Atlántico</option>
                                 <option value="AL">Bogotá D.C</option>
-                                <option value="AL">Bolívar</option>
-                                <option value="AL">Boyacá</option>
-                                <option value="AL">Caldas</option>
-                                <option value="AL">Caquetá</option>
-                                <option value="AL">Casanare</option>
-                                <option value="AL">Cauca</option>
-                                <option value="AL">Cesar</option>
-                                <option value="AL">Chocó</option>
-                                <option value="AL">Córdoba</option>
-                                <option value="AL">Cundinamarca</option>
-                                <option value="AL">Guainía</option>
-                                <option value="AL">Guaviare</option>
-                                <option value="AL">Huila</option>
-                                <option value="AL">La Guajira</option>
-                                <option value="AL">Magdalena</option>
-                                <option value="AL">Meta</option>
-                                <option value="AL">Nariño</option>
-                                <option value="AL">Norte de Santander</option>
-                                <option value="AL">Putumayo</option>
-                                <option value="AL">Quindio</option>
-                                <option value="AL">Risaralda</option>
-                                <option value="AL">San Andres y Providencia</option>
-                                <option value="AL">Santander</option>
-                                <option value="AL">Sucre</option>
-                                <option value="AL">Tolima</option>
-                                <option value="AL">Valle del Cauca</option>
-                                <option value="AL">Vaupés</option>
-                                <option value="AL">Vichada</option>
                             </select>
                         </div>
                     </div>
@@ -171,16 +139,24 @@
             </div>
         </div>
         <div class="checkout-submit m-t-50">
-            <button onclick="validateInformation()" class="au-btn au-btn-primary au-btn-radius btn-order-submit"
-                    type="submit">PAGA TU ORDEN
-            </button>
+            <button id="purchase" class="au-btn au-btn-primary au-btn-radius btn-order-submit" data-checkout="{% url 'checkOutPersist'%}" data-email="{% url 'sendEmail'%}" data-user="{{request.user.email}}">PAGA TU ORDEN</button>
         </div>
     </div>
 </div>
 
 {%else%}
-    <h4 class="checkout-heading" style="text-align: center;">Aún no tienes carrito de compras! Animate a comprar </h4>
+<h4 class="checkout-heading" style="text-align: center;">Aún no tienes carrito de compras! Animate a comprar </h4>
 {% endif%}
+
+<button id="modalButton" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalLong">
+    Launch demo modal
+</button>
+
+<button id="modalPayment" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#payment">
+    Launch demo modal
+</button>
 
 <div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="payment" aria-hidden="true">
     <div class="modal-dialog" role="document" data-backdrop="static" data-keyboard="false">
@@ -222,7 +198,7 @@
 </div>
 
 {% include "footer.html" %}
-    <script src="../static/js/checkout.js"></script>
+<script src="../static/js/checkout.js"></script>
 
 </body>
 
