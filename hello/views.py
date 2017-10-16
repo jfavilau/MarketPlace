@@ -39,6 +39,9 @@ def index(request):
 def catalogue(request):
     return render(request, 'catalogue.html')
 
+def baskets(request):
+    return render(request, 'baskets.html')
+
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
 
