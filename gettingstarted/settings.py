@@ -41,10 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'rest_framework',
-<<<<<<< HEAD
-=======
     'bootstrap3',
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,14 +59,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 REST_FRAMEWORK = {
-<<<<<<< HEAD
-     # Use Django's standard `django.contrib.auth` permissions,
-     # or allow read-only access for unauthenticated users.
-     'DEFAULT_PERMISSION_CLASSES': [
-         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-     ]
- }
-=======
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
@@ -77,7 +66,6 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAuthenticated'
     ]
 }
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 ROOT_URLCONF = 'gettingstarted.urls'
 

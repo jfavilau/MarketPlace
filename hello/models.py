@@ -37,15 +37,6 @@ class PaymentMethod (models.Model):
     def __unicode__(self):
         return self.displayName
 
-<<<<<<< HEAD
-        token = models.CharField(max_length=150, blank=False, null=False)
-        displayName = models.CharField(max_length=150, blank=False, null=False)
-        createdDate = models.DateField(blank=False, null=False)
-        user = models.ForeignKey(User)
-        def __unicode__(self):
-                return self.displayName
-=======
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class OrderStatus (models.Model):
     status = models.CharField(max_length=150, blank=False, null=False)
@@ -53,12 +44,6 @@ class OrderStatus (models.Model):
     def __unicode__(self):
         return self.status
 
-<<<<<<< HEAD
-        status = models.CharField(max_length=150, blank=False, null=False)
-        def __unicode__(self):
-                return self.status
-=======
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class ScheduleOptions (models.Model):
     weekDay = models.CharField(max_length=3, blank=False, null=False)
@@ -68,14 +53,6 @@ class ScheduleOptions (models.Model):
     def __unicode__(self):
         return self.weekDay
 
-<<<<<<< HEAD
-        weekDay = models.CharField(max_length=3, blank=False, null=False)
-        initialDate = models.DateField(blank=False, null=False)
-        finalDate = models.DateField(blank=False, null=False)
-        def __unicode__(self):
-                return self.weekDay
-=======
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class ShoppingCart (models.Model):
     user = models.OneToOneField(User)
@@ -89,21 +66,6 @@ class ShoppingCart (models.Model):
     def __unicode__(self):
         return self.__str__
 
-<<<<<<< HEAD
-        user = models.OneToOneField(User)
-        createdDate = models.DateField(blank=False, null=False, auto_now_add=True)
-        def __unicode__(self):
-                return self.createdDate
-
-class Order(models.Model):
-        user = models.ForeignKey(User)
-        status = models.ForeignKey(OrderStatus)
-        statusDate = models.DateField(blank=False, null=False)
-        schedule = models.ForeignKey(ScheduleOptions)
-        paymentMethod = models.ForeignKey(PaymentMethod)
-        createdDate = models.DateField(blank=False, null=False, auto_now_add=True)
-        shoppingCart = models.ForeignKey(ShoppingCart, related_name='orders')
-=======
 
 class Order(models.Model):
     user = models.ForeignKey(User)
@@ -115,7 +77,6 @@ class Order(models.Model):
     shoppingCart = models.ForeignKey(ShoppingCart, related_name='orders')
     deliveryAddress = models.CharField(max_length=300, null=True)
 
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class Category(models.Model):
     shortName = models.CharField(max_length=3, blank=False, null=False)
@@ -188,17 +149,6 @@ class Product(models.Model):
 
 
 class Item (models.Model):
-<<<<<<< HEAD
-        quantityOrganic = models.FloatField(null=False, blank=False, default=None)
-        quantityBio = models.FloatField(null=False, blank=False, default=None)
-        quantityClean = models.FloatField(null=False, blank=False, default=None)
-        quantityGeneral = models.FloatField(null=False, blank=False, default=None)
-        quantityTotal = models.FloatField(null=False, blank=False, default=None)
-        availability = models.BooleanField(null=False, blank=False)
-        product = models.ForeignKey(Product)
-        shoppingCart = models.ForeignKey(ShoppingCart, related_name='items')
-        AddedDate = models.DateField(blank=False, null=False)
-=======
     quantityOrganic = models.FloatField(null=False, blank=False, default=None)
     quantityBio = models.FloatField(null=False, blank=False, default=None)
     quantityClean = models.FloatField(null=False, blank=False, default=None)
@@ -216,7 +166,6 @@ class Item (models.Model):
     def __unicode__(self):
         return self.__str__
 
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class Basket (models.Model):
     name = models.CharField(max_length=150, blank=False, null=False)

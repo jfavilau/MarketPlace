@@ -3,13 +3,7 @@ from time import strftime, gmtime
 
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
-<<<<<<< HEAD
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from time import gmtime, strftime
-import json
-=======
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 #from .models import Greeting
 
@@ -19,6 +13,7 @@ from django.core import serializers
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, viewsets
 from rest_framework import permissions
 from rest_framework import mixins
@@ -27,15 +22,8 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from rest_framework import viewsets
-from rest_framework.response import Response
-from rest_framework import status
-
 from gettingstarted import settings
 from .models import *
-<<<<<<< HEAD
-from .serializers import *
-=======
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
 from .serializers import BasketSerializer
@@ -45,16 +33,10 @@ from .serializers import ProducerSerializer
 from .serializers import OrdersSerializer
 from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 def index(request):
     return render(request, 'index.html')
 
-<<<<<<< HEAD
-def indexOrders(request):
-    #return HttpResponse('Hello from Python!')
-    return render(request, 'Orders/index.html')
-=======
 def catalogue(request):
     return render(request, 'catalogue.html')
 
@@ -63,14 +45,14 @@ def baskets(request):
 
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
+
+def mapProducer(request):
+    return render(request, 'producer/mapProducer.html')
 
 def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Admin/Orders/index.html')
 
-<<<<<<< HEAD
-=======
 @csrf_exempt
 def updateOrder(request):
     if request.method == 'POST':
@@ -133,7 +115,6 @@ def registro (request):
 def regUser(request):
     return render(request, 'user/register.html')
 
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 def sendEmail(request):
 
     if request.method == 'GET':
@@ -193,39 +174,6 @@ def sendEmail(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
-<<<<<<< HEAD
-@csrf_exempt
-def getAllOrderByUser(request): #idUser=None
-    order = Order.objects.all()
-    #print order
-    return HttpResponse(serializers.serialize("json",order))
-
-@csrf_exempt
-def updateOrder(request):
-    if request.method == 'POST':
-        jsonOrder = json.loads(request.body)
-        order = Order.objects.filter(id=jsonOrder['id']).update(
-            user=jsonOrder['user'], status=jsonOrder['status'], #statusDate = jsonOrder['statusDate'],
-            schedule = jsonOrder['schedule'],paymentMethod = jsonOrder['paymentMethod'],shoppingCart = jsonOrder['shoppingCart'])
-        return HttpResponse("Orden Actualizada")
-
-class OrdersViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows Products to be viewed or edited.
-    """
-    queryset = Order.objects.all()
-    serializer_class = OrdersSerializer
-    def get_object(self, pk):
-        if self.request.method == 'PUT':
-            print pk
-            print self.data
-            o = Order.objects.get(pk=pk)
-            serializer = OrderStatusSerializer(o, data=self.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-=======
 
 class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
     """
@@ -364,8 +312,10 @@ def removePaymentMethods(request):
 
 class ProducerList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
-    queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
+    queryset = Producer.objects.all()
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('city',)
 
 class ProducerDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
@@ -395,7 +345,6 @@ class OrderStatusViewSet(viewsets.ModelViewSet):
      """
      queryset = OrderStatus.objects.all()
      serializer_class = OrderStatusSerializer
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 class ShoppingCarViewSet(viewsets.ModelViewSet):
     """
@@ -417,25 +366,6 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
         else:
             return ShoppingCart.objects.all()
 
-<<<<<<< HEAD
-class ProductViewSet(viewsets.ModelViewSet):
-     """
-     API endpoint that allows Products to be viewed or edited.
-     """
-     queryset = Product.objects.all().order_by('-price')
-     serializer_class = ProductSerializer
-
-     def products(request, city):
-         products_list = Product.objects.filter(cooperative__city__shortName=city)
-         return HttpResponse(serializers.serialize("json", ))
-
-class OrderStatusViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows Products to be viewed or edited.
-    """
-    queryset = OrderStatus.objects.all()
-    serializer_class = OrderStatusSerializer
-=======
 @csrf_exempt
 def shoppingCartPersist(request):
 
@@ -496,4 +426,3 @@ def login_logic (request):
 
 def login_view (request):
     return render(request, 'login.html')
->>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
