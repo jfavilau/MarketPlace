@@ -116,7 +116,7 @@
                 $( "#nOrder2" ).empty().append( order.id );
                 $( "#direccion" ).empty().append( order.orders[0].deliveryAddress );
                 $( "#deliveryDate" ).empty().append( order.orders[0].statusDate );
-                $( "#PaymentMethod" ).empty().append( order.orders[0].PaymentMethod );
+                $( "#PaymentMethod" ).empty().append( order.orders[0].paymentMethod.displayName );
                 var total = 0, discount = 0;
                 $.each(order.items, function( index, value ) {
                     total += value.quantityTotal*value.product.price;
