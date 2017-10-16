@@ -386,9 +386,9 @@ def shoppingCartPersist(request):
                         {'message': 'Por favor inicie sesion para continuar',
                          'authenticated': False}
                         )
-
             items = json.loads(request.POST.get('items'))
-            shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
+
+            shoppingCart = ShoppingCart(user=user)
             shoppingCart.value = request.POST.get('cartTotal')
             shoppingCart.active = True
             shoppingCart.save()
