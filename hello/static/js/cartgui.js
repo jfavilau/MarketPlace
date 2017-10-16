@@ -12,18 +12,23 @@ $(function() {
   refreshCartGuiPersistance();
 });
 
-function refreshCartGuiPersistance(){
+function refreshCartGuiPersistance() {
   var checkout = $('button.btn-checkout');
-  checkout.click(function(){
+  checkout.click(function() {
     var cartmap = new CartMap();
-    $.post('shoppingCartPersist/',{'cartTotal': cartmap.getCartTotal()}, function(data, status){
-      var authenticated = data.authenticated;
-      var message = data.message;
-      if (!authenticated || message != '') {
-        alert(message);
-        return;
-      }
-    });
+    var cartItems = JSON.stringify(cartmap.items());
+    $.post('shoppingCartPersist/', {
+        'cartTotal': cartmap.getCartTotal(),
+        'items': cartmap.cartItemsToJSON(),
+      },
+      function(data, status) {
+        var authenticated = data.authenticated;
+        var message = data.message;
+        if (!authenticated || message != '') {
+          alert(message);
+          return;
+        }
+      });
   });
 }
 
@@ -37,6 +42,7 @@ function refreshCartGuiOperation() {
   var product = $('div.miso-prd-holder');
 
   var cartmap = new CartMap();
+  // cartmap.clearCart();
 
   var cartgui = $('div.mini-shopcart');
 

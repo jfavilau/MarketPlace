@@ -13,12 +13,19 @@
 
         var flag = $('#payment_methods').attr("data-flag");
 
-        console.log(flag);
 
         if(flag == 'True') {
-            console.log("Si");
+          document.getElementById('payment_methods').style.display = 'block';
+
         } else {
-            console.log("No");
+
+            var text = '<h4 class="checkout-heading" style="margin-left: 3cm;">No tienes medios de pago asociados!</h4><br>'+
+            '<button type="button" style="margin-left: 3cm; margin-bottom: 2cm;" class="btn btn-success btn-sm">Agregar Medio de Pago</button>';
+
+            $( "#payment_methods" ).append( text ).on('click', 'button', function () {
+                    enable();
+             });;
+
         }
 
     }
@@ -28,56 +35,41 @@
         $('.page-loader').fadeOut('slow', function () {
             $(this).remove();
             console.log(flag);
-            //enable();
+
         });
     }
 
-    $
 
     function enable() {
-
-        var myvar = '<div class="checkout-payment-info" style="margin-left: 3cm;">'+
-        '        <h4 class="checkout-heading">Nuevo Medio de Pago</h4>'+
-        '        <div class="introduce">'+
-        '            <p>Tarjetas de Credito Nueva'+
-        ''+
-        '                <img src="../static/images/icons/ic-payment-method-01.png" alt="payment"/>'+
-        '                <img src="../static/images/icons/ic-payment-method-02.png" alt="payment"/>'+
-        '                <img src="../static/images/icons/ic-payment-method-03.png" alt="payment"/>'+
-        '                <img src="../static/images/icons/ic-payment-method-04.png" alt="payment"/>'+
-        '                <img src="../static/images/icons/ic-payment-method-05.png" alt="payment"/>'+
-        '            </p>'+
-        ''+
-        '        </div>'+
-        '        <div class="input-row m-b-15">'+
-        '            <div class="input-col-3 p-r-5">'+
-        '                <input id="card_number" class="theme-input-text" type="text" placeholder="Numero de Tarjeta"/>'+
-        '            </div>'+
-        '            <div class="input-col-3 p-l-5 p-r-5">'+
-        '                <input id="exp_date" class="theme-input-text" type="text" placeholder="Expira (MM/YY) "/>'+
-        '            </div>'+
-        '            <div class="input-col-3 p-l-5">'+
-        '                <input id="code" class="theme-input-text" type="text" placeholder="Codigo"/>'+
-        '            </div>'+
-        '        </div>'+
-        '        <br>'+
-        '        <button type="button" class="btn btn-success btn-sm" onclick="newPaymentMethod()">Guardar</button>'+
-        ''+
-        '    </div>';
-
-        $( "#new_method" ).append( myvar );
+        document.getElementById('new_method').style.display = 'block';
+        document.getElementById('payment_methods').style.display = 'none';
     }
 
-    function newPaymentMethod(){
+    $("#sub_new").click(function(){
+        newPaymentMethod($(this).data('url'));
+    });
 
-        cardNumber =$( "#card_number" ).val();
-        expDate =$( "#exp_date" ).val();
-        code =$( "#code" ).val();
+    $("#list_payment_btn").click(function(){
+        document.getElementById('new_method').style.display = 'block';
+        document.getElementById('payment_methods').style.display = 'none';
+    });
+
+    $(".remove.fa.fa-close").click(function(){
+        var id= $(this).data('id');
+        var url= $(this).data('url');
+        remove(id,url);
+    });
+
+    function newPaymentMethod(url_data){
+
+        var cardNumber = document.getElementById('card_number').value
+        var expDate = document.getElementById('exp_date').value;
+        var code = document.getElementById('code').value;
 
         if(card_number != ""  && exp_date != ""  && code != ""){
 
             $.ajax({
-            url: "{% url 'addPaymentMethod'%}",
+            url: url_data,
             type: "POST",
             data: {
                 "cardNumber": cardNumber, "expDate": expDate, "code": code
@@ -92,14 +84,13 @@
             });
         }
         else{
-         console.log('error');
             $("#modalButton").click();
         }
     }
 
-    function remove(id){
+    function remove(id,url_data){
          $.ajax({
-            url: "{% url 'removePaymentMethods'%}",
+            url: url_data,
             type: "POST",
             data: {
                 "id": id,

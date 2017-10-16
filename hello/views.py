@@ -1,6 +1,7 @@
 import json
 from time import strftime, gmtime
 
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
@@ -356,10 +357,27 @@ def shoppingCartPersist(request):
                          'authenticated': False}
                         )
 
+            items = json.loads(request.POST.get('items'))
             shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
             shoppingCart.value = request.POST.get('cartTotal')
             shoppingCart.active = True
             shoppingCart.save()
+
+            for item in items['items']:
+                product = Product.objects.filter(id=item['id']).first()
+                cartItem = Item(
+                        product=product,
+                        quantityOrganic=0,
+                        quantityBio=0,
+                        quantityClean=0,
+                        quantityGeneral=item['quantity'],
+                        quantityTotal=item['quantity'],
+                        availability=True,
+                        totalPrice= item['quantity'] * product.price,
+                        shoppingCart=shoppingCart,
+                        addedDate=strftime("%Y-%m-%d", gmtime()),
+                        )
+                cartItem.save()
 
             return JsonResponse({'message': '', 'authenticated': authenticated})
 
@@ -369,3 +387,20 @@ def shoppingCartPersist(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg, 'authenticated': authenticated})
+
+@csrf_exempt
+def login_logic (request):
+    if request.method == 'POST':
+
+        user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+
+        if user is not None:
+            login(request, user)
+            message = "ok"
+        else:
+            message = "Nombre de usuario o clave incorrecta"
+
+    return JsonResponse({'message': message})
+
+def login_view (request):
+    return render(request, 'login.html')
