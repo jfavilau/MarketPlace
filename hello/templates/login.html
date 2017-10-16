@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--if IE 8html.no-js.lt-ie9(lang='en')
+-->
+<!-- [if gt IE 8] <!-->
+<html class="no-js" lang="en">
+<!-- <![endif]-->
+
+<head>
+    <!--
+    Basic Page Needs
+    ==================================================
+    -->
+    <meta charset="UTF-8">
+    <title>Login - Ecofood html5 templates</title>
+    <meta name="description" content="Ecofood theme tempalte">
+    <meta name="author" content="AuCreative">
+    <meta name="keywords" content="Ecofood theme template">
+    <!--
+    Mobile Specific Metas
+    ==================================================
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    CSS
+    ==================================================
+    -->
+    <link href="../static/fonts/fonts.css" rel="stylesheet">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
+    <link href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/switcher.css" rel="stylesheet">
+    <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
+    <link href="../static/css/retina.css" rel="stylesheet">
+    <!--
+    Favicons
+    ==================================================
+    -->
+    <link rel="shortcut icon" href="../static/favicon.png">
+    <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="a../static/pple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../static/apple-touch-icon-114x114.png">
+    <script src="../static/js/modernizr-custom.js"></script>
+</head>
+
+<body>
+<!-- page load-->
+<div class="page-loader">
+    <div class="loader"></div>
+</div>
+<header>
+    <!-- header-2-->
+    <div class="section dark-background">
+        <div class="container">
+            <div class="header-2">
+                <div class="header-left">
+                    <p>
+                        <i class="fa fa-map-marker"></i>Cra. 1 # 18a-12, Bogotá / Colombia
+                        <span>|</span>
+                        <i class="fa fa-clock-o"></i> Entrega de pedidos 02:00 Pm - 04:00 Pm</p>
+                </div>
+                <div class="header-right">
+                    <div class="header-login">
+                        <a href="{% url 'login' %}">
+                            <i class="fa fa-user"></i>Iniciar sesión</a>
+                        <span>/</span>
+                        <a href="{% url 'regUser' %}">Registrarse</a>
+                    </div>
+                    <!--<span class="divider">|</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header-2-->
+</header>
+<nav>
+    <!-- nav-2-->
+    <div class="section white-background" id="js-navbar">
+        <div class="container">
+            <div class="nav-1 nav-2">
+                <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                </button>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="../static/images/icons/ic-logo-01.png" alt="Ecofood"/>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end nav-2-->
+</nav>
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Inicia Sesión</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section border-bottom-grey">
+        <div class="container">
+            <div class="breadcrumb-1">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="register.html">My Account</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="page-content p-t-40 p-b-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-push-4">
+                <!--login-1-->
+                <div class="register-1 login-1">
+                    <form class="theme-form">
+                        <input id="username" class="theme-input-text" type="text" placeholder="Username"/>
+                        <input id="password"class="theme-input-text" type="password" placeholder="Password"/>
+                        <!--<div class="theme-checkbox">
+                            <div class="item theme-input-chk">
+                                <input type="checkbox" id="poly" />
+                                <label for="poly"></label>
+                                <span>Remember me</span>
+                            </div>
+                            <div class="item theme-input-chk">
+                                <input type="checkbox" id="email" />
+                                <label for="email"></label>
+                                <span>Forgot your Password</span>
+                            </div>
+                        </div>-->
+                    </form>
+                    <button id="login" class="au-btn au-btn-border au-btn-radius btn-block btn-submit" data-url="{% url 'loginLogic'%}">LOG IN
+                    </button>
+
+                </div>
+
+                <!-- end login-1-->
+            </div>
+        </div>
+        <div id="Error" style="margin-left: 6.5cm;"></div>
+    </div>
+</div>
+{% include "footer.html" %}
+<script src="../static/js/login.js" type="text/javascript"></script>
+
+</body>
+
+</html>

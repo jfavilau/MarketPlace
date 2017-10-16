@@ -8,8 +8,29 @@ Requires
 $(function() {
   'use strict';
 
-  refreshCartGuiOperation()
+  refreshCartGuiOperation();
+  refreshCartGuiPersistance();
 });
+
+function refreshCartGuiPersistance() {
+  var checkout = $('button.btn-checkout');
+  checkout.click(function() {
+    var cartmap = new CartMap();
+    var cartItems = JSON.stringify(cartmap.items());
+    $.post('shoppingCartPersist/', {
+        'cartTotal': cartmap.getCartTotal(),
+        'items': cartmap.cartItemsToJSON(),
+      },
+      function(data, status) {
+        var authenticated = data.authenticated;
+        var message = data.message;
+        if (!authenticated || message != '') {
+          alert(message);
+          return;
+        }
+      });
+  });
+}
 
 function refreshCartGuiOperation() {
   var plus = $('div.miso-prd-holder .miso-cart-action .miso-cart-plus');
@@ -21,6 +42,8 @@ function refreshCartGuiOperation() {
   var product = $('div.miso-prd-holder');
 
   var cartmap = new CartMap();
+  // cartmap.clearCart();
+
   var cartgui = $('div.mini-shopcart');
 
   var miniShopCart = new MiniShopCart(cartmap, cartgui);
@@ -103,4 +126,6 @@ function refreshCartGuiOperation() {
     return getControlClassFromParents(parent, sonToFind);
 
   }
+
+  return cartmap;
 }

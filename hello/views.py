@@ -1,6 +1,7 @@
 import json
 from time import strftime, gmtime
 
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
@@ -38,6 +39,9 @@ def index(request):
 
 def catalogue(request):
     return render(request, 'catalogue.html')
+
+def baskets(request):
+    return render(request, 'baskets.html')
 
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
@@ -213,7 +217,7 @@ def checkOut(request):
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
             payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
 
-            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods})
+            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
 
         else:
 
@@ -230,6 +234,7 @@ def checkOutPersist(request):
         zip = request.POST.get('zip')
         details = request.POST.get('details')
         cardNumber = request.POST.get('cardNumber')
+        id_s = request.POST.get('id_s')
         new_card_number = ''
 
 
@@ -259,7 +264,19 @@ def checkOutPersist(request):
 
         addressInformation.save()
 
+        shoppingCart = ShoppingCart.objects.get(id=id_s)
+        shoppingCart.active = False
+        shoppingCart.save()
 
+        order = Order()
+        order.createdDate = strftime("%Y-%m-%d", gmtime())
+        order.statusDate = strftime("%Y-%m-%d", gmtime())
+        order.paymentMethod = PaymentMethod.objects.latest('id')
+        order.schedule = ScheduleOptions.objects.get(id= 1)
+        order.shoppingCart = shoppingCart
+        order.status = OrderStatus.objects.get(id= 1)
+        order.user = User.objects.get(id=request.user.id)
+        order.save()
 
         return JsonResponse({'message': request.POST.get('newMethod') })
 
@@ -310,7 +327,7 @@ def api_root(request, format=None):
     return Response({
         'producers': reverse('producer-list', request=request, format=format),
     })
-  
+
 def indexOrders(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Orders/index.html')
@@ -348,3 +365,64 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
             return ShoppingCart.objects.filter(user=user)
         else:
             return ShoppingCart.objects.all()
+
+@csrf_exempt
+def shoppingCartPersist(request):
+
+    user = request.user
+    authenticated = user.is_authenticated()
+    if request.method == 'POST':
+        try:
+            if not authenticated:
+                return JsonResponse(
+                        {'message': 'Por favor inicie sesion para continuar',
+                         'authenticated': False}
+                        )
+
+            items = json.loads(request.POST.get('items'))
+            shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
+            shoppingCart.value = request.POST.get('cartTotal')
+            shoppingCart.active = True
+            shoppingCart.save()
+
+            for item in items['items']:
+                product = Product.objects.filter(id=item['id']).first()
+                cartItem = Item(
+                        product=product,
+                        quantityOrganic=0,
+                        quantityBio=0,
+                        quantityClean=0,
+                        quantityGeneral=item['quantity'],
+                        quantityTotal=item['quantity'],
+                        availability=True,
+                        totalPrice= item['quantity'] * product.price,
+                        shoppingCart=shoppingCart,
+                        addedDate=strftime("%Y-%m-%d", gmtime()),
+                        )
+                cartItem.save()
+
+            return JsonResponse({'message': '', 'authenticated': authenticated})
+
+        except Exception as e:
+            return JsonResponse({'message': e})
+    else:
+
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg, 'authenticated': authenticated})
+
+@csrf_exempt
+def login_logic (request):
+    if request.method == 'POST':
+
+        user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+
+        if user is not None:
+            login(request, user)
+            message = "ok"
+        else:
+            message = "Nombre de usuario o clave incorrecta"
+
+    return JsonResponse({'message': message})
+
+def login_view (request):
+    return render(request, 'login.html')

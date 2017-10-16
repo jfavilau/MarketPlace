@@ -25,6 +25,7 @@ router.register(r'orderstatus', hello.views.OrderStatusViewSet)
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^catalogo/', hello.views.catalogue, name='catalogo'),
+    url(r'^canastas/', hello.views.baskets, name='canastas'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
     url(r'^addPaymentMethod/', hello.views.addPaymentMethod, name='addPaymentMethod'),
@@ -42,6 +43,9 @@ urlpatterns = [
     url(r'^orders', hello.views.indexOrders, name='orders'),
     url(r'^updateOrder', hello.views.updateOrder, name='updateOrder'),
     url(r'^oadmin', hello.views.indexOrdersAdmin, name='ordersadmin'),
+    url(r'^shoppingCartPersist/', hello.views.shoppingCartPersist, name='shoppingCartPersist'),
+    url(r'^loginLogic/', hello.views.login_logic, name='loginLogic'),
+    url(r'^login/', hello.views.login_view, name='login'),
 ]
 
 # Login and logout views for the browsable API

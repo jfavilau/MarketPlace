@@ -30,7 +30,7 @@
     <link href="../static/css/switcher.css" rel="stylesheet">
     <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
     <link href="../static/css/retina.css" rel="stylesheet">
-    <link href="../static/css/cart.css" rel="stylesheet" type="text/css" >
+    <link href="../static/css/cart.css" rel="stylesheet" type="text/css">
     <!--
     Favicons
     ==================================================
@@ -60,12 +60,21 @@
                         <i class="fa fa-clock-o"></i> Entrega de pedidos 02:00 Pm - 04:00 Pm</p>
                 </div>
                 <div class="header-right">
+                    {%if user.is_authenticated %}
                     <div class="header-login">
-                        <a href="login.html">
+                        <a href="{% url 'login' %}">
+                            <i class="fa fa-user"></i>Bienvenido {{request.user.username}}</a>
+                        <span>/</span>
+                        <a href="{% url 'login' %}">Logout</a>
+                    </div>
+                    {% else %}
+                    <div class="header-login">
+                        <a href="{% url 'login' %}">
                             <i class="fa fa-user"></i>Iniciar sesión</a>
                         <span>/</span>
-                        <a href="register.html">Registrarse</a>
+                        <a href="{% url 'regUser' %}">Registrarse</a>
                     </div>
+                    {% endif%}
                     <!--<span class="divider">|</span>-->
                 </div>
             </div>
@@ -137,12 +146,16 @@
                             </div>
                         </div>
                         <div class="foot-mini-shopcart">
-                            <p class="total-shopcart">Total: $6.50</p>
                             <div class="mini-shopcart-action">
-                                <button class="au-btn au-btn-border au-btn-radius btn-viewcart">VIEW CART</button>
+                                {% if user.is_authenticated %}
                                 <button class="au-btn au-btn-primary au-btn-radius btn-checkout"
                                         onclick="location.href='{% url 'checkOut' %}'">CHECK OUT
                                 </button>
+                                {% else %}
+                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout">
+                                    CHECK OUT
+                                </button>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
