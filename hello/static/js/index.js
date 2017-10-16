@@ -14,6 +14,7 @@
         //});
         downloadProducts();
         downloadDayBasket();
+        downloadProducers();
     });
 
     function downloadProducts() {
@@ -134,6 +135,40 @@
 
         });
 
+    }
+
+    function downloadProducers() {
+
+        console.log("Downloading producers");
+
+        $.getJSON(baseURL + "api/producers/").done(function(data) {
+
+            console.log("Data:" + data);
+
+            $.each(data, function(i, item) {
+
+                var products = item.products;
+                var prod = "";
+
+                $.each(products, function(i, product) {
+                    prod += ", " + product.name;
+                });
+
+                var myvar = '<div class="testimonials-1 child" style="text-align:center;">'+
+                                '<div class="testimonials-content">'+
+                                    '<p>Ofrezco productos de calidad, entre ellos: ' + prod + ' y muchos más por venir!. </p>'+
+                                '</div>'+
+                                '<div class="testimonials-image">'+
+                                    '<img src="' + item.image +'?resize=150%2C150" alt="LAUREN REED"/>'+
+                                '</div>'+
+                                '<p class="testimonials-name">' + item.name.toUpperCase() + '</p>'+
+                            '</div>';
+
+                $( "#producers-carousel" ).append( myvar );
+
+            });
+            refreshCartGuiOperation();
+        });
     }
 
 })(jQuery);

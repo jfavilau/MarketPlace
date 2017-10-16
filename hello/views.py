@@ -207,6 +207,14 @@ class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retri
     serializer_class = BasketSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all Producers.
+    """
+    queryset = Producer.objects.all()
+    serializer_class = ProducerSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 def checkOut(request):
 

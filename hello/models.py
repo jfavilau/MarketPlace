@@ -130,7 +130,7 @@ class Product(models.Model):
     price = models.FloatField(null=False, blank=False, default=None)
     type = models.ForeignKey(Type)
     category = models.ForeignKey(Category, related_name='products')
-    producer = models.ForeignKey(Producer)
+    producer = models.ForeignKey(Producer, related_name='products')
     cooperative = models.ForeignKey(Cooperative, null=True)
     active = models.BooleanField(null=False, blank=False)
     def __str__(self):
