@@ -210,7 +210,7 @@ def checkOut(request):
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
             payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
 
-            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods})
+            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
 
         else:
 
@@ -227,6 +227,7 @@ def checkOutPersist(request):
         zip = request.POST.get('zip')
         details = request.POST.get('details')
         cardNumber = request.POST.get('cardNumber')
+        id_s = request.POST.get('id_s')
         new_card_number = ''
 
 
@@ -256,7 +257,19 @@ def checkOutPersist(request):
 
         addressInformation.save()
 
+        shoppingCart = ShoppingCart.objects.get(id=id_s)
+        shoppingCart.active = False
+        shoppingCart.save()
 
+        order = Order()
+        order.createdDate = strftime("%Y-%m-%d", gmtime())
+        order.statusDate = strftime("%Y-%m-%d", gmtime())
+        order.paymentMethod = PaymentMethod.objects.latest('id')
+        order.schedule = ScheduleOptions.objects.get(id= 1)
+        order.shoppingCart = shoppingCart
+        order.status = OrderStatus.objects.get(id= 1)
+        order.user = User.objects.get(id=request.user.id)
+        order.save()
 
         return JsonResponse({'message': request.POST.get('newMethod') })
 

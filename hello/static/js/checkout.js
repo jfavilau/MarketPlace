@@ -17,10 +17,12 @@
     var url_checkout = $(this).data('checkout');
     var url_email = $(this).data('email');
     var user_email = $(this).data('user');
-    validateInformation(url_checkout,url_email,user_email);
+    var id_s = $(this).data('ids');
+    validateInformation(url_checkout,url_email,user_email,id_s);
   });
 
-  function validateInformation(url_checkout,url_email,user_email) {
+  function validateInformation(url_checkout,url_email,user_email,id_s) {
+
     var name = $("#name").val();
     var lastName = $("#lastName").val();
     var address = $("#address").val();
@@ -55,7 +57,8 @@
           "cardNumber": cardNumber,
           "expDate": expDate,
           "code": code,
-          "newMethod": atLeastOneIsChecked
+          "newMethod": atLeastOneIsChecked,
+          "id_s": id_s
         },
         success: function(data) {
           console.log(data.message);

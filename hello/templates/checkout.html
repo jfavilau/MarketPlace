@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="checkout-submit m-t-50">
-            <button id="purchase" class="au-btn au-btn-primary au-btn-radius btn-order-submit" data-checkout="{% url 'checkOutPersist'%}" data-email="{% url 'sendEmail'%}" data-user="{{request.user.email}}">PAGA TU ORDEN</button>
+            <button id="purchase" class="au-btn au-btn-primary au-btn-radius btn-order-submit" data-checkout="{% url 'checkOutPersist'%}" data-email="{% url 'sendEmail'%}" data-user="{{request.user.email}}" data-ids="{{id_shopping}}">PAGA TU ORDEN</button>
         </div>
     </div>
 </div>
