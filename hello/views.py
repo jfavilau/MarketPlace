@@ -13,6 +13,7 @@ from django.core import serializers
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, viewsets
 from rest_framework import permissions
 from rest_framework import mixins
@@ -44,6 +45,9 @@ def baskets(request):
 
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
+
+def mapProducer(request):
+    return render(request, 'producer/mapProducer.html')
 
 def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
@@ -308,8 +312,10 @@ def removePaymentMethods(request):
 
 class ProducerList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
-    queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
+    queryset = Producer.objects.all()
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('city',)
 
 class ProducerDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
