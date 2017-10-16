@@ -146,9 +146,7 @@
                             </div>
                         </div>
                         <div class="foot-mini-shopcart">
-                            <p class="total-shopcart">Total: $6.50</p>
                             <div class="mini-shopcart-action">
-                                <button class="au-btn au-btn-border au-btn-radius btn-viewcart">VIEW CART</button>
                                 {% if user.is_authenticated %}
                                 <button class="au-btn au-btn-primary au-btn-radius btn-checkout"
                                         onclick="location.href='{% url 'checkOut' %}'">CHECK OUT
