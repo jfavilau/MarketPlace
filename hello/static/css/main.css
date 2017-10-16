@@ -6798,15 +6798,3 @@ body.modal-open {
     width: 100%;
   }
 }
-
-.parent {
-    width: 100%;
-    border: 1px solid blue;
-    text-align: center;
-}
-
-.child {
-    display: inline-block;
-    border: 1px solid red;
-    margin: 2px;
-}
