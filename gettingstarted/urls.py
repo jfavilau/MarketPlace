@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^paymentMethods/', hello.views.paymentMethods, name='paymentMethods'),
     url(r'^removePaymentMethods/', hello.views.removePaymentMethods, name='removePaymentMethods'),
     url(r'^registerProducer/', hello.views.regProducer, name='regProducer'),
+    url(r'^mapProducer/', hello.views.mapProducer, name='mapProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
     url(r'^addUser/$',hello.views.registro, name='addUser'),

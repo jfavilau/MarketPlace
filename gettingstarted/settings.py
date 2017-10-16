@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'hello',
     'rest_framework',
     'bootstrap3',
+    'django_filters',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +65,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
         #'rest_framework.permissions.IsAuthenticated'
-    ]
+    ],
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 ROOT_URLCONF = 'gettingstarted.urls'
