@@ -1,6 +1,6 @@
 import json
 from time import strftime, gmtime
-
+import time
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
@@ -217,17 +217,17 @@ class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
 
 
 def checkOut(request):
+    time.sleep(2.5)
+    shoppingCart = ShoppingCart.objects.filter(user_id=request.user.id, active=True)
 
-        shoppingCart = ShoppingCart.objects.filter(user_id=request.user.id, active=True)
-
-        if len(shoppingCart) > 0:
+    if len(shoppingCart) > 0:
 
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
             payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
 
             return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
 
-        else:
+    else:
 
             return render(request, 'checkout.html',context={'flag': False})
 
