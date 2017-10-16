@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <!--if IE 8html.no-js.lt-ie9(lang='en')
 -->
@@ -282,6 +283,10 @@
             </div>
         </div>
     </section>
+=======
+{% include "header.html" %}
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
     <section>
         <div class="section white-background p-t-100 p-b-100">
             <div class="container">
@@ -350,6 +355,7 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
     <footer>
         <!--.footer-2-->
         <div class="footer-1 footer-2">
@@ -543,6 +549,13 @@
         $( document ).ready(function() {
             var url = "http://localhost:8000/api/";
             var url2 = "http://localhost:8000/";
+=======
+
+    <script>
+        $( document ).ready(function() {
+            var url =  window.location.origin + "/api/";
+            var url2 = window.location.origin + "/";
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
             var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
                  if (!data) data = {};
                  if (!fnError) fnError = function (err) {
@@ -720,6 +733,11 @@
 
       </div>
     </div>
+<<<<<<< HEAD
 </body>
 
 </html>
+=======
+
+{% include "footer.html" %}
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b

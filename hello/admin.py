@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Address
 from .models import PaymentMethod
 from .models import OrderStatus
@@ -17,12 +18,24 @@ from .models import Basket
 from .models import ItemsPerBasket
 from .models import RegisteredUser
 # Register your models here.
+=======
+
+from .models import *
+# Register your models here.
+admin.site.register(City)
+admin.site.register(Cooperative)
+admin.site.register(Producer)
+admin.site.register(Type)
+admin.site.register(Category)
+admin.site.register(Product)
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 admin.site.register(Address)
 admin.site.register(PaymentMethod)
 admin.site.register(OrderStatus)
 admin.site.register(ScheduleOptions)
 admin.site.register(ShoppingCart)
 admin.site.register(Order)
+<<<<<<< HEAD
 admin.site.register(Category)
 admin.site.register(Type)
 admin.site.register(Catalogue)
@@ -30,6 +43,8 @@ admin.site.register(City)
 admin.site.register(Cooperative)
 admin.site.register(Producer)
 admin.site.register(Product)
+=======
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 admin.site.register(Item)
 admin.site.register(Basket)
 admin.site.register(ItemsPerBasket)

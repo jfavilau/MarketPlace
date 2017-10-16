@@ -41,6 +41,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hello',
     'rest_framework',
+<<<<<<< HEAD
+=======
+    'bootstrap3',
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,12 +62,22 @@ MIDDLEWARE_CLASSES = (
 )
 
 REST_FRAMEWORK = {
+<<<<<<< HEAD
      # Use Django's standard `django.contrib.auth` permissions,
      # or allow read-only access for unauthenticated users.
      'DEFAULT_PERMISSION_CLASSES': [
          'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
      ]
  }
+=======
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        #'rest_framework.permissions.IsAuthenticated'
+    ]
+}
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
 
 ROOT_URLCONF = 'gettingstarted.urls'
 
@@ -89,9 +103,19 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
+if 'DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+else:
+    DATABASES = {
+        'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'marketplace',
         'USER': 'postgres',
@@ -160,6 +184,3 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-

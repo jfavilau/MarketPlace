@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <!--if IE 8html.no-js.lt-ie9(lang='en')
 -->
@@ -282,6 +283,9 @@
             </div>
         </div>
     </section>
+=======
+{% include "header.html" %}
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
     <section>
         <div class="section white-background p-t-100 p-b-100">
             <div class="container">
@@ -295,8 +299,14 @@
                             <tr>
                                 <th>N Pedido</th>
                                 <th>Costo</th>
+<<<<<<< HEAD
                                 <th>Detalle</th>
                                 <th>Estado</th>
+=======
+                                <th>Estado</th>
+                                <th>Detalle</th>
+                                <th> Verificar pedido </th>
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
                             </tr>
                         </thead>
                         <tbody id="orders">
@@ -350,6 +360,7 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
     <footer>
         <!--.footer-2-->
         <div class="footer-1 footer-2">
@@ -542,6 +553,12 @@
     <script>
         $( document ).ready(function() {
             var url = "http://localhost:8000/api/";
+=======
+
+    <script>
+        $( document ).ready(function() {
+            var url = window.location.origin + "/api/";
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
             var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
                  if (!data) data = {};
                  if (!fnError) fnError = this._defaultErrorHandler;
@@ -558,10 +575,22 @@
                  });
             };
 
+<<<<<<< HEAD
+=======
+            var currentOrder = {};
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
             var getCurrency = function (value) {
                 return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             };
 
+<<<<<<< HEAD
+=======
+            $( "#changing" ).click(function() {
+                getDetails(currentOrder);
+            });
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
             var getDetails = function (order) {
                 var tbody = "";
                 var total = 0;
@@ -571,7 +600,11 @@
                              +   "<td>" + value.product.name + "</td>"
                              +   "<td>" + value.quantityTotal + "</td>"
                              +   "<td>" + getCurrency(value.product.price) +"</td>"
+<<<<<<< HEAD
                              + "</tr>"
+=======
+                             + "</tr>";
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
                 });
                 $( "#nOrder" ).empty().append( order.id );
                 $( "#status" ).empty().append( order.orders[0].Status );
@@ -580,6 +613,25 @@
                 $( "#dateOrder" ).empty().append( order.createdDate );
             };
 
+<<<<<<< HEAD
+=======
+            var setCheckingOrder = function (order) {
+                currentOrder = order;
+                $( "#nOrder2" ).empty().append( order.id );
+                $( "#direccion" ).empty().append( order.orders[0].deliveryAddress );
+                $( "#deliveryDate" ).empty().append( order.orders[0].statusDate );
+                $( "#PaymentMethod" ).empty().append( order.orders[0].PaymentMethod );
+
+                var total = 0, discount = 0;
+                $.each(order.items, function( index, value ) {
+                    total += value.quantityTotal*value.product.price;
+                });
+                $( "#discount" ).empty().append( getCurrency (discount));
+                $( "#subtotal" ).empty().append( getCurrency (total));
+                $( "#totalOrder2" ).empty().append(getCurrency ( total - discount));
+            };
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
             var getOrders = function () {
                 _doAjax("GET", "shoppingcar",{},function (resp) {
                     //console.log(resp)
@@ -595,8 +647,14 @@
                             + "<tr>"
                             + "<td>" + value.id + "</td>"
                             + "<td>" + getCurrency(total) + "</td>"
+<<<<<<< HEAD
                             + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
                             + "<td>" + value.orders[0].Status + "</td>"
+=======
+                            + "<td>" + value.orders[0].Status + "</td>"
+                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
+                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#checkingOrder'>Check</a></td>"
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
                             + "</tr>";
                     });
                     //console.log(tbody)
@@ -606,10 +664,21 @@
                         var col = $(this).parent().children().index($(this));
                         //console.log(col)
                         //console.log($(this).attr("id"))
+<<<<<<< HEAD
                         if( col == 2) {
                              _doAjax("GET", "shoppingcar/" + $(this).attr("id"),{},function (resp) {
                                  //console.log(resp);
                                  getDetails(resp);
+=======
+                        if( col == 3 || col == 4 ) {
+                             _doAjax("GET", "shoppingcar/" + $(this).attr("id"),{},function (resp) {
+                                 //console.log(resp);
+                                 if(col == 3)
+                                    getDetails(resp);
+                                 else
+                                     setCheckingOrder(resp);
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
                              },null,true);
                         }
                     });
@@ -620,6 +689,94 @@
         });
     </script>
 
+<<<<<<< HEAD
+=======
+        <!-- Modal -->
+    <div id="checkingOrder" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Detalle de pedido # <span id="nOrder2"></span> </h4>
+          </div>
+          <div class="modal-body">
+              <div class="row" >
+                  <div class="col-lg-6">
+                    <table class="table table-condensed table-striped">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <strong> Dirección:</strong> <span id="direccion"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Fecha de entrega:</strong> <span id="deliveryDate"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Método de pago:</strong> <span id="PaymentMethod"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Productos: </strong>
+                                <a id="changing" href="" data-toggle='modal' data-target='#details' >Modificar</a>
+                            </td>
+                        </tr>
+                      </tbody>
+                  </table>
+
+                  </div>
+                  <div class="col-lg-6">
+                    <table class="table table-condensed table-striped">
+                      <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-primary">Realizar Pedido</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Sub total:</strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="subtotal"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Descuento:</strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="discount">0</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong> Total: </strong>
+                            </td>
+                            <td class="alnright">
+                                <span id="totalOrder2" ></span>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b
     <!-- Modal -->
     <div id="details" class="modal fade" role="dialog">
       <div class="modal-dialog modal-lg">
@@ -654,6 +811,11 @@
 
       </div>
     </div>
+<<<<<<< HEAD
 </body>
 
 </html>
+=======
+
+{% include "footer.html" %}
+>>>>>>> 6a60bb3812e55a18799d4e8e1f20ce7398ba7a7b

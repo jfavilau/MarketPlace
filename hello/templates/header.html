@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!--
+    Basic Page Needs
+    ==================================================
+    -->
+    <meta charset="UTF-8">
+    <title>Homepage - MarketPlace</title>
+    <!--
+    Mobile Specific Metas
+    ==================================================
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    CSS
+    ==================================================
+    -->
+    <link href="../static/fonts/fonts.css" rel="stylesheet">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
+    <link href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/vendor/revolution/css/layers.css" rel="stylesheet">
+    <link href="../static/vendor/revolution/css/navigation.css" rel="stylesheet">
+    <link href="../static/vendor/revolution/css/settings.css" rel="stylesheet">
+    <link href="../static/vendor/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/switcher.css" rel="stylesheet">
+    <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
+    <link href="../static/css/retina.css" rel="stylesheet">
+    <link href="../static/css/cart.css" rel="stylesheet" type="text/css">
+    <!--
+    Favicons
+    ==================================================
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/js/modernizr-custom.js"></script>
+    <script src="../static/js/js.cookie.js"></script>
+    <script src="../static/js/cartmap.js"></script>
+    <script src="../static/js/cart-minishopcart.js"></script>
+    <script src="../static/js/cartgui.js"></script>
+</head>
+
+<body>
+<!-- page load-->
+<div class="page-loader">
+    <div class="loader"></div>
+</div>
+<header>
+    <!-- header-2-->
+    <div class="section dark-background">
+        <div class="container">
+            <div class="header-2">
+                <div class="header-left">
+                    <p>
+                        <i class="fa fa-map-marker"></i>Cra. 1 # 18a-12, Bogotá / Colombia
+                        <span>|</span>
+                        <i class="fa fa-clock-o"></i> Entrega de pedidos 02:00 Pm - 04:00 Pm</p>
+                </div>
+                <div class="header-right">
+                    {%if user.is_authenticated %}
+                    <div class="header-login">
+                        <a href="{% url 'login' %}">
+                            <i class="fa fa-user"></i>Bienvenido {{request.user.username}}</a>
+                        <span>/</span>
+                        <a href="{% url 'login' %}">Logout</a>
+                    </div>
+                    {% else %}
+                    <div class="header-login">
+                        <a href="{% url 'login' %}">
+                            <i class="fa fa-user"></i>Iniciar sesión</a>
+                        <span>/</span>
+                        <a href="{% url 'regUser' %}">Registrarse</a>
+                    </div>
+                    {% endif%}
+                    <!--<span class="divider">|</span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header-2-->
+</header>
+<nav>
+    <!-- nav-2-->
+    <div class="section white-background" id="js-navbar">
+        <div class="container">
+            <div class="nav-1 nav-2">
+                <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                </button>
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="../static/images/icons/ic-logo-01.png" alt="Ecofood"/>
+                    </a>
+                </div>
+                <div class="cart-icon-holder">
+                    <div class="cart-shopping js-mini-shopcart">
+                        <span class="totals">2</span>
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="has-drop">
+                        <a href="{% url 'index' %}" class="has-text-color-hover">INICIO</a>
+                        <button class="btn-caret fa fa-angle-right"></button>
+                    </li>
+                    <li class="has-drop">
+                        <a href="{% url 'catalogo' %}" class="has-text-color-hover">CATÁLOGO</a>
+                        <button class="btn-caret fa fa-angle-right"></button>
+                    </li>
+
+                    <li class="has-drop">
+                        <a href="{% url 'paymentMethods' %}" class="has-text-color-hover">MÉTODOS DE
+                            PAGO</a>
+                        <button class="btn-caret fa fa-angle-right"></button>
+                    </li>
+                    <div class="mini-shopcart">
+                        <div class="head-mini-shopcart">
+                            <p>2 items in your cart</p>
+                        </div>
+                        <div class="content-mini-shopcart">
+                            <div class="item-mini-shopcart">
+                                <div class="item-image">
+                                    <img src="http://templates.aucreative.co/ecofood/images/carousel-01.jpg"
+                                         alt="shopping cart"/>
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="name">Strawberries, 16 oz</h3>
+                                    <p class="price">1 x $2.50</p>
+                                    <button class="btn-del fa fa-close"></button>
+                                </div>
+                            </div>
+                            <div class="item-mini-shopcart">
+                                <div class="item-image">
+                                    <img src="../static/images/shopping-cart-item-02.jpg" alt="shopping cart"/>
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="name">Broccoli, bunch</h3>
+                                    <p class="price">2 x $4.00</p>
+                                    <button class="btn-del fa fa-close"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foot-mini-shopcart">
+                            <div class="mini-shopcart-action">
+                                {% if user.is_authenticated %}
+                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout"
+                                        onclick="location.href='{% url 'checkOut' %}'">CHECK OUT
+                                </button>
+                                {% else %}
+                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout">
+                                    CHECK OUT
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--end nav-2-->
+</nav>

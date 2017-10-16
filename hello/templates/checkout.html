@@ -1,0 +1,205 @@
+{% include "header.html" %}
+
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Check out</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section border-bottom-grey">
+        <div class="container">
+            <div class="breadcrumb-1">
+                <ul>
+                    <li>
+                        <a onclick="location.href='{% url 'index' %}'">Home</a>
+                    </li>
+                    <li>
+                        <a onclick="location.href='{% url 'checkOut' %}'">Check out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if flag%}
+
+<div class="page-content p-t-40 p-b-90">
+    <div class="container">
+        <div class="checkout-bill-ship border-bottom-grey m-t-30 p-b-20">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="checkout-heading">01 / Detalles de Facturación y envio</h4>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="name" class="theme-input-text" type="text" placeholder="Nombres"
+                                   value="{{ request.user.first_name }}"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="lastName" class="theme-input-text" type="text" placeholder="Apellidos"
+                                   value="{{ request.user.last_name }}"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="address" class="theme-input-text" type="text" placeholder="Dirección"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="details" class="theme-input-text" type="text" placeholder="Apt etc. (opcional)"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <select id="country" class="theme-input-text">
+                                <option>País</option>
+                                <option>Colombia</option>
+                            </select>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <select id="dpto" class="theme-input-text">
+                                <option>Departamento</option>
+                                <option value="AL">Bogotá D.C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-10">
+                            <input id="zip" class="theme-input-text" type="text" placeholder="Codigo Postal / ZIP"/>
+                        </div>
+                    </div>
+                    <div class="input-row m-b-15">
+                        <div class="input-col-5 p-r-5">
+                            <input id="phone" class="theme-input-text" type="text" placeholder="Telefono"/>
+                        </div>
+                        <div class="input-col-5 p-l-5">
+                            <input id="email" class="theme-input-text" type="text" placeholder="Email"
+                                   value="{{ request.user.email }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-order m-t-30">
+            <h4 class="checkout-heading">Tu Orden</h4>
+            <table class="table table-bordered order-table">
+                <thead>
+                <tr>
+                    <th>PRODUCTO</th>
+                    <th>TOTAL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{item.product.name}}</td>
+                    <td>{{item.totalPrice}}</td>
+                </tr>
+                {% endfor%}
+                <tr>
+                    <td>TOTAL</td>
+                    <td>${{total}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="checkout-payment-info">
+            <h4 class="checkout-heading">02 / Información de Pago</h4>
+            <div class="introduce">
+                <p>Formas de Pago Recurrentes</p>
+                {% for method in methods %}
+                <div class="radio">
+                    <label><input type="radio" name="check">Tarjeta número - {{method.token}}</label>
+                </div>
+                {% endfor%}
+                <p>Tarjetas de Credito Nueva
+
+                    <img src="../static/images/icons/ic-payment-method-01.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-02.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-03.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-04.png" alt="payment"/>
+                    <img src="../static/images/icons/ic-payment-method-05.png" alt="payment"/>
+                </p>
+
+            </div>
+            <div class="input-row m-b-15">
+                <div class="input-col-3 p-r-5">
+                    <input id="card_number" class="theme-input-text" type="text" placeholder="Numero de Tarjeta"/>
+                </div>
+                <div class="input-col-3 p-l-5 p-r-5">
+                    <input id="exp_date" class="theme-input-text" type="text" placeholder="Expira (MM/YY) "/>
+                </div>
+                <div class="input-col-3 p-l-5">
+                    <input id="code" class="theme-input-text" type="text" placeholder="Codigo"/>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-submit m-t-50">
+            <button id="purchase" class="au-btn au-btn-primary au-btn-radius btn-order-submit" data-checkout="{% url 'checkOutPersist'%}" data-email="{% url 'sendEmail'%}" data-user="{{request.user.email}}" data-ids="{{id_shopping}}">PAGA TU ORDEN</button>
+        </div>
+    </div>
+</div>
+
+{%else%}
+<h4 class="checkout-heading" style="text-align: center;">Aún no tienes carrito de compras! Animate a comprar </h4>
+{% endif%}
+
+<button id="modalButton" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalLong">
+    Launch demo modal
+</button>
+
+<button id="modalPayment" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#payment">
+    Launch demo modal
+</button>
+
+<div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="payment" aria-hidden="true">
+    <div class="modal-dialog" role="document" data-backdrop="static" data-keyboard="false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentm">Compra Realizada</h5>
+            </div>
+            <div class="modal-body">
+                Tu compra ha sido realizada con exito!<br>Recibiras en tu correo electrónico una confirmación de tu
+                compra.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Gracias
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal  Error -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Ha Ocurrido un Error!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Por favor, ingresa correctamente tu información de pago.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Entiendo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+<script src="../static/js/checkout.js"></script>
+
+</body>
+
+</html>

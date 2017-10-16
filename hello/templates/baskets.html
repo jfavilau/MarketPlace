@@ -1,0 +1,67 @@
+
+{% include "header.html" %}
+
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3 id="category_name">Canastas</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section border-bottom-grey">
+        <div class="container">
+            <div class="breadcrumb-1">
+                <ul>
+                    <li>
+                        <a href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Canastas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="page-content p-t-40 p-b-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="m-t-30">
+                    <!-- .product-category-widget-1-->
+                    <div class="product-category-widget-1">
+                        <div class="heading-widget">
+                            <h3>CANASTAS DE PRODUCTOS</h3>
+                        </div>
+                        <ul class="product-category-list" id="product-baskets-list">
+                            <!-- .product-baskets-->
+
+                        </ul>
+                    </div>
+                    <!-- end .product-category-widget-1-->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row" id="products_by_basket">
+                    <!-- products-by-basket-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+    <script src="../static/js/baskets.js"></script>
+<!--
+End Document
+==================================================
+-->
+
+</body>
+
+</html>

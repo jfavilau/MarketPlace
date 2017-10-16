@@ -3,6 +3,15 @@
 (function ($) {
     // USE STRICT
     "use strict";
+    //var baseURL = "https://marketplace201720.herokuapp.com/";
+    //var baseURL = "http://localhost:8000/";
+    var baseURL = window.location.origin+'/';
+
+    $(window).on('load', function () {
+        $('.page-loader').fadeOut('slow', function () {
+            $(this).remove();
+        });
+    });
 
     $(document).ready(function () {
         /*fixed navbar when scroll*/
@@ -20,7 +29,6 @@
                 }
             });
         }
-
 
         /*Hamburger Menu*/
         var hamburgerAnimation = $(".hamburger.has-animation");
@@ -108,13 +116,25 @@
 
     });
 
-    /*Preloader animsition*/
-    $(window).on('load', function () {
-        $('.page-loader').fadeOut('slow', function () {
-            $(this).remove();
-        });
+    /*Product detail*/
+    $('#myModal').on('show.bs.modal', function(e) {
+      var product_id = e.relatedTarget.dataset.product;
+
+      $(".input-size").val("");
+
+      $.getJSON(baseURL + "api/products/" + product_id).done(function(data) {
+
+        var description = "<p>" + data.description + "</p>" +
+                            '<p>Disponible</p>' +
+                            '<p>SKU: ' + data.id + '</p>';
+
+        $( "#product-detail-image" ).html( "<img src=" + data.image + " alt=" + data.name + "/>" );
+        $( "#product-detail-name" ).html( "<h3>" + data.name + "</h3>" );
+        $( "#product-detail-price" ).html( "<p> $" + data.price + " / " + data.unit +"</p>" );
+        $( "#product-detail-description" ).html( description );
+
+      });
 
     });
 
 })(jQuery);
-

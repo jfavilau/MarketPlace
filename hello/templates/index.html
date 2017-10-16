@@ -1,872 +1,248 @@
 <!DOCTYPE html>
-<!--if IE 8html.no-js.lt-ie9(lang='en')
--->
-<!-- [if gt IE 8] <!-->
-<html class="no-js" lang="en">
-<!-- <![endif]-->
 
-<head>
-    <!--
-    Basic Page Needs
-    ==================================================
-    -->
-    <meta charset="UTF-8">
-    <title>Homepage - MarketPlace</title>
-    <!--
-    Mobile Specific Metas
-    ==================================================
-    -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
-    CSS
-    ==================================================
-    -->
-    <link href="../static/fonts/fonts.css" rel="stylesheet">
-    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
-    <link href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/layers.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/navigation.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/settings.css" rel="stylesheet">
-    <link href="../static/vendor/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../static/css/main.css" rel="stylesheet">
-    <link href="../static/css/switcher.css" rel="stylesheet">
-    <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
-    <link href="../static/css/retina.css" rel="stylesheet">
-    <!--
-    Favicons
-    ==================================================
-    -->
-    <script src="../static/js/modernizr-custom.js"></script>
-</head>
+{% include "header.html" %}
 
-<body>
-    <!-- page load-->
-    <div class="page-loader">
-        <div class="loader"></div>
+<section>
+    <!-- START REVOLUTION SLIDER 5.0-->
+    <div class="slider-2 slider-1">
+        <div class="rev_slider" id="js-slider-1" style="display:none;">
+            <ul>
+                <li class="item-1" data-transition="fade">
+                    <!-- MAIN IMAGE-->
+                    <img class="rev-slidebg rev-slidebg" src="../static/images/carousel-06.jpg" alt="#"
+                         data-bgposition="top center" data-bgfit="normal" data-bgrepeat="repeat-x" data-bgparallax="off"
+                         data-no-retina="data-no-retina"/>
+                    <h3 class="tp-caption tp-resizeme caption-1"
+                        data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
+                        data-x="center" data-hoffset="['300', '0', '0', '0']" data-responsive="off" data-y="['center']"
+                        data-voffset="['-150', '-150', '-150', '-150']" data-width="['700', '700', '700', '700']">
+                        Productos orgánicos
+                        <img class="tee" src="../static/images/icons/ic-tee.png" alt="tee" width="100" height="50"/>
+                    </h3>
+                    <div class="tp-caption tp-resizeme caption-2"
+                         data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+                         data-x="center" data-hoffset="['300', '0', '0', '0']" data-width="['700', '700', '480', '480']"
+                         data-y="['center']" data-voffset="['-30', '-30', '10', '10']" data-responsive="off">
+                        Mauris felis libero, consequat ac tempor vel, finibus a dolor quisque quam facilisis vitae urna
+                        sit amet, euismod blandit ante. Fusce malesuada pellentesque tristique.
+                    </div>
+                </li>
+                <li class="item-1 item-2" data-transition="fade">
+                    <!-- MAIN IMAGE-->
+                    <img class="rev-slidebg rev-slidebg" src="../static/images/carousel-01.jpg" alt="#"
+                         data-bgposition="top center" data-bgfit="normal" data-bgrepeat="repeat-x" data-bgparallax="off"
+                         data-no-retina="data-no-retina"/>
+                    <h3 class="tp-caption tp-resizeme caption-1"
+                        data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
+                        data-x="center" data-hoffset="['-250', '0', '0', '0']" data-responsive="off" data-y="['center']"
+                        data-voffset="['-200', '-150', '-250', '-250']" data-width="['700', '700', '480', '480']">
+                        Ingredientes saludables</h3>
+                    <div class="tp-caption tp-resizeme caption-2"
+                         data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+                         data-x="center" data-hoffset="['-250', '0', '0', '0']"
+                         data-width="['600', '700', '480', '450']" data-y="['center']"
+                         data-voffset="['-80', '-30', '50', '-50']" data-responsive="off">
+                        Integer sit amet mi quis ipsum vulputate tempor sit amet at lorem. Pellentesque ultricies
+                        placerat erat, efficitur luctus urna venenatis nec.
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <header>
-        <!-- header-2-->
-        <div class="section dark-background">
-            <div class="container">
-                <div class="header-2">
-                    <div class="header-left">
-                        <p>
-                            <i class="fa fa-map-marker"></i>Cra. 1 # 18a-12, Bogotá / Colombia
-                            <span>|</span>
-                            <i class="fa fa-clock-o"></i> Entrega de pedidos 02:00 Pm - 04:00 Pm</p>
-                    </div>
-                    <div class="header-right">
-                        <div class="header-login">
-                            <a href="login.html">
-                                <i class="fa fa-user"></i>Log in</a>
-                            <span>/</span>
-                            <a href="register.html">Register</a>
-                        </div>
-                        <span class="divider">|</span>
-                        <!--<div class="header-search">
-                            <button class="fa fa-search"></button>
-                            <div class="search-box">
-                                <input type="text" placeholder="Search..." />
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
+</section>
+<section>
+    <div class="section white-background p-t-100 p-b-70">
+        <div class="container">
+            <!-- Heading Section-->
+            <div class="heading-section-1">
+                <h3>NUESTROS PRODUCTOS</h3>
             </div>
-        </div>
-        <!-- end header-2-->
-    </header>
-    <nav>
-        <!-- nav-2-->
-        <div class="section white-background" id="js-navbar">
-            <div class="container">
-                <div class="nav-1 nav-2">
-                    <button class="hamburger has-animation hamburger--collapse" id="toggle-icon">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="../static/images/icons/ic-logo-01.png" alt="Ecofood" />
-                        </a>
-                    </div>
-                    <div class="cart-icon-holder">
-                        <div class="cart-shopping js-mini-shopcart">
-                            <span class="totals">2</span>
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <ul class="nav-menu">
-                        <li class="has-drop">
-                            <a class="has-text-color-hover" href="index.html">HOME</a>
-                            <button class="btn-caret fa fa-angle-right"></button>
-                            <ul class="drop-menu left">
-                                <li>
-                                    <a class="has-bg-color-hover" href="index.html">Home 1</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="index1.html">Home 2</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="index2.html">Home 3</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="index3.html">Home 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-drop">
-                            <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">SHOP</a>
-                            <button class="btn-caret fa fa-angle-right"></button>
-                            <ul class="drop-menu left">
-                                <li>
-                                    <a class="has-bg-color-hover" href="shop-categories.html">Shop categories</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="shop-list-with-sidebar.html">Shop list 1</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="shop-list-without-sidebar.html">Shop list 2</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="shopping-cart.html">Shopping cart</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="checkout.html">Check out</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="wishlist-page.html">Wishlist Page</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="product-details-1.html">Product Details</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-drop">
-                            <a class="has-text-color-hover" href="about-1.html">ABOUT</a>
-                            <button class="btn-caret fa fa-angle-right"></button>
-                            <ul class="drop-menu left">
-                                <li>
-                                    <a class="has-bg-color-hover" href="about-1.html">About 1</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="about-2.html">About 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-drop">
-                            <a class="has-text-color-hover" href="#">PAGES</a>
-                            <button class="btn-caret fa fa-angle-right"></button>
-                            <ul class="drop-menu left">
-                                <li>
-                                    <a class="has-bg-color-hover" href="404.html">404 not found!</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="faqs.html">FAQs</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a class="has-bg-color-hover" href="register.html">Register</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-drop">
-                            <a class="has-text-color-hover" href="blog-list-with-sidebar-1.html">BLOG</a>
-                            <button class="btn-caret fa fa-angle-right"></button>
-                            <ul class="drop-menu bottom-left">
-                                <li class="has-drop">
-                                    <a class="has-bg-color-hover" href="blog-list-with-sidebar-1.html">BLog list</a>
-                                    <button class="btn-caret fa fa-angle-right"></button>
-                                    <ul class="drop-menu top-right">
-                                        <li>
-                                            <a class="has-bg-color-hover" href="blog-list-with-sidebar-1.html">Blog List 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="has-bg-color-hover" href="blog-list-with-sidebar-2.html">Blog List 2</a>
-                                        </li>
-                                        <li>
-                                            <a class="has-bg-color-hover" href="blog-masonry.html">Blog List 3</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-drop">
-                                    <a class="has-bg-color-hover" href="blog-details-with-sidebar-1.html">Blog Details</a>
-                                    <button class="btn-caret fa fa-angle-right"></button>
-                                    <ul class="drop-menu top-right">
-                                        <li>
-                                            <a class="has-bg-color-hover" href="blog-details-with-sidebar-1.html">Blog Details 1</a>
-                                        </li>
-                                        <li>
-                                            <a class="has-bg-color-hover" href="blog-details-without-sidebar-1.html">Blog Details 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-text-color-hover" href="contact.html">CONTACT</a>
-                        </li>
-                    </ul>
-                    <div class="mini-shopcart">
-                        <div class="head-mini-shopcart">
-                            <p>2 items in your cart</p>
-                        </div>
-                        <div class="content-mini-shopcart">
-                            <div class="item-mini-shopcart">
-                                <div class="item-image">
-                                    <img src="http://templates.aucreative.co/ecofood/images/carousel-01.jpg" alt="shopping cart" />
-                                </div>
-                                <div class="item-content">
-                                    <h3 class="name">Strawberries, 16 oz</h3>
-                                    <p class="price">1 x $2.50</p>
-                                    <button class="btn-del fa fa-close"></button>
-                                </div>
-                            </div>
-                            <div class="item-mini-shopcart">
-                                <div class="item-image">
-                                    <img src="../static/images/shopping-cart-item-02.jpg" alt="shopping cart" />
-                                </div>
-                                <div class="item-content">
-                                    <h3 class="name">Broccoli, bunch</h3>
-                                    <p class="price">2 x $4.00</p>
-                                    <button class="btn-del fa fa-close"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="foot-mini-shopcart">
-                            <p class="total-shopcart">Total: $6.50</p>
-                            <div class="mini-shopcart-action">
-                                <button class="au-btn au-btn-border au-btn-radius btn-viewcart">VIEW CART</button>
-                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout">CHECK OUT</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="row" id="products-carousel" style="margin-top: 50px;">
+
             </div>
+
         </div>
-        <!--end nav-2-->
-    </nav>
-    <section>
-        <!-- START REVOLUTION SLIDER 5.0-->
-        <div class="slider-2 slider-1">
-            <div class="rev_slider" id="js-slider-1" style="display:none;">
-                <ul>
-                    <li class="item-1" data-transition="fade">
-                        <!-- MAIN IMAGE-->
-                        <img class="rev-slidebg rev-slidebg" src="../static/images/carousel-06.jpg" alt="#" data-bgposition="top center" data-bgfit="normal" data-bgrepeat="repeat-x" data-bgparallax="off" data-no-retina="data-no-retina" />
-                        <h3 class="tp-caption tp-resizeme caption-1" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
-                        data-x="center" data-hoffset="['300', '0', '0', '0']" data-responsive="off" data-y="['center']" data-voffset="['-150', '-150', '-150', '-150']" data-width="['700', '700', '700', '700']">Organic Green Tea
-                            <img class="tee" src="../static/images/icons/ic-tee.png" alt="tee" width="100" height="50" />
-                        </h3>
-                        <div class="tp-caption tp-resizeme caption-2" data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
-                        data-x="center" data-hoffset="['300', '0', '0', '0']" data-width="['700', '700', '480', '480']" data-y="['center']" data-voffset="['-30', '-30', '10', '10']" data-responsive="off">
-                            Mauris felis libero, consequat ac tempor vel, finibus a dolor quisque quam facilisis vitae urna sit amet, euismod blandit ante. Fusce malesuada pellentesque tristique.
-                        </div>
-                    </li>
-                    <li class="item-1 item-2" data-transition="fade">
-                        <!-- MAIN IMAGE-->
-                        <img class="rev-slidebg rev-slidebg" src="../static/images/carousel-01.jpg" alt="#" data-bgposition="top center" data-bgfit="normal" data-bgrepeat="repeat-x" data-bgparallax="off" data-no-retina="data-no-retina" />
-                        <h3 class="tp-caption tp-resizeme caption-1" data-frames="[{&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;speed&quot;:1500,&quot;to&quot;:&quot;o:1;&quot;,&quot;delay&quot;:1500,&quot;ease&quot;:&quot;Power4.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;to&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power2.easeIn&quot;}]"
-                        data-x="center" data-hoffset="['-250', '0', '0', '0']" data-responsive="off" data-y="['center']" data-voffset="['-200', '-150', '-250', '-250']" data-width="['700', '700', '480', '480']">Healthy ingredients</h3>
-                        <div class="tp-caption tp-resizeme caption-2" data-frames="[{&quot;delay&quot;:1600,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:[100%];s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;auto:auto;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
-                        data-x="center" data-hoffset="['-250', '0', '0', '0']" data-width="['600', '700', '480', '450']" data-y="['center']" data-voffset="['-80', '-30', '50', '-50']" data-responsive="off">
-                            Integer sit amet mi quis ipsum vulputate tempor sit amet at lorem. Pellentesque ultricies placerat erat, efficitur luctus urna venenatis nec.
-                        </div>
-                    </li>
-                </ul>
+    </div>
+</section>
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <!-- .deal-of-the-day-1-->
+            <div class="deal-of-the-day-1" id="deal-of-the-day">
+
+                <!-- .deal-of-the-day-->
+
             </div>
+            <!-- end .deal-of-the-day-1-->
         </div>
-    </section>
-    <section>
-        <div class="section white-background p-t-100 p-b-100">
-            <div class="container">
-                <!-- Heading Section-->
-                <div class="heading-section-1">
-                    <h3>OUR PRODUCTS</h3>
-                </div>
-                <div class="owl-carousel product-list-carousel-1 m-t-50" data-carousel-items="4" data-carousel-autoplay="true" data-carousel-loop="true" data-carousel-nav="true" data-carousel-xs="1" data-carousel-sm="2" data-carousel-md="2" data-carousel-lg="4">
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-01.jpg" alt="Egg free mayo" />
-                            </div>
-                            <div class="product-status hot">
-                                <span>HOT</span>
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Egg free mayo</a>
-                            </h3>
-                            <p class="price">$ 10.00</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-02.jpg" alt="Organic broccoli" />
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Organic broccoli</a>
-                            </h3>
-                            <p class="price">$2.29 /bunch</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-03.jpg" alt="Strawberries" />
-                            </div>
-                            <div class="product-status sale">
-                                <span>SALE</span>
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Strawberries</a>
-                            </h3>
-                            <p class="price">$5.99 /ea</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-04.jpg" alt="Lemon 250ml glass" />
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Lemon 250ml glass</a>
-                            </h3>
-                            <p class="price">$20.00</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-05.jpg" alt="Fresh cherry" />
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Fresh cherry</a>
-                            </h3>
-                            <p class="price">$12.48 /bag</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-06.jpg" alt="Juice carrot &amp; apple" />
-                            </div>
-                            <div class="product-status new">
-                                <span>NEW</span>
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Juice carrot &amp; apple</a>
-                            </h3>
-                            <p class="price">$10.00</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-07.jpg" alt="Organic banana" />
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Organic banana</a>
-                            </h3>
-                            <p class="price">$2.76 /bunch</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                    <!-- .product-1-->
-                    <div class="product-1">
-                        <div class="product-image">
-                            <div class="image-holder">
-                                <img src="../static/images/product-item-08.jpg" alt="Fresh celery root" />
-                            </div>
-                            <div class="product-action">
-                                <div class="product-action-list">
-                                    <div class="action-item">
-                                        <a class="fa fa-search-plus" href="#" data-toggle="modal" data-target="#myModal" data-toggle-tooltip="tooltip" data-placement="top" title="Quick view"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-shopping-cart" href="shopping-cart.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to cart"></a>
-                                    </div>
-                                    <div class="action-item">
-                                        <a class="fa fa-heart" href="wishlist-page.html" data-toggle-tooltip="tooltip" data-placement="top" title="Add to wishlist!"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title">
-                                <a class="name" href="product-details-1.html">Fresh celery root</a>
-                            </h3>
-                            <p class="price">$2.49 /bunch</p>
-                        </div>
-                    </div>
-                    <!-- end .product-1-->
-                </div>
+    </div>
+</section>
+<section class="m-t-200 m-b-60">
+    <div class="section white-background">
+        <div class="container">
+            <!-- Heading Section-->
+            <div class="heading-section-1">
+                <h3>PRODUCTOS NATURALES</h3>
             </div>
-        </div>
-    </section>
-    <section>
-        <div class="section white-background cover-background parallax-background" style="background: url(&quot;../static/images/banner-03.jpg&quot;) top center no-repeat;">
-            <!-- banner-3-->
-            <div class="banner-1 banner-2 banner-3">
-                <div class="banner-content">
-                    <h3 class="banner-title">Save $5.00</h3>
-                    <p class="banner-subtitle">WHEN BUY 2 PRODUCTS</p>
-                    <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Buy now</a>
-                </div>
-            </div>
-            <!-- end banner-3-->
-        </div>
-    </section>
-    <section>
-        <div class="section grey-background p-t-100 p-b-140">
-            <div class="container">
-                <!-- Heading Section-->
-                <div class="heading-section-1">
-                    <h3>FROM OUR CUSTOMER</h3>
-                </div>
-                <div class="owl-carousel testimonials-carousel-1 m-t-50" data-carousel-items="3" data-carousel-autoplay="true" data-carousel-center="true" data-carousel-loop="true" data-carousel-nav="true" data-carousel-xs="1" data-carousel-sm="1" data-carousel-md="2"
-                data-carousel-lg="3" data-carousel-margin="30">
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-01.jpg" alt="ASHLEY STEPHENS" />
-                        </div>
-                        <p class="testimonials-name">ASHLEY STEPHENS</p>
-                    </div>
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>I just wanted to take a minute to thank you and to let you know how wonderful your products were. I was amazed at the care you take in packaging them. Everything was great. Thanks !</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-02.jpg" alt="PPHILIP SMITH" />
-                        </div>
-                        <p class="testimonials-name">PPHILIP SMITH</p>
-                    </div>
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-01.jpg" alt="ASHLEY STEPHENS" />
-                        </div>
-                        <p class="testimonials-name">ASHLEY STEPHENS</p>
-                    </div>
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>Nullam sit amet mi magna. Aliquam interdum magna sit amet rhoncus blandit. Pellentesque vel ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-03.jpg" alt="LAUREN REED" />
-                        </div>
-                        <p class="testimonials-name">LAUREN REED</p>
-                    </div>
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>I just wanted to take a minute to thank you and to let you know how wonderful your products were. I was amazed at the care you take in packaging them. Everything was great. Thanks !</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-02.jpg" alt="PHILIP SMITH" />
-                        </div>
-                        <p class="testimonials-name">PHILIP SMITH</p>
-                    </div>
-                    <div class="testimonials-1">
-                        <div class="testimonials-content">
-                            <p>Nullam sit amet mi magna. Aliquam interdum magna sit amet rhoncus blandit. Pellentesque vel ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
-                        </div>
-                        <div class="testimonials-image">
-                            <img src="../static/images/avatar-03.jpg" alt="LAUREN REED" />
-                        </div>
-                        <p class="testimonials-name">LAUREN REED</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="section white-background">
-            <div class="container-split">
-                <div class="split-35">
-                    <!-- banner-4-->
-                    <div class="banner-4">
-                        <a href="#">
-                            <div class="banner-image">
-                                <img src="../static/images/banner-04.jpg" alt="banner" />
-                            </div>
-                            <div class="banner-content">
-                                <h3 class="banner-title">Save $5.00</h3>
-                                <p class="banner-subtitle">when buy 2 products</p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end banner-4-->
-                </div>
-                <div class="split-30">
-                    <!-- banner-5-->
-                    <div class="banner-5">
-                        <a href="#">
-                            <div class="banner-image">
-                                <img src="../static/images/banner-05.jpg" alt="banner" />
-                            </div>
-                            <div class="banner-content">
-                                <h3 class="banner-title">Summer pineapple</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- end banner-5-->
-                </div>
-                <div class="split-35">
-                    <!-- banner-6-->
-                    <div class="banner-6">
-                        <div class="banner-image">
-                            <img src="../static/images/banner-06.jpg" alt="banner" />
-                        </div>
-                        <div class="banner-content">
-                            <h3 class="banner-title">happy mother’ day</h3>
-                            <p class="banner-subtitle">The best gift for your mom</p>
-                            <button class="au-btn au-btn-radius au-btn-border btn-banner">Buy now</button>
-                        </div>
-                    </div>
-                    <!-- end banner-6-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="section white-background p-t-140 p-b-140">
-            <div class="container">
-                <!-- .call-to-action-3-->
-                <div class="call-to-action-3">
-                    <div class="cta-heading">
-                        <h3>GREATNESS DESERVES A
-                            <span class="color">FOLLOWING</span>
-                        </h3>
-                    </div>
-                    <div class="cta-content">
-                        <p>Signing up couldn’t be easier. We respect your privacy. Start your path to exclusive savings.</p>
-                    </div>
-                    <div class="cta-form">
-                        <input class="input-text" type="text" placeholder="Your email address" />
-                        <button class="input-submit" type="submit">Join now</button>
-                    </div>
-                </div>
-                <!-- end .call-to-action-3-->
-            </div>
-        </div>
-    </section>
-    <footer>
-        <!--.footer-2-->
-        <div class="footer-1 footer-2">
-            <div class="container">
+            <div class="m-t-50">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="footer-introduce">
-                            <div class="footer-logo">
-                                <img src="../static/images/icons/ic-logo-02.png" alt="logo ecofood" />
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image pink">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-1.png" alt="Eco systems &amp; biodiversity" />
                             </div>
-                            <div class="footer-intro">
-                                <p>In vel auctor nunc, ut sodales tortor. Fusce venenatis sit amet mauris sed venenatis. Maecenas eu urna vitae ligula ornare eleifend in a lorem.</p>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Agricultura BIO</a>
+                                </h3>
+                            </div>
+                            <div class="iconbox-content">
+                                <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in cursus non, pharetra enim at sem.</p>
                             </div>
                         </div>
+                        <!-- end .our-store-iconbox-1-->
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="footer-services">
-                            <div class="footer-heading">
-                                <h3>CUSTOMER SERVICES</h3>
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image green">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-2.png" alt="Certified organic standards" />
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Product recall notices</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Order information</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Shipping & returns</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Privacy policy</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terms & conditions</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">FAQs</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Productos orgánicos</a>
+                                </h3>
+                            </div>
+                            <div class="iconbox-content">
+                                <p>Integer vel erat nec purus feugiat tempor vitae vel ante. Ut mi mi, efficitur a augue ut, rhoncus iaculis ipsum. Vestibulum fringilla quam quis</p>
                             </div>
                         </div>
+                        <!-- end .our-store-iconbox-1-->
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="footer-contact">
-                            <div class="footer-heading">
-                                <h3>CONTACT US</h3>
+                    <div class="col-md-4 col-sm-6">
+                        <!-- .our-store-iconbox-1-->
+                        <div class="our-store-iconbox-1">
+                            <div class="iconbox-image orange">
+                                <img src="http://templates.aucreative.co/ecofood/images/icons/ic-our-store-iconbox-3.png" alt="Fair prices for you" />
                             </div>
-                            <ul>
-                                <li>
-                                    <i class="fa fa-map-marker"></i>
-                                    <span>256 address name, New York city</span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-clock-o"></i>
-                                    <span>7:30 Am - 11:00 Pm. Monday - Sunday</span>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone"></i>
-                                    <span>(044) 359 0173</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-copyright">
-                        <p>© 2017 Designed by AuThemes. All rights reserved.</p>
-                    </div>
-                    <ul class="footer-socials">
-                        <li>
-                            <a class="fa fa-facebook" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="fa fa-google-plus" href="#"></a>
-                        </li>
-                        <li>
-                            <a class="fa fa-youtube" href="#"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end .footer-2-->
-    </footer>
-    <!-- quick-view-1-->
-    <div class="modal fade quick-view-1" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button class="fa fa-close" type="button" data-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <!-- .product-detail-image-1-->
-                            <div class="product-detail-image-1">
-                                <div class="product-primary-image owl-carousel" data-carousel-items="1" data-carousel-dotsData="true" data-carousel-nav="true" data-carousel-dots="true" data-carousel-xs="1" data-carousel-sm="1" data-carousel-md="1" data-carousel-lg="1" data-carousel-animateout="fadeOut"
-                                data-carousel-animatein="fadeIn">
-                                    <img data-dot="&lt;img src='../static/images/product-details-image-05.jpg'&gt;" src="../static/images/product-details-image-02.jpg" alt="product detail image" />
-                                    <img data-dot="&lt;img src='../static/images/product-details-image-06.jpg'&gt;" src="../static/images/product-details-image-03.jpg" alt="product detail image" />
-                                    <img data-dot="&lt;img src='../static/images/product-details-image-07.jpg'&gt;" src="../static/images/product-details-image-04.jpg" alt="product detail image" />
-                                    <img data-dot="&lt;img src='../static/images/product-details-image-08.jpg'&gt;" src="../static/images/product-details-image-01.jpg" alt="product detail image" />
-                                </div>
+                            <div class="iconbox-title">
+                                <h3 class="title">
+                                    <a href="#">Agricultura limpia</a>
+                                </h3>
                             </div>
-                            <!-- end .product-detail-image-1-->
-                        </div>
-                        <div class="col-md-7">
-                            <!-- .product-detail-content-1-->
-                            <div class="product-detail-content-1">
-                                <div class="product-name">
-                                    <h3>Organic strawberries</h3>
-                                </div>
-                                <div class="product-cert">
-                                    <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-01.png" alt="product cert" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-02.png" alt="product cert" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-03.png" alt="product cert" />
-                                    </a>
-                                </div>
-                                <div class="product-price">
-                                    <p>$5.99 /ea</p>
-                                </div>
-                                <div class="product-introduce">
-                                    <p>Morbi molestie nisi purus, vitae vestibulum turpis lacinia sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
-                                    <p>In Stock</p>
-                                    <p>SKU: 1952C14</p>
-                                </div>
-                                <div class="prodcut-add-to-cart">
-                                    <input class="input-size" type="text" value="1" />
-                                    <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">ADD TO CART</button>
-                                    <a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO WISHLIST</a>
-                                </div>
+                            <div class="iconbox-content">
+                                <p>Vestibulum purus felis, posuere ac lobortis at. Ut iaculis eros et erat sollicitudin, ut faucibus arcu ultricies. Suspendisse lobortis.</p>
                             </div>
-                            <!-- end .product-detail-content-1-->
                         </div>
+                        <!-- end .our-store-iconbox-1-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end quick-view-1-->
-    <div id="up-to-top">
-        <i class="fa fa-angle-up"></i>
+</section>
+<section>
+    <div class="section white-background cover-background parallax-background"
+         style="background: url(http://templates.aucreative.co/ecofood/images/banner-03.jpg) top center no-repeat;">
+        <!-- banner-3-->
+        <div class="banner-1 banner-2 banner-3">
+            <div class="banner-content">
+                <h3 class="banner-title">Recibe los mejores productos</h3>
+                <p class="banner-subtitle">EN TU HOGAR</p>
+                <a class="au-btn au-btn-primary au-btn-radius btn-banner" href="#">Horarios de entrega</a>
+            </div>
+        </div>
+        <!-- end banner-3-->
     </div>
-    <!-- end page load-->
-    <!--
-    Javascripts
-    ==================================================
-    -->
-    <script src="../static/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../static/vendor/retinajs/dist/retina.min.js"></script>
-    <script src="../static/vendor/SmoothScroll/SmoothScroll.js"></script>
-    <script src="../static/js/switcher-custom.js"></script>
-    <script src="../static/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="../static//vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="../static/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
-    <!--
-    | (Load Extensions only on Local File Systems !
-    | The following part can be removed on Server for On Demand Loading)
-    -->
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.video.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script type="text/javascript" src="../static/vendor/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="../static/js/revo-slider-custom.js"></script>
-    <script src="../static/js/owl-custom.js"></script>
-    <script src="../static/js/main.js"></script>
-    <!--
-    End Document
-    ==================================================
-    -->
+</section>
+<section>
+    <div class="section grey-background p-t-100 p-b-140">
+        <div class="container">
+            <!-- Heading Section-->
+            <div class="heading-section-1">
+                <h3>NUESTROS PRODUCTORES</h3>
+            </div>
+            <div class="owl-carousel testimonials-carousel-1 m-t-50" data-carousel-items="3"
+                 data-carousel-autoplay="true" data-carousel-center="true" data-carousel-loop="true"
+                 data-carousel-nav="true" data-carousel-xs="1" data-carousel-sm="1" data-carousel-md="2"
+                 data-carousel-lg="3" data-carousel-margin="30">
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in
+                            cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="http://thelafayettesun.com/wp-content/uploads/2017/09/9-6-17-Chris-Langley-Farmer-of-the-Year-150x150.jpg" alt="ASHLEY STEPHENS"/>
+                    </div>
+                    <p class="testimonials-name">PEDRO PÉREZ</p>
+                </div>
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>I just wanted to take a minute to thank you and to let you know how wonderful your products
+                            were. I was amazed at the care you take in packaging them. Everything was great. Thanks
+                            !</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="http://media.ruralradio.co/wordpress/2017/10/LeslieMcCuiston-150x150.jpg" alt="PPHILIP SMITH"/>
+                    </div>
+                    <p class="testimonials-name">ROSALBA GÓMEZ</p>
+                </div>
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>Phasellus vel ante blandit, suscipit neque sed, egestas quam. Maecenas mi sem, tristique in
+                            cursus non, pharetra id enim. Aenean nec nibh a mi gravida ornare ut at sem maecenas</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="https://d15mj6e6qmt1na.cloudfront.net/i/19295637/300x300/c" alt="ASHLEY STEPHENS"/>
+                    </div>
+                    <p class="testimonials-name">JAIME LÓPEZ</p>
+                </div>
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>Nullam sit amet mi magna. Aliquam interdum magna sit amet rhoncus blandit. Pellentesque vel
+                            ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="http://180radio.com/wp-content/uploads/2014/05/IMG_0617-150x150.jpg" alt="LAUREN REED"/>
+                    </div>
+                    <p class="testimonials-name">LAURA RODRÍGUEZ</p>
+                </div>
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>I just wanted to take a minute to thank you and to let you know how wonderful your products
+                            were. I was amazed at the care you take in packaging them. Everything was great. Thanks
+                            !</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="http://www.shmula.com/wp-content/uploads/2017/01/6sig-farmer-150x150.jpg" alt="PHILIP SMITH"/>
+                    </div>
+                    <p class="testimonials-name">FELIPE HURTADO</p>
+                </div>
+                <div class="testimonials-1">
+                    <div class="testimonials-content">
+                        <p>Nullam sit amet mi magna. Aliquam interdum magna sit amet rhoncus blandit. Pellentesque vel
+                            ante auctor, condimentum nisl euismod, bibendum metus. Proin ultrices tellus vel ligula.</p>
+                    </div>
+                    <div class="testimonials-image">
+                        <img src="https://i0.wp.com/www.womenwhofarm.com/wp-content/uploads/2017/03/Untitled-design-15.png?resize=150%2C150" alt="LAUREN REED"/>
+                    </div>
+                    <p class="testimonials-name">DANIELA PINZÓN</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+    <script src="../static/js/index.js"></script>
+
+<!--
+End Document
+==================================================
+-->
+
 </body>
 
 </html>

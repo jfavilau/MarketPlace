@@ -2,7 +2,12 @@ gitvenv
 *.pyc
 staticfiles
 .env
+env
 db.sqlite3
 .idea/
 .DS_Store
 .DS_Store?
+Dockerfile
+docker-compose.yml
+.idea/workspace.xml
+.idea/python-getting-started.iml
