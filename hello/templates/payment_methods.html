@@ -28,9 +28,10 @@
 </section>
 
 <p class="h2" style="text-align: center;">Métodos de Pago</p>
+{% if user.is_authenticated %}
+<button id="list_payment_btn" type="button" style="margin-left: 3cm; margin-bottom: 1cm;" class="btn btn-success btn-sm">Agregar Medio de Pago</button>
+{% endif %}
 <div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:none;">
-    <button id="list_payment_btn" type="button" style="margin-left: 3cm; margin-bottom: 1cm;" class="btn btn-success btn-sm">Agregar Medio de Pago</button>
-
         <div class="container">
             <!--wishlist-cart-1-->
             <div class="woocommerce shopping-cart-1">
