@@ -94,10 +94,8 @@
                             '</div>';
 
         });
-
         $( "#products_by_category" ).html( productsHTML );
-
-        //hideLoader();
+        refreshCartGuiOperation();
     }
 
 })(jQuery);

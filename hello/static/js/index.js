@@ -106,7 +106,7 @@
                             '<div class="action-deal-of-the-day">'+
                             '    <div class="action-content">'+
                             '        <p class="price">Precio: $' + basket.price + '</p>'+
-                            '        <a class="btn-add-to-cart au-btn au-btn-radius au-btn-primary" href="#">Agregar al carrito</a>'+
+                            '        <a class="btn-add-to-cart au-btn au-btn-radius au-btn-primary" href="/canastas/">Ver todas las canastas</a>'+
                             '    </div>'+
                             '</div>';
 
@@ -124,6 +124,7 @@
                             '    <div class="action-content">'+
                             '        <p class="price">Ninguna</p>'+
                             '        <p> Revisa mañana para aprovechar las mejores promociones</p>'+
+                            '        <a class="btn-add-to-cart au-btn au-btn-radius au-btn-primary" href="/canastas/">Ver todas las canastas</a>'+
                             '    </div>'+
                             '</div>';
 
