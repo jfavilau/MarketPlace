@@ -33,14 +33,12 @@ class PaymentMethod (models.Model):
     createdDate = models.DateField(blank=False, null=False)
     user = models.ForeignKey(User)
     active = models.BooleanField(null=False, blank=False, default=True)
-
     def __unicode__(self):
         return self.displayName
 
 
 class OrderStatus (models.Model):
     status = models.CharField(max_length=150, blank=False, null=False)
-
     def __unicode__(self):
         return self.status
 
@@ -49,7 +47,6 @@ class ScheduleOptions (models.Model):
     weekDay = models.CharField(max_length=3, blank=False, null=False)
     initialDate = models.DateField(blank=False, null=False)
     finalDate = models.DateField(blank=False, null=False)
-
     def __unicode__(self):
         return self.weekDay
 
@@ -59,10 +56,8 @@ class ShoppingCart (models.Model):
     createdDate = models.DateField(blank=False, null=False, auto_now_add=True)
     value = models.FloatField(null=False, blank=False, default=0)
     active = models.BooleanField(null=False, blank=False, default=True)
-
     def __str__(self):
         return self.user.username
-
     def __unicode__(self):
         return self.__str__
 
@@ -81,7 +76,6 @@ class Order(models.Model):
 class Category(models.Model):
     shortName = models.CharField(max_length=3, blank=False, null=False)
     name = models.CharField(max_length=150, blank=False, null=False)
-
     def __str__(self):
         return self.name
 
@@ -89,7 +83,6 @@ class Category(models.Model):
 class Type(models.Model):
     shortName = models.CharField(max_length=1, blank=False, null=False)
     name = models.CharField(max_length=150, blank=False, null=False)
-
     def __str__(self):
         return self.name
 
@@ -97,7 +90,6 @@ class Type(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=150, blank=False, null=False)
     shortName = models.CharField(max_length=3, blank=False, null=False)
-
     def __str__(self):
         return self.name
 
@@ -106,7 +98,6 @@ class Cooperative(models.Model):
     name = models.CharField(max_length=150, blank=False, null=False)
     city = models.ForeignKey(City)
     active = models.BooleanField(null=False, blank=False)
-
     def __str__(self):
         return self.name
 
@@ -126,7 +117,6 @@ class Producer (models.Model):
     phoneNumber = models.CharField(max_length=15, blank=False, null=False)
     cooperative = models.ForeignKey(Cooperative)
     active = models.BooleanField(null=False, blank=False)
-
     def __str__(self):
         return self.name
 
@@ -140,10 +130,9 @@ class Product(models.Model):
     price = models.FloatField(null=False, blank=False, default=None)
     type = models.ForeignKey(Type)
     category = models.ForeignKey(Category, related_name='products')
-    producer = models.ForeignKey(Producer)
+    producer = models.ForeignKey(Producer, related_name='products')
     cooperative = models.ForeignKey(Cooperative, null=True)
     active = models.BooleanField(null=False, blank=False)
-
     def __str__(self):
         return self.name
 
@@ -159,10 +148,8 @@ class Item (models.Model):
     product = models.ForeignKey(Product)
     shoppingCart = models.ForeignKey(ShoppingCart, related_name='items')
     addedDate = models.DateField(blank=False, null=False)
-
     def __str__(self):
         return self.product.name
-
     def __unicode__(self):
         return self.__str__
 
@@ -172,7 +159,6 @@ class Basket (models.Model):
     price = models.FloatField(null=False, blank=False, default=None)
     description = models.TextField(blank=True, null=True)
     active = models.BooleanField(null=False, blank=False)
-
     def __str__(self):
         return self.name
 
@@ -182,7 +168,6 @@ class ItemsPerBasket (models.Model):
     basket = models.ForeignKey(Basket, related_name='items')
     quantity = models.FloatField(null=False, blank=False, default=None)
     active = models.BooleanField(null=False, blank=False)
-
     def __str__(self):
         return self.product.name
 

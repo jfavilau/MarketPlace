@@ -207,6 +207,14 @@ class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retri
     serializer_class = BasketSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+    """
+    List all Producers.
+    """
+    queryset = Producer.objects.all()
+    serializer_class = ProducerSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 def checkOut(request):
 
@@ -378,9 +386,9 @@ def shoppingCartPersist(request):
                         {'message': 'Por favor inicie sesion para continuar',
                          'authenticated': False}
                         )
-
             items = json.loads(request.POST.get('items'))
-            shoppingCart, created = ShoppingCart.objects.get_or_create(user=user)
+
+            shoppingCart = ShoppingCart(user=user)
             shoppingCart.value = request.POST.get('cartTotal')
             shoppingCart.active = True
             shoppingCart.save()
