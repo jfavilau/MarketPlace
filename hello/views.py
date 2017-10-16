@@ -1,6 +1,7 @@
 import json
 from time import strftime, gmtime
 
+from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
@@ -369,3 +370,20 @@ def shoppingCartPersist(request):
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg, 'authenticated': authenticated})
+
+@csrf_exempt
+def login_logic (request):
+    if request.method == 'POST':
+
+        user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+
+        if user is not None:
+            login(request, user)
+            message = "ok"
+        else:
+            message = "Nombre de usuario o clave incorrecta"
+
+    return JsonResponse({'message': message})
+
+def login_view (request):
+    return render(request, 'login.html')

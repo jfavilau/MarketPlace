@@ -42,6 +42,8 @@ urlpatterns = [
     url(r'^updateOrder', hello.views.updateOrder, name='updateOrder'),
     url(r'^oadmin', hello.views.indexOrdersAdmin, name='ordersadmin'),
     url(r'^shoppingCartPersist/', hello.views.shoppingCartPersist, name='shoppingCartPersist'),
+    url(r'^loginLogic/', hello.views.login_logic, name='loginLogic'),
+    url(r'^login/', hello.views.login_view, name='login'),
 ]
 
 # Login and logout views for the browsable API
