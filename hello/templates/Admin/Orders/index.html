@@ -90,13 +90,10 @@
                      error: fnError
                  });
             };
-
             var selectedOrder = {};
-
             var getCurrency = function (value) {
                 return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             };
-
             var getDetails = function (order) {
                 selectedOrder = order;
                 var tbody = "";
@@ -117,12 +114,11 @@
                 //console.log(order.orders[0].Status)
                 $("#lstatus option").filter(function() {
                     //may want to use $.trim in here
-                    return $(this).text() == order.orders[0].Status;
+                    return $(this).text() == order.orders[0].status.status;
                 }).prop('selected', true);
                 //$("#divlstatus select").text(order.orders[0].Status);
                 //$('#divlstatus option:contains(' + order.orders[0].Status + ')');
             };
-
             var updateOrder = function () {
                 //console.log( $('#lstatus').find(":selected").val());
                 var status = $('#lstatus').find(":selected").val();
@@ -154,11 +150,9 @@
                         }
                         ,true);
             };
-
             $( "#updateOrder" ).click(function() {
                 updateOrder();
             });
-
             var getOrders = function () {
                 _doAjax("GET", url + "shoppingcar",{},function (resp) {
                     //console.log(resp)
@@ -174,13 +168,12 @@
                             + "<tr>"
                             + "<td>" + value.id + "</td>"
                             + "<td>" + getCurrency(total) + "</td>"
-                            + "<td>" + value.orders[0].Status + "</td>"
+                            + "<td>" + value.orders[0].status.status + "</td>"
                             + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Cambiar Estado</a>" + "</td>"
                             + "</tr>";
                     });
                     //console.log(tbody)
                     $( "#orders" ).empty().append( tbody );
-
                     $('td').click(function () {
                         var col = $(this).parent().children().index($(this));
                         //console.log(col)
@@ -192,7 +185,6 @@
                              },null,true);
                         }
                     });
-
                 },null,true);
             };
             var getOrderStatus = function () {
