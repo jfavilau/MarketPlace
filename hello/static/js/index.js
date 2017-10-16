@@ -154,7 +154,7 @@
                     prod += ", " + product.name;
                 });
 
-                var myvar = '<div class="testimonials-1 child" style="text-align:center;">'+
+                var myvar = '<div class="testimonials-1" style="text-align:center;">'+
                                 '<div class="testimonials-content">'+
                                     '<p>Ofrezco productos de calidad, entre ellos: ' + prod + ' y muchos más por venir!. </p>'+
                                 '</div>'+
