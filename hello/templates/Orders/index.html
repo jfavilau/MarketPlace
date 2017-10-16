@@ -87,17 +87,13 @@
                      error: fnError
                  });
             };
-
             var currentOrder = {};
-
             var getCurrency = function (value) {
                 return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             };
-
             $( "#changing" ).click(function() {
                 getDetails(currentOrder);
             });
-
             var getDetails = function (order) {
                 var tbody = "";
                 var total = 0;
@@ -110,19 +106,17 @@
                              + "</tr>";
                 });
                 $( "#nOrder" ).empty().append( order.id );
-                $( "#status" ).empty().append( order.orders[0].Status );
+                $( "#status" ).empty().append( order.orders[0].status.status );
                 $( "#products" ).empty().append( tbody );
                 $( "#totalOrder" ).empty().append( getCurrency (total) );
                 $( "#dateOrder" ).empty().append( order.createdDate );
             };
-
             var setCheckingOrder = function (order) {
                 currentOrder = order;
                 $( "#nOrder2" ).empty().append( order.id );
                 $( "#direccion" ).empty().append( order.orders[0].deliveryAddress );
                 $( "#deliveryDate" ).empty().append( order.orders[0].statusDate );
                 $( "#PaymentMethod" ).empty().append( order.orders[0].PaymentMethod );
-
                 var total = 0, discount = 0;
                 $.each(order.items, function( index, value ) {
                     total += value.quantityTotal*value.product.price;
@@ -131,7 +125,6 @@
                 $( "#subtotal" ).empty().append( getCurrency (total));
                 $( "#totalOrder2" ).empty().append(getCurrency ( total - discount));
             };
-
             var getOrders = function () {
                 _doAjax("GET", "shoppingcar",{},function (resp) {
                     //console.log(resp)
@@ -147,14 +140,13 @@
                             + "<tr>"
                             + "<td>" + value.id + "</td>"
                             + "<td>" + getCurrency(total) + "</td>"
-                            + "<td>" + value.orders[0].Status + "</td>"
+                            + "<td>" + value.orders[0].status.status + "</td>"
                             + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Ver detalle</a>" + "</td>"
                             + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#checkingOrder'>Check</a></td>"
                             + "</tr>";
                     });
                     //console.log(tbody)
                     $( "#orders" ).empty().append( tbody );
-
                     $('td').click(function () {
                         var col = $(this).parent().children().index($(this));
                         //console.log(col)
@@ -166,11 +158,9 @@
                                     getDetails(resp);
                                  else
                                      setCheckingOrder(resp);
-
                              },null,true);
                         }
                     });
-
                 },null,true);
             };
             getOrders();
