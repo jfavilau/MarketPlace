@@ -164,13 +164,15 @@
                             //console.log(value2)
                             total += value2.quantityTotal*value2.product.price;
                         });
-                        tbody = tbody
-                            + "<tr>"
-                            + "<td>" + value.id + "</td>"
-                            + "<td>" + getCurrency(total) + "</td>"
-                            + "<td>" + value.orders[0].status.status + "</td>"
-                            + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Cambiar Estado</a>" + "</td>"
-                            + "</tr>";
+                        //console.log(value.orders.length )
+                        if(value.orders.length > 0)
+                            tbody = tbody
+                                + "<tr>"
+                                + "<td>" + value.id + "</td>"
+                                + "<td>" + getCurrency(total) + "</td>"
+                                + "<td>" + value.orders[0].status.status + "</td>"
+                                + "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#details'>Cambiar Estado</a>" + "</td>"
+                                + "</tr>";
                     });
                     //console.log(tbody)
                     $( "#orders" ).empty().append( tbody );

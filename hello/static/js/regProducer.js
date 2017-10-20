@@ -14,13 +14,15 @@
 
     function enviarForm() {
 
+        var  ciudad = $('#city').val().toUpperCase();
+
         var info = {typeIdentification: $('#typeIdentification').val(),
                     identificationNumber : $('#identificationNumber').val(),
                     image: $('#image').val(),
                     name: $('#name').val(),
                     description: $('#description').val(),
                     address: $('#address').val(),
-                    city: $('#city').val(),
+                    city: ciudad,
                     latitude: $('#latitude').val(),
                     longitude: $('#longitude').val(),
                     phoneNumber: $('#phoneNumber').val(),
