@@ -118,6 +118,21 @@
                             PAGO</a>
                         <button class="btn-caret fa fa-angle-right"></button>
                     </li>
+
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <li class="has-drop">
+                                <a href="/oadmin" class="has-text-color-hover">ORDENES</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                        {% else %}
+                            <li class="has-drop">
+                                <a href="{% url 'orders' %}" class="has-text-color-hover">MIS ORDENES</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+
                     <div class="mini-shopcart">
                         <div class="head-mini-shopcart">
                             <p>2 items in your cart</p>
