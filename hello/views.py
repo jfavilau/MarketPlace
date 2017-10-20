@@ -1,7 +1,7 @@
 import json
 from time import strftime, gmtime
 import time
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 
@@ -434,3 +434,8 @@ def login_logic (request):
 
 def login_view (request):
     return render(request, 'login.html')
+
+@csrf_exempt
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
