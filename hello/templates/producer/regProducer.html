@@ -8,7 +8,7 @@
 						<!-- .register-1-->
 						<div class="register-1">
 							<form class="theme-form" method="post" onsubmit="return enviarForm();">
-								<div class="header-2" style="color: #649c47" align="center"><h3>REGISTRAR PRODUCTOR</h3></div>
+								<div class="header-2" style="color: #649c47" align="center"><h3>REGISTRAR PRODUCTOR</h3></div> {% csrf_token %}
                                 <select id="typeIdentification" class="theme-input-text">
                                     <option selected>Cedula de Ciudadanía</option>
                                     <option>Cedula de Extranjería</option>
@@ -20,6 +20,7 @@
                                 <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
 								<input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
 								<input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+                                <input id="products" name="products" type="hidden" value="[]" />
 								<input id="latitude" name="latitude" type="hidden" value="0.0" />
 								<input id="longitude" name="longitude" type="hidden" value="0.0" />
 								<input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
@@ -36,7 +37,67 @@
     </section>
 
 {% include "footer.html" %}
-<script src="../static/js/regProducer.js"></script>
+<script>
+    function enviarForm() {
+
+        var info = {typeIdentification: $('#typeIdentification').val(),
+                    identificationNumber : $('#identificationNumber').val(),
+                    image: $('#image').val(),
+                    name: $('#name').val(),
+                    description: $('#description').val(),
+                    address: $('#address').val(),
+                    city: quitaAcentos($('#city').val().toUpperCase()),
+                    latitude: $('#latitude').val(),
+                    longitude: $('#longitude').val(),
+                    phoneNumber: $('#phoneNumber').val(),
+                    cooperative: $('#cooperative').val(),
+                    products: $('#products').val(),
+                    active: $('#active').val()
+                    };
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'producers-list' %}",
+            data: JSON.stringify(info),
+            contentType: "application/json; charset=UTF-8",
+            dataType: "json",
+            success: function(data, textStatus, xhr) {
+                if (xhr.status == 201){
+                    console.log(data);
+                    alert("¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión, el administrador se comunicará con usted cuando termine el proceso");
+                    window.location = "{% url 'index' %}";
+                }else{
+                    alert("¡HA OCURRIDO UN ERROR EN LA SOLICITUD INTENTE DE NUEVO!");
+                    window.location = "{% url 'regProducer' %}";
+                }
+            },
+            failure: function(error) {
+                alert("Hubo un error: " + error);
+            }
+        });
+
+        return false;
+    }
+
+     function quitaAcentos(str){
+        for (var i=0;i<str.length;i++){
+        //Sustituye "á é í ó ú"
+            if (str.charAt(i)=="á") str = str.replace(/á/,"A");
+            if (str.charAt(i)=="é") str = str.replace(/é/,"E");
+            if (str.charAt(i)=="í") str = str.replace(/í/,"I");
+            if (str.charAt(i)=="ó") str = str.replace(/ó/,"O");
+            if (str.charAt(i)=="ú") str = str.replace(/ú/,"U");
+            if (str.charAt(i)=="ñ") str = str.replace(/ñ/,"N");
+            if (str.charAt(i)=="Á") str = str.replace(/Á/,"A");
+            if (str.charAt(i)=="É") str = str.replace(/É/,"E");
+            if (str.charAt(i)=="Í") str = str.replace(/Í/,"I");
+            if (str.charAt(i)=="Ó") str = str.replace(/Ó/,"O");
+            if (str.charAt(i)=="Ú") str = str.replace(/Ú/,"U");
+            if (str.charAt(i)=="Ñ") str = str.replace(/Ñ/,"N");
+        }
+        return str;
+      }
+</script>
 
 </body>
 
