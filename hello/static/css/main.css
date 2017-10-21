@@ -6176,7 +6176,7 @@ iframe {
   -moz-box-shadow: 0 9px 11.7px 1.3px rgba(68, 68, 68, 0.05);
   box-shadow: 0 9px 11.7px 1.3px rgba(68, 68, 68, 0.05);
   margin: 15px 0;
-  opacity: 0.4;
+  /*opacity: 0.4;*/
 }
 
 .testimonials-1 .testimonials-content {
