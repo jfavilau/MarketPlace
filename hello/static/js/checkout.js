@@ -22,7 +22,6 @@
   });
 
   function validateInformation(url_checkout,url_email,user_email,id_s) {
-
     var name = $("#name").val();
     var lastName = $("#lastName").val();
     var address = $("#address").val();
@@ -37,43 +36,48 @@
     var code = $("#code").val();
     var atLeastOneIsChecked = $('input[name=check]:checked').length;
 
-    if (jQuery.type(name) == 'string' && jQuery.type(details) == 'string' && jQuery.type(lastName) == 'string' && jQuery.type(address) == 'string' && jQuery.type(country) == 'string' &&
-      jQuery.type(department) == 'string' && $.isNumeric(zip) && $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != "" &&
-      department != "" && zip != "" && phone != "" && email != "" && ((card_number != "" && exp_date != "" && code != "") || (atLeastOneIsChecked == 1))) {
+    if(validateNumber(cardNumber) && validateNumber(code) && validateDate(expDate)){
+        if (jQuery.type(name) == 'string' && jQuery.type(details) == 'string' && jQuery.type(lastName) == 'string' && jQuery.type(address) == 'string' && jQuery.type(country) == 'string' &&
+          jQuery.type(department) == 'string' && $.isNumeric(zip) && $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != "" &&
+          department != "" && zip != "" && phone != "" && email != "" && ((card_number != "" && exp_date != "" && code != "") || (atLeastOneIsChecked == 1))) {
 
-      $.ajax({
-        url: url_checkout,
-        type: "POST",
-        data: {
-          "name": name,
-          "lastName": lastName,
-          "address": address,
-          "details": details,
-          "country": country,
-          "department": department,
-          "zip": zip,
-          "phone": phone,
-          "email": email,
-          "cardNumber": cardNumber,
-          "expDate": expDate,
-          "code": code,
-          "newMethod": atLeastOneIsChecked,
-          "id_s": id_s
-        },
-        success: function(data) {
-          console.log(data.message);
-          $("#modalPayment").click();
-          sendConfirmation(url_email,user_email);
-          var cartmap = new CartMap()
-          cartmap.clearCart()
-        },
-        error: function(xhr) {
+          /*$.ajax({
+            url: url_checkout,
+            type: "POST",
+            data: {
+              "name": name,
+              "lastName": lastName,
+              "address": address,
+              "details": details,
+              "country": country,
+              "department": department,
+              "zip": zip,
+              "phone": phone,
+              "email": email,
+              "cardNumber": cardNumber,
+              "expDate": expDate,
+              "code": code,
+              "newMethod": atLeastOneIsChecked,
+              "id_s": id_s
+            },
+            success: function(data) {
+              console.log(data.message);
+              $("#modalPayment").click();
+              sendConfirmation(url_email,user_email);
+              var cartmap = new CartMap()
+              cartmap.clearCart()
+            },
+            error: function(xhr) {
+              $("#modalButton").click();
+            }
+          });*/ alert('bien');
+        } else {
+          console.log('error');
           $("#modalButton").click();
         }
-      });
-    } else {
-      console.log('error');
-      $("#modalButton").click();
+    }
+    else{
+        $("#modalButton").click();
     }
   }
 
@@ -92,6 +96,32 @@
         console.log(data.message);
       }
     });
+  }
+
+  function validateNumber(number){
+    if(number.match("^[0-9]*$"))
+       return true;
+    else
+       return false;
+  }
+
+  function validateDate(str){
+      var array = str.toString().split('/');
+      console.log(str);
+      /*console.log(array[0]);
+      console.log(array[1]);*/
+
+      if(array.length == 2){
+        if (validateNumber(array[0]) && validateNumber(array[1])){
+            return true;
+        }
+        else
+            return false;
+      }
+      else
+        return false;
+
+
   }
 
 })(jQuery);
