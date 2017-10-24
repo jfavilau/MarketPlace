@@ -223,7 +223,7 @@ def checkOut(request):
     if len(shoppingCart) > 0:
 
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
-            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id)
+            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
 
             return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
 
