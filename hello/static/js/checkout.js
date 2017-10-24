@@ -41,7 +41,7 @@
           jQuery.type(department) == 'string' && $.isNumeric(zip) && $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != "" &&
           department != "" && zip != "" && phone != "" && email != "" && ((card_number != "" && exp_date != "" && code != "") || (atLeastOneIsChecked == 1))) {
 
-          /*$.ajax({
+          $.ajax({
             url: url_checkout,
             type: "POST",
             data: {
@@ -70,7 +70,7 @@
             error: function(xhr) {
               $("#modalButton").click();
             }
-          });*/ alert('bien');
+          });
         } else {
           console.log('error');
           $("#modalButton").click();
