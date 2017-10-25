@@ -55,7 +55,7 @@ def indexOrdersAdmin(request):
 
 def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
-    return render(request, 'producer_catalogue.html')#, {'producer_id': producer_id})
+    return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
 
 @csrf_exempt
 def updateOrder(request):
