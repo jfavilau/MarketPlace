@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^mapProducer/', hello.views.mapProducer, name='mapProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
+    url(r'^productores/(?P<producer_id>[0-9]+)/$', hello.views.productor_detail, name='productor-detail'),
     url(r'^addUser/$',hello.views.registro, name='addUser'),
     url(r'^regUser/$',hello.views.regUser, name='regUser'),
     url(r'^orders', hello.views.indexOrders, name='orders'),

@@ -155,13 +155,14 @@
                 });
 
                 var myvar = '<div class="testimonials-1" style="text-align:center;">'+
-                                '<div class="testimonials-content">'+
-                                    '<p>Ofrezco productos de calidad, entre ellos: ' + prod + ' y muchos más por venir!. </p>'+
-                                '</div>'+
+                                '<p class="testimonials-name">' + item.name.toUpperCase() + '</p>'+
                                 '<div class="testimonials-image">'+
                                     '<img src="' + item.image +'?resize=150%2C150" alt="LAUREN REED"/>'+
                                 '</div>'+
-                                '<p class="testimonials-name">' + item.name.toUpperCase() + '</p>'+
+                                '<div >'+
+                                    '<p>"Ofrezco productos de calidad, entre ellos: ' + prod + ' y muchos más por venir!"</p>'+
+                                    '<a href="producers/' + Number(i+1) +'">Ver todos</a>'+
+                                '</div>'+
                             '</div>';
 
                 $( "#producers-carousel" ).append( myvar );

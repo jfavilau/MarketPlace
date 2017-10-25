@@ -16,31 +16,34 @@
     CSS
     ==================================================
     -->
-    <link href="../static/fonts/fonts.css" rel="stylesheet">
-    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../static/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/vendor/css-hamburgers/dist/hamburgers.min.css" rel="stylesheet">
-    <link href="../static/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet">
-    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/layers.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/navigation.css" rel="stylesheet">
-    <link href="../static/vendor/revolution/css/settings.css" rel="stylesheet">
-    <link href="../static/vendor/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../static/css/main.css" rel="stylesheet">
-    <link href="../static/css/switcher.css" rel="stylesheet">
-    <link href="../static/css/colors/green.css" rel="stylesheet" id="colors">
-    <link href="../static/css/retina.css" rel="stylesheet">
-    <link href="../static/css/cart.css" rel="stylesheet" type="text/css">
+    {% load static %}
+    <link href="{% static "fonts/fonts.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/css-hamburgers/dist/hamburgers.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/animate.css/animate.min.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/revolution/css/layers.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/revolution/css/navigation.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/revolution/css/settings.css" %}" rel="stylesheet">
+    <link href="{% static "vendor/owl.carousel/dist/assets/owl.carousel.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/switcher.css" %}" rel="stylesheet">
+    <link href="{% static "css/colors/green.css" %}" rel="stylesheet">
+    <link href="{% static "css/retina.css" %}" rel="stylesheet">
+    <link href="{% static "css/cart.css" %}" rel="stylesheet">
+
     <!--
     Favicons
     ==================================================
     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/js/modernizr-custom.js"></script>
-    <script src="../static/js/js.cookie.js"></script>
-    <script src="../static/js/cartmap.js"></script>
-    <script src="../static/js/cart-minishopcart.js"></script>
-    <script src="../static/js/cartgui.js"></script>
+    <script src="{% static "js/modernizr-custom.js" %}"></script>
+    <script src="{% static "js/js.cookie.js" %}"></script>
+    <script src="{% static "js/cartmap.js" %}"></script>
+    <script src="{% static "js/cart-minishopcart.js" %}"></script>
+    <script src="{% static "js/cartgui.js" %}"></script>
+
 </head>
 
 <body>
@@ -94,7 +97,7 @@
                 </button>
                 <div class="logo">
                     <a href="{% url 'index' %}">
-                        <img src="../static/images/icons/ic-logo-01.png" alt="Ecofood"/>
+                        <img src="{% static "images/icons/ic-logo-01.png" %}" alt="Ecofood"/>
                     </a>
                 </div>
                 <div class="cart-icon-holder">
@@ -150,7 +153,7 @@
                             </div>
                             <div class="item-mini-shopcart">
                                 <div class="item-image">
-                                    <img src="../static/images/shopping-cart-item-02.jpg" alt="shopping cart"/>
+                                    <img src="{% static "images/shopping-cart-item-02.jpg" %}" alt="shopping cart"/>
                                 </div>
                                 <div class="item-content">
                                     <h3 class="name">Broccoli, bunch</h3>

@@ -53,6 +53,10 @@ def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Admin/Orders/index.html')
 
+def productor_detail(request, producer_id):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'producer_catalogue.html')#, {'producer_id': producer_id})
+
 @csrf_exempt
 def updateOrder(request):
     if request.method == 'POST':
