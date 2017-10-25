@@ -1,6 +1,6 @@
 /*ITEM STYLES*/
 
-div.miso-prd-id {
+div.miso-prd-total {
   align-content: center;
   background-color: tomato;
   color: white;
@@ -15,7 +15,12 @@ div.miso-prd-id {
   z-index: 50;
 }
 
-div.product-1:hover .miso-prd-id {
+div.miso-prd-id {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+div.product-1:hover .miso-prd-total {
   opacity: 100;
   filter: alpha(opacity=100);
 }

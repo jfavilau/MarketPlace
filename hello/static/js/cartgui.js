@@ -52,9 +52,12 @@ function refreshCartGuiOperation() {
   miniShopCart.fillCartContents();
 
   plus.click(function() {
+    var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
+    var available = getControlClassFromParents($(this), '.miso-prd-total').text();
+    if (Number(available) <= Number(quantity.text())) return;
+
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();
-    var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
     var name = getControlClassFromParents($(this), '.product-content')
       .find('.name').text();
     var price = getControlClassFromParents($(this), '.product-content')
@@ -88,7 +91,6 @@ function refreshCartGuiOperation() {
 
     cartmap.clearItem(item);
     miniShopCart.clearItem(item);
-    // quantity.text("");
     setQuantityTextForItemCount(quantity, item)
   });
 
