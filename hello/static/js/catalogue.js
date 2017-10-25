@@ -61,6 +61,7 @@
         productsHTML += '<div class="col-md-4 col-sm-6 product-1 miso-prd-holder">' +
                                 '<div class=\"miso-prd-id\">' + item.id + '</div>' +
                                 '<div class=\"miso-prd-qty\"></div>' +
+                                '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
                                 '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
 
                                   '<div class=\"image-holder\">' +
@@ -99,4 +100,3 @@
     }
 
 })(jQuery);
-
