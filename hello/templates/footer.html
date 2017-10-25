@@ -1,3 +1,4 @@
+    {% load static %}
     <footer>
         <!--.footer-2-->
         <div class="footer-1 footer-2">
@@ -6,7 +7,7 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="footer-introduce">
                             <div class="footer-logo">
-                                <img src="../static/images/icons/ic-logo-02.png" alt="logo ecofood"/>
+                                <img src="{% static "images/icons/ic-logo-02.png" %}" alt="logo ecofood"/>
                             </div>
                             <div class="footer-intro">
                             </div>
@@ -112,13 +113,13 @@
                                 </div>
                                 <div class="product-cert">
                                     <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-01.png" alt="product cert"/>
+                                        <img src="{% static "images/icons/ic-product-cert-01.png" %}" alt="product cert"/>
                                     </a>
                                     <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-02.png" alt="product cert"/>
+                                        <img src="{% static "images/icons/ic-product-cert-02.png" %}" alt="product cert"/>
                                     </a>
                                     <a href="#">
-                                        <img src="../static/images/icons/ic-product-cert-03.png" alt="product cert"/>
+                                        <img src="{% static "images/icons/ic-product-cert-03.png" %}" alt="product cert"/>
                                     </a>
                                 </div>
 
@@ -158,34 +159,33 @@
     Javascripts
     ==================================================
     -->
-    <script src="../static/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../static/vendor/retinajs/dist/retina.min.js"></script>
-    <script src="../static/vendor/SmoothScroll/SmoothScroll.js"></script>
-    <script src="../static/js/switcher-custom.js"></script>
-    <script src="../static/vendor/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="../static/vendor/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="../static/vendor/owl.carousel/dist/owl.carousel.min.js"></script>
-    <!--
-    | (Load Extensions only on Local File Systems !
-    | The following part can be removed on Server for On Demand Loading)
-    -->
+    <!--<script src="{% static "js/cartgui.js" %}"></script>-->
+
+    <script src="{% static "vendor/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "vendor/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendor/retinajs/dist/retina.min.js" %}"></script>
+    <script src="{% static "vendor/SmoothScroll/SmoothScroll.js" %}"></script>
+    <script src="{% static "js/switcher-custom.js" %}"></script>
+    <script src="{% static "vendor/revolution/js/jquery.themepunch.tools.min.js" %}"></script>
+    <script src="{% static "vendor/revolution/js/jquery.themepunch.revolution.min.js" %}"></script>
+    <script src="{% static "vendor/owl.carousel/dist/owl.carousel.min.js" %}"></script>
+
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.video.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.video.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.actions.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.kenburn.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.navigation.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.migration.min.js" %}"></script>
     <script type="text/javascript"
-            src="../static/vendor/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="../static/js/revo-slider-custom.js"></script>
-    <script src="../static/js/owl-custom.js"></script>
-    <script src="../static/js/main.js"></script>
+            src="{% static "vendor/revolution/js/extensions/revolution.extension.parallax.min.js" %}"></script>
+    <script src="{% static "js/revo-slider-custom.js" %}"></script>
+    <script src="{% static "js/owl-custom.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
