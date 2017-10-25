@@ -24,11 +24,12 @@ function CartMap() {
   this.restoreCart();
 }
 
-function CartItem(id, name, price, quantity) {
+function CartItem(id, name, price, quantity, image) {
   this.id = id;
   this.name = name;
   this.price = price;
   this.quantity = quantity;
+  this.image = image;
 }
 
 function items() {

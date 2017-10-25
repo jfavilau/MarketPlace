@@ -59,9 +59,11 @@ function refreshCartGuiOperation() {
       .find('.name').text();
     var price = getControlClassFromParents($(this), '.product-content')
       .find('.price').text();
+    var image = getControlClassFromParents($(this), '.image-holder')
+      .find('img').attr('src');
 
     var cartItem = new CartItem(
-      item, name, price, 0
+      item, name, price, 0, image
     );
 
     cartmap.addItem(item, cartItem);

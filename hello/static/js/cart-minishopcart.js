@@ -42,7 +42,7 @@ function fillCartContents() {
 function addItemToCartContents(itemId) {
   var cartgui = this.cartgui;
   var cartmap = this.cartmap.items();
-  
+
   var currentItem = cartgui.find('.' + itemId);
 
   if (currentItem.attr('class') != undefined) {
@@ -87,7 +87,7 @@ function buildCartContentItem(item, includeItemDiv) {
 
   if (includeItemDiv) itemHtml += '<div class=\"item-mini-shopcart ' + item.id + '\">';
   itemHtml += '\n\t<div class=\"item-image\">';
-  itemHtml += '\n\t\t<img src=\"\" alt=\"' + item.id + '\" />';
+  itemHtml += '\n\t\t<img style=\"height:50px; width:50px\" src=\"' + item.image + '\" alt=\"' + item.id + '\" />';
   itemHtml += '\n\t</div>';
 
   itemHtml += '\n\t<div class=\"item-content\">';
