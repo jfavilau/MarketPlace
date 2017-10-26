@@ -162,7 +162,7 @@
                                 '</div>'+
                                 '<div >'+
                                     '<p>"Ofrezco productos de calidad, entre ellos: ' + prod + ' y muchos más por venir!"</p>'+
-                                    '<a href="producers/' + Number(i+1) +'">Ver todos</a>'+
+                                    '<a href="productores/' + Number(i+1) +'">Ver todos</a>'+
                                 '</div>'+
                             '</div>';
 

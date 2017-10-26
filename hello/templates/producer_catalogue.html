@@ -1,13 +1,15 @@
 {% include "header.html" %}
 {% load static %}
 
+<input type="hidden" name="producer_id" value="{{producer_id}}" id="producer_id">
+
 <section>
     <div class="section primary-color-background">
         <div class="container">
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3 id="category_name">Productos de Pedro</h3>
+                    <h3 id="producer_name"> </h3>
                 </div>
             </div>
         </div>
@@ -20,7 +22,7 @@
                         <a href="{% url 'index' %}">Inicio</a>
                     </li>
                     <li>
-                        <a href="#">Catálogo</a>
+                        <a href="#" id="title_link"> </a>
                     </li>
                 </ul>
             </div>
@@ -30,27 +32,17 @@
 <div class="page-content p-t-40 p-b-70">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-push-3">
-                <div class="row" id="products_by_category">
-                    <!-- products-by-category-->
+            <div class="m-t-30">
+                <!-- .product-category-widget-1-->
+                <div class="product-category-widget-1">
+                    <ul class="product-category-list" id="producer_products">
+                        <!-- .producer-products-->
 
+
+
+                    </ul>
                 </div>
-            </div>
-            <div class="col-md-3 col-md-pull-9">
-
-                <div class="m-t-30">
-                    <!-- .product-category-widget-1-->
-                    <div class="product-category-widget-1">
-                        <div class="heading-widget">
-                            <h3>CATEGORÍAS DE PRODUCTOS</h3>
-                        </div>
-                        <ul class="product-category-list" id="product-category-list">
-                            <!-- .product-categories-->
-
-                        </ul>
-                    </div>
-                    <!-- end .product-category-widget-1-->
-                </div>
+                <!-- end .product-category-widget-1-->
             </div>
         </div>
     </div>
@@ -58,10 +50,6 @@
 
 {% include "footer.html" %}
     <script src="{% static "js/producer_catalogue.js" %}"></script>
-<!--
-End Document
-==================================================
--->
 
 </body>
 
