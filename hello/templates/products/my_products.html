@@ -1,0 +1,81 @@
+{% include "header.html" %}
+    <section>
+        <div class="section white-background p-t-100 p-b-100">
+            <div class="container">
+                <!-- Heading Section-->
+                <div class="heading-section-1">
+                    <h3>Mis Productos</h3>
+                </div>
+                <div class="section white-background" style="margin-top: 30px">
+                    <table id="freeze-table" class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Ofertar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $( document ).ready(function() {
+            var url = window.location.origin + "/api/";
+            var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
+                 if (!data) data = {};
+                 if (!fnError) fnError = this._defaultErrorHandler;
+                 if (!_async) _async = true;
+                 $.ajax({
+                     type: sType,
+                     url: url + uri,
+                     data: data,
+                     async: _async,
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: fnSuccess,
+                     error: fnError
+                 });
+            };
+
+            var idUser = {{ user.id }};
+            console.log(idUser);
+
+            var getCurrency = function (value) {
+                return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            };
+
+            var getProducts = function () {
+                _doAjax("GET", "producers/" + idUser,{},function (resp) {
+                    //console.log(resp);
+                    var products = resp.products;
+                    var tbody = "" ;
+                    $.each(products , function( index, value ) {
+                            tbody += tbody
+                                + "<tr>"
+                                +    "<td>" + value.id + "</td>"
+                                +    "<td>" + value.name + "</td>"
+                                +    "<td>" + value.description + "</td>"
+                                +    "<td>" + value.quantity + "</td>"
+                                +    "<td>" + getCurrency(value.price) + "</td>"
+                                +    "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#checkingOrder'>Check</a></td>"
+                                + "</tr>";
+                    });
+                    $( "#products" ).empty().append( tbody );
+                });
+            };
+            getProducts();
+
+        });
+
+    </script>
+
+{% include "footer.html" %}
