@@ -20,6 +20,7 @@ router.register(r'baskets', hello.views.BasketViewset, base_name="baskets")
 router.register(r'orders', hello.views.OrdersViewSet)
 router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
 router.register(r'orderstatus', hello.views.OrderStatusViewSet)
+router.register(r'cooperatives', hello.views.CooperativesViewSet)
 
 # API endpoints
 
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^catalogo/', hello.views.catalogue, name='catalogo'),
     url(r'^canastas/', hello.views.baskets, name='canastas'),
+    url(r'^cooperativas/', hello.views.cooperativas, name='cooperativas'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
     url(r'^addPaymentMethod/', hello.views.addPaymentMethod, name='addPaymentMethod'),

@@ -28,6 +28,7 @@ from .serializers import UserSerializer
 from .serializers import ProductSerializer
 from .serializers import BasketSerializer
 
+from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
 from .serializers import OrdersSerializer
@@ -56,6 +57,17 @@ def indexOrdersAdmin(request):
 def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
+
+def cooperativas(request):
+    return render(request, 'cooperatives.html')
+
+class CooperativesViewSet(viewsets.ModelViewSet):
+    """
+    List all cooperatives, or create a new product.
+    """
+    queryset = Cooperative.objects.all()
+    serializer_class = CooperativeSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 @csrf_exempt
 def updateOrder(request):
