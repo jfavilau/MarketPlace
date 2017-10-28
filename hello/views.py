@@ -31,7 +31,7 @@ from .serializers import BasketSerializer
 from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
-from .serializers import OrdersSerializer
+from .serializers import OrdersSerializer, CitySerializer
 from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
@@ -61,13 +61,21 @@ def productor_detail(request, producer_id):
 def cooperativas(request):
     return render(request, 'cooperatives.html')
 
+class CitiesViewSet(viewsets.ModelViewSet):
+    """
+    List all cities, or create a new city.
+    """
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 class CooperativesViewSet(viewsets.ModelViewSet):
     """
     List all cooperatives, or create a new product.
     """
     queryset = Cooperative.objects.all()
     serializer_class = CooperativeSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
 
 @csrf_exempt
 def updateOrder(request):

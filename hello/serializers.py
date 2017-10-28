@@ -93,7 +93,7 @@ class CitySerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id','name', 'shortName')
 
 class CooperativeSerializer(serializers.ModelSerializer):
-    city = CitySerializer(many=False, read_only=True)
+    cityInfo = CitySerializer(many=False, read_only=True)
     class Meta:
         model = Cooperative
-        fields = ('id','name', 'city', 'active')
+        fields = ('id','name', 'city', 'cityInfo', 'active')

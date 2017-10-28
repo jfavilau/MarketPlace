@@ -34,7 +34,8 @@
                 <div class="heading-widget text-center">
                     <h3>COOPERATIVAS</h3>
                 </div>
-                <ul class="product-category-list jumbotron" id="cooperatives-list" style="max-width:500px; margin: 0 auto; padding:24px;">
+                <ul class="product-category-list jumbotron" id="cooperatives-list"
+                    style="max-width:500px; margin: 0 auto; padding:24px;">
 
                 </ul>
             </div>
@@ -45,22 +46,26 @@
         <div class="add-comments-1" style="max-width:450px">
             <h4 class="title">Nueva cooperativa</h4>
             <p class="introduce">Cree una nueva cooperativa llenando los campos presentados a continuación</p>
-            <form class="submit-form">
+            <form class="submit-form" id="new-cooperative-form">
                 <div class="form-group">
                     <label for="cooperativeName">Nombre</label>
                     <input type="text" class="form-control" id="cooperativeName" placeholder="Nombre de la cooperativa">
                 </div>
                 <div class="form-group">
                     <label for="cooperativeCity">Ciudad</label>
-                    <input type="text" class="form-control" id="cooperativeCity" placeholder="Ciudad de la cooperativa">
+                    <select class="form-control" id="cooperativeCity">
+
+                    </select>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                        <input type="checkbox" class="form-check-input" id="cooperativeActive">
                         Activada
                     </label>
                 </div>
-                <button class="au-btn au-btn-radius au-btn-border btn-submit-comments" type="submit">ENVIAR</button>
+                <button class="au-btn au-btn-radius au-btn-border btn-submit-comments" id="post-cooperative"
+                        type="submit">ENVIAR
+                </button>
             </form>
         </div>
         <!-- end .add-comments-1-->

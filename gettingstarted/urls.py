@@ -21,6 +21,7 @@ router.register(r'orders', hello.views.OrdersViewSet)
 router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
 router.register(r'orderstatus', hello.views.OrderStatusViewSet)
 router.register(r'cooperatives', hello.views.CooperativesViewSet)
+router.register(r'cities', hello.views.CitiesViewSet)
 
 # API endpoints
 
