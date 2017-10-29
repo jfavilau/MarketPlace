@@ -446,3 +446,11 @@ def logout_view(request):
 
 def myProducts(request):
     return render(request, 'products/my_products.html')
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct ['active'])
+        return HttpResponse("Oferta del producto actualizada!")

@@ -30,13 +30,14 @@
     <script>
         $( document ).ready(function() {
             var url = window.location.origin + "/api/";
+            var url2 = window.location.origin + "/";
             var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
                  if (!data) data = {};
                  if (!fnError) fnError = this._defaultErrorHandler;
                  if (!_async) _async = true;
                  $.ajax({
                      type: sType,
-                     url: url + uri,
+                     url: uri,
                      data: data,
                      async: _async,
                      contentType: "application/json; charset=utf-8",
@@ -47,33 +48,51 @@
             };
 
             var idUser = {{ user.id }};
-            console.log(idUser);
+            //console.log(idUser);
 
             var getCurrency = function (value) {
                 return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             };
 
             var getProducts = function () {
-                _doAjax("GET", "producers/" + idUser,{},function (resp) {
+                _doAjax("GET", url + "producers/" + idUser,{},function (resp) {
                     //console.log(resp);
                     var products = resp.products;
                     var tbody = "" ;
                     $.each(products , function( index, value ) {
-                            tbody += tbody
-                                + "<tr>"
+                            var checked = "";
+                            if(value.active)
+                                checked = "checked";
+                            tbody +=
+                                  "<tr>"
                                 +    "<td>" + value.id + "</td>"
                                 +    "<td>" + value.name + "</td>"
                                 +    "<td>" + value.description + "</td>"
                                 +    "<td>" + value.quantity + "</td>"
                                 +    "<td>" + getCurrency(value.price) + "</td>"
-                                +    "<td id='" + value.id + "'><a href='#' data-toggle='modal' data-target='#checkingOrder'>Check</a></td>"
+                                +    "<td id='" + value.id + "'><input id='c" + value.id + "' "
+                                +                 checked + " type='checkbox'  value=''></td>"
                                 + "</tr>";
                     });
                     $( "#products" ).empty().append( tbody );
-                });
+
+                    $('td').click(function () {
+                        var id = $(this).attr('id');
+                        var active = $('#c' + id).prop('checked');
+                        var obj = {id:id,active:active};
+                        _doAjax("POST", url2 + "updateProductActive",JSON.stringify(obj),function (resp) {
+                            console.log(resp);
+                        },function (err) {
+                            console.log(err);
+                        },true);
+                        //console.log(id, $('#c' + id).attr('id'),$('#c' + id).prop('checked'));
+                        //console.log($(this).attr("id"))
+                    });
+                },function (err) {
+                    console.log(err);
+                },true);
             };
             getProducts();
-
         });
 
     </script>
