@@ -12,4 +12,4 @@ def add_item_basket_service(id_basket,id_product,quantity):
     basket_item.active = True
     basket_item.save()
 
-    return True;
+    return True
