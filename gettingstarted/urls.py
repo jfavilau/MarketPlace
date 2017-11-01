@@ -48,6 +48,9 @@ urlpatterns = [
     url(r'^loginLogic/', hello.views.login_logic, name='loginLogic'),
     url(r'^login/', hello.views.login_view, name='login'),
     url(r'^logout/', hello.views.logout_view, name='logout'),
+    url(r'^basketList/', hello.views.list_products_basket_view, name='basketList'),
+    url(r'^basketEdit', hello.views.edit_products_basket_view, name='editBasket'),
+    url(r'^addItemBasket', hello.views.add_item_basket, name='addItemBasket')
 ]
 
 # Login and logout views for the browsable API

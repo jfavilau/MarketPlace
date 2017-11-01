@@ -1,0 +1,55 @@
+{% include "header.html" %}
+<div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:block;">
+    <div class="container">
+        <!--wishlist-cart-1-->
+        <div class="woocommerce shopping-cart-1">
+            <form class="woocommerce-cart-form" action="#" method="post">
+                <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents shopping-cart-content table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="product-thumbnail">CANASTA</th>
+                        <th class="product-name">NOMBRE</th>
+                        <th class="product-price">PRECIO</th>
+                        <th class="product-remove">ACTIVA</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for basket in baskets %}
+                    <tr class="woocommerce-cart-form__cart-item cart_item shopping-cart-item">
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{basket.id}}</a>
+                        </td>
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{basket.name}}</a>
+                        </td>
+                        <td class="product-price" data-title="Price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol"></span>${{basket.price}}</span>
+                        </td>
+                        <td class="product-price" data-title="Price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol"></span>{%if basket.active%}SI{%else%}NO{%endif%}</span>
+                        </td>
+                        <td class="basket-edit" data-url="{% url 'editBasket'%}?value={{basket.id}}">
+                            <a>Editar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!-- end wishlist-cart-1-->
+    </div>
+</div>
+
+{% include "footer.html" %}
+<script src="../static/js/AdminBaskets.js"></script>
+<!--
+End Document
+==================================================
+-->
+
+</body>
+
+</html>
