@@ -223,13 +223,13 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
     serializer_class = CategorySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+class BasketViewset(viewsets.ModelViewSet):
     """
     List all baskets.
     """
     queryset = Basket.objects.all()
     serializer_class = BasketSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
 
 class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
     """

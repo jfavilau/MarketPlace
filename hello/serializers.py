@@ -85,7 +85,7 @@ class BasketSerializer(serializers.HyperlinkedModelSerializer):
     items = ItemPerBasketSerializer(many=True, read_only=True)
     class Meta:
         model = Basket
-        fields = ('id', 'name', 'price', 'description', 'items')
+        fields = ('id', 'name', 'price', 'description', 'active', 'items')
 
 class CitySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
