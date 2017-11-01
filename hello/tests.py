@@ -2,6 +2,7 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.test import TestCase, RequestFactory
 
 from .views import index
+from .services import addItemToBasket
 
 class SimpleTest(TestCase):
     def setUp(self):
@@ -16,3 +17,15 @@ class SimpleTest(TestCase):
         # Test my_view() as if it were deployed at /customer/details
         response = index(request)
         self.assertEqual(response.status_code, 200)
+
+
+class BasketTest(TestCase):
+    def setUp(self):
+        self.factory = RequestFactory()
+
+    def test_AddItemToBasket(self):
+        # Test Basket services
+
+        result = add_item_basket_service(1,2,10)
+
+        self.assertEqual(result, True)
