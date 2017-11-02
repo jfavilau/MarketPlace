@@ -31,7 +31,7 @@ from .serializers import BasketSerializer
 from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
-from .serializers import OrdersSerializer, CitySerializer
+from .serializers import OrdersSerializer, CitySerializer, TypeSerializer
 from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
@@ -213,6 +213,14 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
+    """
+    List all products, or create a new product.
+    """
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
@@ -463,3 +471,39 @@ def login_view (request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+def myProducts(request):
+    return render(request, 'products/my_products.html')
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct ['active'])
+        return HttpResponse("Oferta del producto actualizada!")
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct ['active'])
+        return HttpResponse("Oferta del producto actualizada!")
+
+@csrf_exempt
+def updateProduct(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            name= jsonProduct ['name'],
+            image= jsonProduct['image'],
+            description= jsonProduct['description'],
+            unit= jsonProduct['unit'],
+            price = jsonProduct['price'],
+            quantity = jsonProduct['quantity'],
+            type=jsonProduct['type'])
+        return HttpResponse("Producto actualizada!")
+
+def updateProductView(request):
+    return render(request, 'products/updateProduct.html')
