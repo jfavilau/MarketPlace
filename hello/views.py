@@ -553,3 +553,17 @@ def remove_item_catalogue_view(request):
     products = Product.objects.all()
 
     return render(request, 'EditCatalogueAdmin.html', context={'products': products})
+
+@csrf_exempt
+def remove_product_logic(request):
+
+    product = Product.objects.get(id=request.POST.get('product'))
+
+    if request.POST.get('value') == "0":
+        product.active = False
+    else:
+        product.active = True
+
+    product.save()
+
+    return JsonResponse({'message': 'Done'})

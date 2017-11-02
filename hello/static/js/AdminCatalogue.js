@@ -18,44 +18,35 @@
 
   });
 
-  $("#add_btn").click(function(){
-     var url = $(this).data('url');
-     var basket = $(this).data('basket');
-     var product = $( "#sel1" ).val();
-     var quantity = $( "#ex1" ).val();
 
-     if(validateNumber(quantity)){
-         $.ajax({
+
+  $("#done").click(function(){
+    window.location.reload();
+  });
+
+
+  $('select').on('change', function() {
+
+      var value= $(this).val();
+      var product= $(this).data('product');
+      var url = $(this).data('url');
+
+
+      $.ajax({
             url: url,
             type: "POST",
             data: {
-              "id_basket": basket,
-              "id_product": product,
-              "quantity": quantity,
+              "value": String(value),
+              "product": product,
             },
             success: function(data) {
-              console.log(data);
-              $("#modalPayment").click();
+                $("#modalPayment").click();
 
             },
             error: function(xhr) {
               $("#modalButton").click();
             }
           });
-      }
-      else
-       $("#modalButton").click();
-  });
-
-  $("#done").click(function(){
-    window.location.reload();
-  });
-  $("#asd").click(function(){
-    window.location.reload();
-  });
-
-  $('select').on('change', function() {
-    alert( this.value );
    });
 
 })(jQuery);

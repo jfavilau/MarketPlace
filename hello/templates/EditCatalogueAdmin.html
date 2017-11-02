@@ -2,7 +2,6 @@
 
 <div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:block;">
     <div class="container">
-<button id="asd">as</button>
         <div class="woocommerce shopping-cart-1">
             <form class="woocommerce-cart-form" action="#" method="post">
                 <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents shopping-cart-content table-bordered">
@@ -33,10 +32,9 @@
                                     <span class="woocommerce-Price-amount amount">
                                         <span class="woocommerce-Price-currencySymbol"></span>{{product.price}}</span>
                         </td>
-                        <td class="product-remove" data-item="{{item.id}}" data-url="{% url 'removeItemBasket'%}"
-                            data-basket="{{basket.id}}">
-                            <select class="form-control">
-                                {%if product.active%}<option selected>Si</option><option>No</option>{% else %}<option>Si</option> <option selected>No</option>{%endif%}
+                        <td id="enable_group" class="product-enable">
+                            <select class="form-control" data-product="{{product.id}}" data-url="{% url 'removeProduct'%}">
+                                {%if product.active%}<option selected value="1">Si</option><option value="0">No</option>{% else %}<option value="1">Si</option> <option value="0" selected>No</option>{%endif%}
                             </select>
                         </td>
                     </tr>
@@ -66,7 +64,7 @@
                 <h5 class="modal-title" id="paymentm">Compra Realizada</h5>
             </div>
             <div class="modal-body">
-                Se ha agregado el producto a la canasta exitosamente!
+                Se ha cambiado la disponibilidad del producto catalogo exitosamente!
             </div>
             <div class="modal-footer">
                 <button id="done" type="button" class="btn btn-success">Hecho</button>
