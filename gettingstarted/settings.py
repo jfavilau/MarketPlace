@@ -109,10 +109,10 @@ else:
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace',
-        'USER': 'postgres',
-        'PASSWORD': 'catalogobio',
-        'HOST': '127.0.0.1',
+        'NAME': 'ddblv6c0u7ni1u',
+        'USER': 'tkvkegysopxtsz',
+        'PASSWORD': 'd95dd6f03ffe7c86d2c8ec6c251fbeb81462b0756397157636b91105e0396258',
+        'HOST': 'ec2-23-23-225-12.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
