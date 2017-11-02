@@ -98,13 +98,13 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 if 'DB_NAME' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'HOST': 'db',
-            'PORT': 5432,
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
+}
 else:
     DATABASES = {
         'default': {
@@ -115,18 +115,7 @@ else:
         'HOST': '127.0.0.1',
       }
 
-    if 'test' in sys.argv:
-        DATABASES['default'] = {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            # 'NAME': 'marketplace12',
-            'NAME': 'test',
-            'USER': 'postgres',
-            # 'USER': os.environ.get('PGUSER'),
-            'PASSWORD': 'kubuntupostgres',
-            # 'PASSWORD': os.environ.get('PGPASSWORD'),
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
-          }
+}
 
 
 EMAIL_USE_TLS = True
@@ -185,7 +174,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-#IS_HEROKU_TEST = 1
+
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
