@@ -55,6 +55,30 @@
    document.getElementById('add_product').style.display = 'block';
   });
 
+  $(".product-remove").click(function(){
+     var url = $(this).data('url');
+     var basket = $(this).data('basket');
+     var item = $(this).data('item');
+
+         $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+              "id_basket": basket,
+              "id_item": item,
+            },
+            success: function(data) {
+              window.location.reload();
+            },
+            error: function(xhr) {
+              $("#modalButton").click();
+            }
+          });
+
+  });
+
+
+
   function validateNumber(number){
     if(number.match("^[0-9]*$"))
        return true;
