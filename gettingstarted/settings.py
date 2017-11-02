@@ -29,7 +29,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
+#TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
 
 
 # Application definition
@@ -182,7 +182,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-IS_HEROKU_TEST = 1
+#IS_HEROKU_TEST = 1
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
