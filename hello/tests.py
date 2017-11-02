@@ -49,5 +49,7 @@ class BasketTest(TestCase):
         self.assertEqual(empty_product, False, "Producto Vacia")
 
 
-
+    def test_AddItemToBasket_EmptyQuantity(self):
+        empty_quantity = add_item_basket_service(1, 1, None)
+        self.assertEqual(empty_quantity, False, "Cantidad Vacia")
 
