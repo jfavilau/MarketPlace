@@ -1,38 +1,33 @@
 {% include "header.html" %}
-
     <section>
-        <div class="section white-background p-t-100 p-b-100">
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Registrar Usuario</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+	</section>
+    <section>
+        <div class="section white-background p-t-30 p-b-30">
             <div class="container">
                 <!-- Heading Section-->
-                <div class="heading-section-1">
-                    <h3>Registrar usuario</h3>
-                </div>
-                <div class="section white-background" style="margin-top: 30px">
-                    <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nombre">
+                <div class="row">
+					<div class="col-md-4 col-md-push-4">
+						<!-- .register-1-->
+						<div class="register-1">
+                            <input type="text" class="theme-input-text" id="name" placeholder="Nombres">
+                            <input type="text" class="theme-input-text" id="lastname" placeholder="Apellidos">
+                            <input type="text" class="theme-input-text" id="username" placeholder="Username">
+                            <input type="email" class="theme-input-text" id="email" placeholder="Email">
+                            <input type="password" class="theme-input-text" id="pass1" placeholder="Password">
+                            <input type="password" class="theme-input-text" id="pass2" placeholder="Confirmar Password">
+                            <button id="register" class="au-btn au-btn-border au-btn-radius btn-block btn-submit">Registrarse</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                    <label for="lastname">Apellido</label>
-                    <input type="text" class="form-control" id="lastname" placeholder="Apellido">
-                    </div>
-                    <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                    <label for="email">Email </label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                    <label for="pass1">Password</label>
-                    <input type="password" class="form-control" id="pass1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                    <label for="pass2">Confirmar password</label>
-                    <input type="password" class="form-control" id="pass2" placeholder="Password">
-                    </div>
-                    <button id="register" class="btn btn-default">Registrarse</button>
                 </div>
             </div>
         </div>

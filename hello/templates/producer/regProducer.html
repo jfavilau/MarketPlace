@@ -1,5 +1,16 @@
 {% include "header.html" %}
-
+	<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Registrar Productor</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+	</section>
     <section>
 		<div class="page-content p-t-40 p-b-90">
 			<div class="container">
@@ -8,7 +19,6 @@
 						<!-- .register-1-->
 						<div class="register-1">
 							<form class="theme-form" method="post" onsubmit="return enviarForm();">
-								<div class="header-2" style="color: #649c47" align="center"><h3>REGISTRAR PRODUCTOR</h3></div> {% csrf_token %}
                                 <select id="typeIdentification" class="theme-input-text">
                                     <option selected>Cedula de Ciudadanía</option>
                                     <option>Cedula de Extranjería</option>
