@@ -2,7 +2,7 @@ from .models import *
 
 def add_item_basket_service(id_basket,id_product,quantity):
 
-    if id_basket and id_product:
+    if id_basket and id_product and quantity:
         basket = Basket.objects.get(id=id_basket)
         product = Product.objects.get(id=id_product)
 
