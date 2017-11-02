@@ -96,24 +96,34 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 if 'DB_NAME' in os.environ:
     DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
     }
-}
 else:
     DATABASES = {
         'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'marketplace',
+            'USER': 'postgres',  # 'USER': 'catalogobio',
+            'PASSWORD': 'kubuntupostgres',  # 'PASSWORD': 'catalogobio',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
+
+# if 'test' in sys.argv:
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace',
+        'NAME': 'marketplace12',
         'USER': 'postgres',
-        'PASSWORD': 'catalogobio',
+        'PASSWORD': 'kubuntupostgres',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
-}
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
