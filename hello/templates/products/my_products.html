@@ -16,6 +16,7 @@
                                 <th>Cantidad</th>
                                 <th>Precio</th>
                                 <th>Ofertar</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody id="products">
@@ -47,6 +48,8 @@
                  });
             };
 
+            var products = [];
+
             var idUser = {{ user.id }};
             //console.log(idUser);
 
@@ -57,7 +60,7 @@
             var getProducts = function () {
                 _doAjax("GET", url + "producers/" + idUser,{},function (resp) {
                     //console.log(resp);
-                    var products = resp.products;
+                    products = resp.products;
                     var tbody = "" ;
                     $.each(products , function( index, value ) {
                             var checked = "";
@@ -70,13 +73,14 @@
                                 +    "<td>" + value.description + "</td>"
                                 +    "<td>" + value.quantity + "</td>"
                                 +    "<td>" + getCurrency(value.price) + "</td>"
-                                +    "<td id='" + value.id + "'><input id='c" + value.id + "' "
+                                +    "<td class='check' id='" + value.id + "'><input id='c" + value.id + "' "
                                 +                 checked + " type='checkbox'  value=''></td>"
+                                +    "<td> <a class='editar' id='e" + value.id + "' href='#'> Editar </a> </td>"
                                 + "</tr>";
                     });
                     $( "#products" ).empty().append( tbody );
 
-                    $('td').click(function () {
+                    $('.check').click(function () {
                         var id = $(this).attr('id');
                         var active = $('#c' + id).prop('checked');
                         var obj = {id:id,active:active};
@@ -87,6 +91,18 @@
                         },true);
                         //console.log(id, $('#c' + id).attr('id'),$('#c' + id).prop('checked'));
                         //console.log($(this).attr("id"))
+                    });
+
+                    $('.editar').click(function () {
+                        var id = $(this).attr('id').substring(1);
+                        var productSelected = products.filter(function (item) {
+                            return item.id == id;
+                        });
+
+                        if( productSelected.length > 0 ){
+                            localStorage.setItem( 'productSelected', JSON.stringify(productSelected[0]) );
+                            location.href = '/updateProduct';
+                        }
                     });
                 },function (err) {
                     console.log(err);

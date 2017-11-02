@@ -1,0 +1,177 @@
+{% include "header.html" %}
+
+    <section>
+        <div class="section white-background p-t-100 p-b-100">
+            <div class="container">
+                <!-- Heading Section-->
+                <div class="heading-section-1">
+                    <h3>Actualizar producto</h3>
+                </div>
+                <div class="section white-background" style="margin-top: 30px">
+                    <div class="col-lg-6" >
+                        <span id="pImage">
+
+                        </span>
+                        <div class="input-group">
+                          <input id="urlImage" type="text" class="form-control" placeholder="Ingrese la url de la imagen">
+                          <span class="input-group-btn">
+                            <button id="changeImage" class="btn btn-default" type="button">Cambiar</button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="col-lg-6" id="pImage">
+                        <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                        <label for="lastname">Descripción</label>
+                        <input type="text" class="form-control" id="description" placeholder="Descripción">
+                        </div>
+                        <div class="form-group">
+                        <label for="username">Unidad</label>
+                        <input type="text" class="form-control" id="unit" placeholder="Unidad">
+                        </div>
+                        <div class="form-group">
+                        <label for="email">Cantidad</label>
+                        <input type="number" min="0" class="form-control" id="quantity" placeholder="Cantidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Precio</label>
+                            <input type="number" min="0" class="form-control" id="price" placeholder="Precio">
+                        </div>
+                        <div id="divlstatus" class="form-group">
+                             <label for="sel1"><strong> Tipo: </strong> </label>
+                             <select class="form-control" id="lsType">
+                                 <option selected value="0">Seleccione un tipo</option>
+                             </select>
+                        </div>
+
+                        <button id="register" class="btn btn-default">Guardar</button>
+                        <a href="/myProducts" >Cancelar</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $( document ).ready(function() {
+            var url = window.location.origin + "/";
+            var url2 = window.location.origin + "/api/";
+            var image = '';
+            var idProduct = "";
+
+            var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
+                 if (!data) data = {};
+                 if (!fnError) fnError = this._defaultErrorHandler;
+                 if (!_async) _async = true;
+                 $.ajax({
+                     type: sType,
+                     url: uri,
+                     data: data,
+                     async: _async,
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: fnSuccess,
+                     error: fnError
+                 });
+            };
+
+            function checkURL(url) {
+                return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+            };
+
+            var getProduct = function () {
+                var obj = {};
+                obj.id = idProduct;
+                obj.name = $('#name').val();
+                obj.description = $('#description').val();
+                obj.unit = $('#unit').val();
+                obj.quantity = $('#quantity').val();
+                obj.price = $('#price').val();
+                obj.type =  $("#lsType").val();
+                obj.image = image;
+                return obj;
+            };
+
+            var validateProduct = function (product) {
+                if(    !product.name || !product.description ||!product.unit
+                    || !product.quantity || !product.price  )
+                    alert("Todos los campos son obligatorios");
+                else if (product.type == '0') alert("Seleccione un tipo de producto");
+                else return true;
+
+                return false;
+            };
+
+            var setImage = function (imageUrl) {
+                //console.log(checkURL(imageUrl + "yy"));
+                //console.log(imageUrl);
+                $( "#pImage" ).empty().append("<img src='" + imageUrl + "'  height='420' width='550' >");
+            };
+
+            $('#changeImage').click(function () {
+                var urlImage = $('#urlImage').val();
+                if(urlImage) {
+                    if(checkURL(urlImage)){
+                        setImage(urlImage);
+                        image = urlImage;
+                    }
+                    else alert("Ingrese una url de imagen valida! jpeg | jpg | gif | png");
+                }
+                else alert("Ingrese una url de imagen valida! jpeg | jpg | gif | png");
+            });
+
+            $('#register').click(function () {
+                var product = getProduct();
+                if( validateProduct(product) ) {
+                    //console.log("Producto validado");
+                    _doAjax("POST", url + "updateProducts/",JSON.stringify(product),function (resp) {
+                        //console.log(resp);
+                        alert("Producto guardado!");
+                        location.href = '/myProducts';
+                    },function (err) {
+                        console.log(err);
+                        location.href = '/myProducts';
+                    },true);
+                }
+            });
+
+            var init = function () {
+                //console.log(url2);
+                _doAjax("GET", url2 + "type/",{},function (resp) {
+
+                    var options = $("#lsType");
+                    $.each(resp, function() {
+                        options.append($("<option />").val(this.id).text(this.name));
+                    });
+
+                    //console.log(resp);
+                    var productSelected = JSON.parse( localStorage.getItem('productSelected') );
+                    //console.log(productSelected);
+                    idProduct = productSelected.id;
+                    $('#name').val(productSelected.name);
+                    $('#description').val(productSelected.description);
+                    $('#unit').val(productSelected.unit);
+                    $('#quantity').val(productSelected.quantity);
+                    $('#price').val(productSelected.price);
+
+                    setImage(productSelected.image);
+                    image = productSelected.image;
+
+                    // seleccionar el tipo de producto
+                    $("#lsType option").filter(function() {
+                        //may want to use $.trim in here
+                        return $(this).val() == productSelected.type.id;
+                    }).prop('selected', true);
+
+                },function (err) {
+                    console.log(err);
+                },true);
+            };
+            init();
+        });
+    </script>
+
+{% include "footer.html" %}
