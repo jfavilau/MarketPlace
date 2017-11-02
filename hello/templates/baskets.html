@@ -27,31 +27,59 @@
         </div>
     </div>
 </section>
+
 <div class="page-content p-t-40 p-b-70">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="m-t-30">
-                    <!-- .product-category-widget-1-->
-                    <div class="product-category-widget-1">
-                        <div class="heading-widget">
-                            <h3>CANASTAS DE PRODUCTOS</h3>
-                        </div>
-                        <ul class="product-category-list" id="product-baskets-list">
-                            <!-- .product-baskets-->
-
-                        </ul>
-                    </div>
-                    <!-- end .product-category-widget-1-->
+        <div class="m-t-30">
+            <!-- .product-category-widget-1-->
+            <div class="product-category-widget-1">
+                <div class="heading-widget text-center">
+                    <h3>CANASTAS</h3>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row" id="products_by_basket">
-                    <!-- products-by-basket-->
+                <ul class="product-category-list jumbotron" id="baskets-list" style="max-width:500px; margin: 0 auto; padding:24px;">
 
-                </div>
+                </ul>
             </div>
+            <!-- end .product-category-widget-1-->
         </div>
+
+        {% if user.is_authenticated %}
+
+            {% if user.is_superuser %}
+
+                <!-- .add-comments-1-->
+                <div class="add-comments-1" style="max-width:450px">
+                    <h4 class="title">Nueva canasta</h4>
+                    <p class="introduce">Cree una nueva cooperativa llenando los campos presentados a continuación</p>
+                    <form class="submit-form" id="new-basket-form">
+                        <div class="form-group">
+                            <label for="basketName">Nombre</label>
+                            <input type="text" class="form-control" id="basketName" placeholder="Nombre de la canasta">
+                        </div>
+                        <div class="form-group">
+                            <label for="basketPrice">Precio</label>
+                            <input type="text" class="form-control" id="basketPrice" placeholder="Precio de la canasta">
+                        </div>
+                        <div class="form-group">
+                            <label for="basketDescription">Precio</label>
+                            <input type="text" class="form-control" id="basketDescription" placeholder="Descripción de la canasta">
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" id="descriptionActive">
+                                Activada
+                            </label>
+                        </div>
+                        <button class="au-btn au-btn-radius au-btn-border btn-submit-comments" id="post-basket"
+                                type="submit">ENVIAR
+                        </button>
+                    </form>
+                </div>
+                <!-- end .add-comments-1-->
+            {% endif %}
+
+        {% endif %}
+
     </div>
 </div>
 
