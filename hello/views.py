@@ -519,7 +519,7 @@ def list_products_basket_view (request):
 def edit_products_basket_view (request):
 
    basket = Basket.objects.get(id=request.GET.get('value'))
-   itemsPerBasket = ItemsPerBasket.objects.filter(basket=basket.id)
+   itemsPerBasket = ItemsPerBasket.objects.filter(basket=basket.id, active=True)
    products= Product.objects.all()
 
    return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products':products, 'range': '10'})
@@ -532,3 +532,17 @@ def add_item_basket(request):
     quantity = request.POST.get('quantity')
 
     return JsonResponse({'message': add_item_basket_service(id_basket, id_product, quantity)})
+
+@csrf_exempt
+def remove_item_basket(request):
+
+    id_basket = request.POST.get('id_basket')
+    id_item = request.POST.get('id_item')
+
+    basket = Basket.objects.get(id=id_basket)
+    item = ItemsPerBasket.objects.get(id=id_item, basket=basket.id)
+
+    item.active = False
+    item.save()
+
+    return JsonResponse({'message': 'Done'})
