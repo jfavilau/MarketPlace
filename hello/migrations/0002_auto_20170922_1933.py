@@ -161,11 +161,11 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.RemoveField(
-            model_name='registereduser',
+            model_name='RegisteredUser',
             name='country',
         ),
         migrations.RemoveField(
-            model_name='registereduser',
+            model_name='RegisteredUser',
             name='interests',
         ),
         migrations.AlterField(
@@ -184,7 +184,7 @@ class Migration(migrations.Migration):
             field=models.FloatField(default=None),
         ),
         migrations.AlterField(
-            model_name='registereduser',
+            model_name='RegisteredUser',
             name='city',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='hello.City'),
         ),
