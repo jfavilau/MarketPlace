@@ -44,6 +44,10 @@ class BasketTest(TestCase):
         empty_basket = add_item_basket_service(None, 1, 10)
         self.assertEqual(empty_basket, False, "Canasta Vacia")
 
+    def test_AddItemToBasket_EmptyProduct(self):
+        empty_product = add_item_basket_service(1, None, 10)
+        self.assertEqual(empty_product, False, "Producto Vacia")
+
 
 
 
