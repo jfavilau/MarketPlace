@@ -109,17 +109,22 @@ else:
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddblv6c0u7ni1u',
-        'USER': 'tkvkegysopxtsz',
-        'PASSWORD': 'd95dd6f03ffe7c86d2c8ec6c251fbeb81462b0756397157636b91105e0396258',
-        'HOST': 'ec2-23-23-225-12.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
-
+        'NAME': 'test',
+        'USER': os.environ.get('PGUSER'),
+        'PASSWORD': os.environ.get('PGPASSWORD'),
+        'HOST': '127.0.0.1',
+      }
 
 }
 
-
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'test',
+        'USER': os.environ.get('PGUSER'),
+        'PASSWORD': os.environ.get('PGPASSWORD'),
+        'HOST': '127.0.0.1',
+    }
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
