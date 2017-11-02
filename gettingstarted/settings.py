@@ -119,15 +119,7 @@ else:
 
 }
 
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace12',
-        'USER': 'postgres',
-        'PASSWORD': 'catalogobio',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
