@@ -1,0 +1,116 @@
+{% include "header.html" %}
+    <section>
+        <div class="section white-background p-t-100 p-b-100">
+            <div class="container">
+                <!-- Heading Section-->
+                <div class="heading-section-1">
+                    <h3>Mis Productos</h3>
+                </div>
+                <div class="section white-background" style="margin-top: 30px">
+                    <table id="freeze-table" class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Ofertar</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $( document ).ready(function() {
+            var url = window.location.origin + "/api/";
+            var url2 = window.location.origin + "/";
+            var  _doAjax = function (sType, uri, data, fnSuccess, fnError, _async) {
+                 if (!data) data = {};
+                 if (!fnError) fnError = this._defaultErrorHandler;
+                 if (!_async) _async = true;
+                 $.ajax({
+                     type: sType,
+                     url: uri,
+                     data: data,
+                     async: _async,
+                     contentType: "application/json; charset=utf-8",
+                     dataType: "json",
+                     success: fnSuccess,
+                     error: fnError
+                 });
+            };
+
+            var products = [];
+
+            var idUser = {{ user.id }};
+            //console.log(idUser);
+
+            var getCurrency = function (value) {
+                return '$' + value.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            };
+
+            var getProducts = function () {
+                _doAjax("GET", url + "producers/" + idUser,{},function (resp) {
+                    //console.log(resp);
+                    products = resp.products;
+                    var tbody = "" ;
+                    $.each(products , function( index, value ) {
+                            var checked = "";
+                            if(value.active)
+                                checked = "checked";
+                            tbody +=
+                                  "<tr>"
+                                +    "<td>" + value.id + "</td>"
+                                +    "<td>" + value.name + "</td>"
+                                +    "<td>" + value.description + "</td>"
+                                +    "<td>" + value.quantity + "</td>"
+                                +    "<td>" + getCurrency(value.price) + "</td>"
+                                +    "<td class='check' id='" + value.id + "'><input id='c" + value.id + "' "
+                                +                 checked + " type='checkbox'  value=''></td>"
+                                +    "<td> <a class='editar' id='e" + value.id + "' href='#'> Editar </a> </td>"
+                                + "</tr>";
+                    });
+                    $( "#products" ).empty().append( tbody );
+
+                    $('.check').click(function () {
+                        var id = $(this).attr('id');
+                        var active = $('#c' + id).prop('checked');
+                        var obj = {id:id,active:active};
+                        _doAjax("POST", url2 + "updateProductActive",JSON.stringify(obj),function (resp) {
+                            console.log(resp);
+                        },function (err) {
+                            console.log(err);
+                        },true);
+                        //console.log(id, $('#c' + id).attr('id'),$('#c' + id).prop('checked'));
+                        //console.log($(this).attr("id"))
+                    });
+
+                    $('.editar').click(function () {
+                        var id = $(this).attr('id').substring(1);
+                        var productSelected = products.filter(function (item) {
+                            return item.id == id;
+                        });
+
+                        if( productSelected.length > 0 ){
+                            localStorage.setItem( 'productSelected', JSON.stringify(productSelected[0]) );
+                            location.href = '/updateProduct';
+                        }
+                    });
+                },function (err) {
+                    console.log(err);
+                },true);
+            };
+            getProducts();
+        });
+
+    </script>
+
+{% include "footer.html" %}

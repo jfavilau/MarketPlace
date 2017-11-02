@@ -20,6 +20,7 @@ router.register(r'baskets', hello.views.BasketViewset, base_name="baskets")
 router.register(r'orders', hello.views.OrdersViewSet)
 router.register(r'shoppingcar', hello.views.ShoppingCarViewSet)
 router.register(r'orderstatus', hello.views.OrderStatusViewSet)
+router.register(r'type', hello.views.TypeViewset, base_name="type")
 router.register(r'cooperatives', hello.views.CooperativesViewSet)
 router.register(r'cities', hello.views.CitiesViewSet)
 
@@ -52,6 +53,14 @@ urlpatterns = [
     url(r'^loginLogic/', hello.views.login_logic, name='loginLogic'),
     url(r'^login/', hello.views.login_view, name='login'),
     url(r'^logout/', hello.views.logout_view, name='logout'),
+    url(r'^myProducts', hello.views.myProducts, name='myProduct'),
+    url(r'^updateProductActive', hello.views.updateProductActive, name='updateProductActive'),
+    url(r'^updateProducts', hello.views.updateProduct, name='updateProducts'),
+    url(r'^updateProduct', hello.views.updateProductView, name='updateProduct'),
+    url(r'^basketList/', hello.views.list_products_basket_view, name='basketList'),
+    url(r'^basketEdit', hello.views.edit_products_basket_view, name='editBasket'),
+    url(r'^addItemBasket', hello.views.add_item_basket, name='addItemBasket')
+
 ]
 
 # Login and logout views for the browsable API

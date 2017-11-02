@@ -14,6 +14,8 @@ import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -27,7 +29,7 @@ SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
+#TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
 
 
 # Application definition
@@ -115,15 +117,19 @@ else:
         }
     }
 
-# if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace12',
-        'USER': 'postgres',
-        'PASSWORD': 'kubuntupostgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    if 'test' in sys.argv:
+        DATABASES['default'] = {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            # 'NAME': 'marketplace12',
+            'NAME': 'test',
+            'USER': 'postgres',
+            # 'USER': os.environ.get('PGUSER'),
+            'PASSWORD': 'kubuntupostgres',
+            # 'PASSWORD': os.environ.get('PGPASSWORD'),
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+          }
+
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -181,6 +187,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
+#IS_HEROKU_TEST = 1
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
