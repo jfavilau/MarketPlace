@@ -546,3 +546,10 @@ def remove_item_basket(request):
     item.save()
 
     return JsonResponse({'message': 'Done'})
+
+@csrf_exempt
+def remove_item_catalogue_view(request):
+
+    products = Product.objects.all()
+
+    return render(request, 'EditCatalogueAdmin.html', context={'products': products})
