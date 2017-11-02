@@ -28,9 +28,10 @@ from .serializers import UserSerializer
 from .serializers import ProductSerializer
 from .serializers import BasketSerializer
 
+from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
-from .serializers import OrdersSerializer, TypeSerializer
+from .serializers import OrdersSerializer, CitySerializer, TypeSerializer
 from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
@@ -56,6 +57,25 @@ def indexOrdersAdmin(request):
 def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
+
+def cooperativas(request):
+    return render(request, 'cooperatives.html')
+
+class CitiesViewSet(viewsets.ModelViewSet):
+    """
+    List all cities, or create a new city.
+    """
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class CooperativesViewSet(viewsets.ModelViewSet):
+    """
+    List all cooperatives, or create a new product.
+    """
+    queryset = Cooperative.objects.all()
+    serializer_class = CooperativeSerializer
+    permission_classes = (permissions.AllowAny,)
 
 @csrf_exempt
 def updateOrder(request):
@@ -211,13 +231,13 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
     serializer_class = CategorySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-class BasketViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+class BasketViewset(viewsets.ModelViewSet):
     """
     List all baskets.
     """
     queryset = Basket.objects.all()
     serializer_class = BasketSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
 
 class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
     """
