@@ -57,6 +57,10 @@ urlpatterns = [
     url(r'^updateProductActive', hello.views.updateProductActive, name='updateProductActive'),
     url(r'^updateProducts', hello.views.updateProduct, name='updateProducts'),
     url(r'^updateProduct', hello.views.updateProductView, name='updateProduct'),
+    url(r'^basketList/', hello.views.list_products_basket_view, name='basketList'),
+    url(r'^basketEdit', hello.views.edit_products_basket_view, name='editBasket'),
+    url(r'^addItemBasket', hello.views.add_item_basket, name='addItemBasket')
+
 ]
 
 # Login and logout views for the browsable API

@@ -21,6 +21,7 @@ from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from .services import *
 
 from gettingstarted import settings
 from .models import *
@@ -472,6 +473,7 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+
 def myProducts(request):
     return render(request, 'products/my_products.html')
 
@@ -507,3 +509,26 @@ def updateProduct(request):
 
 def updateProductView(request):
     return render(request, 'products/updateProduct.html')
+
+def list_products_basket_view (request):
+
+   baskets = Basket.objects.all()
+
+   return render(request, 'ListBasketsAdmin.html', context={'baskets':baskets})
+
+def edit_products_basket_view (request):
+
+   basket = Basket.objects.get(id=request.GET.get('value'))
+   itemsPerBasket = ItemsPerBasket.objects.filter(basket=basket.id)
+   products= Product.objects.all()
+
+   return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products':products, 'range': '10'})
+
+@csrf_exempt
+def add_item_basket(request):
+
+    id_basket = request.POST.get('id_basket')
+    id_product = request.POST.get('id_product')
+    quantity = request.POST.get('quantity')
+
+    return JsonResponse({'message': add_item_basket_service(id_basket, id_product, quantity)})
