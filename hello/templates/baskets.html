@@ -30,6 +30,11 @@
 
 <div class="page-content p-t-40 p-b-70">
     <div class="container">
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <a href="{% url 'basketList'%}" class="title">Editar canastas</a>
+            {% endif %}
+        {% endif %}
         <div class="m-t-30">
             <!-- .product-category-widget-1-->
             <div class="product-category-widget-1">

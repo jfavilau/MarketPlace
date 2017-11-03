@@ -21,6 +21,7 @@ from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from .services import *
 
 from gettingstarted import settings
 from .models import *
@@ -31,7 +32,7 @@ from .serializers import BasketSerializer
 from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
-from .serializers import OrdersSerializer, CitySerializer
+from .serializers import OrdersSerializer, CitySerializer, TypeSerializer
 from .serializers import ShoppingCarSerializer,OrderStatusSerializer
 
 
@@ -213,6 +214,14 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
+    """
+    List all products, or create a new product.
+    """
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
@@ -463,3 +472,98 @@ def login_view (request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def myProducts(request):
+    return render(request, 'products/my_products.html')
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct ['active'])
+        return HttpResponse("Oferta del producto actualizada!")
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct ['active'])
+        return HttpResponse("Oferta del producto actualizada!")
+
+@csrf_exempt
+def updateProduct(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            name= jsonProduct ['name'],
+            image= jsonProduct['image'],
+            description= jsonProduct['description'],
+            unit= jsonProduct['unit'],
+            price = jsonProduct['price'],
+            quantity = jsonProduct['quantity'],
+            type=jsonProduct['type'])
+        return HttpResponse("Producto actualizada!")
+
+def updateProductView(request):
+    return render(request, 'products/updateProduct.html')
+
+def list_products_basket_view (request):
+
+   baskets = Basket.objects.all()
+
+   return render(request, 'ListBasketsAdmin.html', context={'baskets':baskets})
+
+def edit_products_basket_view (request):
+
+   basket = Basket.objects.get(id=request.GET.get('value'))
+   itemsPerBasket = ItemsPerBasket.objects.filter(basket=basket.id, active=True)
+   products= Product.objects.all()
+
+   return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products':products, 'range': '10'})
+
+@csrf_exempt
+def add_item_basket(request):
+
+    id_basket = request.POST.get('id_basket')
+    id_product = request.POST.get('id_product')
+    quantity = request.POST.get('quantity')
+
+    return JsonResponse({'message': add_item_basket_service(id_basket, id_product, quantity)})
+
+@csrf_exempt
+def remove_item_basket(request):
+
+    id_basket = request.POST.get('id_basket')
+    id_item = request.POST.get('id_item')
+
+    basket = Basket.objects.get(id=id_basket)
+    item = ItemsPerBasket.objects.get(id=id_item, basket=basket.id)
+
+    item.active = False
+    item.save()
+
+    return JsonResponse({'message': 'Done'})
+
+@csrf_exempt
+def remove_item_catalogue_view(request):
+
+    products = Product.objects.all()
+
+    return render(request, 'EditCatalogueAdmin.html', context={'products': products})
+
+@csrf_exempt
+def remove_product_logic(request):
+
+    product = Product.objects.get(id=request.POST.get('product'))
+
+    if request.POST.get('value') == "0":
+        product.active = False
+    else:
+        product.active = True
+
+    product.save()
+
+    return JsonResponse({'message': 'Done'})
