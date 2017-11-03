@@ -28,7 +28,7 @@
 
                 var myvar = '<li>'+
         '                        <a href="#">' + item.name + '</a>'+
-        '                        <p style="float: right;"> $ ' + item.price + '</a>'+
+        '                        <p style="float: right; padding-top:12px;"> $ ' + item.price + '</a>'+
         //'                        <a id="delete-basket' + i +'" style="float: right; height:32px; padding-top:8px;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>'+
         '                    </li>';
 
