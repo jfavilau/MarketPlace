@@ -53,3 +53,29 @@ class BasketTest(TestCase):
         empty_quantity = add_item_basket_service(1, 1, None)
         self.assertEqual(empty_quantity, False, "Cantidad Vacia")
 
+class ProducersTest(TestCase):
+
+    def setUp(self):
+        #Crear ciudad
+        City.objects.create(id=1, name="Medellin", shortName="MED")
+        #Se obtiene el registro de la ciudad creada
+        city_fk = City.objects.get(id=1)
+
+        # Crear cooperativa
+        Cooperative.objects.create( id=2, name="Cooperativa Bogota", city=city_fk, active=True)
+        #Se obtiene el registro de la cooperativa creada
+        coop_fk = Cooperative.objects.get(id=2)
+        #Se crea el productor con id 2
+        Producer.objects.create(id=2, typeIdentification="Cedula de Ciudadania", identificationNumber="10101010",
+                                name="Alejandro", image="http://test.com", description="Test", address="Cll test ",
+                                city=city_fk, latitude=0, longitude=0, phoneNumber="10101012", cooperative=coop_fk,
+                                active=True)
+        #Se crea el productor con id 3
+        Producer.objects.create(id=3, typeIdentification="Cedula de Ciudadania", identificationNumber="10567259",
+                                name="Jhon", image="http://test.com", description="Test", address="Cll 55 No 44 76",
+                                city=city_fk, latitude=0, longitude=0, phoneNumber="55555555", cooperative=coop_fk,
+                                active=True)
+
+    def test_ActivateProducers(self):
+        resp = activate_producers_service([1, 2, 3],True)
+        self.assertEqual(resp,True)

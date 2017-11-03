@@ -16,3 +16,7 @@ def add_item_basket_service(id_basket,id_product,quantity):
         return True
     else:
         return False
+
+# Servicio para activar productores
+def activate_producers_service(idsProducers, status):
+    return False
