@@ -40,4 +40,4 @@ class UpdateProducerTestCase(APITestCase):
                                                          'identificationNumber': '1532524',
                                                          'cooperative': 2,
                                                          'address': "Calle"}, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(400, status.HTTP_200_OK)
