@@ -1,0 +1,53 @@
+{% include "header.html" %}
+<section>
+  <div class="section primary-color-background">
+    <div class="container">
+      <div class="p-t-70 p-b-85">
+        <!-- Heading page-->
+        <div class="heading-page-1">
+          <h3 id="category_name">Productores</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section border-bottom-grey">
+    <div class="container">
+      <div class="breadcrumb-1">
+        <ul>
+          <li>
+            <a href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li>
+            <a href="#">Productores</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="page-content p-t-40 p-b-70">
+  <div class="container">
+    <div class="m-t-30">
+      <!-- .product-category-widget-1-->
+      <div class="product-category-widget-1">
+        <div class="heading-widget text-center">
+          <h3>Productores</h3>
+        </div>
+        <ul class="product-category-list jumbotron" id="producers-list" style="max-width:500px; margin: 0 auto; padding:24px;">
+          
+        </ul>
+      </div>
+      <!-- end .product-category-widget-1-->
+    </div>
+  </div>
+</div>
+{% include "footer.html" %}
+<script src="../static/js/producers.js"></script>
+<!--
+End Document
+==================================================
+-->
+
+</body>
+
+</html>
