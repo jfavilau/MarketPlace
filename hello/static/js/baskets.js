@@ -14,7 +14,7 @@
 
   function downloadBaskets() {
 
-    $("#baskets-list").html("");
+    $("#baskets-table").html("");
 
     $.getJSON(baseURL + "api/baskets/").done(function(data) {
 
@@ -26,21 +26,18 @@
 
         i++;
 
-        var myvar = '<li>' +
-          '<p>' +
-          ' <a id="delete-basket' + i + '" style="float: left; height:32px; padding-top:8px;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' +
-          '</p>' +
-          ' <a href="#">' + item.name + '</a>' +
-          ' <p style="float: right;"> $ ' + item.price + '</p>' +
-          '</li>';
+        var myvar = '<tr>'+
+                    '  <td><a href="#">' + item.name + '</a></td>'+
+                    '  <td>$ ' + item.price + '</td>'+
+                    '  <td style="text-align:center;"><a id="delete-basket' + i + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>'+
+                    '</tr>';
 
-        $("#baskets-list").append(myvar);
+        $("#baskets-table").append(myvar);
 
         $("#delete-basket" + i).click(() => {
           deleteBasket(i);
         });
       });
-
     });
   }
 
