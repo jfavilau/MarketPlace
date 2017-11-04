@@ -62,6 +62,8 @@ urlpatterns = [
     url(r'^basketEdit', hello.views.edit_products_basket_view, name='editBasket'),
     url(r'^addItemBasket', hello.views.add_item_basket, name='addItemBasket'),
     url(r'^removeItemBasket', hello.views.remove_item_basket, name='removeItemBasket'),
+    url(r'^editCatalogue', hello.views.remove_item_catalogue_view, name='removeItemCatalogueView'),
+    url(r'^removeProductAdmin', hello.views.remove_product_logic, name='removeProduct'),
 
 ]
 
