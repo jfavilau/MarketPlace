@@ -51,6 +51,9 @@ def regProducer(request):
 def mapProducer(request):
     return render(request, 'producer/mapProducer.html')
 
+def regProducts(request):
+    return render(request, 'products/regProducts.html')
+
 def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Admin/Orders/index.html')
@@ -226,7 +229,7 @@ class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
 
 class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
     """
-    List all categories.
+    List all Categories.
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -234,19 +237,19 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
 
 class BasketViewset(viewsets.ModelViewSet):
     """
-    List all baskets.
+    List all Baskets.
     """
     queryset = Basket.objects.all()
     serializer_class = BasketSerializer
     permission_classes = (permissions.AllowAny,)
 
-class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+class ProducerViewset(viewsets.ModelViewSet):
     """
     List all Producers.
     """
     queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
 
 
 def checkOut(request):
