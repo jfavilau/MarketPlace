@@ -212,7 +212,7 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     """
     List all products, or create a new product.
     """
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(active=True)
     serializer_class = ProductSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
@@ -544,5 +544,26 @@ def remove_item_basket(request):
 
     item.active = False
     item.save()
+
+    return JsonResponse({'message': 'Done'})
+
+@csrf_exempt
+def remove_item_catalogue_view(request):
+
+    products = Product.objects.all()
+
+    return render(request, 'EditCatalogueAdmin.html', context={'products': products})
+
+@csrf_exempt
+def remove_product_logic(request):
+
+    product = Product.objects.get(id=request.POST.get('product'))
+
+    if request.POST.get('value') == "0":
+        product.active = False
+    else:
+        product.active = True
+
+    product.save()
 
     return JsonResponse({'message': 'Done'})

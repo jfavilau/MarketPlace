@@ -18,7 +18,7 @@
 
             console.log("Categories", data);
 
-            categories = data;
+            categories = enable_products(data);
 
             $.each(categories, function(i, item) {
 
@@ -37,6 +37,21 @@
             hideLoader();
 
         });
+    }
+
+    function enable_products(data){
+        var result =JSON.parse(JSON.stringify(data));
+
+        for(var i= 0; i < data.length;i++){
+                result[i].products=[]
+                for(var j= 0; j < data[i].products.length;j++){
+
+                    (!data[i].products[j].active) ?  console.log("Removed") : result[i].products.push(data[i].products[j]);
+                }
+
+        }
+
+        return result;
     }
 
     function hideLoader() {
