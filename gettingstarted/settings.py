@@ -110,9 +110,9 @@ else:
     DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'marketplace',
-        'USER': 'postgres',
-        'PASSWORD': 'catalogobio',
+        'NAME': 'test', # 'marketplace',
+        'USER': os.environ.get('PGUSER'), # 'postgres',
+        'PASSWORD': os.environ.get('PGPASSWORD'), # 'catalogobio',
         'HOST': '127.0.0.1',
       }
 
