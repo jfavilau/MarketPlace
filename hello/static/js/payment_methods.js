@@ -66,25 +66,30 @@
         var expDate = document.getElementById('exp_date').value;
         var code = document.getElementById('code').value;
 
-        if(card_number != ""  && exp_date != ""  && code != ""){
+        if(validateNumber(cardNumber) && validateNumber(code) && validateDate(expDate)){
+            if(card_number != ""  && exp_date != ""  && code != ""){
 
-            $.ajax({
-            url: url_data,
-            type: "POST",
-            data: {
-                "cardNumber": cardNumber, "expDate": expDate, "code": code
-            },
-            success: function (data) {
-                console.log(data.message);
-                $("#modalPayment").click();
-            },
-            error: function (xhr) {
+                $.ajax({
+                url: url_data,
+                type: "POST",
+                data: {
+                    "cardNumber": cardNumber, "expDate": expDate, "code": code
+                },
+                success: function (data) {
+                    console.log(data.message);
+                    $("#modalPayment").click();
+                },
+                error: function (xhr) {
+                    $("#modalButton").click();
+                }
+                });
+            }
+            else{
                 $("#modalButton").click();
             }
-            });
         }
         else{
-            $("#modalButton").click();
+          $("#modalButton").click();
         }
     }
 
@@ -103,5 +108,31 @@
             }
             });
     }
+
+    function validateNumber(number){
+    if(number.match("^[0-9]*$"))
+       return true;
+    else
+       return false;
+  }
+
+  function validateDate(str){
+      var array = str.toString().split('/');
+      console.log(str);
+      /*console.log(array[0]);
+      console.log(array[1]);*/
+
+      if(array.length == 2){
+        if (validateNumber(array[0]) && validateNumber(array[1])){
+            return true;
+        }
+        else
+            return false;
+      }
+      else
+        return false;
+
+
+  }
 
 })(jQuery);
