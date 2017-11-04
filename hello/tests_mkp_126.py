@@ -1,3 +1,5 @@
+import json
+
 from .services import Cooperative, City
 from .models import Producer
 from rest_framework.test import APIRequestFactory
@@ -30,7 +32,11 @@ class UpdateProducerTestCase(APITestCase):
                                 phoneNumber = "7046004",
                                 cooperative = coop_fk,
                                 active = True)
+
+        self.productor = Producer.objects.get(id=1)
+
         self.factory = APIRequestFactory()
+
 
 
     def test_update_producer(self):
@@ -40,4 +46,7 @@ class UpdateProducerTestCase(APITestCase):
                                                          'identificationNumber': '1532524',
                                                          'cooperative': 2,
                                                          'address': "Calle"}, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        responseGetProd = self.client.get('/api/producers/1/')
+        productor = json.loads(responseGetProd.content)
+        self.assertEqual(productor["name"], 'Camilo')

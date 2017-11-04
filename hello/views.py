@@ -51,6 +51,9 @@ def regProducer(request):
 def mapProducer(request):
     return render(request, 'producer/mapProducer.html')
 
+def regProducts(request):
+    return render(request, 'products/regProducts.html')
+
 def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
     return render(request, 'Admin/Orders/index.html')
