@@ -40,21 +40,44 @@ var producer_changes = {};
           producers_list.append(producer);
 
           $('#producer_active' + id).click(() => {
-            activateProducer(id, true);
-            console.log(active);
+            item.active = !item.active;
+            activateProducer(item);
           });
         });
       });
   }
 
-  function activateProducer(id, status) {
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+
+  $.ajaxSetup({
+
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));
+      }
+    }
+
+  });
+
+  function activateProducer(producer) {
+    var data = JSON.stringify(producer);
+    console.log(data);
     $.ajax({
       type: "PUT",
-      url: baseURL + 'api/productores/',
-      contentType: "application/json",
+      url: baseURL + 'api/productores/'+ producer.id + '/',
+      datatype: "json",
+      // contentType: "application/json",
       data: {
-        "data": {"id": id, "active":status}
-      }
+        'name': producer.name,
+        'phoneNumber': producer.phoneNumber,
+        'identificationNumber': producer.identificationNumber,
+        'cooperative': producer.cooperative,
+        'address': producer.address,
+        'active': producer.active
+      },
     });
   }
 })(jQuery);
