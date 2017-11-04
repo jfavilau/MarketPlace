@@ -16,10 +16,12 @@
                 <h5 class="modal-title" id="paymentm">Registro Exitoso</h5>
             </div>
             <div class="modal-body">
-                ¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión,<br> el administrador se comunicará con usted cuando termine el proceso.
+                ¡Se ha creado el producto!
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Gracias
+                <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Listo
+                </button>
+                <button type="button" class="btn btn-success" onclick="location.href='{% url 'regProducts' %}'">Agregar otro producto
                 </button>
             </div>
         </div>
@@ -33,7 +35,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">¡HA OCURRIDO UN ERROR!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" clas="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -53,7 +55,7 @@
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3>Registrar Productor</h3>
+                    <h3>Registrar Producto</h3>
                 </div>
             </div>
         </div>
@@ -67,17 +69,19 @@
 						<!-- .register-1-->
 						<div class="register-1">
 							<form class="theme-form" method="post" onsubmit="return enviarForm();">
-                                <select id="typeIdentification" class="theme-input-text">
-                                    <option selected>Cedula de Ciudadanía</option>
-                                    <option>Cedula de Extranjería</option>
-                                    <option>Pasaporte</option>
-                                </select><br></br>
 								<input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
-								<input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
-								<input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+                                <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
                                 <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
-								<input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
-								<input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+								<input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
+								<input id="quantity" class="theme-input-text" type="number" placeholder="Cantidad*" required pattern="[0-9.]+" title="Utilice . decimal "/>
+								<input id="price" class="theme-input-text" type="text" placeholder="Precio" required pattern="[0-9.]+" title="Utilice . decimal "/>
+                                <select id="type" class="theme-input-text">
+                                </select>
+                                <select id="category" class="theme-input-text">
+                                </select>
+                                <select id="producer" class="theme-input-text">
+                                </select>
+
                                 <input id="products" name="products" type="hidden" value="[]" />
 								<input id="latitude" name="latitude" type="hidden" value="0.0" />
 								<input id="longitude" name="longitude" type="hidden" value="0.0" />
