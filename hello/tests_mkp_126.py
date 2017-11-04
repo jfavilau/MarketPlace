@@ -1,55 +1,43 @@
-from django.test import TestCase, RequestFactory
+from .services import Cooperative, City
+from .models import Producer
+from rest_framework.test import APIRequestFactory
+from rest_framework import status
+from rest_framework.test import APITestCase
 
-from .services import *
-from .models import *
-
-
-class ProducerTest(TestCase):
+class UpdateProducerTestCase(APITestCase):
 
     def setUp(self):
-        City.objects.create(id=1, name="Medellin", shortName="MED")
-        Category.objects.create(id=1,shortName="FRU", name="Frutas")
-        Category.objects.create(id=2,shortName="VER", name="Verduras")
 
-        Type.objects.create(id=1,shortName="L", name="Agr. Limpia")
-        Type.objects.create(id=2,shortName="B", name="Bio")
-        Type.objects.create(id=3,shortName="O", name="Organica")
+        City.objects.create(id=1, name="Bogota", shortName="BOG")
 
         city_fk = City.objects.get(id=1)
+
         Cooperative.objects.create(
             id=2, name="Cooperativa Bogota", city=city_fk, active=True)
 
         coop_fk = Cooperative.objects.get(id=2)
-        Producer.objects.create(id=1, typeIdentification="Cedula de Ciudadania", identificationNumber="10101010", name="Alejandro",
-                                image="http://test.com", description="Test", address="Cll test ", city=city_fk, latitude=0,
-                                longitude=0, phoneNumber="10101012", cooperative=coop_fk, active=True)
 
-        type_fk = Type.objects.get(id=1)
-        category_fk = Category.objects.get(id=1)
-        producer_fk = Producer.objects.get(id=1)
-        Product.objects.create(id=1, name="Banano", description="test", unit="KG",
-                               image="http://test.com", quantity=10, price=1000, type=type_fk, category=category_fk,
-                               producer=producer_fk, active=True)
-
-        Basket.objects.create(
-            id=1, name="Basket 1", description="test", price=5000, active=True)
-
-    def test_AddItemToBasket(self):
-        # Test Basket services
-        result = add_item_basket_service(1, 1, 10)
-        self.assertEqual(result, True, "Un Item Canasta")
-
-    def test_AddItemToBasket_EmptyBasket(self):
-        # Test Basket services
-        empty_basket = add_item_basket_service(None, 1, 10)
-        self.assertEqual(empty_basket, False, "Canasta Vacia")
-
-    def test_AddItemToBasket_EmptyProduct(self):
-        empty_product = add_item_basket_service(1, None, 10)
-        self.assertEqual(empty_product, False, "Producto Vacia")
+        Producer.objects.create(id = 1,
+                                typeIdentification = "Cedula de Ciudadania",
+                                identificationNumber = "1032440498",
+                                name = "Camilo Baquero Jimenez",
+                                image = "https://definicion.mx/wp-content/uploads/2013/11/usuario.jpg",
+                                description = "Mi descripcion",
+                                address = "Calle 45 # 45 - 47",
+                                city = city_fk,
+                                latitude = 4.6513722,
+                                longitude = -74.0593757,
+                                phoneNumber = "7046004",
+                                cooperative = coop_fk,
+                                active = True)
+        self.factory = APIRequestFactory()
 
 
-    def test_AddItemToBasket_EmptyQuantity(self):
-        empty_quantity = add_item_basket_service(1, 1, None)
-        self.assertEqual(empty_quantity, False, "Cantidad Vacia")
-
+    def test_update_producer(self):
+        """Test the api can update a given producer."""
+        response = self.client.put('/api/producers/1/', {'name': 'Camilo',
+                                                         'phoneNumber': '412543',
+                                                         'identificationNumber': '1532524',
+                                                         'cooperative': 2,
+                                                         'address': "Calle"}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
