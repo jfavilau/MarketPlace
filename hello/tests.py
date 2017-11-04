@@ -79,3 +79,7 @@ class ProducersTest(TestCase):
     def test_ActivateProducers(self):
         resp = activate_producers_service([1, 2, 3],True)
         self.assertEqual(resp,True)
+
+    def test_ActivateProducers_NotExistproducers(self):
+        resp = activate_producers_service([4, 5, 6],True)
+        self.assertEqual(resp,False)
