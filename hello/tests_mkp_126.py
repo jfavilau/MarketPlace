@@ -41,7 +41,12 @@ class UpdateProducerTestCase(APITestCase):
 
     def test_update_producer(self):
         """Test the api can update a given producer."""
+        response = self.client.put('/api/producers/1/', {'name': 'Camilo',
+                                                         'phoneNumber': '412543',
+                                                         'identificationNumber': '1532524',
+                                                         'cooperative': 2,
+                                                         'address': "Calle"}, format='json')
 
-        response = self.client.get('/api/producers/1/')
-        productor = json.loads(response.content)
+        responseGetProd = self.client.get('/api/producers/1/')
+        productor = json.loads(responseGetProd.content)
         self.assertEqual(productor["name"], 'Camilo')
