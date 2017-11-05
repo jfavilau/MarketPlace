@@ -129,7 +129,10 @@
                             '<p>Disponible</p>' +
                             '<p>Items: ' + data.items.length + '</p>';
 
-        var products = data.items
+        var products = data.items;
+
+        $( "#basket-products-indicators" ).html("");
+        $( "#basket-products-slides" ).html("");
 
         $.each(products, function(i, product) {
 
@@ -154,7 +157,7 @@
             slide = item +
                         '<img src=' + product.product.image + ' alt=' + product.product.name + ' height="100%" width="100%">' +
                         "<div class=\"carousel-caption\">" +
-                            '<h3>' + product.quantity + '</h3>' +
+                            '<h3>' + product.quantity + ' unidades</h3>' +
                             '<p>' + product.product.name + '</p>' +
                         "</div>" +
                     "</div>";
