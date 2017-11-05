@@ -43,23 +43,31 @@
                     <!-- .register-1-->
                     <div class="register-1">
                         <form class="theme-form" id="update-producer-form">
-                            <select id="typeIdentification" class="theme-input-text">
+                            <label for="prod_id_type">Identificación</label>
+                            <select id="prod_id_type" class="theme-input-text">
                                 <option selected>Cedula de Ciudadanía</option>
                                 <option>Cedula de Extranjería</option>
                                 <option>Pasaporte</option>
-                            </select><br></br>
-                            <input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
-                            <input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
-                            <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
-                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
-                            <input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
-                            <input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
-                            <input id="products" name="products" type="hidden" value="[]" />
-                            <input id="latitude" name="latitude" type="hidden" value="0.0" />
-                            <input id="longitude" name="longitude" type="hidden" value="0.0" />
-                            <input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
+                            </select><br/><br/>
+                            <label for="prod_id_number">Número de Identificación*</label>
+                            <input id="prod_id_number" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
+                            <label for="prod_image">URL Imagen*</label>
+                            <input id="prod_image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
+                            <label for="prod_name">Nombre*</label>
+                            <input id="prod_name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+                            <label for="prod_description">Descripción</label>
+                            <textarea id="prod_description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="10" maxlength="500"></textarea>
+                            <label for="prod_address">Dirección*</label>
+                            <input id="prod_address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
+                            <label for="prod_city">Ciudad</label>
+                            <input id="prod_city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+                            <label for="prod_latitude">Latitud</label>
+                            <input id="prod_latitude" name="latitude"/>
+                            <label for="prod_longitude">Longitud</label>
+                            <input id="prod_longitude" name="longitude"/>
+                            <label for="prod_number">Número de Teléfono*</label>
+                            <input id="prod_number" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
                             <input id="cooperative" name="cooperative" type="hidden" value="1" />
-                            <input id="active" name="active" type="hidden" value="false" />
                             <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">ACTUALIZAR</button>
                         </form>
                     </div>
