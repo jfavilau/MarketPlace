@@ -129,12 +129,40 @@
                             '<p>Disponible</p>' +
                             '<p>Items: ' + data.items.length + '</p>';
 
-        /*$( "#basket-detail-images" ).html(
-                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
-                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
-                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
-                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />"
-                );*/
+        var products = data.items
+
+        $.each(products, function(i, product) {
+
+            // INDICATORS
+            var indicator = "";
+
+            if(i==0) {
+                indicator = "<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\" style=\"background-color:#508d42 !important\"></li>";
+            } else {
+                indicator = '<li data-target=\"#myCarousel\" data-slide-to=' + i + ' style="background-color:#508d42 !important"></li>';
+            }
+
+            $( "#basket-products-indicators" ).append(indicator);
+
+            // SLIDES
+            var slide = "";
+            var item = "";
+
+            if(i==0) item = "<div class=\"item active\">";
+            else item = "<div class=\"item\">";
+
+            slide = item +
+                        '<img src=' + product.product.image + ' alt=' + product.product.name + ' height="100%" width="100%">' +
+                        "<div class=\"carousel-caption\">" +
+                            '<h3>' + product.quantity + '</h3>' +
+                            '<p>' + product.product.name + '</p>' +
+                        "</div>" +
+                    "</div>";
+
+            $( "#basket-products-slides" ).append(slide);
+
+        });
+
         $( "#basket-detail-name" ).html(data.name);
         $( "#basket-detail-price" ).html( "$" + data.price );
         $( "#basket-detail-description" ).html( description );
