@@ -1,5 +1,6 @@
 
 {% include "header.html" %}
+{% load static %}
 
 <section>
     <div class="section primary-color-background">
@@ -41,9 +42,20 @@
                 <div class="heading-widget text-center">
                     <h3>CANASTAS</h3>
                 </div>
-                <ul class="product-category-list jumbotron" id="baskets-list" style="max-width:500px; margin: 0 auto; padding:24px;">
 
-                </ul>
+                <table class="table jumbotron" id="baskets-list" style="max-width:500px; margin: 0 auto; padding:24px;" >
+                    <thead>
+                      <tr>
+                        <th>Canasta</th>
+                        <th>Precio</th>
+                        <th style="text-align:center;">Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody id="baskets-table">
+
+                    </tbody>
+                </table>
+
             </div>
             <!-- end .product-category-widget-1-->
         </div>
@@ -87,6 +99,82 @@
 
     </div>
 </div>
+
+
+<!-- quick-view-1-->
+<div class="modal fade quick-view-1" id="myBasketModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="fa fa-close" type="button" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5">
+                        <!-- .product-detail-image-1-->
+                        <div class="product-detail-image-1">
+
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators" id="basket-products-indicators">
+
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" id="basket-products-slides">
+
+                                </div>
+
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background:none !important">
+                                  <span class="glyphicon glyphicon-chevron-left"></span>
+                                  <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background:none !important">
+                                  <span class="glyphicon glyphicon-chevron-right"></span>
+                                  <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end .product-detail-image-1-->
+                    </div>
+                    <div class="col-md-7">
+                        <!-- .product-detail-content-1-->
+                        <div class="product-detail-content-1">
+                            <div class="product-name">
+                                <h3 id="basket-detail-name"> </h3>
+                            </div>
+                            <div class="product-cert">
+                                <a href="#">
+                                    <img src="{% static "images/icons/ic-product-cert-01.png" %}" alt="product cert"/>
+                                </a>
+                                <a href="#">
+                                    <img src="{% static "images/icons/ic-product-cert-02.png" %}" alt="product cert"/>
+                                </a>
+                                <a href="#">
+                                    <img src="{% static "images/icons/ic-product-cert-03.png" %}" alt="product cert"/>
+                                </a>
+                            </div>
+                            <div class="product-price">
+                                <p id="basket-detail-price"> </p>
+                            </div>
+                            <div class="product-introduce" id="basket-detail-description">
+
+                            </div>
+                            <div class="prodcut-add-to-cart">
+                                <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">ADD TO CART</button>
+                                <a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO WISHLIST</a>
+                            </div>
+                        </div>
+                        <!-- end .product-detail-content-1-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end quick-view-1-->
 
 {% include "footer.html" %}
     <script src="../static/js/baskets.js"></script>
