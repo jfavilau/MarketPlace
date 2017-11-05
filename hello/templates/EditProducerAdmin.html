@@ -9,7 +9,7 @@
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3 id="producer_name"> </h3>
+                    <h3>Actualizar Productor</h3>
                 </div>
             </div>
         </div>
@@ -32,22 +32,43 @@
         </div>
     </div>
 </section>
-<div class="page-content p-t-40 p-b-70">
-    <div class="container">
-        <div class="row">
-            <div class="m-t-30">
-                <!-- .product-category-widget-1-->
-                <div class="product-category-widget-1">
-                    <ul class="product-category-list" id="producer_products">
-                        <!-- .producer-products-->
-
-                    </ul>
+<section>
+    <div class="page-content p-t-40 p-b-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-4">
+                    <div class="heading-widget text-center">
+                        <h2 id="producer_name"> </h2>
+                    </div>
+                    <!-- .register-1-->
+                    <div class="register-1">
+                        <form class="theme-form" id="update-producer-form">
+                            <select id="typeIdentification" class="theme-input-text">
+                                <option selected>Cedula de Ciudadanía</option>
+                                <option>Cedula de Extranjería</option>
+                                <option>Pasaporte</option>
+                            </select><br></br>
+                            <input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
+                            <input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
+                            <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
+                            <input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
+                            <input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+                            <input id="products" name="products" type="hidden" value="[]" />
+                            <input id="latitude" name="latitude" type="hidden" value="0.0" />
+                            <input id="longitude" name="longitude" type="hidden" value="0.0" />
+                            <input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
+                            <input id="cooperative" name="cooperative" type="hidden" value="1" />
+                            <input id="active" name="active" type="hidden" value="false" />
+                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">ACTUALIZAR</button>
+                        </form>
+                    </div>
+                    <!-- end .register-1-->
                 </div>
-                <!-- end .product-category-widget-1-->
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {% include "footer.html" %}
     <script src="{% static "js/edit-producer.js" %}"></script>
