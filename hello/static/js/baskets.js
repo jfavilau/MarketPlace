@@ -27,7 +27,7 @@
         i++;
 
         var myvar = '<tr>'+
-                    '  <td><a href="#">' + item.name + '</a></td>'+
+                    '  <td><a href="#" data-toggle="modal" data-target="#myBasketModal" data-basket="' + item.id +'" data-toggle-tooltip="tooltip" data-placement="top" title="Ver canasta">' + item.name + '</a></td>'+
                     '  <td>$ ' + item.price + '</td>'+
                     '  <td style="text-align:center;"><a id="delete-basket' + i + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>'+
                     '</tr>';
