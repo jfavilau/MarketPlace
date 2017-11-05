@@ -115,4 +115,32 @@
 
   }
 
+  /*Product detail*/
+    $('#myBasketModal').on('show.bs.modal', function(e) {
+      var basket_id = e.relatedTarget.dataset.basket;
+
+      console.log("Selected basket: " + basket_id);
+
+      $(".input-size").val("");
+
+      $.getJSON(baseURL + "api/baskets/" + basket_id).done(function(data) {
+
+        var description = "<p>" + data.description + "</p>" +
+                            '<p>Disponible</p>' +
+                            '<p>Items: ' + data.items.length + '</p>';
+
+        /*$( "#basket-detail-images" ).html(
+                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
+                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
+                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />" +
+                    "<img data-dot=\"&lt;img src='https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg'&gt;\" src=\"https://s3-us-west-2.amazonaws.com/mercadoni-catalog/live/e6fcaa60f193fa6efb7ad731317589ae1978c145/medium_e6fcaa60f193fa6efb7ad731317589ae1978c145-613.jpg\" alt=\"product detail image\" />"
+                );*/
+        $( "#basket-detail-name" ).html(data.name);
+        $( "#basket-detail-price" ).html( "$" + data.price );
+        $( "#basket-detail-description" ).html( description );
+
+      });
+
+    });
+
 })(jQuery);
