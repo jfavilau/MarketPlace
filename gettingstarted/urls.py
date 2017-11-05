@@ -15,7 +15,6 @@ router = routers.DefaultRouter()
 router.register(r'users', hello.views.UserViewset, base_name="users")
 router.register(r'products', hello.views.ProductViewset, base_name="products")
 router.register(r'producers', hello.views.ProducerViewset, base_name="producers")
-router.register(r'productores', hello.views.ProducerViewset, base_name="productores")
 router.register(r'categories', hello.views.CategoryViewset, base_name="categories")
 router.register(r'baskets', hello.views.BasketViewset, base_name="baskets")
 router.register(r'orders', hello.views.OrdersViewSet)
@@ -46,6 +45,7 @@ urlpatterns = [
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
     url(r'^producers_list/$', hello.views.producers_list, name='producers_list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
+    url(r'^productores/(?P<producer_id>[0-9]+)/$', hello.views.productor_detail, name='productor-detail'),
     url(r'^addUser/$',hello.views.registro, name='addUser'),
     url(r'^regUser/$',hello.views.regUser, name='regUser'),
     url(r'^orders', hello.views.indexOrders, name='orders'),
@@ -65,6 +65,7 @@ urlpatterns = [
     url(r'^removeItemBasket', hello.views.remove_item_basket, name='removeItemBasket'),
     url(r'^editCatalogue', hello.views.remove_item_catalogue_view, name='removeItemCatalogueView'),
     url(r'^removeProductAdmin', hello.views.remove_product_logic, name='removeProduct'),
+    url(r'^producers_list/editProducer/(?P<producer_id>[0-9]+)/$', hello.views.productor_edit, name='productor-edit'),
 
 ]
 

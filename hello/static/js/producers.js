@@ -13,7 +13,7 @@ var producer_changes = {};
   function downloadProducers() {
     producer_changes = {};
 
-    $.getJSON(baseURL + 'api/productores')
+    $.getJSON(baseURL + 'api/producers')
       .then((data) => {
         var producers = data;
 
@@ -28,7 +28,7 @@ var producer_changes = {};
           var active = item.active;
 
           var producer = '<li>';
-          producer += ' <a href="#">' + name + '</a>';
+          producer += ' <a href="editProducer/'+id+'">' + name + '</a>';
           producer += ' <div style="float: right;">';
           producer += '   <label for="producer_active">Activo</label>';
           producer += '  <input class="producer_active" id="producer_active' + id;
@@ -67,7 +67,7 @@ var producer_changes = {};
     console.log(data);
     $.ajax({
       type: "PUT",
-      url: baseURL + 'api/productores/'+ producer.id + '/',
+      url: baseURL + 'api/producers/'+ producer.id + '/',
       datatype: "json",
       // contentType: "application/json",
       data: {

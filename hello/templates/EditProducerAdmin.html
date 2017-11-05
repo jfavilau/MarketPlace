@@ -1,0 +1,86 @@
+{% include "header.html" %}
+{% load static %}
+
+<input type="hidden" name="producer_id" value="{{producer_id}}" id="producer_id">
+
+<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Actualizar Productor</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section border-bottom-grey">
+        <div class="container">
+            <div class="breadcrumb-1">
+                <ul>
+                    <li>
+                        <a href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'producers_list' %}">Productores</a>
+                    </li>
+                    <li>
+                        <a href="#" id="title_link"> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="page-content p-t-40 p-b-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-4">
+                    <div class="heading-widget text-center">
+                        <h2 id="producer_name"> </h2>
+                    </div>
+                    <!-- .register-1-->
+                    <div class="register-1">
+                        <form class="theme-form" id="update-producer-form">
+                            <label for="prod_id_type">Identificación</label>
+                            <select id="prod_id_type" class="theme-input-text">
+                                <option selected>Cedula de Ciudadanía</option>
+                                <option>Cedula de Extranjería</option>
+                                <option>Pasaporte</option>
+                            </select><br/><br/>
+                            <label for="prod_id_number">Número de Identificación*</label>
+                            <input id="prod_id_number" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
+                            <label for="prod_image">URL Imagen*</label>
+                            <input id="prod_image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
+                            <label for="prod_name">Nombre*</label>
+                            <input id="prod_name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+                            <label for="prod_description">Descripción</label>
+                            <textarea id="prod_description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="10" maxlength="500"></textarea>
+                            <label for="prod_address">Dirección*</label>
+                            <input id="prod_address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
+                            <label for="prod_city">Ciudad</label>
+                            <input id="prod_city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
+                            <label for="prod_latitude">Latitud</label>
+                            <input id="prod_latitude" name="latitude"/>
+                            <label for="prod_longitude">Longitud</label>
+                            <input id="prod_longitude" name="longitude"/>
+                            <label for="prod_number">Número de Teléfono*</label>
+                            <input id="prod_number" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
+                            <input id="cooperative" name="cooperative" type="hidden" value="1" />
+                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">ACTUALIZAR</button>
+                        </form>
+                    </div>
+                    <!-- end .register-1-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+    <script src="{% static "js/edit-producer.js" %}"></script>
+
+</body>
+
+</html>
