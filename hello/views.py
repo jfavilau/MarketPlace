@@ -65,6 +65,10 @@ def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
 
+def productor_edit(request, producer_id):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'EditProducerAdmin.html', {'producer_id': producer_id})
+
 def cooperativas(request):
     return render(request, 'cooperatives.html')
 
