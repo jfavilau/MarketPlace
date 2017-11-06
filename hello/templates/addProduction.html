@@ -1,0 +1,132 @@
+{% include "header.html" %}
+<button id="modalButton" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#exampleModalLong">
+    Launch demo modal
+</button>
+
+<button id="modalPayment" style="display:none" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#payment">
+    Launch demo modal
+</button>
+
+<div class="modal fade" id="payment" tabindex="-1" role="dialog" aria-labelledby="payment" aria-hidden="true">
+    <div class="modal-dialog" role="document" data-backdrop="static" data-keyboard="false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentm">Registro Exitoso</h5>
+            </div>
+            <div class="modal-body">
+                ¡Se ha creado el método de Producción!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Listo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal  Error -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">¡HA OCURRIDO UN ERROR!</h5>
+                <button type="button" clas="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Intente de nuevo.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Entiendo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<section>
+    <div class="section primary-color-background">
+        <div class="container">
+            <div class="p-t-70 p-b-85">
+                <!-- Heading page-->
+                <div class="heading-page-1">
+                    <h3>Agregar Método de Producción</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+	</section>
+    <section>
+		<div class="page-content p-t-40 p-b-90">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-push-4">
+						<!-- .register-1-->
+						<div class="register-1">
+							<form class="theme-form" method="post" onsubmit="return enviarForm();">
+                                <input id="name" class="theme-input-text" type="text" placeholder="Nombre" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
+								<input id="shortName" class="theme-input-text" type="text" maxlength="1" placeholder="Nombre Corto" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title=title="Escriba solo caracteres alfabéticos"/>
+								<button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">REGISTRAR</button>
+							</form>
+						</div>
+						<!-- end .register-1-->
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+
+{% include "footer.html" %}
+<script>
+    var metodos;
+
+  var baseURL = window.location.origin + '/';
+
+    function enviarForm() {
+
+        var info = {name: $('#name').val(),
+                    shortName: $('#shortName').val(),
+                    };
+        function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));
+            }
+        }
+
+        });
+
+
+        $.ajax({
+            type: "POST",
+            url:  baseURL + "api/type/",
+            data: JSON.stringify(info),
+            contentType: "application/json; charset=UTF-8",
+            dataType: "json",
+            success: function(data, textStatus, xhr) {
+                if (xhr.status == 201){
+                    $("#modalPayment").click();
+                }else{
+                    $("#modalButton").click();
+                }
+            },
+            failure: function(error) {
+                $("#modalButton").click();
+            }
+        });
+
+        return false;
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% include "header.html" %}
+    <section>
+        <div class="section white-background p-t-100 p-b-100">
+            <div class="container">
+                <!-- Heading Section-->
+                <div class="heading-section-1">
+                    <h3>Métodos de producción</h3>
+                </div>
+                <div class="section white-background" style="margin-top: 30px">
+                    <table id="freeze-table" class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre Corto</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metodos">
+
+                        </tbody>
+                    </table>
+                    <a class='editar' id='e" + item.id + "' href='/addProduction'> Agregar Producto </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/production.js"></script>
+
+{% include "footer.html" %}
