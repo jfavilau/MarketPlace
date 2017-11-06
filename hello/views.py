@@ -45,6 +45,9 @@ def catalogue(request):
 def baskets(request):
     return render(request, 'baskets.html')
 
+def producers_list(request):
+    return render(request, 'producer/listProducer.html')
+
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
 
@@ -67,6 +70,10 @@ def indexOrdersAdmin(request):
 def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
+
+def productor_edit(request, producer_id):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'EditProducerAdmin.html', {'producer_id': producer_id})
 
 def cooperativas(request):
     return render(request, 'cooperatives.html')

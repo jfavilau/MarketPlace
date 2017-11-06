@@ -14,7 +14,7 @@
 
   function downloadBaskets() {
 
-    $("#baskets-list").html("");
+    $("#baskets-table").html("");
 
     $.getJSON(baseURL + "api/baskets/").done(function(data) {
 
@@ -26,21 +26,18 @@
 
         i++;
 
-        var myvar = '<li>' +
-          '<p>' +
-          ' <a id="delete-basket' + i + '" style="float: left; height:32px; padding-top:8px;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>' +
-          '</p>' +
-          ' <a href="#">' + item.name + '</a>' +
-          ' <p style="float: right;"> $ ' + item.price + '</p>' +
-          '</li>';
+        var myvar = '<tr>'+
+                    '  <td><a href="#" data-toggle="modal" data-target="#myBasketModal" data-basket="' + item.id +'" data-toggle-tooltip="tooltip" data-placement="top" title="Ver canasta">' + item.name + '</a></td>'+
+                    '  <td>$ ' + item.price + '</td>'+
+                    '  <td style="text-align:center;"><a id="delete-basket' + i + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>'+
+                    '</tr>';
 
-        $("#baskets-list").append(myvar);
+        $("#baskets-table").append(myvar);
 
         $("#delete-basket" + i).click(() => {
           deleteBasket(i);
         });
       });
-
     });
   }
 
@@ -117,5 +114,64 @@
     });
 
   }
+
+  /*Product detail*/
+    $('#myBasketModal').on('show.bs.modal', function(e) {
+      var basket_id = e.relatedTarget.dataset.basket;
+
+      console.log("Selected basket: " + basket_id);
+
+      $(".input-size").val("");
+
+      $.getJSON(baseURL + "api/baskets/" + basket_id).done(function(data) {
+
+        var description = "<p>" + data.description + "</p>" +
+                            '<p>Disponible</p>' +
+                            '<p>Items: ' + data.items.length + '</p>';
+
+        var products = data.items;
+
+        $( "#basket-products-indicators" ).html("");
+        $( "#basket-products-slides" ).html("");
+
+        $.each(products, function(i, product) {
+
+            // INDICATORS
+            var indicator = "";
+
+            if(i==0) {
+                indicator = "<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\" style=\"background-color:#508d42 !important\"></li>";
+            } else {
+                indicator = '<li data-target=\"#myCarousel\" data-slide-to=' + i + ' style="background-color:#508d42 !important"></li>';
+            }
+
+            $( "#basket-products-indicators" ).append(indicator);
+
+            // SLIDES
+            var slide = "";
+            var item = "";
+
+            if(i==0) item = "<div class=\"item active\">";
+            else item = "<div class=\"item\">";
+
+            slide = item +
+                        '<img src=' + product.product.image + ' alt=' + product.product.name + ' height="100%" width="100%">' +
+                        "<div class=\"carousel-caption\">" +
+                            '<h3>' + product.quantity + ' unidades</h3>' +
+                            '<p>' + product.product.name + '</p>' +
+                        "</div>" +
+                    "</div>";
+
+            $( "#basket-products-slides" ).append(slide);
+
+        });
+
+        $( "#basket-detail-name" ).html(data.name);
+        $( "#basket-detail-price" ).html( "$" + data.price );
+        $( "#basket-detail-description" ).html( description );
+
+      });
+
+    });
 
 })(jQuery);
