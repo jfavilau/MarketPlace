@@ -45,11 +45,23 @@ def catalogue(request):
 def baskets(request):
     return render(request, 'baskets.html')
 
+def producers_list(request):
+    return render(request, 'producer/listProducer.html')
+
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
 
 def mapProducer(request):
     return render(request, 'producer/mapProducer.html')
+
+def regProducts(request):
+    return render(request, 'products/regProducts.html')
+
+def production(request):
+    return render(request, 'production.html')
+
+def addProduction(request):
+    return render(request, 'addProduction.html')
 
 def indexOrdersAdmin(request):
     #return HttpResponse('Hello from Python!')
@@ -58,6 +70,10 @@ def indexOrdersAdmin(request):
 def productor_detail(request, producer_id):
     #return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
+
+def productor_edit(request, producer_id):
+    #return HttpResponse('Hello from Python!')
+    return render(request, 'EditProducerAdmin.html', {'producer_id': producer_id})
 
 def cooperativas(request):
     return render(request, 'cooperatives.html')
@@ -226,7 +242,7 @@ class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
 
 class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
     """
-    List all categories.
+    List all Categories.
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
@@ -234,19 +250,19 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
 
 class BasketViewset(viewsets.ModelViewSet):
     """
-    List all baskets.
+    List all Baskets.
     """
     queryset = Basket.objects.all()
     serializer_class = BasketSerializer
     permission_classes = (permissions.AllowAny,)
 
-class ProducerViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
+class ProducerViewset(viewsets.ModelViewSet):
     """
     List all Producers.
     """
     queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.AllowAny,)
 
 
 def checkOut(request):

@@ -1,6 +1,8 @@
 from .models import *
 # Services s.
-def add_item_basket_service(id_basket,id_product,quantity):
+
+
+def add_item_basket_service(id_basket, id_product, quantity):
 
     if id_basket and id_product and quantity:
         basket = Basket.objects.get(id=id_basket)
@@ -16,3 +18,14 @@ def add_item_basket_service(id_basket,id_product,quantity):
         return True
     else:
         return False
+
+# Servicio para activar productores
+def activate_producers_service(producerIds, status):
+
+    result = Producer.objects.all().filter(
+        pk__in=producerIds
+    ).update(
+        active=status
+    )
+
+    return result > 0

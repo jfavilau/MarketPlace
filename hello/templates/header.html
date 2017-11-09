@@ -117,30 +117,39 @@
                     </li>
 
                     {% if user.is_authenticated %}
-                    {% if user.is_superuser %}
-                    <li class="has-drop">
-                        <a href="/oadmin" class="has-text-color-hover">ORDENES</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    <li class="has-drop">
-                        <a href="/cooperativas" class="has-text-color-hover">COOPERATIVAS</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    <li class="has-drop">
-                        <a href="/canastas" class="has-text-color-hover">CANASTAS</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    {% else %}
-                    <li class="has-drop">
-                        <a href="{% url 'orders' %}" class="has-text-color-hover">MIS ORDENES</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    <li class="has-drop">
-                        <a href="{% url 'paymentMethods' %}" class="has-text-color-hover">MÉTODOS DE
-                            PAGO</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    {% endif %}
+                        {% if user.is_superuser %}
+                            <li class="has-drop">
+                                <a href="/oadmin" class="has-text-color-hover">ORDENES</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="/cooperativas" class="has-text-color-hover">COOPERATIVAS</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="/canastas" class="has-text-color-hover">CANASTAS</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="/myProducts" class="has-text-color-hover">MIS PRODUCTOS</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="/production" class="has-text-color-hover">METODO DE PRODUCCIÓN</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                        {% else %}
+                            <li class="has-drop">
+                                <a href="{% url 'orders' %}" class="has-text-color-hover">MIS ORDENES</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="{% url 'paymentMethods' %}" class="has-text-color-hover">MÉTODOS DE
+                                    PAGO</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                        {% endif %}
+
                     {% endif %}
 
                     <div class="mini-shopcart">

@@ -40,8 +40,12 @@ urlpatterns = [
     url(r'^paymentMethods/', hello.views.paymentMethods, name='paymentMethods'),
     url(r'^removePaymentMethods/', hello.views.removePaymentMethods, name='removePaymentMethods'),
     url(r'^registerProducer/', hello.views.regProducer, name='regProducer'),
+    url(r'^registerProducts/', hello.views.regProducts, name='regProducts'),
+    url(r'^production', hello.views.production, name='production'),
+    url(r'^addProduction', hello.views.addProduction, name='addProduction'),
     url(r'^mapProducer/', hello.views.mapProducer, name='mapProducer'),
     url(r'^producers/$', hello.views.ProducerList.as_view(), name='producers-list'),
+    url(r'^producers_list/$', hello.views.producers_list, name='producers_list'),
     url(r'^producers/(?P<pk>[0-9]+)/$', hello.views.ProducerDetail.as_view(), name='producers-detail'),
     url(r'^productores/(?P<producer_id>[0-9]+)/$', hello.views.productor_detail, name='productor-detail'),
     url(r'^addUser/$',hello.views.registro, name='addUser'),
@@ -63,6 +67,7 @@ urlpatterns = [
     url(r'^removeItemBasket', hello.views.remove_item_basket, name='removeItemBasket'),
     url(r'^editCatalogue', hello.views.remove_item_catalogue_view, name='removeItemCatalogueView'),
     url(r'^removeProductAdmin', hello.views.remove_product_logic, name='removeProduct'),
+    url(r'^producers_list/editProducer/(?P<producer_id>[0-9]+)/$', hello.views.productor_edit, name='productor-edit'),
 
 ]
 
@@ -71,3 +76,5 @@ urlpatterns += [
      url(r'^auth/', include('rest_framework.urls',
                                 namespace='rest_framework')),
 ]
+
+urlpatterns += router.urls
