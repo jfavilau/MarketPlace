@@ -52,7 +52,7 @@ class ScheduleOptions (models.Model):
 
 
 class ShoppingCart (models.Model):
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     createdDate = models.DateField(blank=False, null=False, auto_now_add=True)
     value = models.FloatField(null=False, blank=False, default=0)
     active = models.BooleanField(null=False, blank=False, default=True)
