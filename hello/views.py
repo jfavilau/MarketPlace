@@ -442,21 +442,27 @@ def shoppingCartPersist(request):
             shoppingCart.active = True
             shoppingCart.save()
 
+            totalShoppingCart = 0
             for item in items['items']:
                 product = Product.objects.filter(id=item['id']).first()
+                total_general = int(item['quantity']) - int(item['organic']) - int(item['bio']) - int(item['clean'])
+                total_quantity = ( total_general + int(item['organic']) + int(item['bio']) + int(item['clean']))
                 cartItem = Item(
                         product=product,
-                        quantityOrganic=0,
-                        quantityBio=0,
-                        quantityClean=0,
-                        quantityGeneral=item['quantity'],
-                        quantityTotal=item['quantity'],
+                        quantityOrganic= item['organic'],
+                        quantityBio= item['bio'],
+                        quantityClean= item['clean'],
+                        quantityGeneral=str(total_general) ,
+                        quantityTotal= str(total_quantity),
                         availability=True,
-                        totalPrice= item['quantity'] * product.price,
+                        totalPrice= total_quantity * product.price,
                         shoppingCart=shoppingCart,
                         addedDate=strftime("%Y-%m-%d", gmtime()),
                         )
+                totalShoppingCart = totalShoppingCart + cartItem.totalPrice;
                 cartItem.save()
+            shoppingCart.value = totalShoppingCart
+            shoppingCart.save()
 
             return JsonResponse({'message': '', 'authenticated': authenticated})
 

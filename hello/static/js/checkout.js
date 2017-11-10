@@ -36,49 +36,52 @@
     var code = $("#code").val();
     var atLeastOneIsChecked = $('input[name=check]:checked').length;
 
-    if(validateNumber(cardNumber) && validateNumber(code) && validateDate(expDate)){
+
         if (jQuery.type(name) == 'string' && jQuery.type(details) == 'string' && jQuery.type(lastName) == 'string' && jQuery.type(address) == 'string' && jQuery.type(country) == 'string' &&
           jQuery.type(department) == 'string' && $.isNumeric(zip) && $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != "" &&
           department != "" && zip != "" && phone != "" && email != "" && ((card_number != "" && exp_date != "" && code != "") || (atLeastOneIsChecked == 1))) {
+              if((!validateNumber(cardNumber) || !validateNumber(code) || !validateDate(expDate)) && atLeastOneIsChecked == 0){
+                $("#modalButton").click();
+              }
+              else{
+                      $.ajax({
+                    url: url_checkout,
+                    type: "POST",
+                    data: {
+                      "name": name,
+                      "lastName": lastName,
+                      "address": address,
+                      "details": details,
+                      "country": country,
+                      "department": department,
+                      "zip": zip,
+                      "phone": phone,
+                      "email": email,
+                      "cardNumber": cardNumber,
+                      "expDate": expDate,
+                      "code": code,
+                      "newMethod": atLeastOneIsChecked,
+                      "id_s": id_s
+                    },
+                    success: function(data) {
+                      console.log(data.message);
+                      $("#modalPayment").click();
+                      sendConfirmation(url_email,user_email);
+                      var cartmap = new CartMap()
+                      cartmap.clearCart()
+                    },
+                    error: function(xhr) {
+                      $("#modalButton").click();
+                    }
+                  });
 
-          $.ajax({
-            url: url_checkout,
-            type: "POST",
-            data: {
-              "name": name,
-              "lastName": lastName,
-              "address": address,
-              "details": details,
-              "country": country,
-              "department": department,
-              "zip": zip,
-              "phone": phone,
-              "email": email,
-              "cardNumber": cardNumber,
-              "expDate": expDate,
-              "code": code,
-              "newMethod": atLeastOneIsChecked,
-              "id_s": id_s
-            },
-            success: function(data) {
-              console.log(data.message);
-              $("#modalPayment").click();
-              sendConfirmation(url_email,user_email);
-              var cartmap = new CartMap()
-              cartmap.clearCart()
-            },
-            error: function(xhr) {
-              $("#modalButton").click();
-            }
-          });
+              }
+
         } else {
           console.log('error');
           $("#modalButton").click();
         }
-    }
-    else{
-        $("#modalButton").click();
-    }
+
   }
 
   function sendConfirmation(url_email,user_email) {

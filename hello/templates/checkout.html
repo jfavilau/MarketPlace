@@ -90,6 +90,7 @@
                 <thead>
                 <tr>
                     <th>PRODUCTO</th>
+                    <th>CANTIDAD</th>
                     <th>TOTAL</th>
                 </tr>
                 </thead>
@@ -97,11 +98,13 @@
                 {% for item in items %}
                 <tr>
                     <td>{{item.product.name}}</td>
+                    <td>{{item.quantityTotal}} {{item.product.unit}}</td>
                     <td>{{item.totalPrice}}</td>
                 </tr>
                 {% endfor%}
                 <tr>
-                    <td>TOTAL</td>
+                    <td></td>
+                    <td><strong>TOTAL</strong></td>
                     <td>${{total}}</td>
                 </tr>
                 </tbody>

@@ -17,6 +17,7 @@ function refreshCartGuiPersistance() {
   checkout.click(function() {
     var cartmap = new CartMap();
     var cartItems = JSON.stringify(cartmap.items());
+    console.log(cartItems);
     $.post('shoppingCartPersist/', {
         'cartTotal': cartmap.getCartTotal(),
         'items': cartmap.cartItemsToJSON(),
@@ -131,5 +132,57 @@ function refreshCartGuiOperation() {
 
   }
 
+  $("#advance_btn").click(function(){
+
+        if((validateNumber($("#advance_bio").val()) || validateNumber($("#advance_org").val()) || validateNumber($("#advance_lim").val()))){
+            var bio = ($("#advance_bio").val()) ? $("#advance_bio").val() : 0;
+            var clean = ($("#advance_lim").val()) ? $("#advance_lim").val() : 0;
+            var organic = ($("#advance_org").val()) ? $("#advance_org").val() : 0;
+
+            if(bio != 0 || clean != 0 || organic != 0){
+                var total = Number(bio) + Number(organic) + Number(clean);
+
+                var quantity = total;
+                var available = 100;
+                if (Number(available) <= Number(quantity)) return;
+
+
+                var item = $("#product_info").data('id');
+                var name = $("#product_info").data('name');
+                var price = String($("#product_info").data('price') * quantity)
+
+                var image = $("#product_info").attr( "src" )
+
+                var cartItem = new CartItem(
+                  item, name, price, quantity, image
+                );
+
+                cartmap.addItemAdvance(item, cartItem, quantity, bio, organic, clean);
+                miniShopCart.addItem(item);
+
+                var count = total;
+                var quantity = count > 0 ? count : "";
+                miniShopCart.updateItemsInCartMessage();
+
+                $('#myModal').modal('hide');
+           }
+           else{
+            $('#myModal').modal('hide');
+           }
+        }
+        else{
+            $('#myModal').modal('hide');
+        }
+
+   });
+
+  function validateNumber(number){
+    if(number.match("^[0-9]*$"))
+       return true;
+    else
+       return false;
+  }
   return cartmap;
 }
+
+

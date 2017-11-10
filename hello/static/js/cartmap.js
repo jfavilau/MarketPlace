@@ -10,6 +10,7 @@ function CartMap() {
 
   this.getItemCount = getItemCount;
   this.addItem = addItem;
+  this.addItemAdvance = addItemAdvance;
   this.removeItem = removeItem;
   this.clearItem = clearItem;
   this.getCartCount = getCartCount;
@@ -30,6 +31,9 @@ function CartItem(id, name, price, quantity, image) {
   this.price = price;
   this.quantity = quantity;
   this.image = image;
+  this.organic = 0;
+  this.bio = 0;
+  this.clean = 0;
 }
 
 function items() {
@@ -54,9 +58,11 @@ function getCartTotal() {
   var str = '';
   var cartmap = this.cartmap;
   for (item in cartmap) {
+  console.log(cartmap[item].price);
     str = cartmap[item].price;
     total += parseInt(str.match(/[0-9]+[.|,]?[0-9]*/));
   }
+
   return total;
 
 }
@@ -94,6 +100,23 @@ function addItem(item, cartItem) {
   this.persistCart();
 
   return count;
+}
+function addItemAdvance(item, cartItem, quantity, bio, org, lim) {
+  var count = this.getItemCount(item);
+  var cartmap = this.cartmap;
+  if (count <= 0 || cartmap[item] == undefined ||
+    cartmap[item] == null) {
+    cartmap[item] = cartItem;
+  }
+
+  cartmap[item].quantity = quantity + count;
+  cartmap[item].bio = bio;
+  cartmap[item].organic = org;
+  cartmap[item].clean = lim;
+
+  this.persistCart();
+
+  return quantity;
 }
 
 function removeItem(item) {
