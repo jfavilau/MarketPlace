@@ -176,3 +176,22 @@ class RegisteredUser(models.Model):
     user = models.OneToOneField(User)
     phoneNumber = models.CharField(max_length=15, blank=False, null=False, default="888888888")
     city = models.ForeignKey(City)
+
+class WeekSettings (models.Model):
+    start = models.DateField(blank=False, null=False)
+    end = models.DateField(blank=False, null=False)
+
+class WeekStock (models.Model):
+    weekSettings = models.ForeignKey(WeekSettings)
+    product = models.ForeignKey(Product)
+    totalStock = models.FloatField(null=False, blank=False, default=None)
+    maxValue = models.FloatField(null=False, blank=False, default=None)
+    avgValue = models.FloatField(null=False, blank=False, default=None)
+    minValue = models.FloatField(null=False, blank=False, default=None)
+
+class ProductStock (models.Model):
+    weekStock = models.ForeignKey(WeekStock)
+    producer = models.ForeignKey(Product)
+    Type = models.ForeignKey(Type)
+    quantity = models.FloatField(null=False, blank=False, default=None)
+    price = models.FloatField(null=False, blank=False, default=None)
