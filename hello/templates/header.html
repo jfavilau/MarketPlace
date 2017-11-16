@@ -65,7 +65,7 @@
                 <div class="header-right">
                     {%if user.is_authenticated %}
                     <div class="header-login">
-                        <a href="{% url 'login' %}">
+                        <a href="{% url 'index' %}">
                             <i class="fa fa-user"></i>Bienvenido {{request.user.username}}</a>
                         <span>/</span>
                         <a href="{% url 'logout' %}">Logout</a>
