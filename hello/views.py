@@ -479,13 +479,14 @@ def login_logic (request):
 
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
 
-        if (user is not None) and (user.is_active):
-            login(request, user)
-            message = "ok"
-        elif user.is_active:
-            message = "Nombre de usuario o clave incorrecta"
+        if (user is not None):
+            if user.is_active:
+                login(request, user)
+                message = "ok"
+            else:
+                message = "Usuario Inactivo"
         else:
-            message = "Usuario Inactivo"
+            message = "Nombre de usuario o clave incorrecta"
 
     return JsonResponse({'message': message})
 
