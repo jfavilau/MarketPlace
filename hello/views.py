@@ -479,9 +479,12 @@ def login_logic (request):
 
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
 
-        if user is not None:
-            login(request, user)
-            message = "ok"
+        if (user is not None):
+            if user.is_active:
+                login(request, user)
+                message = "ok"
+            else:
+                message = "Usuario Inactivo"
         else:
             message = "Nombre de usuario o clave incorrecta"
 

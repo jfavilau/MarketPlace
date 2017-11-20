@@ -21,10 +21,11 @@
                 if (data.message == 'ok'){
                     window.location.replace("/");
                 }
+                else if (data.message == 'Nombre de usuario o clave incorrecta'){
+                    $( "#modalButton" ).click();
+                }
                 else{
-                    var text = '<h5 class="checkout-heading" style="margin-left: 3cm;">Username o Password Incorrecto!</h5><br>';
-                    $( "#Error" ).empty();
-                    $( "#Error" ).append( text );
+                    $( "#modalInactive" ).click();
                 }
             },
             error: function (xhr) {
