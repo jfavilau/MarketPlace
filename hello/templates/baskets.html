@@ -8,7 +8,8 @@
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3 id="category_name">Canastas</h3>
+                    <h3 id="basket_name">Canastas</h3>
+                    <h4 id="basket_description" style="color:white;"></h4>
                 </div>
             </div>
         </div>
@@ -28,153 +29,44 @@
         </div>
     </div>
 </section>
-
 <div class="page-content p-t-40 p-b-70">
     <div class="container">
-        {% if user.is_authenticated %}
-            {% if user.is_superuser %}
-                <a href="{% url 'basketList'%}" class="title">Editar canastas</a>
-            {% endif %}
-        {% endif %}
-        <div class="m-t-30">
-            <!-- .product-category-widget-1-->
-            <div class="product-category-widget-1">
-                <div class="heading-widget text-center">
-                    <h3>CANASTAS</h3>
-                </div>
 
-                <table class="table jumbotron" id="baskets-list" style="max-width:500px; margin: 0 auto; padding:24px;" >
-                    <thead>
-                      <tr>
-                        <th>Canasta</th>
-                        <th>Precio</th>
-                        <th style="text-align:center;">Eliminar</th>
-                      </tr>
-                    </thead>
-                    <tbody id="baskets-table">
+        <div class="row">
 
-                    </tbody>
-                </table>
+            <div class="col-md-9 col-md-push-3">
+
+            <div class="row" id="baskets_list">
+                <!-- products-by-category-->
 
             </div>
-            <!-- end .product-category-widget-1-->
+            </div>
+            <div class="col-md-3 col-md-pull-9">
+
+                <div class="m-t-30">
+                    <!-- .product-category-widget-1-->
+                    <div class="product-category-widget-1">
+                        <div class="heading-widget">
+                            <h3>CANASTAS</h3>
+                        </div>
+                        <ul class="product-category-list" id="basket-names-list">
+                            <!-- .product-categories-->
+
+                        </ul>
+                    </div>
+                    <!-- end .product-category-widget-1-->
+                </div>
+            </div>
         </div>
-
-        {% if user.is_authenticated %}
-
-            {% if user.is_superuser %}
-
-                <!-- .add-comments-1-->
-                <div class="add-comments-1" style="max-width:450px">
-                    <h4 class="title">Nueva canasta</h4>
-                    <p class="introduce">Cree una nueva canasta llenando los campos presentados a continuación</p>
-                    <form class="submit-form" id="new-basket-form">
-                        <div class="form-group">
-                            <label for="basketName">Nombre</label>
-                            <input type="text" class="form-control" id="basketName" placeholder="Nombre de la canasta">
-                        </div>
-                        <div class="form-group">
-                            <label for="basketPrice">Precio</label>
-                            <input type="text" class="form-control" id="basketPrice" placeholder="Precio de la canasta">
-                        </div>
-                        <div class="form-group">
-                            <label for="basketDescription">Precio</label>
-                            <input type="text" class="form-control" id="basketDescription" placeholder="Descripción de la canasta">
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" id="descriptionActive">
-                                Activada
-                            </label>
-                        </div>
-                        <button class="au-btn au-btn-radius au-btn-border btn-submit-comments" id="post-basket"
-                                type="submit">ENVIAR
-                        </button>
-                    </form>
-                </div>
-                <!-- end .add-comments-1-->
-            {% endif %}
-
-        {% endif %}
-
-    </div>
-</div>
-
-
-<!-- quick-view-1-->
-<div class="modal fade quick-view-1" id="myBasketModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="fa fa-close" type="button" data-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-5">
-                        <!-- .product-detail-image-1-->
-                        <div class="product-detail-image-1">
-
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators" id="basket-products-indicators">
-
-                                </ol>
-
-                                <!-- Wrapper for slides -->
-                                <div class="carousel-inner" id="basket-products-slides">
-
-                                </div>
-
-                                <!-- Left and right controls -->
-                                <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background:none !important">
-                                  <span class="glyphicon glyphicon-chevron-left"></span>
-                                  <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background:none !important">
-                                  <span class="glyphicon glyphicon-chevron-right"></span>
-                                  <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- end .product-detail-image-1-->
-                    </div>
-                    <div class="col-md-7">
-                        <!-- .product-detail-content-1-->
-                        <div class="product-detail-content-1">
-                            <div class="product-name">
-                                <h3 id="basket-detail-name"> </h3>
-                            </div>
-                            <div class="product-cert">
-                                <a href="#">
-                                    <img src="{% static "images/icons/ic-product-cert-01.png" %}" alt="product cert"/>
-                                </a>
-                                <a href="#">
-                                    <img src="{% static "images/icons/ic-product-cert-02.png" %}" alt="product cert"/>
-                                </a>
-                                <a href="#">
-                                    <img src="{% static "images/icons/ic-product-cert-03.png" %}" alt="product cert"/>
-                                </a>
-                            </div>
-                            <div class="product-price">
-                                <p id="basket-detail-price"> </p>
-                            </div>
-                            <div class="product-introduce" id="basket-detail-description">
-
-                            </div>
-                            <div class="prodcut-add-to-cart">
-                                <button class="au-btn au-btn-primary au-btn-radius btn-add-to-cart" type="submit">ADD TO CART</button>
-                                <a class="au-btn au-btn-border au-btn-radius btn-add-to-wishlist" href="#">ADD TO WISHLIST</a>
-                            </div>
-                        </div>
-                        <!-- end .product-detail-content-1-->
-                    </div>
-                </div>
+        <div class="row">
+            <div class="totals-checkout text-right" id="basket-actions" style="display:none;">
+                <h4 id="basket-total"></h4>
+                <button class="au-btn au-btn-radius au-btn-primary" type="submit" id="basket-button">AGREGAR CANASTA AL CARRITO</button>
             </div>
         </div>
     </div>
 </div>
-<!-- end quick-view-1-->
+
 
 {% include "footer.html" %}
     <script src="../static/js/baskets.js"></script>

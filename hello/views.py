@@ -45,6 +45,9 @@ def catalogue(request):
 def baskets(request):
     return render(request, 'baskets.html')
 
+def basketsAdmin(request):
+    return render(request, 'basketsAdmin.html')
+
 def producers_list(request):
     return render(request, 'producer/listProducer.html')
 

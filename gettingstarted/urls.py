@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^catalogo/', hello.views.catalogue, name='catalogo'),
     url(r'^canastas/', hello.views.baskets, name='canastas'),
+    url(r'^canastasAdmin/', hello.views.basketsAdmin, name='canastasAdmin'),
     url(r'^cooperativas/', hello.views.cooperativas, name='cooperativas'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sendEmail/', hello.views.sendEmail, name='sendEmail'),
