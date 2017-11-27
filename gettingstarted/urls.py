@@ -68,7 +68,8 @@ urlpatterns = [
     url(r'^editCatalogue', hello.views.remove_item_catalogue_view, name='removeItemCatalogueView'),
     url(r'^removeProductAdmin', hello.views.remove_product_logic, name='removeProduct'),
     url(r'^producers_list/editProducer/(?P<producer_id>[0-9]+)/$', hello.views.productor_edit, name='productor-edit'),
-
+    url(r'^productPrice', hello.views.product_price_logic, name='productPrice'),
+    url(r'^advanceValidation', hello.views.validate_advance_purchase, name='validatePurchase'),
 ]
 
 # Login and logout views for the browsable API

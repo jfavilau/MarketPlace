@@ -96,7 +96,12 @@ function addItem(item, cartItem) {
   }
 
   count++;
-  cartmap[item].quantity = count;
+  cartmap[item].quantity = count - parseInt(cartmap[item].bio) - parseInt(cartmap[item].organic) - parseInt(cartmap[item].clean);
+  cartmap[item].bio = 0
+  cartmap[item].organic = 0
+  cartmap[item].clean = 0
+  //cartmap[item].quantity = count;
+
   this.persistCart();
 
   return count;
@@ -109,10 +114,11 @@ function addItemAdvance(item, cartItem, quantity, bio, org, lim) {
     cartmap[item] = cartItem;
   }
 
-  cartmap[item].quantity = quantity + count;
-  cartmap[item].bio = bio;
-  cartmap[item].organic = org;
-  cartmap[item].clean = lim;
+  //cartmap[item].quantity = quantity + count;
+  cartmap[item].quantity = quantity;
+  cartmap[item].bio = parseInt(cartmap[item].bio) + parseInt(bio);
+  cartmap[item].organic = parseInt(cartmap[item].organic) + parseInt(org);
+  cartmap[item].clean = parseInt(cartmap[item].clean) + parseInt(lim);
 
   this.persistCart();
 
@@ -121,7 +127,7 @@ function addItemAdvance(item, cartItem, quantity, bio, org, lim) {
 
 function removeItem(item) {
   var count = this.getItemCount(item);
-  count--;
+  count= 0;
   if (count < 1) {
     delete this.cartmap[item];
     this.persistCart();

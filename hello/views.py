@@ -272,9 +272,15 @@ def checkOut(request):
     if len(shoppingCart) > 0:
 
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
+            price_array = []
+            total = 0
+            for item in items:
+                price_by_item = calculateProductPrice(item.product.id, item.quantityOrganic, item.quantityBio, item.quantityClean, item.quantityGeneral)
+                price_array.append(price_by_item)
+                total = total + price_by_item
             payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
 
-            return render(request, 'checkout.html', context={'flag': True,'items': items,'total': shoppingCart[len(shoppingCart)-1].value, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
+            return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
 
     else:
 
@@ -592,3 +598,48 @@ def remove_product_logic(request):
     product.save()
 
     return JsonResponse({'message': 'Done'})
+
+@csrf_exempt
+def product_price_logic(request):
+
+
+ quantity_bio = float(request.POST.get("item[bio]"))
+ quantity_org = float(request.POST.get("item[clean]"))
+ quantity_clean = float(request.POST.get("item[organic]"))
+
+ quantity_general = (float(request.POST.get("item[quantity]"))) - quantity_bio - quantity_clean - quantity_org
+
+
+ price = calculateProductPrice(request.POST.get("item[id]"), quantity_org, quantity_bio, quantity_clean, quantity_general)
+
+ return JsonResponse({'message': 'Done', 'price': price})
+
+
+@csrf_exempt
+def validate_advance_purchase(request):
+
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+
+    product = Product.objects.get(id=request.POST.get('product_id'))
+    week_stock = WeekStock.objects.get(product=product, weekSettings=week_settings)
+
+    organic_type = Type.objects.get(shortName='O')
+    clean_type = Type.objects.get(shortName='L')
+    bio_type = Type.objects.get(shortName='B')
+
+    bio_result = True
+    clean_result = True
+    organic_result = True
+    print request.POST.get('bio');
+    if float(request.POST.get('bio')) > 0.0:
+        product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
+        bio_result = stockValidation(product_stock_bio, request.POST.get('bio'))
+    if float(request.POST.get('clean')) > 0.0:
+        product_stock_clean = ProductStock.objects.filter(weekStock=week_stock, Type=clean_type).order_by('price')
+        clean_result = stockValidation(product_stock_clean, request.POST.get('clean'))
+    if float(request.POST.get('organic')) > 0.0:
+        product_stock_organic = ProductStock.objects.filter(weekStock=week_stock, Type=organic_type).order_by('price')
+        organic_result = stockValidation(product_stock_organic, request.POST.get('organic'))
+
+    return JsonResponse({'message': 'Done', 'bio': bio_result, 'clean': clean_result, 'organic': organic_result})

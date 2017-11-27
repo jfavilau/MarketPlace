@@ -23,7 +23,7 @@ function updateItemsInCartMessage() {
 
   var msgelem = cartgui.find('.head-mini-shopcart p');
   var itemCount = this.cartmap.getCartCount();
-  msgelem.text(itemCount + ' items in your cart');
+  msgelem.text(itemCount + ' items en tu carro de compras');
   ciholder.text(itemCount);
 }
 
@@ -47,14 +47,15 @@ function addItemToCartContents(itemId) {
 
   if (currentItem.attr('class') != undefined) {
     var price = currentItem.find('.item-content .price');
-    price.html(cartmap[itemId].quantity + ' x ' + cartmap[itemId].price);
+    price.html(cartmap[itemId].quantity + ' - ' + cartmap[itemId].price);
     return
   }
 
   var cartItemContent = cartgui.find('.content-mini-shopcart');
   var newHtml = cartItemContent.html() +
-    buildCartContentItem(cartmap[itemId], true);
+  buildCartContentItem(cartmap[itemId], true);
   cartItemContent.html(newHtml);
+
 }
 
 function removeItemFromCartContents(itemId) {
@@ -70,7 +71,7 @@ function removeItemFromCartContents(itemId) {
   }
 
   var price = currentItem.find('.item-content .price');
-  price.html(cartmap[itemId].quantity + ' x ' + cartmap[itemId].price);
+  price.html(cartmap[itemId].quantity + ' - ' + cartmap[itemId].price);
 }
 
 function clearItemFromCartContents(itemId) {
@@ -84,22 +85,41 @@ function clearItemFromCartContents(itemId) {
 
 function buildCartContentItem(item, includeItemDiv) {
   var itemHtml = '';
+  console.log(item)
+    $.ajax({
+      async:false,
+      url: '/productPrice',
+      type: "POST",
+      data: {
+        "item": item,
+      },
+      success: function(data) {
+        console.log(0)
+        item.price = data.price;
+      },
+      error: function(xhr) {
+        console.log('Error - Calculating Price')
+        console.log(xhr)
+      }
+    });
 
-  if (includeItemDiv) itemHtml += '<div class=\"item-mini-shopcart ' + item.id + '\">';
-  itemHtml += '\n\t<div class=\"item-image\">';
-  itemHtml += '\n\t\t<img style=\"height:50px; width:50px\" src=\"' + item.image + '\" alt=\"' + item.id + '\" />';
-  itemHtml += '\n\t</div>';
+    console.log(1)
+    if (includeItemDiv) itemHtml += '<div class=\"item-mini-shopcart ' + item.id + '\">';
+          itemHtml += '\n\t<div class=\"item-image\">';
+          itemHtml += '\n\t\t<img style=\"height:50px; width:50px\" src=\"' + item.image + '\" alt=\"' + item.id + '\" />';
+          itemHtml += '\n\t</div>';
 
-  itemHtml += '\n\t<div class=\"item-content\">';
-  itemHtml += '\n\t<h3 class=\"name\">';
-  itemHtml += '\n\t\t' + item.name;
-  itemHtml += '\n\t</h3>';
-  itemHtml += '\n\t<p class=\"price\">';
-  itemHtml += '\n\t\t' + item.quantity + ' x ' + item.price;
-  itemHtml += '\n\t</p>';
-  itemHtml += '\n\t</div>';
+          itemHtml += '\n\t<div class=\"item-content\">';
+          itemHtml += '\n\t<h3 class=\"name\">';
+          itemHtml += '\n\t\t' + item.name;
+          itemHtml += '\n\t</h3>';
+          itemHtml += '\n\t<p class=\"price\">';
+          itemHtml += '\n\t\t' + item.quantity + ' - ' + item.price;
+          itemHtml += '\n\t</p>';
+          itemHtml += '\n\t</div>';
 
-  if (includeItemDiv) itemHtml += '\n</div>\n';
+          if (includeItemDiv) itemHtml += '\n</div>\n';
 
-  return itemHtml;
+     return itemHtml;
 }
+
