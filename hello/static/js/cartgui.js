@@ -55,24 +55,30 @@ function refreshCartGuiOperation() {
   plus.click(function() {
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
     var available = getControlClassFromParents($(this), '.miso-prd-total').text();
-    if (Number(available) <= Number(quantity.text())) return;
+
+    //if (Number(available) <= Number(quantity.text())) return;
 
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();
-    var name = getControlClassFromParents($(this), '.product-content')
-      .find('.name').text();
-    var price = getControlClassFromParents($(this), '.product-content')
-      .find('.price').text();
-    var image = getControlClassFromParents($(this), '.image-holder')
-      .find('img').attr('src');
 
-    var cartItem = new CartItem(
-      item, name, price, 0, image
-    );
+    result = validate_advance_purchase(item,0,0,0,Number(quantity.text()))
 
-    cartmap.addItem(item, cartItem);
-    miniShopCart.addItem(item);
-    setQuantityTextForItemCount(quantity, item);
+    if (result["general"]){
+        var name = getControlClassFromParents($(this), '.product-content')
+          .find('.name').text();
+        var price = getControlClassFromParents($(this), '.product-content')
+          .find('.price').text();
+        var image = getControlClassFromParents($(this), '.image-holder')
+          .find('img').attr('src');
+
+        var cartItem = new CartItem(
+          item, name, price, 0, image
+        );
+
+        cartmap.addItem(item, cartItem);
+        miniShopCart.addItem(item);
+        setQuantityTextForItemCount(quantity, item);
+    }
   });
 
   minus.click(function() {
@@ -138,36 +144,68 @@ function refreshCartGuiOperation() {
             var bio = ($("#advance_bio").val()) ? $("#advance_bio").val() : 0;
             var clean = ($("#advance_lim").val()) ? $("#advance_lim").val() : 0;
             var organic = ($("#advance_org").val()) ? $("#advance_org").val() : 0;
+            var validate = validate_advance_purchase($("#product_info").data('id'), bio, clean, organic);
+           if (validate["flag"]){
 
-            if(bio != 0 || clean != 0 || organic != 0){
-                var total = Number(bio) + Number(organic) + Number(clean);
+               if(bio != 0 || clean != 0 || organic != 0){
+                    var total = Number(bio) + Number(organic) + Number(clean);
 
-                var quantity = total;
-                var available = 100;
-                if (Number(available) <= Number(quantity)) return;
+                    var quantity = total;
+                    var available = 100;
+                    if (Number(available) <= Number(quantity)) return;
 
 
-                var item = $("#product_info").data('id');
-                var name = $("#product_info").data('name');
-                var price = String($("#product_info").data('price') * quantity)
+                    var item = $("#product_info").data('id');
+                    var name = $("#product_info").data('name');
+                    //var price = String($("#product_info").data('price') * quantity)
+                    var price = "";
+                    $.ajax({
+                      async:false,
+                      url: '/productPrice',
+                      type: "POST",
+                      data: {
+                        "id":item, "bio": bio, "clean": clean, "organic":organic,
+                      },
+                      success: function(data) {
+                        price = String(data.price);
+                      },
+                      error: function(xhr) {
+                        console.log('Error - Calculating Price')
+                        console.log(xhr)
+                      }
+                    });
 
-                var image = $("#product_info").attr( "src" )
+                    var image = $("#product_info").attr( "src" )
 
-                var cartItem = new CartItem(
-                  item, name, price, quantity, image
-                );
+                    var cartItem = new CartItem(
+                      item, name, price, quantity, image
+                    );
 
-                cartmap.addItemAdvance(item, cartItem, quantity, bio, organic, clean);
-                miniShopCart.addItem(item);
+                    cartmap.addItemAdvance(item, cartItem, quantity, bio, organic, clean);
+                    miniShopCart.addItem(item);
 
-                var count = total;
-                var quantity = count > 0 ? count : "";
-                miniShopCart.updateItemsInCartMessage();
+                    var count = total;
+                    var quantity = count > 0 ? count : "";
+                    miniShopCart.updateItemsInCartMessage();
 
+                    $('#myModal').modal('hide');
+               }
+               else{
                 $('#myModal').modal('hide');
-           }
-           else{
-            $('#myModal').modal('hide');
+               }
+           }else{
+                var error = '<div class="alert alert-danger">';
+
+                if(validate["bio"] != "") { error += '<br><strong>Opps!</strong> La cantidad de producto '+validate["bio"]+' no se encuentra disponible.'};
+                if(validate["clean"] != "") { error += '<br><strong>Opps!</strong> La cantidad de producto '+validate["clean"]+' no se encuentra disponible.'};
+                if(validate["organic"] != "") { error += '<br><strong>Opps!</strong> La cantidad de producto '+validate["organic"]+' no se encuentra disponible.'};
+
+
+                error += '</div>';
+
+                $('#advance_errors').html(error);
+                setTimeout(function(){ $('#advance_errors').html("");}, 4000);
+
            }
         }
         else{
@@ -176,12 +214,45 @@ function refreshCartGuiOperation() {
 
    });
 
+  function validate_advance_purchase(product_id, bio, clean, organic, general=0){
+
+      var flag = true;
+      var bio_result = "";
+      var clean_result = "";
+      var organic_result = "";
+      var general_result = true;
+
+      $.ajax({
+          async:false,
+          url: '/advanceValidation',
+          type: "POST",
+          data: {
+            "product_id": product_id, "bio": parseInt(bio), "clean": parseInt(clean), "organic": parseInt(organic), "general":general,
+          },
+          success: function(data) {
+            console.log(data);
+            if(!data.bio){ flag = false; bio_result="bio"}
+            if(!data.clean){ flag = false; clean_result="agr.limpia"}
+            if(!data.organic){ flag = false; organic_result="organico"}
+            general_result = data.general
+          },
+          error: function(xhr) {
+            console.log(xhr)
+            console.log('Error - Validating Price')
+          }
+        });
+        console.log(flag)
+        result = {"flag": flag, "bio": bio_result, "clean": clean_result , "organic": organic_result, "general": general_result}
+        return  result;
+  }
+
   function validateNumber(number){
     if(number.match("^[0-9]*$"))
        return true;
     else
        return false;
   }
+
   return cartmap;
 }
 
