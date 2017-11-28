@@ -605,15 +605,31 @@ def remove_product_logic(request):
 @csrf_exempt
 def product_price_logic(request):
 
+ if request.POST.get("bio"):
+     if request.POST.get("bio") != 0:
+         quantity_bio = float(request.POST.get("bio"))
+     else:
+         quantity_bio = 0.0
+     if request.POST.get("organic") != 0:
+         quantity_org = float(request.POST.get("organic"))
+     else:
+         quantity_org = 0.0
+     if request.POST.get("clean") != 0:
+         quantity_clean = float(request.POST.get("clean"))
+     else:
+         quantity_clean = 0.0
 
- quantity_bio = float(request.POST.get("item[bio]"))
- quantity_org = float(request.POST.get("item[clean]"))
- quantity_clean = float(request.POST.get("item[organic]"))
+     quantity_general = 0.0
+     id = request.POST.get("id")
 
- quantity_general = (float(request.POST.get("item[quantity]"))) - quantity_bio - quantity_clean - quantity_org
+ else:
+     quantity_bio = float(request.POST.get("item[bio]"))
+     quantity_org = float(request.POST.get("item[organic]"))
+     quantity_clean = float(request.POST.get("item[clean]"))
+     quantity_general = (float(request.POST.get("item[quantity]"))) - quantity_bio - quantity_clean - quantity_org
+     id = request.POST.get("item[id]")
 
-
- price = calculateProductPrice(request.POST.get("item[id]"), quantity_org, quantity_bio, quantity_clean, quantity_general)
+ price = calculateProductPrice(id, quantity_org, quantity_bio, quantity_clean, quantity_general)
 
  return JsonResponse({'message': 'Done', 'price': price})
 

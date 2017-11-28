@@ -134,7 +134,6 @@ function refreshCartGuiOperation() {
 
   $("#advance_btn").click(function(){
 
-
         if((validateNumber($("#advance_bio").val()) || validateNumber($("#advance_org").val()) || validateNumber($("#advance_lim").val()))){
             var bio = ($("#advance_bio").val()) ? $("#advance_bio").val() : 0;
             var clean = ($("#advance_lim").val()) ? $("#advance_lim").val() : 0;
@@ -152,7 +151,23 @@ function refreshCartGuiOperation() {
 
                     var item = $("#product_info").data('id');
                     var name = $("#product_info").data('name');
-                    var price = String($("#product_info").data('price') * quantity)
+                    //var price = String($("#product_info").data('price') * quantity)
+                    var price = "";
+                    $.ajax({
+                      async:false,
+                      url: '/productPrice',
+                      type: "POST",
+                      data: {
+                        "id":item, "bio": bio, "clean": clean, "organic":organic,
+                      },
+                      success: function(data) {
+                        price = String(data.price);
+                      },
+                      error: function(xhr) {
+                        console.log('Error - Calculating Price')
+                        console.log(xhr)
+                      }
+                    });
 
                     var image = $("#product_info").attr( "src" )
 

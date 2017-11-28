@@ -47,7 +47,7 @@ function addItemToCartContents(itemId) {
 
   if (currentItem.attr('class') != undefined) {
     var price = currentItem.find('.item-content .price');
-    price.html(cartmap[itemId].quantity + ' - ' + cartmap[itemId].price);
+    price.html(cartmap[itemId].quantity + ' - $' + cartmap[itemId].price);
     return
   }
 
@@ -71,7 +71,7 @@ function removeItemFromCartContents(itemId) {
   }
 
   var price = currentItem.find('.item-content .price');
-  price.html(cartmap[itemId].quantity + ' - ' + cartmap[itemId].price);
+  price.html(cartmap[itemId].quantity + ' - $' + cartmap[itemId].price);
 }
 
 function clearItemFromCartContents(itemId) {
@@ -114,7 +114,7 @@ function buildCartContentItem(item, includeItemDiv) {
           itemHtml += '\n\t\t' + item.name;
           itemHtml += '\n\t</h3>';
           itemHtml += '\n\t<p class=\"price\">';
-          itemHtml += '\n\t\t' + item.quantity + ' - ' + item.price;
+          itemHtml += '\n\t\t' + item.quantity + ' - $' + item.price;
           itemHtml += '\n\t</p>';
           itemHtml += '\n\t</div>';
 
