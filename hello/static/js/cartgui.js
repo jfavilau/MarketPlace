@@ -55,24 +55,30 @@ function refreshCartGuiOperation() {
   plus.click(function() {
     var quantity = getControlClassFromParents($(this), '.miso-prd-qty');
     var available = getControlClassFromParents($(this), '.miso-prd-total').text();
-    if (Number(available) <= Number(quantity.text())) return;
+
+    //if (Number(available) <= Number(quantity.text())) return;
 
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();
-    var name = getControlClassFromParents($(this), '.product-content')
-      .find('.name').text();
-    var price = getControlClassFromParents($(this), '.product-content')
-      .find('.price').text();
-    var image = getControlClassFromParents($(this), '.image-holder')
-      .find('img').attr('src');
 
-    var cartItem = new CartItem(
-      item, name, price, 0, image
-    );
+    result = validate_advance_purchase(item,0,0,0,Number(quantity.text()))
 
-    cartmap.addItem(item, cartItem);
-    miniShopCart.addItem(item);
-    setQuantityTextForItemCount(quantity, item);
+    if (result["general"]){
+        var name = getControlClassFromParents($(this), '.product-content')
+          .find('.name').text();
+        var price = getControlClassFromParents($(this), '.product-content')
+          .find('.price').text();
+        var image = getControlClassFromParents($(this), '.image-holder')
+          .find('img').attr('src');
+
+        var cartItem = new CartItem(
+          item, name, price, 0, image
+        );
+
+        cartmap.addItem(item, cartItem);
+        miniShopCart.addItem(item);
+        setQuantityTextForItemCount(quantity, item);
+    }
   });
 
   minus.click(function() {
@@ -198,6 +204,7 @@ function refreshCartGuiOperation() {
                 error += '</div>';
 
                 $('#advance_errors').html(error);
+                setTimeout(function(){ $('#advance_errors').html("");}, 4000);
 
            }
         }
@@ -207,25 +214,27 @@ function refreshCartGuiOperation() {
 
    });
 
-  function validate_advance_purchase(product_id, bio, clean, organic){
+  function validate_advance_purchase(product_id, bio, clean, organic, general=0){
 
       var flag = true;
       var bio_result = "";
       var clean_result = "";
       var organic_result = "";
+      var general_result = true;
 
       $.ajax({
           async:false,
           url: '/advanceValidation',
           type: "POST",
           data: {
-            "product_id": product_id, "bio": parseInt(bio), "clean": parseInt(clean), "organic": parseInt(organic)
+            "product_id": product_id, "bio": parseInt(bio), "clean": parseInt(clean), "organic": parseInt(organic), "general":general,
           },
           success: function(data) {
             console.log(data);
             if(!data.bio){ flag = false; bio_result="bio"}
             if(!data.clean){ flag = false; clean_result="agr.limpia"}
             if(!data.organic){ flag = false; organic_result="organico"}
+            general_result = data.general
           },
           error: function(xhr) {
             console.log(xhr)
@@ -233,7 +242,7 @@ function refreshCartGuiOperation() {
           }
         });
         console.log(flag)
-        result = {"flag": flag, "bio": bio_result, "clean": clean_result , "organic": organic_result,}
+        result = {"flag": flag, "bio": bio_result, "clean": clean_result , "organic": organic_result, "general": general_result}
         return  result;
   }
 

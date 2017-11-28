@@ -650,6 +650,7 @@ def validate_advance_purchase(request):
     bio_result = True
     clean_result = True
     organic_result = True
+    general_result = True
 
     if float(request.POST.get('bio')) > 0.0:
         product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
@@ -660,5 +661,8 @@ def validate_advance_purchase(request):
     if float(request.POST.get('organic')) > 0.0:
         product_stock_organic = ProductStock.objects.filter(weekStock=week_stock, Type=organic_type).order_by('price')
         organic_result = stockValidation(product_stock_organic, request.POST.get('organic'))
+    if float(request.POST.get('bio')) == 0 and float(request.POST.get('clean')) == 0 and float(request.POST.get('organic')) == 0:
+        product_stock_general = ProductStock.objects.filter(weekStock=week_stock).order_by('price')
+        general_result = stockValidation(product_stock_general, request.POST.get('general'))
 
-    return JsonResponse({'message': 'Done', 'bio': bio_result, 'clean': clean_result, 'organic': organic_result})
+    return JsonResponse({'message': 'Done', 'bio': bio_result, 'clean': clean_result, 'organic': organic_result, 'general': general_result})
