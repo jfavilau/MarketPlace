@@ -634,7 +634,7 @@ def validate_advance_purchase(request):
     bio_result = True
     clean_result = True
     organic_result = True
-    print request.POST.get('bio');
+
     if float(request.POST.get('bio')) > 0.0:
         product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
         bio_result = stockValidation(product_stock_bio, request.POST.get('bio'))
