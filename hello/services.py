@@ -70,7 +70,7 @@ def calculateProductPrice(productId, organic, bio, clean, generalQuantity):
         if organic > 0:
             product_stock_org = ProductStock.objects.filter(weekStock=week_stock, Type=organic_type).order_by('price')
             total_organic = (calculateTotalByType(organic, product_stock_org))['total']
-            print (calculateTotalByType(organic, product_stock_org))['product_list']
+            #print (calculateTotalByType(organic, product_stock_org))['product_list']
 
         if bio > 0:
             product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
@@ -104,15 +104,15 @@ def calculateTotalByType(quantity, prices):
 
 
 def stockValidation(items, quantity):
-    print 'entre';
+    #print 'entre';
     result = False
     total_stock = 0.0
     for item in items:
         total_stock = total_stock + item.quantity
 
-    print total_stock
-    print quantity
+    #print total_stock
+    #print quantity
     if float(quantity) <= total_stock:
         result = True
-    print result
+    #print result
     return result
