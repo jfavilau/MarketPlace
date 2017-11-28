@@ -33,53 +33,67 @@ from .serializers import CooperativeSerializer
 from .serializers import CategorySerializer
 from .serializers import ProducerSerializer
 from .serializers import OrdersSerializer, CitySerializer, TypeSerializer
-from .serializers import ShoppingCarSerializer,OrderStatusSerializer
+from .serializers import ShoppingCarSerializer, OrderStatusSerializer
 
 
 def index(request):
     return render(request, 'index.html')
 
+
 def catalogue(request):
     return render(request, 'catalogue.html')
+
 
 def baskets(request):
     return render(request, 'baskets.html')
 
+
 def basketsAdmin(request):
     return render(request, 'basketsAdmin.html')
+
 
 def producers_list(request):
     return render(request, 'producer/listProducer.html')
 
+
 def regProducer(request):
     return render(request, 'producer/regProducer.html')
+
 
 def mapProducer(request):
     return render(request, 'producer/mapProducer.html')
 
+
 def regProducts(request):
     return render(request, 'products/regProducts.html')
+
 
 def production(request):
     return render(request, 'production.html')
 
+
 def addProduction(request):
     return render(request, 'addProduction.html')
 
+
 def indexOrdersAdmin(request):
-    #return HttpResponse('Hello from Python!')
+    # return HttpResponse('Hello from Python!')
     return render(request, 'Admin/Orders/index.html')
 
+
 def productor_detail(request, producer_id):
-    #return HttpResponse('Hello from Python!')
+    # return HttpResponse('Hello from Python!')
     return render(request, 'producer_catalogue.html', {'producer_id': producer_id})
 
+
 def productor_edit(request, producer_id):
-    #return HttpResponse('Hello from Python!')
+    # return HttpResponse('Hello from Python!')
     return render(request, 'EditProducerAdmin.html', {'producer_id': producer_id})
+
 
 def cooperativas(request):
     return render(request, 'cooperatives.html')
+
 
 class CitiesViewSet(viewsets.ModelViewSet):
     """
@@ -89,6 +103,7 @@ class CitiesViewSet(viewsets.ModelViewSet):
     serializer_class = CitySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+
 class CooperativesViewSet(viewsets.ModelViewSet):
     """
     List all cooperatives, or create a new product.
@@ -97,14 +112,17 @@ class CooperativesViewSet(viewsets.ModelViewSet):
     serializer_class = CooperativeSerializer
     permission_classes = (permissions.AllowAny,)
 
+
 @csrf_exempt
 def updateOrder(request):
     if request.method == 'POST':
         jsonOrder = json.loads(request.body)
         order = Order.objects.filter(id=jsonOrder['id']).update(
-            user=jsonOrder['user'], status=jsonOrder['status'], #statusDate = jsonOrder['statusDate'],
-            schedule = jsonOrder['schedule'],paymentMethod = jsonOrder['paymentMethod'],shoppingCart = jsonOrder['shoppingCart'])
+            # statusDate = jsonOrder['statusDate'],
+            user=jsonOrder['user'], status=jsonOrder['status'],
+            schedule=jsonOrder['schedule'], paymentMethod=jsonOrder['paymentMethod'], shoppingCart=jsonOrder['shoppingCart'])
         return HttpResponse("Orden Actualizada")
+
 
 @csrf_exempt
 def addPaymentMethod(request):
@@ -114,12 +132,11 @@ def addPaymentMethod(request):
 
             paymentMethod = PaymentMethod()
             paymentMethod.token = request.POST.get('cardNumber')
-            paymentMethod.displayName = request.user.first_name+' '+request.user.last_name
+            paymentMethod.displayName = request.user.first_name + ' ' + request.user.last_name
             paymentMethod.createdDate = strftime("%Y-%m-%d", gmtime())
             paymentMethod.user = User.objects.get(id=request.user.id)
 
             paymentMethod.save()
-
 
             return JsonResponse({'message': 'Done'})
 
@@ -131,8 +148,9 @@ def addPaymentMethod(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+
 @csrf_exempt
-def registro (request):
+def registro(request):
     if request.method == 'POST':
         jsonUser = json.loads(request.body)
         username = jsonUser['username']
@@ -149,15 +167,18 @@ def registro (request):
         elif auxUser:
             return HttpResponse('{"Success": false,"message":"El usuario ya existe"}')
         else:
-            user_model = User.objects.create_user(username=username, password=password)
+            user_model = User.objects.create_user(
+                username=username, password=password)
             user_model.first_name = first_name
             user_model.last_name = last_name
             user_model.email = email
             user_model.save()
             return HttpResponse('{"Success": true,"message":"Usuario creado"}')
 
+
 def regUser(request):
     return render(request, 'user/register.html')
+
 
 def sendEmail(request):
 
@@ -174,37 +195,43 @@ def sendEmail(request):
                 subject = "Su pedido ha sido pagado"
                 status = "Pedido pagado"
                 msg = "Su pedido  ha sido pagado y sera despachado a la direccion de entrega especificada."
-                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string(
+                    'emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '2':
                 subject = "Su pedido ha sido despachado"
                 status = "Pedido despachado"
                 msg = "Su pedido  ha sido despachado a la direccion de entrega especificada."
-                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string(
+                    'emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '3':
                 subject = "Su pedido ha sido confirmado"
                 status = "Pedido confirmado"
                 msg = "Su pedido  ha sido confirmado."
-                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string(
+                    'emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '4':
                 subject = "Su Pedido ha sido cancelado"
                 status = "Pedido Cancelado"
                 msg = "Su pedido  ha sido cancelado, esperamos que vuelvas a comprar con nosotros."
-                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string(
+                    'emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             elif option == '5':
                 subject = "Su Pedido ha sido entregado"
                 status = "Pedido entregado"
                 msg = "Su pedido  ha sido entregado en la  direccion de entrega especificada."
-                message = render_to_string('emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
+                message = render_to_string(
+                    'emails/emailTemplate.html', {'email': email, 'status': status, 'msg': msg})
 
             else:
                 msg = 'Specify a valid code.'
                 return JsonResponse({'message': msg})
 
-            send_mail(subject, message, from_email, to_list, fail_silently=True, html_message=message)
+            send_mail(subject, message, from_email, to_list,
+                      fail_silently=True, html_message=message)
             msg = 'Email Sent'
 
             return JsonResponse({'message': msg})
@@ -235,6 +262,7 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     serializer_class = ProductSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+
 class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
     """
     List all products, or create a new product.
@@ -242,6 +270,7 @@ class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,):
     """
@@ -251,6 +280,7 @@ class CategoryViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Ret
     serializer_class = CategorySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+
 class BasketViewset(viewsets.ModelViewSet):
     """
     List all Baskets.
@@ -258,6 +288,30 @@ class BasketViewset(viewsets.ModelViewSet):
     queryset = Basket.objects.all()
     serializer_class = BasketSerializer
     permission_classes = (permissions.AllowAny,)
+
+    def create(self, request):
+        basketProduct = Product.BuildBasketProductFromRequest(request)
+        basketProduct.save()
+
+        basket = Basket.BuildBasketFromProduct(basketProduct)
+        basket.save()
+        print('id = {}, Name = {}'.format(
+            basket.id,
+            basket.name,
+        )
+        )
+
+        return JsonResponse({'status': '200'})
+
+    def destroy(self, request, pk=None):
+        basket = Basket.objects.get(id=pk)
+        basketProduct = Product.objects.get(
+            id=basket.product.id
+        )
+        basketProduct.delete()
+
+        return JsonResponse({'status': '200'})
+
 
 class ProducerViewset(viewsets.ModelViewSet):
     """
@@ -270,7 +324,8 @@ class ProducerViewset(viewsets.ModelViewSet):
 
 def checkOut(request):
     time.sleep(2.5)
-    shoppingCart = ShoppingCart.objects.filter(user_id=request.user.id, active=True)
+    shoppingCart = ShoppingCart.objects.filter(
+        user_id=request.user.id, active=True)
 
     if len(shoppingCart) > 0:
 
@@ -284,10 +339,10 @@ def checkOut(request):
             payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
 
             return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
-
     else:
 
-            return render(request, 'checkout.html',context={'flag': False})
+        return render(request, 'checkout.html', context={'flag': False})
+
 
 @csrf_exempt
 def checkOutPersist(request):
@@ -303,7 +358,6 @@ def checkOutPersist(request):
         id_s = request.POST.get('id_s')
         new_card_number = ''
 
-
         if request.POST.get('newMethod') == "0":
 
             for index in range(len(cardNumber)):
@@ -314,7 +368,7 @@ def checkOutPersist(request):
 
             paymentMethod = PaymentMethod()
             paymentMethod.token = new_card_number
-            paymentMethod.displayName = name+' '+lastName
+            paymentMethod.displayName = name + ' ' + lastName
             paymentMethod.createdDate = strftime("%Y-%m-%d", gmtime())
             paymentMethod.user = User.objects.get(id=request.user.id)
 
@@ -338,27 +392,30 @@ def checkOutPersist(request):
         order.createdDate = strftime("%Y-%m-%d", gmtime())
         order.statusDate = strftime("%Y-%m-%d", gmtime())
         order.paymentMethod = PaymentMethod.objects.latest('id')
-        order.schedule = ScheduleOptions.objects.get(id= 1)
+        order.schedule = ScheduleOptions.objects.get(id=1)
         order.shoppingCart = shoppingCart
-        order.status = OrderStatus.objects.get(id= 1)
+        order.status = OrderStatus.objects.get(id=1)
         order.user = User.objects.get(id=request.user.id)
         order.save()
 
-        return JsonResponse({'message': request.POST.get('newMethod') })
+        return JsonResponse({'message': request.POST.get('newMethod')})
 
     else:
 
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+
 def paymentMethods(request):
 
-    payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
+    payment_methods = PaymentMethod.objects.filter(
+        user_id=request.user.id, active=True)
 
     if len(payment_methods) != 0:
         return render(request, 'payment_methods.html', context={'flag': True, 'methods': payment_methods})
     else:
         return render(request, 'payment_methods.html', context={'flag': False, 'methods': payment_methods})
+
 
 @csrf_exempt
 def removePaymentMethods(request):
@@ -376,6 +433,7 @@ def removePaymentMethods(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg})
 
+
 class ProducerList(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ProducerSerializer
@@ -383,10 +441,12 @@ class ProducerList(generics.ListCreateAPIView):
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('city',)
 
+
 class ProducerDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (AllowAny,)
     queryset = Producer.objects.all()
     serializer_class = ProducerSerializer
+
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -394,9 +454,11 @@ def api_root(request, format=None):
         'producers': reverse('producer-list', request=request, format=format),
     })
 
+
 def indexOrders(request):
-    #return HttpResponse('Hello from Python!')
+    # return HttpResponse('Hello from Python!')
     return render(request, 'Orders/index.html')
+
 
 class OrdersViewSet(viewsets.ModelViewSet):
     """
@@ -405,12 +467,14 @@ class OrdersViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrdersSerializer
 
+
 class OrderStatusViewSet(viewsets.ModelViewSet):
-     """
-     API endpoint that allows Products to be viewed or edited.
-     """
-     queryset = OrderStatus.objects.all()
-     serializer_class = OrderStatusSerializer
+    """
+    API endpoint that allows Products to be viewed or edited.
+    """
+    queryset = OrderStatus.objects.all()
+    serializer_class = OrderStatusSerializer
+
 
 class ShoppingCarViewSet(viewsets.ModelViewSet):
     """
@@ -418,19 +482,21 @@ class ShoppingCarViewSet(viewsets.ModelViewSet):
     """
     queryset = ShoppingCart.objects.all()
     serializer_class = ShoppingCarSerializer
+
     def get_queryset(self):
         """
         This view should return a list of all the purchases
         for the currently authenticated user.
         """
         user = self.request.user
-        #print user
-        #print self.request.user.is_staff
-        #print self.request.user.is_superuser
+        # print user
+        # print self.request.user.is_staff
+        # print self.request.user.is_superuser
         if not self.request.user.is_superuser:
             return ShoppingCart.objects.filter(user=user)
         else:
             return ShoppingCart.objects.all()
+
 
 @csrf_exempt
 def shoppingCartPersist(request):
@@ -441,9 +507,9 @@ def shoppingCartPersist(request):
         try:
             if not authenticated:
                 return JsonResponse(
-                        {'message': 'Por favor inicie sesion para continuar',
-                         'authenticated': False}
-                        )
+                    {'message': 'Por favor inicie sesion para continuar',
+                     'authenticated': False}
+                )
             items = json.loads(request.POST.get('items'))
 
             shoppingCart = ShoppingCart(user=user)
@@ -454,21 +520,23 @@ def shoppingCartPersist(request):
             totalShoppingCart = 0
             for item in items['items']:
                 product = Product.objects.filter(id=item['id']).first()
-                total_general = int(item['quantity']) - int(item['organic']) - int(item['bio']) - int(item['clean'])
-                total_quantity = ( total_general + int(item['organic']) + int(item['bio']) + int(item['clean']))
+                total_general = int(
+                    item['quantity']) - int(item['organic']) - int(item['bio']) - int(item['clean'])
+                total_quantity = (
+                    total_general + int(item['organic']) + int(item['bio']) + int(item['clean']))
                 cartItem = Item(
-                        product=product,
-                        quantityOrganic= item['organic'],
-                        quantityBio= item['bio'],
-                        quantityClean= item['clean'],
-                        quantityGeneral=str(total_general) ,
-                        quantityTotal= str(total_quantity),
-                        availability=True,
-                        totalPrice= total_quantity * product.price,
-                        shoppingCart=shoppingCart,
-                        addedDate=strftime("%Y-%m-%d", gmtime()),
-                        )
-                totalShoppingCart = totalShoppingCart + cartItem.totalPrice;
+                    product=product,
+                    quantityOrganic=item['organic'],
+                    quantityBio=item['bio'],
+                    quantityClean=item['clean'],
+                    quantityGeneral=str(total_general),
+                    quantityTotal=str(total_quantity),
+                    availability=True,
+                    totalPrice=total_quantity * product.price,
+                    shoppingCart=shoppingCart,
+                    addedDate=strftime("%Y-%m-%d", gmtime()),
+                )
+                totalShoppingCart = totalShoppingCart + cartItem.totalPrice
                 cartItem.save()
             shoppingCart.value = totalShoppingCart
             shoppingCart.save()
@@ -482,11 +550,13 @@ def shoppingCartPersist(request):
         msg = 'Wrong method specified!'
         return JsonResponse({'message': msg, 'authenticated': authenticated})
 
+
 @csrf_exempt
-def login_logic (request):
+def login_logic(request):
     if request.method == 'POST':
 
-        user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+        user = authenticate(username=request.POST.get(
+            'username'), password=request.POST.get('password'))
 
         if (user is not None):
             if user.is_active:
@@ -499,8 +569,10 @@ def login_logic (request):
 
     return JsonResponse({'message': message})
 
-def login_view (request):
+
+def login_view(request):
     return render(request, 'login.html')
+
 
 @csrf_exempt
 def logout_view(request):
@@ -511,52 +583,60 @@ def logout_view(request):
 def myProducts(request):
     return render(request, 'products/my_products.html')
 
-@csrf_exempt
-def updateProductActive(request):
-    if request.method == 'POST':
-        jsonProduct = json.loads(request.body)
-        product = Product.objects.filter(id=jsonProduct['id']).update(
-            active=jsonProduct ['active'])
-        return HttpResponse("Oferta del producto actualizada!")
 
 @csrf_exempt
 def updateProductActive(request):
     if request.method == 'POST':
         jsonProduct = json.loads(request.body)
         product = Product.objects.filter(id=jsonProduct['id']).update(
-            active=jsonProduct ['active'])
+            active=jsonProduct['active'])
         return HttpResponse("Oferta del producto actualizada!")
+
+
+@csrf_exempt
+def updateProductActive(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        product = Product.objects.filter(id=jsonProduct['id']).update(
+            active=jsonProduct['active'])
+        return HttpResponse("Oferta del producto actualizada!")
+
 
 @csrf_exempt
 def updateProduct(request):
     if request.method == 'POST':
         jsonProduct = json.loads(request.body)
         product = Product.objects.filter(id=jsonProduct['id']).update(
-            name= jsonProduct ['name'],
-            image= jsonProduct['image'],
-            description= jsonProduct['description'],
-            unit= jsonProduct['unit'],
-            price = jsonProduct['price'],
-            quantity = jsonProduct['quantity'],
+            name=jsonProduct['name'],
+            image=jsonProduct['image'],
+            description=jsonProduct['description'],
+            unit=jsonProduct['unit'],
+            price=jsonProduct['price'],
+            quantity=jsonProduct['quantity'],
             type=jsonProduct['type'])
         return HttpResponse("Producto actualizada!")
+
 
 def updateProductView(request):
     return render(request, 'products/updateProduct.html')
 
-def list_products_basket_view (request):
 
-   baskets = Basket.objects.all()
+def list_products_basket_view(request):
 
-   return render(request, 'ListBasketsAdmin.html', context={'baskets':baskets})
+    baskets = Basket.objects.all()
 
-def edit_products_basket_view (request):
+    return render(request, 'ListBasketsAdmin.html', context={'baskets': baskets})
 
-   basket = Basket.objects.get(id=request.GET.get('value'))
-   itemsPerBasket = ItemsPerBasket.objects.filter(basket=basket.id, active=True)
-   products= Product.objects.all()
 
-   return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products':products, 'range': '10'})
+def edit_products_basket_view(request):
+
+    basket = Basket.objects.get(id=request.GET.get('value'))
+    itemsPerBasket = ItemsPerBasket.objects.filter(
+        basket=basket.id, active=True)
+    products = Product.objects.all()
+
+    return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products': products, 'range': '10'})
+
 
 @csrf_exempt
 def add_item_basket(request):
@@ -566,6 +646,7 @@ def add_item_basket(request):
     quantity = request.POST.get('quantity')
 
     return JsonResponse({'message': add_item_basket_service(id_basket, id_product, quantity)})
+
 
 @csrf_exempt
 def remove_item_basket(request):
@@ -581,12 +662,14 @@ def remove_item_basket(request):
 
     return JsonResponse({'message': 'Done'})
 
+
 @csrf_exempt
 def remove_item_catalogue_view(request):
 
     products = Product.objects.all()
 
     return render(request, 'EditCatalogueAdmin.html', context={'products': products})
+
 
 @csrf_exempt
 def remove_product_logic(request):
