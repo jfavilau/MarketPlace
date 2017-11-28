@@ -199,3 +199,6 @@ class ProductStock (models.Model):
     Type = models.ForeignKey(Type)
     quantity = models.FloatField(null=False, blank=False, default=None)
     price = models.FloatField(null=False, blank=False, default=None)
+
+    def __str__(self):
+        return self.weekStock.product.name +' '+self.Type.name+' / '+self.producer.name
