@@ -180,6 +180,8 @@ class RegisteredUser(models.Model):
 class WeekSettings (models.Model):
     start = models.DateField(blank=False, null=False)
     end = models.DateField(blank=False, null=False)
+    def __str__(self):
+        return str(self.start)+' / '+str(self.end)
 
 class WeekStock (models.Model):
     weekSettings = models.ForeignKey(WeekSettings)
@@ -188,10 +190,12 @@ class WeekStock (models.Model):
     maxValue = models.FloatField(null=False, blank=False, default=None)
     avgValue = models.FloatField(null=False, blank=False, default=None)
     minValue = models.FloatField(null=False, blank=False, default=None)
+    def __str__(self):
+        return self.product.name +' - Semana '+str(self.weekSettings.start)+' / '+str(self.weekSettings.end)
 
 class ProductStock (models.Model):
     weekStock = models.ForeignKey(WeekStock)
-    producer = models.ForeignKey(Product)
+    producer = models.ForeignKey(Producer)
     Type = models.ForeignKey(Type)
     quantity = models.FloatField(null=False, blank=False, default=None)
     price = models.FloatField(null=False, blank=False, default=None)
