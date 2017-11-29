@@ -191,7 +191,7 @@ class Basket (models.Model):
     price = models.FloatField(null=False, blank=False, default=None)
     description = models.TextField(blank=True, null=True)
     active = models.BooleanField(null=False, blank=False)
-    product = models.ForeignKey(Product)
+    product = models.ForeignKey(Product, null=True)
 
     def __str__(self):
         return self.name

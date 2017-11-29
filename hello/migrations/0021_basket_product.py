@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='basket',
             name='product',
-            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='hello.Product'),
+            field=models.ForeignKey(default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to='hello.Product'),
             preserve_default=False,
         ),
     ]
