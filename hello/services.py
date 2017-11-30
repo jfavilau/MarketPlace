@@ -2,6 +2,7 @@ from time import strftime, gmtime
 
 from .models import *
 import math
+import locale
 
 
 # Services s.
@@ -115,4 +116,22 @@ def stockValidation(items, quantity):
     if float(quantity) <= total_stock:
         result = True
     #print result
+    return result
+
+def getEstimatePriceService(jsonProducts):
+    # se obtiene la semana actual
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+    # Se obtienen los IDs de los productos con sus cantidades
+    #jsonProducts = json.loads(request.body)
+    estimatePrice = 0
+    # print jsonProducts
+    for item in jsonProducts:
+        # print item["idProduct"]
+        product = Product.objects.get(id=item["idProduct"])
+        week_stock = WeekStock.objects.get(product=product, weekSettings=week_settings)
+        estimatePrice = estimatePrice + week_stock.avgValue * int(item["quantity"])
+
+    locale.setlocale(locale.LC_ALL, '')
+    result = {'message': 'Done', 'estimatePrice': locale.currency(estimatePrice, grouping=True )}
     return result

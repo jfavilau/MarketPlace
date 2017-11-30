@@ -635,7 +635,12 @@ def edit_products_basket_view(request):
         basket=basket.id, active=True)
     products = Product.objects.all()
 
-    return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products': products, 'range': '10'})
+    jsonProducts = []
+    for item in itemsPerBasket:
+        jsonProducts.append({"idProduct":item.product.id,"quantity":item.quantity})
+
+    #print getEstimatePriceService(jsonProducts)
+    return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products': products, 'range': '10', 'prices': getEstimatePriceService(jsonProducts)})
 
 
 @csrf_exempt
@@ -749,3 +754,9 @@ def validate_advance_purchase(request):
         general_result = stockValidation(product_stock_general, request.POST.get('general'))
 
     return JsonResponse({'message': 'Done', 'bio': bio_result, 'clean': clean_result, 'organic': organic_result, 'general': general_result})
+
+@csrf_exempt
+def getEstimatePrice(request):
+    if request.method == 'POST':
+        jsonProducts = json.loads(request.body)
+        return JsonResponse(getEstimatePriceService(jsonProducts))
