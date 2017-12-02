@@ -350,8 +350,8 @@ def checkOut(request):
 
 @csrf_exempt
 def checkOutPersist(request):
-    updateStock(request.POST.get('item_ids'))
-    '''if request.method == 'POST':
+
+    if request.method == 'POST':
 
         name = request.POST.get('name')
         lastName = request.POST.get('lastName')
@@ -404,14 +404,14 @@ def checkOutPersist(request):
         order.save()
 
         # FUNCTION PRODUCERS STOCK
-        result = updateStock(item_ids)
+        updateStock(request.POST.get('item_ids'))
 
         return JsonResponse({'message': request.POST.get('newMethod')})
 
-    else:'''
+    else:
 
-    msg = 'Wrong method specified!'
-    return JsonResponse({'message': msg})
+        msg = 'Wrong method specified!'
+        return JsonResponse({'message': msg})
 
 
 def paymentMethods(request):
