@@ -697,7 +697,17 @@ def edit_products_basket_view(request):
     basket = Basket.objects.get(id=request.GET.get('value'))
     itemsPerBasket = ItemsPerBasket.objects.filter(
         basket=basket.id, active=True)
-    products = Product.objects.all().exclude(unit='Unidad')
+    #aca
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+    week_stock = WeekStock.objects.filter(weekSettings=week_settings)
+    products=[]
+
+    for week_stock_unit in week_stock:
+        product = Product.objects.get(id=week_stock_unit.product.id)
+        if(product.unit != 'Unidad'):
+            products.append(product)
+
 
     jsonProducts = []
     for item in itemsPerBasket:
