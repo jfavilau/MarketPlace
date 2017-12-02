@@ -25,7 +25,7 @@ function CartMap() {
   this.restoreCart();
 }
 
-function CartItem(id, name, price, quantity, image) {
+function CartItem(id, name, price, quantity, image, isBasket) {
   this.id = id;
   this.name = name;
   this.price = price;
@@ -34,6 +34,7 @@ function CartItem(id, name, price, quantity, image) {
   this.organic = 0;
   this.bio = 0;
   this.clean = 0;
+  this.isBasket = isBasket;
 }
 
 function items() {
@@ -58,7 +59,6 @@ function getCartTotal() {
   var str = '';
   var cartmap = this.cartmap;
   for (item in cartmap) {
-  console.log(cartmap[item].price);
     str = cartmap[item].price;
     total += parseInt(str.match(/[0-9]+[.|,]?[0-9]*/));
   }
