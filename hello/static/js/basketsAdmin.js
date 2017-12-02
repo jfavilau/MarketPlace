@@ -13,6 +13,7 @@
   });
 
   function downloadBaskets() {
+    var admin = $("#admin_flag").data("admin")
 
     $("#baskets-table").html("");
 
@@ -22,12 +23,18 @@
       $.each(baskets, function(i, item) {
 
         i++;
-
-        var myvar = '<tr>' +
-          '  <td><a href="#" data-toggle="modal" data-target="#myBasketModal" data-basket="' + item.id + '" data-toggle-tooltip="tooltip" data-placement="top" title="Ver canasta">' + item.name + '</a></td>' +
-          '  <td>$ ' + item.price + '</td>' +
-          '  <td style="text-align:center;"><a id="delete-basket' + i + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>' +
-          '</tr>';
+        if(admin){
+            var myvar = '<tr>' +
+              '  <td>'+ item.name + '</td>' +
+              '  <td>$ ' + item.price + '</td>' +
+              '  <td style="text-align:center;"><a id="delete-basket' + i + '"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>' +
+              '</tr>';
+          }else{
+            var myvar = '<tr>' +
+              '  <td>'+ item.name + '</td>' +
+              '  <td>$ ' + item.price + '</td>' +
+              '</tr>';
+          }
 
         $("#baskets-table").append(myvar);
 
@@ -75,6 +82,7 @@
     });
 
     request.done(function(msg) {
+      window.scrollTo(0,0);
       downloadBaskets();
     });
 

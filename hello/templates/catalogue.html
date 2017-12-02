@@ -41,8 +41,8 @@
                 <div class="m-t-30">
                     {% if user.is_authenticated %}
                     {% if user.is_superuser %}
-                    <div style="margin-bottom: 1cm">
-                        <a href="{% url 'removeItemCatalogueView'%}" class="title">Editar catalogo</a>
+                    <div class="heading-widget text-center" style="margin-top: 1cm;">
+                            <a class="au-btn au-btn-radius au-btn-border btn-submit-comments" href="{% url 'removeItemCatalogueView'%}">Editar catalogo</a>
                     </div>
                     {% endif %}
                     {% endif %}

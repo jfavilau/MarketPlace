@@ -30,16 +30,11 @@
 
 <div class="page-content p-t-40 p-b-70">
     <div class="container">
-        {% if user.is_authenticated %}
-            {% if user.is_superuser %}
-                <a href="{% url 'basketList'%}" class="title">Editar canastas</a>
-            {% endif %}
-        {% endif %}
         <div class="m-t-30">
             <!-- .product-category-widget-1-->
             <div class="product-category-widget-1">
                 <div class="heading-widget text-center">
-                    <h3>CANASTAS</h3>
+                    <h3>LISTADO DE CANASTAS</h3>
                 </div>
 
                 <table class="table jumbotron" id="baskets-list" style="max-width:500px; margin: 0 auto; padding:24px;" >
@@ -47,14 +42,20 @@
                       <tr>
                         <th>Canasta</th>
                         <th>Precio</th>
-                        <th style="text-align:center;">Eliminar</th>
+                        {% if user.is_superuser %} <th style="text-align:center;">Eliminar</th>{% endif %}
                       </tr>
                     </thead>
                     <tbody id="baskets-table">
 
                     </tbody>
                 </table>
-
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <div class="heading-widget text-center" style="margin-top: 1cm;">
+                            <a class="au-btn au-btn-radius au-btn-border btn-submit-comments" href="{% url 'basketList'%}" class="title">Editar canastas</a>
+                    </div>
+                    {% endif %}
+                {% endif %}
             </div>
             <!-- end .product-category-widget-1-->
         </div>
@@ -62,12 +63,14 @@
         {% if user.is_authenticated %}
 
             {% if user.is_superuser %}
-
+                <br><hr id="admin_flag" class="style2" data-admin="{{user.is_superuser}}"><br>
                 <!-- .add-comments-1-->
-                <div class="add-comments-1" style="max-width:450px">
-                    <h4 class="title">Nueva canasta</h4>
+                <div class="add-comments-1 " style="max-width:450px; margin-left:6.5cm;">
+                    <div class="heading-widget text-center">
+                    <h3>AGREGAR CANASTA</h3>
+                    </div>
                     <p class="introduce">Cree una nueva canasta llenando los campos presentados a continuación</p>
-                    <form class="submit-form" id="new-basket-form">
+                    <form class="submit-form " id="new-basket-form" style="">
                         <div class="form-group">
                             <label for="basketName">Nombre</label>
                             <input type="text" class="form-control" id="basketName" placeholder="Nombre de la canasta">
@@ -87,7 +90,7 @@
                             </label>
                         </div>
                         <button class="au-btn au-btn-radius au-btn-border btn-submit-comments" id="post-basket"
-                                type="submit">ENVIAR
+                                type="submit" style="margin-left:4.3cm;">ENVIAR
                         </button>
                     </form>
                 </div>

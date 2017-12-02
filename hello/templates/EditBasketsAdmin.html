@@ -1,6 +1,9 @@
 {% include "header.html" %}
 
 <div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:block;">
+    <div class="row" style="text-align: center;">
+        <h4 for="exampleInputName2">Precio Estimado / $ {{prices.estimatePrice}} - Precio de Venta / $ {{basket.price}}</h4>
+    </div>
     <div class="container">
         <form class="form-inline">
             <div class="row">
@@ -32,13 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-lg-6">
-                    <label for="exampleInputName2">Precio Estimado: </label>
-                    <span>
-                        {{prices.estimatePrice}}
-                    </span>
 
-                </div>
             </div>
         </form>
 
