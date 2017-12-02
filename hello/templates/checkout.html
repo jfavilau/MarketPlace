@@ -86,7 +86,7 @@
         </div>
         <div class="checkout-order m-t-30">
             <h4 class="checkout-heading">Tu Orden</h4>
-            <table class="table table-bordered order-table">
+            <table id="products_ids" class="table table-bordered order-table" data-ids="{{ids}}">
                 <thead>
                 <tr>
                     <th>PRODUCTO</th>
@@ -96,20 +96,12 @@
                 </thead>
                 <tbody>
                 {% for item in items %}
-                {% with forloop.counter0 as index %}
                 <tr>
                     <td>{{item.product.name}}</td>
                     <td>{{item.quantityTotal}} {{item.product.unit}} {{index}}</td>
-                    {% for price in prices %}
-                       {% with forloop.counter0 as index_2 %}
-                       {% if index == index_2 %}
-                         <td>{{price}}</td>
-                        {% endif %}
-                    {% endwith %}
-                    {% endfor%}
-                </tr>
-                {% endwith %}
+                    <td>{{item.totalPrice}}</td>
                 {% endfor%}
+                </tr>
                 <tr>
                     <td></td>
                     <td><strong>TOTAL</strong></td>
@@ -121,7 +113,7 @@
         <div class="checkout-payment-info">
             <h4 class="checkout-heading">02 / Información de Pago</h4>
             <div class="introduce">
-                <p>Formas de Pago Recurrentes</p>
+                <p >Formas de Pago Recurrentes</p>
                 {% for method in methods %}
                 <div class="radio">
                     <label><input type="radio" name="check">Tarjeta número - {{method.token}}</label>

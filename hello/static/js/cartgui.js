@@ -139,88 +139,88 @@ function refreshCartGuiOperation() {
 
   }
 
-  $("#advance_btn").click(function() {
+  $("#advance_btn").click(function(){
 
-    if ((validateNumber($("#advance_bio").val()) || validateNumber($("#advance_org").val()) || validateNumber($("#advance_lim").val()))) {
-      var bio = ($("#advance_bio").val()) ? $("#advance_bio").val() : 0;
-      var clean = ($("#advance_lim").val()) ? $("#advance_lim").val() : 0;
-      var organic = ($("#advance_org").val()) ? $("#advance_org").val() : 0;
-      var validate = validate_advance_purchase($("#product_info").data('id'), bio, clean, organic);
-      if (validate["flag"]) {
+        if((validateNumber($("#advance_bio").val()) || validateNumber($("#advance_org").val()) || validateNumber($("#advance_lim").val()))){
+            var bio = ($("#advance_bio").val()) ? $("#advance_bio").val() : 0;
+            var clean = ($("#advance_lim").val()) ? $("#advance_lim").val() : 0;
+            var organic = ($("#advance_org").val()) ? $("#advance_org").val() : 0;
+            var validate = validate_advance_purchase($("#product_info").data('id'), bio, clean, organic);
+           if (validate["flag"]){
 
-        if (bio != 0 || clean != 0 || organic != 0) {
-          var total = Number(bio) + Number(organic) + Number(clean);
+               if(bio != 0 || clean != 0 || organic != 0){
+                    var total = Number(bio) + Number(organic) + Number(clean);
 
-          var quantity = total;
-          var available = 100;
-          if (Number(available) <= Number(quantity)) return;
+                    var quantity = total;
+                    var available = 100;
+                    if (Number(available) <= Number(quantity)) return;
 
 
-          var item = $("#product_info").data('id');
-          var name = $("#product_info").data('name');
-          //var price = String($("#product_info").data('price') * quantity)
-          var price = "";
-          $.ajax({
-            async: false,
-            url: '/productPrice',
-            type: "POST",
-            data: {
-              "id": item,
-              "bio": bio,
-              "clean": clean,
-              "organic": organic,
-            },
-            success: function(data) {
-              price = String(data.price);
-            },
-            error: function(xhr) {
-              console.log('Error - Calculating Price')
-              console.log(xhr)
+                    var item = $("#product_info").data('id');
+                    var name = $("#product_info").data('name');
+                    var price = String($("#product_info").data('price') * quantity)
+                    /*var price = "";
+                    $.ajax({
+                      async:false,
+                      url: '/productPrice',
+                      type: "POST",
+                      data: {
+                        "id":item, "bio": bio, "clean": clean, "organic":organic,
+                      },
+                      success: function(data) {
+                        price = String(data.price);
+                      },
+                      error: function(xhr) {
+                        console.log('Error - Calculating Price')
+                        console.log(xhr)
+                      }
+                    });*/
+
+                    var image = $("#product_info").attr( "src" )
+
+                    var cartItem = new CartItem(
+                      item, name, price, quantity, image
+                    );
+
+                    cartmap.addItemAdvance(item, cartItem, quantity, bio, organic, clean);
+                    miniShopCart.addItem(item);
+
+                    var count = total;
+                    var quantity = count > 0 ? count : "";
+                    miniShopCart.updateItemsInCartMessage();
+
+                    $('#myModal').modal('hide');
+
+                }
+                else{
+                    $('#myModal').modal('hide');
+
+                }
+              } else {
+                var error = '<div class="alert alert-danger">';
+
+                if (validate["bio"] != "") {
+                  error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["bio"] + ' no se encuentra disponible.'
+                };
+                if (validate["clean"] != "") {
+                  error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["clean"] + ' no se encuentra disponible.'
+                };
+                if (validate["organic"] != "") {
+                  error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["organic"] + ' no se encuentra disponible.'
+                };
+
+
+                error += '</div>';
+
+                $('#advance_errors').html(error);
+                setTimeout(function() {
+                  $('#advance_errors').html("");
+                }, 4000);
+
+              }
+            } else {
+              $('#myModal').modal('hide');
             }
-          });
-
-          var image = $("#product_info").attr("src")
-
-          var cartItem = new CartItem(
-            item, name, price, quantity, image
-          );
-
-          cartmap.addItemAdvance(item, cartItem, quantity, bio, organic, clean);
-          miniShopCart.addItem(item);
-
-          var count = total;
-          var quantity = count > 0 ? count : "";
-          miniShopCart.updateItemsInCartMessage();
-
-          $('#myModal').modal('hide');
-        } else {
-          $('#myModal').modal('hide');
-        }
-      } else {
-        var error = '<div class="alert alert-danger">';
-
-        if (validate["bio"] != "") {
-          error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["bio"] + ' no se encuentra disponible.'
-        };
-        if (validate["clean"] != "") {
-          error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["clean"] + ' no se encuentra disponible.'
-        };
-        if (validate["organic"] != "") {
-          error += '<br><strong>Opps!</strong> La cantidad de producto ' + validate["organic"] + ' no se encuentra disponible.'
-        };
-
-
-        error += '</div>';
-
-        $('#advance_errors').html(error);
-        setTimeout(function() {
-          $('#advance_errors').html("");
-        }, 4000);
-
-      }
-    } else {
-      $('#myModal').modal('hide');
-    }
 
   });
 
