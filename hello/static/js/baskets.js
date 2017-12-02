@@ -32,6 +32,10 @@
             selectBasket(i);
         });
       });
+      var url = window.location.href
+        if(url.indexOf('?') > -1){
+            selectBasket('0')
+        }
     });
   }
 

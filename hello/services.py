@@ -132,6 +132,6 @@ def getEstimatePriceService(jsonProducts):
         week_stock = WeekStock.objects.get(product=product, weekSettings=week_settings)
         estimatePrice = estimatePrice + week_stock.avgValue * int(item["quantity"])
 
-    locale.setlocale(locale.LC_ALL, '')
-    result = {'message': 'Done', 'estimatePrice': locale.currency(estimatePrice, grouping=True )}
+
+    result = {'message': 'Done', 'estimatePrice': estimatePrice}
     return result

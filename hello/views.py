@@ -301,20 +301,68 @@ class BasketViewset(viewsets.ModelViewSet):
     permission_classes = (permissions.AllowAny,)
 
     def create(self, request):
-        basketProduct = Product.BuildBasketProductFromRequest(request)
-        basketProduct.save()
+        product= Product(
+            name=request.data['name'],
+            description=request.data['description'],
+            unit='Unidad',
+            quantity=10,
+            price=request.data['price'],
+            image='https://sf.tac-cdn.net/images/products/large/SF-870.jpg',
+            category=Category(id=1),
+            producer=Producer(id=1),
+            type=Type(id=1),
+            cooperative=Cooperative(id=1),
+            active=request.data['active'],
+        )
 
-        basket = Basket.BuildBasketFromProduct(basketProduct)
+        product.save()
+
+        basket = Basket(
+                name=product.name,
+                price=product.price,
+                description=product.description,
+                active=product.active,
+                product=product,
+        )
         basket.save()
+
+
+        current_date = strftime("%Y-%m-%d", gmtime())
+        week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+
+        week_stock = WeekStock(
+            weekSettings= week_settings,
+            product = product,
+            totalStock = 10,
+            maxValue = product.price,
+            avgValue = product.price,
+            minValue = product.price,
+        )
+
+        week_stock.save()
+        bio_type = Type.objects.get(shortName='B')
+
+        product_stock= ProductStock(
+            weekStock= week_stock,
+            producer = product.producer,
+            Type = bio_type,
+            quantity = 10,
+            price = product.price,
+        )
+
+        product_stock.save()
 
         return JsonResponse({'status': '200'})
 
     def destroy(self, request, pk=None):
         basket = Basket.objects.get(id=pk)
-        basketProduct = Product.objects.get(
-            id=basket.product.id
-        )
-        basketProduct.delete()
+        if basket.product:
+            basketProduct = Product.objects.get(
+                id=basket.product.id
+            )
+            basketProduct.delete()
+        else:
+            basket.delete()
 
         return JsonResponse({'status': '200'})
 
@@ -642,14 +690,14 @@ def edit_products_basket_view(request):
     basket = Basket.objects.get(id=request.GET.get('value'))
     itemsPerBasket = ItemsPerBasket.objects.filter(
         basket=basket.id, active=True)
-    products = Product.objects.all()
+    products = Product.objects.all().exclude(unit='Unidad')
 
     jsonProducts = []
     for item in itemsPerBasket:
         jsonProducts.append(
             {"idProduct": item.product.id, "quantity": item.quantity})
 
-    # print getEstimatePriceService(jsonProducts)
+
     return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products': products, 'range': '10', 'prices': getEstimatePriceService(jsonProducts)})
 
 
