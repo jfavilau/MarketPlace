@@ -331,14 +331,18 @@ def checkOut(request):
 
             items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
             price_array = []
+            item_ids = []
             total = 0
             for item in items:
                 price_by_item = calculateProductPrice(item.product.id, item.quantityOrganic, item.quantityBio, item.quantityClean, item.quantityGeneral)
                 price_array.append(price_by_item)
-                total = total + price_by_item
-            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
+                #total = total + price_by_item
+                total = total + item.totalPrice
+                item_ids.append(str(item.id))
 
-            return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
+            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
+            item_ids_str = ' '.join(item_ids)
+            return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id, 'ids': item_ids_str})
     else:
 
         return render(request, 'checkout.html', context={'flag': False})
@@ -346,8 +350,8 @@ def checkOut(request):
 
 @csrf_exempt
 def checkOutPersist(request):
-
-    if request.method == 'POST':
+    updateStock(request.POST.get('item_ids'))
+    '''if request.method == 'POST':
 
         name = request.POST.get('name')
         lastName = request.POST.get('lastName')
@@ -357,6 +361,7 @@ def checkOutPersist(request):
         cardNumber = request.POST.get('cardNumber')
         id_s = request.POST.get('id_s')
         new_card_number = ''
+        item_ids = request.POST.get('item_ids')
 
         if request.POST.get('newMethod') == "0":
 
@@ -398,12 +403,15 @@ def checkOutPersist(request):
         order.user = User.objects.get(id=request.user.id)
         order.save()
 
+        # FUNCTION PRODUCERS STOCK
+        result = updateStock(item_ids)
+
         return JsonResponse({'message': request.POST.get('newMethod')})
 
-    else:
+    else:'''
 
-        msg = 'Wrong method specified!'
-        return JsonResponse({'message': msg})
+    msg = 'Wrong method specified!'
+    return JsonResponse({'message': msg})
 
 
 def paymentMethods(request):
@@ -536,6 +544,7 @@ def shoppingCartPersist(request):
                     shoppingCart=shoppingCart,
                     addedDate=strftime("%Y-%m-%d", gmtime()),
                 )
+
                 totalShoppingCart = totalShoppingCart + cartItem.totalPrice
                 cartItem.save()
             shoppingCart.value = totalShoppingCart
@@ -760,3 +769,27 @@ def getEstimatePrice(request):
     if request.method == 'POST':
         jsonProducts = json.loads(request.body)
         return JsonResponse(getEstimatePriceService(jsonProducts))
+
+
+def updateStock(item_ids):
+
+    ids = item_ids.split(" ")
+    for single_id in ids:
+        item = Item.objects.get(id=single_id)
+        result = calculateProductPrice(item.product.id, item.quantityOrganic, item.quantityBio, item.quantityClean,item.quantityGeneral)
+        quantityModification(result)
+
+    return True
+
+def quantityModification(result):
+    for index in result:
+        if index != 0:
+            total = index['total']
+            for product_stock_id in index['product_list']:
+                product_stock = ProductStock.objects.get(id=product_stock_id)
+                product_stock.quantity = product_stock.quantity - 1
+                product_stock.save()
+
+                weekStock = WeekStock.objects.get(id=product_stock.weekStock.id)
+                weekStock.totalStock = weekStock.totalStock - 1
+                weekStock.save()

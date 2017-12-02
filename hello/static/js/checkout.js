@@ -35,7 +35,7 @@
     var expDate = $("#exp_date").val();
     var code = $("#code").val();
     var atLeastOneIsChecked = $('input[name=check]:checked').length;
-
+    var item_ids = $("#products_ids").data('ids');
 
         if (jQuery.type(name) == 'string' && jQuery.type(details) == 'string' && jQuery.type(lastName) == 'string' && jQuery.type(address) == 'string' && jQuery.type(country) == 'string' &&
           jQuery.type(department) == 'string' && $.isNumeric(zip) && $.isNumeric(phone) && name != "" && lastName != "" && address != "" && country != "" &&
@@ -61,7 +61,8 @@
                       "expDate": expDate,
                       "code": code,
                       "newMethod": atLeastOneIsChecked,
-                      "id_s": id_s
+                      "id_s": id_s,
+                      "item_ids": item_ids,
                     },
                     success: function(data) {
                       console.log(data.message);

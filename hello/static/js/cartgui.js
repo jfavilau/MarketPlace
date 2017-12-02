@@ -157,8 +157,8 @@ function refreshCartGuiOperation() {
 
                     var item = $("#product_info").data('id');
                     var name = $("#product_info").data('name');
-                    //var price = String($("#product_info").data('price') * quantity)
-                    var price = "";
+                    var price = String($("#product_info").data('price') * quantity)
+                    /*var price = "";
                     $.ajax({
                       async:false,
                       url: '/productPrice',
@@ -173,7 +173,7 @@ function refreshCartGuiOperation() {
                         console.log('Error - Calculating Price')
                         console.log(xhr)
                       }
-                    });
+                    });*/
 
                     var image = $("#product_info").attr( "src" )
 

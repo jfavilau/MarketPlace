@@ -60,7 +60,7 @@ def calculateProductPrice(productId, organic, bio, clean, generalQuantity):
     if generalQuantity > 0:
 
         product_stock_general = ProductStock.objects.filter(weekStock=week_stock).order_by('price')
-        total_general = (calculateTotalByType(generalQuantity, product_stock_general))['total']
+        total_general = calculateTotalByType(generalQuantity, product_stock_general)
 
     if organic != 0 or bio != 0 or clean != 0:
 
@@ -70,23 +70,30 @@ def calculateProductPrice(productId, organic, bio, clean, generalQuantity):
 
         if organic > 0:
             product_stock_org = ProductStock.objects.filter(weekStock=week_stock, Type=organic_type).order_by('price')
-            total_organic = (calculateTotalByType(organic, product_stock_org))['total']
+            total_organic = calculateTotalByType(organic, product_stock_org)
             #print (calculateTotalByType(organic, product_stock_org))['product_list']
 
         if bio > 0:
             product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
-            total_bio= (calculateTotalByType(bio, product_stock_bio))['total']
+            total_bio = calculateTotalByType(bio, product_stock_bio)
 
         if clean > 0:
             product_stock_clean = ProductStock.objects.filter(weekStock=week_stock, Type=clean_type).order_by('price')
-            total_clean = (calculateTotalByType(clean, product_stock_clean))['total']
+            total_clean = calculateTotalByType(clean, product_stock_clean)
 
-    return total_organic + total_bio + total_clean + total_general
+    result = []
+    result.append(total_organic)
+    result.append(total_bio)
+    result.append(total_clean)
+    result.append(total_general)
+
+    return result
 
 
 def calculateTotalByType(quantity, prices):
 
     item_price_list= []
+    result = []
     total = 0
 
     for item in prices:
@@ -98,24 +105,24 @@ def calculateTotalByType(quantity, prices):
 
     for x in range(0, int(decimal_part[1])):
         total = total + item_price_list[x][1]
+        result.append(item_price_list[x][0])
 
-    result = {'total': total, 'product_list': item_price_list}
+    result = {'total': total, 'product_list': result}
 
     return result
 
 
 def stockValidation(items, quantity):
-    #print 'entre';
+
     result = False
     total_stock = 0.0
     for item in items:
         total_stock = total_stock + item.quantity
 
-    #print total_stock
-    #print quantity
+
     if float(quantity) <= total_stock:
         result = True
-    #print result
+
     return result
 
 def getEstimatePriceService(jsonProducts):

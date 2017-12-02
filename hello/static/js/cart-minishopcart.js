@@ -47,7 +47,7 @@ function addItemToCartContents(itemId) {
 
   if (currentItem.attr('class') != undefined) {
     var price = currentItem.find('.item-content .price');
-    price.html(cartmap[itemId].quantity + ' - $' + cartmap[itemId].price);
+    price.html(cartmap[itemId].quantity + ' - $ ' + cartmap[itemId].price.replace("$",""));
     return
   }
 
@@ -71,7 +71,7 @@ function removeItemFromCartContents(itemId) {
   }
 
   var price = currentItem.find('.item-content .price');
-  price.html(cartmap[itemId].quantity + ' - $' + cartmap[itemId].price);
+  price.html(cartmap[itemId].quantity + ' - $' + cartmap[itemId].price.replace("$",""));
 }
 
 function clearItemFromCartContents(itemId) {
@@ -86,7 +86,7 @@ function clearItemFromCartContents(itemId) {
 function buildCartContentItem(item, includeItemDiv) {
   var itemHtml = '';
   console.log(item)
-    $.ajax({
+  /*  $.ajax({
       async:false,
       url: '/productPrice',
       type: "POST",
@@ -103,7 +103,7 @@ function buildCartContentItem(item, includeItemDiv) {
       }
     });
 
-    console.log(1)
+    console.log(1)*/
     if (includeItemDiv) itemHtml += '<div class=\"item-mini-shopcart ' + item.id + '\">';
           itemHtml += '\n\t<div class=\"item-image\">';
           itemHtml += '\n\t\t<img style=\"height:50px; width:50px\" src=\"' + item.image + '\" alt=\"' + item.id + '\" />';
@@ -114,7 +114,7 @@ function buildCartContentItem(item, includeItemDiv) {
           itemHtml += '\n\t\t' + item.name;
           itemHtml += '\n\t</h3>';
           itemHtml += '\n\t<p class=\"price\">';
-          itemHtml += '\n\t\t' + item.quantity + ' - $' + item.price;
+          itemHtml += '\n\t\t' + item.quantity + ' - $ ' + item.price.replace("$","");
           itemHtml += '\n\t</p>';
           itemHtml += '\n\t</div>';
 
