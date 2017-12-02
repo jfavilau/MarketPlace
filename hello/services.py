@@ -142,3 +142,15 @@ def getEstimatePriceService(jsonProducts):
 
     result = {'message': 'Done', 'estimatePrice': estimatePrice}
     return result
+
+def getWeekProductsService():
+    # se obtiene la semana actual
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+    # Se obtienen los IDs de los productos con sus cantidades
+    # print jsonProducts
+    week_stock = WeekStock.objects.filter(totalStock__gt=0, weekSettings=week_settings)
+    result_list = list(week_stock.values('product'))
+    #print (result_list)
+    result = {'WeeklyProducts': result_list}
+    return result

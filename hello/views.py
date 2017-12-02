@@ -8,7 +8,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 #from .models import Greeting
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
@@ -255,13 +255,23 @@ class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retriev
     serializer_class = UserSerializer
 
 
-class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
+class ProductViewset(viewsets.ModelViewSet):
     """
     List all products, or create a new product.
     """
     queryset = Product.objects.filter(active=True)
     serializer_class = ProductSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def retrieve(self, request, pk=None):
+        queryset = Product.objects.filter(active=True)
+        product = get_object_or_404(queryset, pk=pk)
+        print(product.__dict__)
+        product.isBasket = Basket.objects.filter(product_id=product.id).count() > 0
+        print(product.__dict__)
+        serializer = ProductBasketSerializer(product)
+
+        return Response(serializer.data)
 
     def list(self, request):
         products = Product.objects.all()
@@ -873,4 +883,8 @@ def quantityModification(result):
                 weekStock = WeekStock.objects.get(id=product_stock.weekStock.id)
                 weekStock.totalStock = weekStock.totalStock - 1
                 weekStock.save()
+
+
+def get_week_products(request):
+    return JsonResponse({'message': getWeekProductsService()})
 
