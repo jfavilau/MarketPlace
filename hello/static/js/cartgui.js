@@ -57,7 +57,7 @@ function refreshCartGuiOperation() {
     var isBasket = getControlClassFromParents($(this), '.miso-prd-is-basket')
       .text().toLowerCase() === 'true';
 
-    //if (Number(available) <= Number(quantity.text())) return;
+    if (Number(available) <= Number(quantity.text())) return;
 
     var itemctrl = getControlClassFromParents($(this), '.miso-prd-id');
     var item = itemctrl.text();

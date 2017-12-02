@@ -185,10 +185,12 @@
                         </div>
                         <div class="foot-mini-shopcart">
                             <div class="mini-shopcart-action">
-                                {% if user.is_authenticated %}
-                                <button class="au-btn au-btn-primary au-btn-radius btn-checkout"
-                                        onclick="location.href='{% url 'checkOut' %}'">CHECK OUT
-                                </button>
+                                {% if user.is_authenticated%}
+                                    {% if  not user.is_superuser %}
+                                        <button class="au-btn au-btn-primary au-btn-radius btn-checkout"
+                                                onclick="location.href='{% url 'checkOut' %}'">CHECK OUT
+                                        </button>
+                                    {% endif %}
                                 {% else %}
                                 <button class="au-btn au-btn-primary au-btn-radius btn-checkout">
                                     CHECK OUT
