@@ -77,6 +77,7 @@
                                 '<div class=\"miso-prd-id\">' + item.id + '</div>' +
                                 '<div class=\"miso-prd-qty\"></div>' +
                                 '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
+                                '<div class=\"miso-prd-is-basket\" hidden>' + item.isBasket + '</div>' +
                                 '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
 
                                   '<div class=\"image-holder\">' +

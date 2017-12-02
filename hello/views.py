@@ -27,6 +27,7 @@ from gettingstarted import settings
 from .models import *
 from .serializers import UserSerializer
 from .serializers import ProductSerializer
+from .serializers import ProductBasketSerializer
 from .serializers import BasketSerializer
 
 from .serializers import CooperativeSerializer
@@ -262,6 +263,16 @@ class ProductViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.Retr
     serializer_class = ProductSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
+    def list(self, request):
+        products = Product.objects.all()
+
+        for item in products:
+            item.isBasket = Basket.objects.filter(product_id=item.id).count() > 0
+            print(item.__dict__)
+        serializer = ProductBasketSerializer(products, many=True)
+
+        return Response(serializer.data)
+
 
 class TypeViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin):
     """
@@ -295,11 +306,6 @@ class BasketViewset(viewsets.ModelViewSet):
 
         basket = Basket.BuildBasketFromProduct(basketProduct)
         basket.save()
-        print('id = {}, Name = {}'.format(
-            basket.id,
-            basket.name,
-        )
-        )
 
         return JsonResponse({'status': '200'})
 
@@ -329,16 +335,19 @@ def checkOut(request):
 
     if len(shoppingCart) > 0:
 
-            items = Item.objects.filter(shoppingCart_id=shoppingCart[len(shoppingCart)-1])
-            price_array = []
-            total = 0
-            for item in items:
-                price_by_item = calculateProductPrice(item.product.id, item.quantityOrganic, item.quantityBio, item.quantityClean, item.quantityGeneral)
-                price_array.append(price_by_item)
-                total = total + price_by_item
-            payment_methods = PaymentMethod.objects.filter(user_id=request.user.id, active=True)
+        items = Item.objects.filter(
+            shoppingCart_id=shoppingCart[len(shoppingCart) - 1])
+        price_array = []
+        total = 0
+        for item in items:
+            price_by_item = calculateProductPrice(
+                item.product.id, item.quantityOrganic, item.quantityBio, item.quantityClean, item.quantityGeneral)
+            price_array.append(price_by_item)
+            total = total + price_by_item
+        payment_methods = PaymentMethod.objects.filter(
+            user_id=request.user.id, active=True)
 
-            return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart)-1].id})
+        return render(request, 'checkout.html', context={'flag': True, 'prices': price_array, 'items': items, 'total': total, 'methods': payment_methods, 'id_shopping': shoppingCart[len(shoppingCart) - 1].id})
     else:
 
         return render(request, 'checkout.html', context={'flag': False})
@@ -637,9 +646,10 @@ def edit_products_basket_view(request):
 
     jsonProducts = []
     for item in itemsPerBasket:
-        jsonProducts.append({"idProduct":item.product.id,"quantity":item.quantity})
+        jsonProducts.append(
+            {"idProduct": item.product.id, "quantity": item.quantity})
 
-    #print getEstimatePriceService(jsonProducts)
+    # print getEstimatePriceService(jsonProducts)
     return render(request, 'EditBasketsAdmin.html', context={'basket': basket, 'items': itemsPerBasket, 'products': products, 'range': '10', 'prices': getEstimatePriceService(jsonProducts)})
 
 
@@ -690,46 +700,51 @@ def remove_product_logic(request):
 
     return JsonResponse({'message': 'Done'})
 
+
 @csrf_exempt
 def product_price_logic(request):
 
- if request.POST.get("bio"):
-     if request.POST.get("bio") != 0:
-         quantity_bio = float(request.POST.get("bio"))
-     else:
-         quantity_bio = 0.0
-     if request.POST.get("organic") != 0:
-         quantity_org = float(request.POST.get("organic"))
-     else:
-         quantity_org = 0.0
-     if request.POST.get("clean") != 0:
-         quantity_clean = float(request.POST.get("clean"))
-     else:
-         quantity_clean = 0.0
+    if request.POST.get("bio"):
+        if request.POST.get("bio") != 0:
+            quantity_bio = float(request.POST.get("bio"))
+        else:
+            quantity_bio = 0.0
+        if request.POST.get("organic") != 0:
+            quantity_org = float(request.POST.get("organic"))
+        else:
+            quantity_org = 0.0
+        if request.POST.get("clean") != 0:
+            quantity_clean = float(request.POST.get("clean"))
+        else:
+            quantity_clean = 0.0
 
-     quantity_general = 0.0
-     id = request.POST.get("id")
+        quantity_general = 0.0
+        id = request.POST.get("id")
 
- else:
-     quantity_bio = float(request.POST.get("item[bio]"))
-     quantity_org = float(request.POST.get("item[organic]"))
-     quantity_clean = float(request.POST.get("item[clean]"))
-     quantity_general = (float(request.POST.get("item[quantity]"))) - quantity_bio - quantity_clean - quantity_org
-     id = request.POST.get("item[id]")
+    else:
+        quantity_bio = float(request.POST.get("item[bio]"))
+        quantity_org = float(request.POST.get("item[organic]"))
+        quantity_clean = float(request.POST.get("item[clean]"))
+        quantity_general = (float(request.POST.get(
+            "item[quantity]"))) - quantity_bio - quantity_clean - quantity_org
+        id = request.POST.get("item[id]")
 
- price = calculateProductPrice(id, quantity_org, quantity_bio, quantity_clean, quantity_general)
+    price = calculateProductPrice(
+        id, quantity_org, quantity_bio, quantity_clean, quantity_general)
 
- return JsonResponse({'message': 'Done', 'price': price})
+    return JsonResponse({'message': 'Done', 'price': price})
 
 
 @csrf_exempt
 def validate_advance_purchase(request):
 
     current_date = strftime("%Y-%m-%d", gmtime())
-    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+    week_settings = WeekSettings.objects.filter(
+        start__lte=current_date, end__gte=current_date)[:1].get()
 
     product = Product.objects.get(id=request.POST.get('product_id'))
-    week_stock = WeekStock.objects.get(product=product, weekSettings=week_settings)
+    week_stock = WeekStock.objects.get(
+        product=product, weekSettings=week_settings)
 
     organic_type = Type.objects.get(shortName='O')
     clean_type = Type.objects.get(shortName='L')
@@ -741,19 +756,28 @@ def validate_advance_purchase(request):
     general_result = True
 
     if float(request.POST.get('bio')) > 0.0:
-        product_stock_bio = ProductStock.objects.filter(weekStock=week_stock, Type=bio_type).order_by('price')
-        bio_result = stockValidation(product_stock_bio, request.POST.get('bio'))
+        product_stock_bio = ProductStock.objects.filter(
+            weekStock=week_stock, Type=bio_type).order_by('price')
+        bio_result = stockValidation(
+            product_stock_bio, request.POST.get('bio'))
     if float(request.POST.get('clean')) > 0.0:
-        product_stock_clean = ProductStock.objects.filter(weekStock=week_stock, Type=clean_type).order_by('price')
-        clean_result = stockValidation(product_stock_clean, request.POST.get('clean'))
+        product_stock_clean = ProductStock.objects.filter(
+            weekStock=week_stock, Type=clean_type).order_by('price')
+        clean_result = stockValidation(
+            product_stock_clean, request.POST.get('clean'))
     if float(request.POST.get('organic')) > 0.0:
-        product_stock_organic = ProductStock.objects.filter(weekStock=week_stock, Type=organic_type).order_by('price')
-        organic_result = stockValidation(product_stock_organic, request.POST.get('organic'))
+        product_stock_organic = ProductStock.objects.filter(
+            weekStock=week_stock, Type=organic_type).order_by('price')
+        organic_result = stockValidation(
+            product_stock_organic, request.POST.get('organic'))
     if float(request.POST.get('bio')) == 0 and float(request.POST.get('clean')) == 0 and float(request.POST.get('organic')) == 0:
-        product_stock_general = ProductStock.objects.filter(weekStock=week_stock).order_by('price')
-        general_result = stockValidation(product_stock_general, request.POST.get('general'))
+        product_stock_general = ProductStock.objects.filter(
+            weekStock=week_stock).order_by('price')
+        general_result = stockValidation(
+            product_stock_general, request.POST.get('general'))
 
     return JsonResponse({'message': 'Done', 'bio': bio_result, 'clean': clean_result, 'organic': organic_result, 'general': general_result})
+
 
 @csrf_exempt
 def getEstimatePrice(request):
