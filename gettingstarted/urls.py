@@ -72,6 +72,7 @@ urlpatterns = [
     url(r'^productPrice', hello.views.product_price_logic, name='productPrice'),
     url(r'^advanceValidation', hello.views.validate_advance_purchase, name='validatePurchase'),
     url(r'^getEstimatePrice', hello.views.getEstimatePrice, name='estimatePrice'),
+    url(r'^stockStatistics', hello.views.stockStatistics, name='stockStatistics'),
 ]
 
 # Login and logout views for the browsable API

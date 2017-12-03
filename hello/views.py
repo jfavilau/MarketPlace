@@ -874,3 +874,16 @@ def quantityModification(result):
                 weekStock.totalStock = weekStock.totalStock - 1
                 weekStock.save()
 
+@csrf_exempt
+def stockStatistics(request):
+
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+    week_stock = WeekStock.objects.filter(weekSettings=week_settings)
+    result =[]
+    for item in week_stock:
+        product_stock = ProductStock.objects.filter(weekStock=item.id)
+        for item_stock in product_stock:
+            result.append(item_stock)
+
+    return render(request, 'ListStockAdmin.html', context={'stock': result})
