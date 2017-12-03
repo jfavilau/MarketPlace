@@ -1,0 +1,55 @@
+{% include "header.html" %}
+<div id="payment_methods" class="page-content p-t-40 p-b-90" data-flag="{{flag}}" style="display:block;">
+    <div class="container">
+        <!--wishlist-cart-1-->
+        <div class="woocommerce shopping-cart-1">
+            <form class="woocommerce-cart-form" action="#" method="post">
+                <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents shopping-cart-content table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="product-thumbnail">PRODUCTO</th>
+                        <th class="product-price">TIPO</th>
+                        <th class="product-name">CANTIDAD</th>
+                        <th class="product-remove">PRECIO</th>
+                        <th class="product-remove">PRODUCTOR</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in stock %}
+                    <tr class="woocommerce-cart-form__cart-item cart_item shopping-cart-item">
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{item.weekStock.product.name}}</a>
+                        </td>
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{item.Type.name}}</a>
+                        </td>
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{item.quantity}}</a>
+                        </td>
+                        <td class="product-price" data-title="Price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol"></span>${{item.price}}</span>
+                        </td>
+                        <td class="product-name" data-title="Product">
+                            <a href="#">{{item.producer.name}}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!-- end wishlist-cart-1-->
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+<!--
+End Document
+==================================================
+-->
+
+</body>
+
+</html>
