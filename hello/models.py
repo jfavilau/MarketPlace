@@ -114,7 +114,7 @@ class Cooperative(models.Model):
 
 
 class Producer (models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None, null=True)
     typeIdentification = models.CharField(
         max_length=150, blank=False, null=False, default="Cedula de Ciudadania")
     identificationNumber = models.CharField(
