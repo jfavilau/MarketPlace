@@ -114,6 +114,7 @@ class Cooperative(models.Model):
 
 
 class Producer (models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=None)
     typeIdentification = models.CharField(
         max_length=150, blank=False, null=False, default="Cedula de Ciudadania")
     identificationNumber = models.CharField(
@@ -130,6 +131,7 @@ class Producer (models.Model):
     phoneNumber = models.CharField(max_length=15, blank=False, null=False)
     cooperative = models.ForeignKey(Cooperative)
     active = models.BooleanField(null=False, blank=False)
+    is_producer = models.BooleanField(null=False, blank=False, default=True)
 
     def __str__(self):
         return self.name
@@ -145,7 +147,6 @@ class Product(models.Model):
     type = models.ForeignKey(Type)
     category = models.ForeignKey(Category, related_name='products')
     producer = models.ForeignKey(Producer, related_name='products')
-    cooperative = models.ForeignKey(Cooperative, null=True)
     active = models.BooleanField(null=False, blank=False)
 
     def __str__(self):

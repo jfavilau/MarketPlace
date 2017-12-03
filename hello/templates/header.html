@@ -107,17 +107,16 @@
                     </div>
                 </div>
                 <ul class="nav-menu">
-                    <li class="has-drop">
-                        <a href="{% url 'index' %}" class="has-text-color-hover">INICIO</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-                    <li class="has-drop">
-                        <a href="{% url 'catalogo' %}" class="has-text-color-hover">CATÁLOGO</a>
-                        <button class="btn-caret fa fa-angle-right"></button>
-                    </li>
-
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
+                            <li class="has-drop">
+                                <a href="{% url 'index' %}" class="has-text-color-hover">INICIO</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="{% url 'catalogo' %}" class="has-text-color-hover">CATÁLOGO</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
                             <li class="has-drop">
                                 <a href="/oadmin" class="has-text-color-hover">ORDENES</a>
                                 <button class="btn-caret fa fa-angle-right"></button>
@@ -135,10 +134,6 @@
                                 <button class="btn-caret fa fa-angle-right"></button>
                             </li>
                             <li class="has-drop">
-                                <a href="/myProducts" class="has-text-color-hover">MIS PRODUCTOS</a>
-                                <button class="btn-caret fa fa-angle-right"></button>
-                            </li>
-                            <li class="has-drop">
                                 <a href="/production" class="has-text-color-hover">METODO DE PRODUCCIÓN</a>
                                 <button class="btn-caret fa fa-angle-right"></button>
                             </li>
@@ -146,7 +141,20 @@
                                 <a href="/stockStatistics" class="has-text-color-hover">ESTADISTICAS SEMANALES</a>
                                 <button class="btn-caret fa fa-angle-right"></button>
                             </li>
+                        {% elif user.producer.is_producer%}
+                            <li class="has-drop">
+                                <a href="/myProducts" class="has-text-color-hover">MIS PRODUCTOS</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
                         {% else %}
+                            <li class="has-drop">
+                                <a href="{% url 'index' %}" class="has-text-color-hover">INICIO</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
+                            <li class="has-drop">
+                                <a href="{% url 'catalogo' %}" class="has-text-color-hover">CATÁLOGO</a>
+                                <button class="btn-caret fa fa-angle-right"></button>
+                            </li>
                             <li class="has-drop">
                                 <a href="{% url 'orders' %}" class="has-text-color-hover">MIS ORDENES</a>
                                 <button class="btn-caret fa fa-angle-right"></button>
@@ -157,7 +165,15 @@
                                 <button class="btn-caret fa fa-angle-right"></button>
                             </li>
                         {% endif %}
-
+                    {% else %}
+                        <li class="has-drop">
+                            <a href="{% url 'index' %}" class="has-text-color-hover">INICIO</a>
+                            <button class="btn-caret fa fa-angle-right"></button>
+                        </li>
+                        <li class="has-drop">
+                            <a href="{% url 'catalogo' %}" class="has-text-color-hover">CATÁLOGO</a>
+                            <button class="btn-caret fa fa-angle-right"></button>
+                        </li>
                     {% endif %}
 
                     <div class="mini-shopcart">
