@@ -888,3 +888,37 @@ def quantityModification(result):
 def get_week_products(request):
     return JsonResponse({'message': getWeekProductsService()})
 
+@csrf_exempt
+def createProducer(request):
+    if request.method == 'POST':
+        jsonProducer = json.loads(request.body)
+        username = jsonProducer["username"]
+        password = jsonProducer["password1"]
+        email = jsonProducer["email"]
+
+        userCreated = User.objects.create_user(username=username, password=password, email=email, is_active=False)
+
+        User.save(userCreated)
+
+        coop = Cooperative.objects.get(id=jsonProducer["cooperative"])
+
+        productor_model = Producer()
+
+        productor_model.user = User.objects.last()
+        productor_model.active = jsonProducer["active"]
+        productor_model.address = jsonProducer["address"]
+        productor_model.city = jsonProducer["city"]
+        productor_model.name = jsonProducer["name"]
+        productor_model.cooperative = coop
+        productor_model.description = jsonProducer["description"]
+        productor_model.identificationNumber = jsonProducer["identificationNumber"]
+        productor_model.image = jsonProducer["image"]
+        productor_model.is_producer = jsonProducer["is_producer"]
+        productor_model.latitude = jsonProducer["latitude"]
+        productor_model.longitude = jsonProducer["longitude"]
+        productor_model.phoneNumber = jsonProducer["phoneNumber"]
+        productor_model.typeIdentification = jsonProducer["typeIdentification"]
+
+        Producer.save(productor_model)
+
+        return JsonResponse ({'status': 200})

@@ -75,15 +75,18 @@
                             <input id="identificationNumber" class="theme-input-text" type="text" placeholder="Número de Identificación*" required pattern="[A-Za-z0-9]+" title="Escriba solo caracteres Alfanuméricos"/>
                             <input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://" />
                             <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
-                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="150" maxlength="500"></textarea>
+                            <input id="username" class="theme-input-text" type="text" placeholder="Nombre de usuario*" required pattern="[ 0-9A-Za-z_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números y los caracteres -_." minlength="6" maxlength="15"/>
+                            <input id="password1" class="theme-input-text" type="password" placeholder="Contraseña*" minlength="8" maxlength="15" required title="Longitud Mímima 8 y Máxima 15 caracteres"/>
+                            <input id="email" class="theme-input-text" type="email" placeholder="Email*" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"/>
+                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción*" required minlength="150" maxlength="500"></textarea>
                             <input id="address" class="theme-input-text" type="text" placeholder="Dirección*" required pattern="[ 0-9A-Za-zñÑáéíóúÁÉÍÓÚ#_.-]+" title="Solo se aceptan letras mayúsculas, minúsculas, números, tildes y los caracteres ñÑ#-_."/>
                             <input id="city" class="theme-input-text" type="text" placeholder="Ciudad" required pattern="[ A-Za-zñÑáéíóúÁÉÍÓÚ]+" title="Escriba solo caracteres alfabéticos"/>
-                            <input id="products" name="products" type="hidden" value="[]" />
                             <input id="latitude" name="latitude" type="hidden" value="0.0" />
                             <input id="longitude" name="longitude" type="hidden" value="0.0" />
                             <input id="phoneNumber" class="theme-input-text" type="text" placeholder="Número de Teléfono*" required pattern="[0-9()+-]{7,15}" title="Longitud entre 7 y 15 caracteres"/>
                             <input id="cooperative" name="cooperative" type="hidden" value="1" />
                             <input id="active" name="active" type="hidden" value="false" />
+                            <input id="is_producer" name="is_producer" type="hidden" value="true" />
                             <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">REGISTRAR</button>
                         </form>
                     </div>
@@ -98,10 +101,14 @@
 <script>
     function enviarForm() {
 
+
         var info = {typeIdentification: $('#typeIdentification').val(),
                     identificationNumber : $('#identificationNumber').val(),
                     image: $('#image').val(),
                     name: $('#name').val(),
+                    username: $('#username').val(),
+                    password1: $('#password1').val(),
+                    email: $('#email').val(),
                     description: $('#description').val(),
                     address: $('#address').val(),
                     city: quitaAcentos($('#city').val().toUpperCase()),
@@ -110,17 +117,18 @@
                     phoneNumber: $('#phoneNumber').val(),
                     cooperative: $('#cooperative').val(),
                     products: $('#products').val(),
-                    active: $('#active').val()
+                    active: $('#active').val(),
+                    is_producer: $('#is_producer').val()
                     };
 
         $.ajax({
             type: "POST",
-            url: "{% url 'producers-list' %}",
+            url: "{% url 'producers-create' %}",
             data: JSON.stringify(info),
             contentType: "application/json; charset=UTF-8",
             dataType: "json",
             success: function(data, textStatus, xhr) {
-                if (xhr.status == 201){
+                if (xhr.status == 200){
                     $("#modalPayment").click();
                 }else{
                     $("#modalButton").click();
