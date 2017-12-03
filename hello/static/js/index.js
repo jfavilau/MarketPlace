@@ -21,92 +21,106 @@
 
         console.log("Downloading products");
 
-        $.getJSON(baseURL + "api/products/").done(function(data) {
+        $.getJSON(baseURL + "getWeeklyProducts/").done(function(data) {
 
             console.log("Data:" + JSON.stringify(data));
 
-            $.each(data, function(i, item) {
+            $.each(data.message.WeeklyProducts, function(i, item) {
 
-                if(!item.isBasket){
-                    var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
-                                    '<div class=\"miso-prd-id\">' + item.id + '</div>' +
-                                    '<div class=\"miso-prd-qty\"></div>' +
-                                    '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
-                                    '<div class=\"miso-prd-is-basket\" hidden>' + item.isBasket + '</div>' +
-                                    '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
-
-                                      '<div class=\"image-holder\">' +
-                                        '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px; display:center;\">' +
-                                      '</div>' +
-
-                                      '<div class=\"product-action miso-cart-action\">' +
-                                        '<div class=\"product-action-list\">' +
-                                            '<div class=\"action-item\">' +
-                                                '<a class=\"fa fa-search-plus\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\" data-product="' + item.id +'" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Ver detalle\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-plus\">' +
-                                                '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-minus\">' +
-                                                '<a class=\"fa fa-minus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Remover\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-clear\">' +
-                                                '<a class=\"fa fa-remove\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Limpiar\"></a>' +
-                                            '</div>' +
-                                        '</div>' +
-                                      '</div>' +
-
-                                      '<div class=\"product-content\" style=\"text-align:center;\">' +
-                                        '<h3 class=\"title\">' +
-                                            '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
-                                        '</h3>' +
-                                        '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price + ' / ' + item.unit +'</p>' +
-                                      '</div>' +
-                                    '</div>' +
-                                '</div>';
-                }else{
-                    var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
-                                    '<div class=\"miso-prd-id\">' + item.id + '</div>' +
-                                    '<div class=\"miso-prd-qty\"></div>' +
-                                    '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
-                                    '<div class=\"miso-prd-is-basket\" hidden>' + item.isBasket + '</div>' +
-                                    '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
-
-                                      '<div class=\"image-holder\">' +
-                                        '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px; display:center;\">' +
-                                      '</div>' +
-
-                                      '<div class=\"product-action miso-cart-action\">' +
-                                        '<div class=\"product-action-list\">' +
-                                            '<div class=\"action-item\">' +
-                                                '<a class=\"fa fa-search-plus\" href="/canastas?id=0" title=\"Ver detalle\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-plus\">' +
-                                                '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-minus\">' +
-                                                '<a class=\"fa fa-minus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Remover\"></a>' +
-                                            '</div>' +
-                                            '<div class=\"action-item miso-cart-clear\">' +
-                                                '<a class=\"fa fa-remove\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Limpiar\"></a>' +
-                                            '</div>' +
-                                        '</div>' +
-                                      '</div>' +
-
-                                      '<div class=\"product-content\" style=\"text-align:center;\">' +
-                                        '<h3 class=\"title\">' +
-                                            '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
-                                        '</h3>' +
-                                        '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price + ' / ' + item.unit +'</p>' +
-                                      '</div>' +
-                                    '</div>' +
-                                '</div>';
-                }
-                $( "#products-carousel" ).append( myvar );
+                console.log("ProductID:" + item.product);
+                downloadProduct(item.product)
 
             });
-            refreshCartGuiOperation();
         });
+    }
+
+    function downloadProduct(productId) {
+
+        $.getJSON(baseURL + "api/products/" + productId).done(function(item) {
+
+            console.log("Data:" + JSON.stringify(item));
+
+            if(!item.isBasket){
+            var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
+                            '<div class=\"miso-prd-id\">' + item.id + '</div>' +
+                            '<div class=\"miso-prd-qty\"></div>' +
+                            '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
+                            '<div class=\"miso-prd-is-basket\" hidden>' + item.isBasket + '</div>' +
+                            '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
+
+                              '<div class=\"image-holder\">' +
+                                '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px; display:center;\">' +
+                              '</div>' +
+
+                              '<div class=\"product-action miso-cart-action\">' +
+                                '<div class=\"product-action-list\">' +
+                                    '<div class=\"action-item\">' +
+                                        '<a class=\"fa fa-search-plus\" href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\" data-product="' + item.id +'" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Ver detalle\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-plus\">' +
+                                        '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-minus\">' +
+                                        '<a class=\"fa fa-minus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Remover\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-clear\">' +
+                                        '<a class=\"fa fa-remove\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Limpiar\"></a>' +
+                                    '</div>' +
+                                '</div>' +
+                              '</div>' +
+
+                              '<div class=\"product-content\" style=\"text-align:center;\">' +
+                                '<h3 class=\"title\">' +
+                                    '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
+                                '</h3>' +
+                                '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price + ' / ' + item.unit +'</p>' +
+                              '</div>' +
+                            '</div>' +
+                        '</div>';
+        }else{
+            var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
+                            '<div class=\"miso-prd-id\">' + item.id + '</div>' +
+                            '<div class=\"miso-prd-qty\"></div>' +
+                            '<div class=\"miso-prd-total\" >' + item.quantity + '</div>' +
+                            '<div class=\"miso-prd-is-basket\" hidden>' + item.isBasket + '</div>' +
+                            '<div class=\"thumbnail product-image\" style=\"text-align:center;\">' +
+
+                              '<div class=\"image-holder\">' +
+                                '<img src="'+ item.image +'" alt="' + item.name +'" style=\"height:180px; width:180px; display:center;\">' +
+                              '</div>' +
+
+                              '<div class=\"product-action miso-cart-action\">' +
+                                '<div class=\"product-action-list\">' +
+                                    '<div class=\"action-item\">' +
+                                        '<a class=\"fa fa-search-plus\" href="/canastas?id=0" title=\"Ver detalle\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-plus\">' +
+                                        '<a class=\"fa fa-plus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Agregar\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-minus\">' +
+                                        '<a class=\"fa fa-minus\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Remover\"></a>' +
+                                    '</div>' +
+                                    '<div class=\"action-item miso-cart-clear\">' +
+                                        '<a class=\"fa fa-remove\" data-toggle-tooltip=\"tooltip\" data-placement=\"top\" title=\"Limpiar\"></a>' +
+                                    '</div>' +
+                                '</div>' +
+                              '</div>' +
+
+                              '<div class=\"product-content\" style=\"text-align:center;\">' +
+                                '<h3 class=\"title\">' +
+                                    '<a class=\"name\" href=\"#\" style=\"font-size:18px;color:#333;margin-bottom:10px;\">' + item.name + '</a>' +
+                                '</h3>' +
+                                '<p class=\"price\" style=\"color:#5c9b5c; margin-top:10px; \"> $ ' + item.price + ' / ' + item.unit +'</p>' +
+                              '</div>' +
+                            '</div>' +
+                        '</div>';
+        }
+
+        $( "#products-carousel" ).append( myvar );
+        refreshCartGuiOperation();
+
+        });
+
     }
 
 
