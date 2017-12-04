@@ -50,7 +50,7 @@
 
             var products = [];
 
-            var idUser = {{ user.id }};
+            var idUser = {{ user.producer.id }};
             //console.log(idUser);
 
             var getCurrency = function (value) {
@@ -58,7 +58,7 @@
             };
 
             var getProducts = function () {
-                _doAjax("GET", url + "producers/" + idUser,{},function (resp) {
+                _doAjax("GET", url + "producers/" + idUser+"/",{},function (resp) {
                     //console.log(resp);
                     products = resp.products;
                     var tbody = "" ;

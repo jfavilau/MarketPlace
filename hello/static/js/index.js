@@ -77,7 +77,7 @@
                               '</div>' +
                             '</div>' +
                         '</div>';
-        }else{
+            }else{
             var myvar = '<div class=\"col-md-3 col-xs-6 product-1 miso-prd-holder\">' +
                             '<div class=\"miso-prd-id\">' + item.id + '</div>' +
                             '<div class=\"miso-prd-qty\"></div>' +

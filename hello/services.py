@@ -154,3 +154,40 @@ def getWeekProductsService():
     #print (result_list)
     result = {'WeeklyProducts': result_list}
     return result
+
+
+def addWeekNewProductsService(product):
+    print("producto: ",product.__str__())
+    current_date = strftime("%Y-%m-%d", gmtime())
+    week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+
+    weekStockSetting = WeekStock(
+        product = product,
+        maxValue = product.price,
+        minValue = product.price,
+        avgValue = product.price,
+        totalStock = product.quantity,
+        weekSettings = week_settings
+    )
+
+    WeekStock.save(weekStockSetting)
+
+    weekStockCreated = WeekStock.objects.last();
+
+    producer = Producer.objects.get(id=product.producer.id)
+    idType = product.type.id
+    print(idType)
+    type = Type.objects.get(id=idType)
+    print(type)
+
+    productStock = ProductStock(
+        quantity = product.quantity,
+        price = product.price,
+        producer = producer,
+        weekStock = weekStockCreated,
+        Type = type
+    )
+
+    productStock.save(productStock)
+
+

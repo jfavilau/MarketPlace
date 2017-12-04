@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework import viewsets
-from .models import Product
+from .models import Product, WeekStock, WeekSettings
 from .models import Category, Basket, ItemsPerBasket, Cooperative, City, Type
 from .models import Product, Producer, Order, Item, ShoppingCart, OrderStatus, PaymentMethod, ScheduleOptions
 
@@ -10,7 +10,7 @@ from .models import Product, Producer, Order, Item, ShoppingCart, OrderStatus, P
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email','is_active')
 
 
 class TypeSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,7 +21,6 @@ class TypeSerializer(serializers.HyperlinkedModelSerializer):
 
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     type = TypeSerializer(many=False, read_only=True)
-
     class Meta:
         model = Product
         fields = (
@@ -83,11 +82,10 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 
 class ProducerSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True, read_only=True)
-
     class Meta:
         model = Producer
         fields = ('id', 'typeIdentification', 'identificationNumber', 'name', 'image', 'description',
-                  'address', 'city', 'latitude', 'longitude', 'phoneNumber', 'cooperative', 'active', 'products')
+                  'address', 'city', 'latitude', 'longitude', 'phoneNumber', 'cooperative', 'active', 'products', 'user')
 
 
 class OrderStatusSerializer(serializers.HyperlinkedModelSerializer):
@@ -173,3 +171,4 @@ class CooperativeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cooperative
         fields = ('id', 'name', 'city', 'cityInfo', 'active')
+

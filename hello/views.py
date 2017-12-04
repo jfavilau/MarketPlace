@@ -1,4 +1,5 @@
 import json
+from itertools import product
 from time import strftime, gmtime
 import time
 from django.contrib.auth import authenticate, login, logout
@@ -75,6 +76,9 @@ def production(request):
 
 def addProduction(request):
     return render(request, 'addProduction.html')
+
+def regProductsWeek(request):
+    return render(request, 'products/regProductsWeek.html')
 
 
 def indexOrdersAdmin(request):
@@ -247,13 +251,16 @@ def sendEmail(request):
         return JsonResponse({'message': msg})
 
 
-class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin):
+class UserViewset(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin):
     """
     List all products, or create a new product.
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
 class ProductViewset(viewsets.ModelViewSet):
     """
@@ -321,7 +328,6 @@ class BasketViewset(viewsets.ModelViewSet):
             category=Category(id=1),
             producer=Producer(id=1),
             type=Type(id=1),
-            cooperative=Cooperative(id=1),
             active=request.data['active'],
         )
 
@@ -903,6 +909,8 @@ def stockStatistics(request):
 def get_week_products(request):
     return JsonResponse({'message': getWeekProductsService()})
 
+def get_week_products_name(request):
+    return JsonResponse({'message': getWeekProductsNameService()})
 
 @csrf_exempt
 def createProducer(request):
@@ -938,3 +946,92 @@ def createProducer(request):
         Producer.save(productor_model)
 
         return JsonResponse ({'status': 200})
+
+@csrf_exempt
+def createProduct(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        name = jsonProduct["name"]
+        description = jsonProduct["description"]
+        image = jsonProduct["image"]
+        unit = jsonProduct["unit"]
+        quantity = jsonProduct["quantity"]
+        price = jsonProduct["price"]
+        type = Type.objects.get(id=jsonProduct["type"])
+        category = Category.objects.get(id=jsonProduct["category"])
+        producer = Producer.objects.get(id=jsonProduct["producer"])
+        active =jsonProduct["active"]
+
+        product = Product(name = name,
+            active = active,
+            image = image,
+            description = description,
+            producer = producer,
+            unit = unit,
+            quantity =quantity,
+            price = price,
+            category = category,
+            type = type
+        )
+
+        Product.save(product)
+
+        productCreated =Product.objects.last()
+
+        addWeekNewProductsService(productCreated)
+
+        return JsonResponse ({'status': 200})
+
+@csrf_exempt
+def updateProductStock(request):
+    if request.method == 'POST':
+        jsonProduct = json.loads(request.body)
+        id = jsonProduct["id"]
+        quantity = jsonProduct["quantity"]
+        price = jsonProduct["price"]
+        type = jsonProduct["type"]
+        producer = jsonProduct["producer"]
+
+        print(producer)
+
+        current_date = strftime("%Y-%m-%d", gmtime())
+        week_settings = WeekSettings.objects.filter(start__lte=current_date, end__gte=current_date)[:1].get()
+
+        weekStock = WeekStock.objects.get(product=id,weekSettings=week_settings)
+        #producerFinal = Producer.objects.get(id=id)
+        typeFinal = Type.objects.get(id=type),
+        print(weekStock)
+
+        if weekStock:
+            weekStock.totalStock = weekStock.totalStock+float(quantity);
+
+            if float(price)>weekStock.maxValue:
+                weekStock.maxValue=float(price);
+            elif float(price)<weekStock.minValue:
+                weekStock.minValue = float(price);
+
+            weekStock.avgValue = (weekStock.maxValue + weekStock.minValue)/2;
+
+            WeekStock.save(weekStock)
+        try:
+            productStock = ProductStock.objects.get(Type=type,weekStock=weekStock,producer=producer)
+        except ProductStock.DoesNotExist:
+            productStock = None
+
+        if productStock is not None:
+            productStock.quantity = productStock.quantity + float(quantity)
+            productStock.price = float(price)
+            ProductStock.save(productStock)
+        else:
+            productStockNew = ProductStock(
+                weekStock = weekStock,
+                producer = Producer.objects.get(id=producer),
+                Type = Type.objects.get(id=type),
+                price = float(price),
+                quantity = float(quantity)
+            )
+            ProductStock.save(productStockNew)
+
+
+
+    return JsonResponse({'status': 200})

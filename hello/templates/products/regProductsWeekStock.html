@@ -16,7 +16,7 @@
                 <h5 class="modal-title" id="paymentm">Registro Exitoso</h5>
             </div>
             <div class="modal-body">
-                El Producto se ha registrado satisfactoriamente.
+                ¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión,<br> el administrador se comunicará con usted cuando termine el proceso.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Gracias
@@ -53,7 +53,7 @@
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3>Registrar Producto</h3>
+                    <h3>Agregar productos Semanales</h3>
                 </div>
             </div>
         </div>
@@ -66,17 +66,12 @@
                 <div class="col-md-4 col-md-push-4">
                     <!-- .register-1-->
                     <div class="register-1">
-                        <form class="theme-form" method="post" onsubmit="return enviarForm();">
-                            <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
-                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="50" maxlength="500"></textarea>
-                            <input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://"/>
-                            <input id="unit" class="theme-input-text" type="text" placeholder="Unidad*" required pattern="[ A-Za-záéíóúáéíóúÁÉÍÓÚÑñ]+" title="Escriba solo caracteres alfabéticos"/>
+                        <form class="theme-form" method="post" onsubmit="return regProductosStock();">
                             <input id="quantity" class="theme-input-text" type="number" placeholder="Cantidad*" required pattern="[0-9.]+" title="Utilice . decimal "/>
                             <input id="price" class="theme-input-text" type="text" placeholder="Precio" required pattern="[0-9.]+" title="Utilice . decimal "/>
                             <select id="type" class="theme-input-text"></select></br></br>
-                            <select id="category" class="theme-input-text"></select></br></br>
-                            <input id="active" name="active" type="hidden" value="true"/>
-                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">REGISTRAR</button>
+                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">ELEGIR PRODUCTO</button>
+
                         </form>
                     </div>
                     <!-- end .register-1-->
@@ -89,9 +84,9 @@
 {% include "footer.html" %}
 <script src="../../static/js/regProduct.js"></script>
 <script>
-    function enviarForm() {
+    function obtenerProductos() {
 
-        var idUser = {{ user.producer.id }};
+        var idUser = {{ user.producer.id }}
 
         var info = {image: $('#image').val(),
                     name: $('#name').val(),

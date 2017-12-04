@@ -13,10 +13,10 @@
     <div class="modal-dialog" role="document" data-backdrop="static" data-keyboard="false">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="paymentm">Registro Exitoso</h5>
+                <h5 class="modal-title" id="paymentm">Registro de Producto exitoso</h5>
             </div>
             <div class="modal-body">
-                El Producto se ha registrado satisfactoriamente.
+                El registro del producto se realizó de manera satisfactoria
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" onclick="location.href='{% url 'index' %}'">Gracias
@@ -53,7 +53,7 @@
             <div class="p-t-70 p-b-85">
                 <!-- Heading page-->
                 <div class="heading-page-1">
-                    <h3>Registrar Producto</h3>
+                    <h3>Agregar productos Semanales</h3>
                 </div>
             </div>
         </div>
@@ -67,16 +67,14 @@
                     <!-- .register-1-->
                     <div class="register-1">
                         <form class="theme-form" method="post" onsubmit="return enviarForm();">
-                            <input id="name" class="theme-input-text" type="text" placeholder="Nombre*" required pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙÑñ.-]+" title="Escriba solo caracteres alfabéticos"/>
-                            <textarea id="description" class="theme-input-text" rows="6" cols="40" placeholder="Descripción" required minlength="50" maxlength="500"></textarea>
-                            <input id="image" class="theme-input-text" type="url" placeholder="URL Imagen*" required pattern="https?://.+" title="Incluya http:// o https://"/>
-                            <input id="unit" class="theme-input-text" type="text" placeholder="Unidad*" required pattern="[ A-Za-záéíóúáéíóúÁÉÍÓÚÑñ]+" title="Escriba solo caracteres alfabéticos"/>
+                            <select id="products" class="theme-input-text"><option value="generic"> Seleccione un producto</option></select></br></br>
                             <input id="quantity" class="theme-input-text" type="number" placeholder="Cantidad*" required pattern="[0-9.]+" title="Utilice . decimal "/>
                             <input id="price" class="theme-input-text" type="text" placeholder="Precio" required pattern="[0-9.]+" title="Utilice . decimal "/>
-                            <select id="type" class="theme-input-text"></select></br></br>
-                            <select id="category" class="theme-input-text"></select></br></br>
-                            <input id="active" name="active" type="hidden" value="true"/>
-                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">REGISTRAR</button>
+                            <select id="type" class="theme-input-text"><option value="generic"> Seleccione un método</option> </select></br></br>
+                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">ELEGIR PRODUCTO</button>
+                        </form>
+                        <form action="/registerProducts" onclick="">
+                            <button class="au-btn au-btn-border au-btn-radius btn-block btn-submit" type="submit">AGREGAR NUEVO PRODUCTO</button>
                         </form>
                     </div>
                     <!-- end .register-1-->
@@ -87,27 +85,22 @@
 </section>
 
 {% include "footer.html" %}
-<script src="../../static/js/regProduct.js"></script>
+<script src="../../static/js/regProductsWeek.js"></script>
 <script>
-    function enviarForm() {
+function enviarForm() {
 
         var idUser = {{ user.producer.id }};
 
-        var info = {image: $('#image').val(),
-                    name: $('#name').val(),
-                    description: $('#description').val(),
-                    unit: $('#unit').val(),
+        var info = {id: $('#products').val(),
                     quantity: $('#quantity').val(),
                     price: $('#price').val(),
                     type: $('#type').val(),
-                    category: $('#category').val(),
                     producer: idUser,
-                    active: $('#active').val()
                     };
 
         $.ajax({
             type: "POST",
-            url: "{% url 'product-create' %}",
+            url: "{% url 'update-product-stock' %}",
             data: JSON.stringify(info),
             contentType: "application/json; charset=UTF-8",
             dataType: "json",

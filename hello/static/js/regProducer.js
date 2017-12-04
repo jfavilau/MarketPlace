@@ -11,12 +11,30 @@
         });
     });
 
+    function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    $.ajaxSetup({
+
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", Cookies.get('csrftoken'));
+            }
+        }
+    });
+
     function enviarForm() {
+
 
         var info = {typeIdentification: $('#typeIdentification').val(),
                     identificationNumber : $('#identificationNumber').val(),
                     image: $('#image').val(),
                     name: $('#name').val(),
+                    username: $('#username').val(),
+                    password1: $('#password1').val(),
+                    email: $('#email').val(),
                     description: $('#description').val(),
                     address: $('#address').val(),
                     city: quitaAcentos($('#city').val().toUpperCase()),
@@ -25,27 +43,25 @@
                     phoneNumber: $('#phoneNumber').val(),
                     cooperative: $('#cooperative').val(),
                     products: $('#products').val(),
-                    active: $('#active').val()
+                    active: $('#active').val(),
+                    is_producer: $('#is_producer').val()
                     };
 
         $.ajax({
             type: "POST",
-            url: "{% url 'producers-list' %}",
+            url: "{% url 'producers-create' %}",
             data: JSON.stringify(info),
             contentType: "application/json; charset=UTF-8",
             dataType: "json",
             success: function(data, textStatus, xhr) {
-                if (xhr.status == 201){
-                    console.log(data);
-                    alert("¡SOLICITUD EXITOSA! Su solicitud estará en proceso de revisión, el administrador se comunicará con usted cuando termine el proceso");
-                    window.location = "{% url 'index' %}";
+                if (xhr.status == 200){
+                    $("#modalPayment").click();
                 }else{
-                    alert("¡HA OCURRIDO UN ERROR EN LA SOLICITUD INTENTE DE NUEVO!");
-                    window.location = "{% url 'regProducer' %}";
+                    $("#modalButton").click();
                 }
             },
             failure: function(error) {
-                alert("Hubo un error: " + error);
+                $("#modalButton").click();
             }
         });
 

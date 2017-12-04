@@ -28,7 +28,7 @@ var producer_changes = {};
           var active = item.active;
 
           var producer = '<li>';
-          producer += ' <a href="editProducer/'+id+'">' + name + '</a>';
+          producer += ' <a href="editProducer/'+id+'/">' + name + '</a>';
           producer += ' <div style="float: right;">';
           producer += '   <label for="producer_active">Activo</label>';
           producer += '  <input class="producer_active" id="producer_active' + id;
@@ -42,6 +42,7 @@ var producer_changes = {};
           $('#producer_active' + id).click(() => {
             item.active = !item.active;
             activateProducer(item);
+            obtenerUsuario(item.user,item.active)
           });
         });
       });
@@ -77,6 +78,29 @@ var producer_changes = {};
         'cooperative': producer.cooperative,
         'address': producer.address,
         'active': producer.active
+      },
+    });
+  }
+
+  function obtenerUsuario(userId,status){
+        $.getJSON(baseURL + "api/users/"+userId+ '/').done(function(data) {
+            var usuario = data;
+            activateUser(usuario,status);
+
+        });
+  }
+
+  function activateUser(user,status) {
+    var data = JSON.stringify(user);
+    console.log(data);
+    $.ajax({
+      type: "PUT",
+      url: baseURL + 'api/users/'+ user.id + '/',
+      datatype: "json",
+      // contentType: "application/json",
+      data: {
+        'username': user.username,
+        'is_active': status
       },
     });
   }
